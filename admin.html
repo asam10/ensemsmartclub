@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Club — Admin Control</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     GLOBAL BACKGROUND
+========================================================= -->
+
+<div class="admin-background">
+
+    <div class="grid"></div>
+
+    <div class="ambient ambient-one"></div>
+
+    <div class="ambient ambient-two"></div>
+
+</div>
+
+
+
+<!-- =========================================================
+     LOGIN SCREEN
+========================================================= -->
+
+<section
+    class="login-screen"
+    id="loginScreen"
+>
+
+    <div class="login-container">
+
+
+        <!-- BRAND -->
+
+        <div class="login-brand">
+
+            <div class="brand-symbol">
+
+                <img
+                    src="logo.png"
+                    alt="Smart Club"
+                >
+
+            </div>
+
+
+            <p class="system-label">
+                SMART CLUB // ENSEM
+            </p>
+
+
+            <h1>
+
+                ADMIN
+                <span>CONTROL.</span>
+
+            </h1>
+
+
+            <p class="login-description">
+
+                Authorized Smart Club members only.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- LOGIN PANEL -->
+
+        <div class="login-panel">
+
+
+            <div class="panel-top">
+
+                <div>
+
+                    <span class="panel-number">
+                        01
+                    </span>
+
+                    <p>
+                        AUTHENTICATION
+                    </p>
+
+                </div>
+
+
+                <div class="system-online">
+
+                    <i></i>
+
+                    SYSTEM ONLINE
+
+                </div>
+
+            </div>
+
+
+
+            <form
+                id="loginForm"
+                class="login-form"
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        CLUB ACCOUNT
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span>
+                            @
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter authorized email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        ACCESS KEY
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span>
+                            //
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="Show password"
+                        >
+                            SHOW
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="login-message"
+                    id="loginMessage"
+                ></div>
+
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+
+                    <span>
+                        ENTER CONTROL CENTER
+                    </span>
+
+                    <strong>
+                        →
+                    </strong>
+
+                </button>
+
+            </form>
+
+
+
+            <div class="login-footer">
+
+                <span>
+                    SMART://AUTH
+                </span>
+
+                <span>
+                    SECURE ACCESS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ADMIN DASHBOARD
+========================================================= -->
+
+<main
+    class="dashboard hidden"
+    id="dashboard"
+>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <img
+                src="logo.png"
+                alt="Smart Club"
+            >
+
+            <div>
+
+                <strong>
+                    SMART
+                </strong>
+
+                <span>
+                    CONTROL
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <nav class="sidebar-navigation">
+
+
+            <!-- OVERVIEW -->
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+
+                <span class="nav-icon">
+                    ◫
+                </span>
+
+                OVERVIEW
+
+            </button>
+
+
+
+            <!-- PROJECTS -->
+
+            <button
+                class="nav-item"
+                data-section="projects"
+            >
+
+                <span class="nav-icon">
+                    ◈
+                </span>
+
+                PROJECTS
+
+            </button>
+
+
+
+            <!-- NEW PROJECT -->
+
+            <button
+                class="nav-item nav-sub-action"
+                id="newProjectNav"
+            >
+
+                <span class="nav-icon">
+                    +
+                </span>
+
+                NEW PROJECT
+
+            </button>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="sidebar-divider">
+
+                <span>
+                    DOCUMENTATION
+                </span>
+
+            </div>
+
+
+
+            <!-- REPORTS -->
+
+            <button
+                class="nav-item"
+                data-section="reports"
+                id="reportsNav"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                REPORTS
+
+            </button>
+
+
+
+            <!-- NEW REPORT -->
+
+            <button
+                class="nav-item nav-sub-action"
+                id="newReportNav"
+            >
+
+                <span class="nav-icon">
+                    +
+                </span>
+
+                NEW REPORT
+
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="admin-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        AUTHORIZED
+                    </strong>
+
+                    <small>
+                        SMART CLUB
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+                LOGOUT
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <section class="dashboard-main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="dashboard-header">
+
+
+            <div>
+
+                <p>
+                    SMART CLUB / CONTROL CENTER
+                </p>
+
+                <h2 id="dashboardTitle">
+                    OVERVIEW
+                </h2>
+
+            </div>
+
+
+
+            <div class="header-actions">
+
+
+                <div class="live-status">
+
+                    <i></i>
+
+                    DATABASE CONNECTED
+
+                </div>
+
+
+                <button
+                    class="create-project-button"
+                    id="createProjectButton"
+                >
+
+                    <span>
+                        +
+                    </span>
+
+                    NEW PROJECT
+
+                </button>
+
+
+                <button
+                    class="create-report-button"
+                    id="createReportButton"
+                >
+
+                    <span>
+                        +
+                    </span>
+
+                    NEW REPORT
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section
+            class="dashboard-section active"
+            id="overviewSection"
+        >
+
+
+            <!-- INTRO -->
+
+            <div class="welcome-block">
+
+                <div>
+
+                    <p class="eyebrow">
+                        SMART://CONTROL CENTER
+                    </p>
+
+                    <h1>
+
+                        Build.
+                        <span>Document.</span>
+                        Publish.
+
+                    </h1>
+
+                </div>
+
+
+                <p>
+
+                    Manage Smart Club projects, reports,
+                    development progress and public releases
+                    from one centralized control center.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 GLOBAL STATS
+            ================================================== -->
+
+            <div class="stats-grid">
+
+
+                <!-- TOTAL PROJECTS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            01
+                        </span>
+
+                        <small>
+                            PROJECTS
+                        </small>
+
+                    </div>
+
+                    <strong id="totalProjects">
+                        0
+                    </strong>
+
+                    <p>
+                        TOTAL PROJECTS
+                    </p>
+
+                </article>
+
+
+
+                <!-- PUBLISHED PROJECTS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            02
+                        </span>
+
+                        <small>
+                            LIVE
+                        </small>
+
+                    </div>
+
+                    <strong id="publishedProjects">
+                        0
+                    </strong>
+
+                    <p>
+                        PUBLISHED PROJECTS
+                    </p>
+
+                </article>
+
+
+
+                <!-- DRAFT PROJECTS -->
+
+                <article class="stat-card">
+
+                    <div class="stat-top">
+
+                        <span>
+                            03
+                        </span>
+
+                        <small>
+                            PRIVATE
+                        </small>
+
+                    </div>
+
+                    <strong id="draftProjects">
+                        0
+                    </strong>
+
+                    <p>
+                        PROJECT DRAFTS
+                    </p>
+
+                </article>
+
+
+
+                <!-- REPORTS -->
+
+                <article class="stat-card reports-stat">
+
+                    <div class="stat-top">
+
+                        <span>
+                            04
+                        </span>
+
+                        <small>
+                            DOCS
+                        </small>
+
+                    </div>
+
+                    <strong id="totalReports">
+                        0
+                    </strong>
+
+                    <p>
+                        REPORTS
+                    </p>
+
+                </article>
+
+
+
+                <!-- SYSTEM -->
+
+                <article class="stat-card accent-stat">
+
+                    <div class="stat-top">
+
+                        <span>
+                            SYS
+                        </span>
+
+                        <small>
+                            STATUS
+                        </small>
+
+                    </div>
+
+                    <strong class="online-word">
+                        ONLINE
+                    </strong>
+
+                    <p>
+                        SYSTEM
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECENT PROJECTS
+            ================================================== -->
+
+            <div class="content-panel">
+
+
+                <div class="content-panel-header">
+
+                    <div>
+
+                        <span>
+                            RECENT ACTIVITY
+                        </span>
+
+                        <h3>
+                            PROJECTS
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="text-button"
+                        id="viewAllProjects"
+                    >
+                        VIEW ALL →
+                    </button>
+
+                </div>
+
+
+
+                <div
+                    class="project-list"
+                    id="recentProjectList"
+                >
+
+
+                    <div
+                        class="empty-projects"
+                        id="emptyProjects"
+                    >
+
+                        <div class="empty-symbol">
+
+                            <span></span>
+
+                            <strong>
+                                +
+                            </strong>
+
+                        </div>
+
+
+                        <p>
+                            NO PROJECT DATA DETECTED
+                        </p>
+
+
+                        <h4>
+                            The lab is waiting.
+                        </h4>
+
+
+                        <span>
+
+                            Create the first Smart Club project
+                            and it will appear here.
+
+                        </span>
+
+
+                        <button
+                            id="emptyCreateButton"
+                        >
+                            INITIALIZE PROJECT →
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECENT REPORTS
+            ================================================== -->
+
+            <div class="content-panel reports-overview-panel">
+
+
+                <div class="content-panel-header">
+
+                    <div>
+
+                        <span>
+                            DOCUMENTATION
+                        </span>
+
+                        <h3>
+                            RECENT REPORTS
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        class="text-button"
+                        id="viewAllReports"
+                    >
+                        VIEW ARCHIVE →
+                    </button>
+
+                </div>
+
+
+
+                <div
+                    class="report-list"
+                    id="recentReportList"
+                >
+
+
+                    <div
+                        class="empty-projects"
+                        id="emptyReports"
+                    >
+
+                        <div class="empty-symbol report-empty-symbol">
+
+                            <span></span>
+
+                            <strong>
+                                ▤
+                            </strong>
+
+                        </div>
+
+
+                        <p>
+                            NO REPORT DATA DETECTED
+                        </p>
+
+
+                        <h4>
+                            Documentation archive empty.
+                        </h4>
+
+
+                        <span>
+
+                            Project, event and activity reports
+                            will appear here.
+
+                        </span>
+
+
+                        <button
+                            id="emptyCreateReportButton"
+                        >
+                            CREATE FIRST REPORT →
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECTS SECTION
+        ================================================== -->
+
+        <section
+            class="dashboard-section"
+            id="projectsSection"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        SMART://DATABASE
+                    </p>
+
+                    <h1>
+                        PROJECT ARCHIVE
+                    </h1>
+
+                </div>
+
+
+                <button
+                    class="create-project-button"
+                    id="projectsCreateButton"
+                >
+                    + ADD PROJECT
+                </button>
+
+
+            </div>
+
+
+
+            <!-- PROJECT FILTER BAR -->
+
+            <div class="project-toolbar">
+
+
+                <div class="search-box">
+
+                    <span>
+                        /
+                    </span>
+
+                    <input
+                        type="text"
+                        id="projectSearch"
+                        placeholder="Search projects..."
+                    >
+
+                </div>
+
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter active"
+                        data-filter="all"
+                    >
+                        ALL
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="published"
+                    >
+                        PUBLISHED
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="draft"
+                    >
+                        DRAFT
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PROJECT GRID -->
+
+            <div
+                class="projects-grid"
+                id="projectsGrid"
+            ></div>
+
+
+
+            <!-- EMPTY PROJECT DATABASE -->
+
+            <div
+                class="projects-page-empty"
+                id="projectsPageEmpty"
+            >
+
+                <span>
+                    00
+                </span>
+
+                <h3>
+                    NO PROJECTS YET
+                </h3>
+
+                <p>
+                    Your Smart Club project archive is currently empty.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORTS SECTION
+        ================================================== -->
+
+        <section
+            class="dashboard-section"
+            id="reportsSection"
+        >
+
+
+            <!-- REPORT HEADER -->
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        SMART://DOCUMENTATION
+                    </p>
+
+                    <h1>
+                        REPORT ARCHIVE
+                    </h1>
+
+                    <p class="section-description">
+
+                        Project reports, event documentation,
+                        technical studies and official Smart Club records.
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="create-report-button"
+                    id="reportsCreateButton"
+                >
+                    + ADD REPORT
+                </button>
+
+
+            </div>
+
+
+
+            <!-- REPORT MINI STATS -->
+
+            <div class="report-stats">
+
+
+                <div class="report-stat">
+
+                    <span>
+                        TOTAL REPORTS
+                    </span>
+
+                    <strong id="reportsTotalCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-stat">
+
+                    <span>
+                        PUBLISHED
+                    </span>
+
+                    <strong id="reportsPublishedCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="report-stat">
+
+                    <span>
+                        DRAFTS
+                    </span>
+
+                    <strong id="reportsDraftCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- REPORT TOOLBAR -->
+
+            <div class="project-toolbar report-toolbar">
+
+
+                <div class="search-box">
+
+                    <span>
+                        /
+                    </span>
+
+                    <input
+                        type="text"
+                        id="reportSearch"
+                        placeholder="Search reports..."
+                    >
+
+                </div>
+
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="report-filter active"
+                        data-report-filter="all"
+                    >
+                        ALL
+                    </button>
+
+                    <button
+                        class="report-filter"
+                        data-report-filter="Project"
+                    >
+                        PROJECT
+                    </button>
+
+                    <button
+                        class="report-filter"
+                        data-report-filter="Event"
+                    >
+                        EVENT
+                    </button>
+
+                    <button
+                        class="report-filter"
+                        data-report-filter="Technical"
+                    >
+                        TECHNICAL
+                    </button>
+
+                    <button
+                        class="report-filter"
+                        data-report-filter="Activity"
+                    >
+                        ACTIVITY
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- REPORT GRID -->
+
+            <div
+                class="reports-grid"
+                id="reportsGrid"
+            ></div>
+
+
+
+            <!-- EMPTY REPORT ARCHIVE -->
+
+            <div
+                class="projects-page-empty"
+                id="reportsPageEmpty"
+            >
+
+                <span>
+                    00
+                </span>
+
+                <h3>
+                    NO REPORTS YET
+                </h3>
+
+                <p>
+
+                    Upload the first Smart Club report to
+                    initialize the documentation archive.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     PROJECT MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="projectModal"
+>
+
+
+    <div class="project-modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <p>
+                    SMART://PROJECT
+                </p>
+
+                <h2 id="modalTitle">
+                    NEW PROJECT
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- PROJECT FORM -->
+
+        <form
+            class="project-form"
+            id="projectForm"
+        >
+
+
+            <input
+                type="hidden"
+                id="projectId"
+            >
+
+
+
+            <!-- TITLE -->
+
+            <div class="form-field full">
+
+                <label for="projectTitle">
+                    PROJECT TITLE *
+                </label>
+
+                <input
+                    type="text"
+                    id="projectTitle"
+                    placeholder="Industrial Automation System"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- SHORT DESCRIPTION -->
+
+            <div class="form-field full">
+
+                <label for="projectShortDescription">
+                    SHORT DESCRIPTION
+                </label>
+
+                <input
+                    type="text"
+                    id="projectShortDescription"
+                    placeholder="A short introduction to the project..."
+                >
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-field">
+
+                <label for="projectCategory">
+                    CATEGORY
+                </label>
+
+                <select id="projectCategory">
+
+                    <option value="Digitalization">
+                        Digitalization
+                    </option>
+
+                    <option value="Engineering">
+                        Engineering
+                    </option>
+
+                    <option value="Automation">
+                        Automation
+                    </option>
+
+                    <option value="Innovation">
+                        Innovation
+                    </option>
+
+                    <option value="AI">
+                        Artificial Intelligence
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <div class="form-field">
+
+                <label for="projectStatus">
+                    STATUS
+                </label>
+
+                <select id="projectStatus">
+
+                    <option value="Planning">
+                        Planning
+                    </option>
+
+                    <option value="In Development">
+                        In Development
+                    </option>
+
+                    <option value="Testing">
+                        Testing
+                    </option>
+
+                    <option value="Completed">
+                        Completed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="form-field full">
+
+                <div class="progress-label">
+
+                    <label for="projectProgress">
+                        DEVELOPMENT PROGRESS
+                    </label>
+
+                    <strong id="progressValue">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="projectProgress"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+
+            </div>
+
+
+
+            <!-- COVER -->
+
+            <div class="form-field full">
+
+                <label for="projectCover">
+                    COVER IMAGE URL
+                </label>
+
+                <input
+                    type="url"
+                    id="projectCover"
+                    placeholder="https://..."
+                >
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-field full">
+
+                <label for="projectDescription">
+                    FULL DESCRIPTION
+                </label>
+
+                <textarea
+                    id="projectDescription"
+                    rows="7"
+                    placeholder="Explain the project, objectives, technologies and development process..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- PUBLISH -->
+
+            <div class="publish-control full">
+
+                <div>
+
+                    <strong>
+                        PUBLIC VISIBILITY
+                    </strong>
+
+                    <p>
+
+                        Published projects become visible
+                        on the public Smart Club website.
+
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="projectPublished"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="form-actions full">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelProject"
+                >
+                    CANCEL
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-project-button"
+                >
+
+                    SAVE PROJECT
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     REPORT MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="reportModal"
+>
+
+
+    <div class="project-modal report-modal">
+
+
+        <!-- REPORT MODAL HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <p>
+                    SMART://DOCUMENTATION
+                </p>
+
+                <h2 id="reportModalTitle">
+                    NEW REPORT
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="reportModalClose"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- REPORT FORM -->
+
+        <form
+            class="project-form report-form"
+            id="reportForm"
+        >
+
+
+            <input
+                type="hidden"
+                id="reportId"
+            >
+
+
+
+            <!-- TITLE -->
+
+            <div class="form-field full">
+
+                <label for="reportTitle">
+                    REPORT TITLE *
+                </label>
+
+                <input
+                    type="text"
+                    id="reportTitle"
+                    placeholder="Smart Club Robotics Workshop Report"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- SHORT DESCRIPTION -->
+
+            <div class="form-field full">
+
+                <label for="reportShortDescription">
+                    SHORT DESCRIPTION
+                </label>
+
+                <input
+                    type="text"
+                    id="reportShortDescription"
+                    placeholder="Brief description of this report..."
+                >
+
+            </div>
+
+
+
+            <!-- REPORT TYPE -->
+
+            <div class="form-field">
+
+                <label for="reportType">
+                    REPORT TYPE *
+                </label>
+
+                <select
+                    id="reportType"
+                    required
+                >
+
+                    <option value="Project">
+                        Project Report
+                    </option>
+
+                    <option value="Event">
+                        Event Report
+                    </option>
+
+                    <option value="Technical">
+                        Technical Report
+                    </option>
+
+                    <option value="Activity">
+                        Activity Report
+                    </option>
+
+                    <option value="Meeting">
+                        Meeting Report
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="form-field">
+
+                <label for="reportEventDate">
+                    EVENT / REPORT DATE
+                </label>
+
+                <input
+                    type="date"
+                    id="reportEventDate"
+                >
+
+            </div>
+
+
+
+            <!-- RELATED PROJECT -->
+
+            <div class="form-field full">
+
+                <label for="reportRelatedProject">
+                    RELATED PROJECT
+                </label>
+
+                <select id="reportRelatedProject">
+
+                    <option value="">
+                        No related project
+                    </option>
+
+                    <!--
+                        admin.js will automatically insert
+                        projects from Supabase here.
+                    -->
+
+                </select>
+
+                <small>
+
+                    Optional — use this when the report belongs
+                    to one of your Smart Club projects.
+
+                </small>
+
+            </div>
+
+
+
+            <!-- COVER IMAGE -->
+
+            <div class="form-field full">
+
+                <label for="reportCover">
+                    COVER IMAGE URL
+                </label>
+
+                <input
+                    type="url"
+                    id="reportCover"
+                    placeholder="https://..."
+                >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PDF UPLOAD
+            ================================================== -->
+
+            <div class="form-field full">
+
+
+                <label for="reportPdf">
+                    REPORT PDF *
+                </label>
+
+
+                <div
+                    class="pdf-upload-zone"
+                    id="pdfUploadZone"
+                >
+
+
+                    <input
+                        type="file"
+                        id="reportPdf"
+                        accept="application/pdf,.pdf"
+                    >
+
+
+                    <div class="pdf-upload-content">
+
+
+                        <div class="pdf-icon">
+
+                            <span>
+                                PDF
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                DROP REPORT HERE
+                            </strong>
+
+                            <p>
+                                or click to select a PDF document
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="selected-pdf"
+                        id="selectedPdf"
+                    >
+
+                        <span class="selected-pdf-icon">
+                            PDF
+                        </span>
+
+
+                        <div>
+
+                            <strong id="selectedPdfName">
+                                document.pdf
+                            </strong>
+
+                            <small id="selectedPdfSize">
+                                0 MB
+                            </small>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="removePdfButton"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <small class="upload-note">
+
+                    The PDF will be stored securely in
+                    Smart Club's Supabase Storage.
+
+                </small>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PUBLIC VISIBILITY
+            ================================================== -->
+
+            <div class="publish-control full">
+
+                <div>
+
+                    <strong>
+                        PUBLIC VISIBILITY
+                    </strong>
+
+                    <p>
+
+                        Published reports can be opened and read
+                        directly from the public Smart Club website.
+
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="reportPublished"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="form-actions full">
+
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelReport"
+                >
+                    CANCEL
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-project-button save-report-button"
+                    id="saveReportButton"
+                >
+
+                    <span class="save-report-text">
+                        SAVE REPORT
+                    </span>
+
+                    <span class="save-report-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     DELETE CONFIRMATION MODAL
+========================================================= -->
+
+<div
+    class="confirm-overlay"
+    id="confirmOverlay"
+>
+
+
+    <div class="confirm-box">
+
+
+        <span class="confirm-warning">
+             ⚠
+        </span>
+
+
+        <p>
+            SMART://SECURITY
+        </p>
+
+
+        <h3 id="confirmTitle">
+            DELETE ITEM?
+        </h3>
+
+
+        <span id="confirmDescription">
+
+            This action cannot be undone.
+
+        </span>
+
+
+        <div class="confirm-actions">
+
+
+            <button
+                type="button"
+                id="confirmCancel"
+                class="cancel-button"
+            >
+                CANCEL
+            </button>
+
+
+            <button
+                type="button"
+                id="confirmDelete"
+                class="delete-confirm-button"
+            >
+                DELETE
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     NOTIFICATION
+========================================================= -->
+
+<div
+    class="notification"
+    id="notification"
+>
+
+    <span id="notificationIcon">
+        ✓
+    </span>
+
+    <p id="notificationText">
+        Operation completed.
+    </p>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>

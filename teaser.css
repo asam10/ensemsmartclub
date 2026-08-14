@@ -1,0 +1,3242 @@
+/* =========================================================
+   SMART CLUB — THE ARRIVAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --magenta: #b00045;
+    --magenta-light: #e0005a;
+    --magenta-dark: #610025;
+
+    --black: #020305;
+    --dark: #080a0f;
+
+    --white: #f5f5f5;
+    --gray: #747985;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    overflow: hidden;
+    background: #000;
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+.start-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(176, 0, 69, .13),
+            transparent 28%
+        ),
+        #020305;
+}
+
+
+.start-noise {
+    position: absolute;
+    inset: 0;
+
+    opacity: .04;
+
+    background-image:
+        repeating-radial-gradient(
+            circle,
+            white 0,
+            transparent 1px,
+            transparent 4px
+        );
+
+    background-size: 9px 9px;
+
+    pointer-events: none;
+}
+
+
+.start-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(500px, 85vw);
+
+    text-align: center;
+}
+
+
+.start-code {
+    margin-bottom: 35px;
+
+    color: var(--magenta-light);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 6px;
+}
+
+
+.start-symbol {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 35px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(224, 0, 90, .35);
+
+    border-radius: 50%;
+}
+
+
+.start-symbol::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border: 1px dashed rgba(255, 255, 255, .12);
+
+    border-radius: 50%;
+
+    animation: rotate 12s linear infinite;
+}
+
+
+.start-symbol span {
+    width: 10px;
+    height: 10px;
+
+    background: var(--magenta-light);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px var(--magenta-light),
+        0 0 35px rgba(224, 0, 90, .8);
+
+    animation: pulse 1.2s infinite;
+}
+
+
+.start-content h1 {
+    font-size: clamp(45px, 8vw, 80px);
+
+    line-height: .88;
+
+    letter-spacing: -4px;
+}
+
+
+.start-content h1 strong {
+    color: var(--magenta-light);
+}
+
+
+.start-description {
+    margin-top: 25px;
+
+    color: #666c76;
+
+    font-family: monospace;
+    font-size: 11px;
+}
+
+
+#startButton {
+    margin-top: 45px;
+
+    padding: 17px 40px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid var(--magenta);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#startButton:hover {
+    background: var(--magenta);
+
+    box-shadow:
+        0 0 50px rgba(224, 0, 90, .35);
+}
+
+
+.start-content small {
+    display: block;
+
+    margin-top: 18px;
+
+    color: #343841;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+}
+
+
+.start-screen.hide {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity .7s ease;
+}
+
+
+/* =========================================================
+   TEASER
+========================================================= */
+
+.teaser {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   GLOBAL FX
+========================================================= */
+
+.global-vignette {
+    position: fixed;
+    inset: 0;
+
+    z-index: 500;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0, 0, 0, .3) 65%,
+            rgba(0, 0, 0, .85) 100%
+        );
+}
+
+
+.global-noise {
+    position: fixed;
+    inset: 0;
+
+    z-index: 490;
+
+    opacity: .035;
+
+    pointer-events: none;
+
+    background-image:
+        repeating-radial-gradient(
+            circle,
+            white 0,
+            transparent 1px,
+            transparent 3px
+        );
+
+    background-size: 6px 6px;
+}
+
+
+.global-grid {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2;
+
+    opacity: .08;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, .05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .05) 1px,
+            transparent 1px
+        );
+
+    background-size: 60px 60px;
+}
+
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+
+    z-index: 495;
+
+    opacity: .06;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(255, 255, 255, .1) 4px
+        );
+}
+
+
+.screen-flash {
+    position: fixed;
+    inset: 0;
+
+    z-index: 900;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, .9),
+            rgba(224, 0, 90, .35),
+            transparent 70%
+        );
+}
+
+
+.screen-flash.fire {
+    animation: cameraFlash .18s ease;
+}
+
+
+.glitch-flash {
+    position: fixed;
+    inset: 0;
+
+    z-index: 850;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(224, 0, 90, .2),
+            transparent
+        );
+}
+
+
+.glitch-flash.fire {
+    animation: glitchScreen .22s steps(2);
+}
+
+
+/* =========================================================
+   IMPORTANT — CLEAN SCENE TRANSITIONS
+========================================================= */
+
+.scene {
+    position: absolute;
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(1.015);
+
+    /*
+       IMPORTANT:
+       We do NOT slowly fade the old scene anymore.
+       This prevents old text appearing behind new text.
+    */
+
+    transition:
+        opacity .22s ease,
+        transform .55s ease;
+
+}
+
+
+.scene.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* When leaving a scene */
+
+.scene.leaving {
+    opacity: 0 !important;
+
+    visibility: visible;
+
+    transform: scale(.99);
+
+    transition: opacity .12s linear;
+}
+
+
+/* =========================================================
+   SIGNAL
+========================================================= */
+
+.signal-scene {
+    background:
+        radial-gradient(
+            circle,
+            rgba(176, 0, 69, .07),
+            transparent 30%
+        ),
+        #020305;
+}
+
+
+.signal-center {
+    width: min(650px, 80vw);
+
+    text-align: center;
+}
+
+
+.signal-dot {
+    width: 6px;
+    height: 6px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 50%;
+
+    background: var(--magenta-light);
+
+    box-shadow:
+        0 0 15px var(--magenta-light),
+        0 0 50px rgba(224, 0, 90, .5);
+
+    animation: signalPulse .7s infinite;
+}
+
+
+.signal-center p {
+    color: #565b65;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+
+.signal-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 35px 0;
+
+    overflow: hidden;
+
+    background: #252830;
+}
+
+
+.signal-line span {
+    display: block;
+
+    width: 0;
+    height: 100%;
+
+    background: var(--magenta-light);
+
+    box-shadow:
+        0 0 20px var(--magenta-light);
+
+    transition: width 3s linear;
+}
+
+
+.signal-center h2 {
+    min-height: 1.2em;
+
+    font-size: clamp(28px, 6vw, 70px);
+
+    letter-spacing: 8px;
+}
+
+
+/* smooth text replacement */
+
+.changing-text {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity .12s ease,
+        transform .12s ease;
+}
+
+
+.changing-text.text-out {
+    opacity: 0;
+
+    transform: translateY(-7px);
+}
+
+
+.changing-text.text-in {
+    animation: textEnter .22s ease;
+}
+
+
+.signal-coordinate {
+    position: absolute;
+
+    color: #292d34;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.coordinate-one {
+    left: 6%;
+    bottom: 8%;
+}
+
+
+.coordinate-two {
+    right: 6%;
+    top: 8%;
+}
+
+
+/* =========================================================
+   IDEA
+========================================================= */
+
+.idea-scene {
+    flex-direction: column;
+
+    text-align: center;
+
+    background: #030406;
+}
+
+
+.idea-energy {
+    width: 160px;
+    height: 160px;
+
+    margin-bottom: 55px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.energy-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(224, 0, 90, .3);
+}
+
+
+.ring-a {
+    width: 80px;
+    height: 80px;
+}
+
+
+.ring-b {
+    width: 120px;
+    height: 120px;
+
+    border-style: dashed;
+
+    animation: rotate 8s linear infinite;
+}
+
+
+.ring-c {
+    width: 160px;
+    height: 160px;
+
+    opacity: .35;
+}
+
+
+.energy-core {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 10px white,
+        0 0 30px var(--magenta-light),
+        0 0 80px var(--magenta);
+
+    animation: energyCore 1s infinite;
+}
+
+
+.idea-small {
+    margin-bottom: 20px;
+
+    color: var(--magenta-light);
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 6px;
+}
+
+
+.idea-scene h2 {
+    font-size: clamp(40px, 8vw, 100px);
+
+    line-height: .9;
+
+    letter-spacing: -3px;
+}
+
+
+.idea-scene h3 {
+    margin-top: 10px;
+
+    font-size: clamp(22px, 5vw, 55px);
+
+    letter-spacing: 2px;
+}
+
+
+.idea-scene h3 span {
+    color: var(--magenta-light);
+}
+
+
+/* =========================================================
+   TECHNOLOGY
+========================================================= */
+
+.technology-scene {
+    background: #05070a;
+}
+
+
+.tech-shot {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.05);
+}
+
+
+.tech-shot.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+    transition:
+        opacity .12s linear,
+        transform .3s ease;
+}
+
+
+.tech-number {
+    position: absolute;
+
+    right: 7%;
+    top: 8%;
+
+    color: rgba(255, 255, 255, .04);
+
+    font-size: clamp(120px, 25vw, 350px);
+
+    font-weight: 900;
+}
+
+
+.tech-label {
+    position: absolute;
+
+    left: 8%;
+    bottom: 10%;
+}
+
+
+.tech-label small {
+    color: var(--magenta-light);
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+.tech-label h2 {
+    margin-top: 8px;
+
+    font-size: clamp(35px, 7vw, 80px);
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   GEARS
+========================================================= */
+
+.engineering-machine {
+    width: 500px;
+    height: 500px;
+
+    position: relative;
+}
+
+
+.css-gear {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 22px dashed var(--magenta);
+
+    border-radius: 50%;
+}
+
+
+.gear-inner {
+    width: 55%;
+    height: 55%;
+
+    border: 3px solid rgba(255, 255, 255, .2);
+
+    border-radius: 50%;
+}
+
+
+.gear-large {
+    width: 270px;
+    height: 270px;
+
+    top: 80px;
+    left: 60px;
+
+    animation: rotate 7s linear infinite;
+}
+
+
+.gear-small {
+    width: 150px;
+    height: 150px;
+
+    right: 40px;
+    bottom: 70px;
+
+    border-width: 14px;
+
+    opacity: .55;
+
+    animation: rotateReverse 4s linear infinite;
+}
+
+
+.engineering-lines {
+    position: absolute;
+    inset: 0;
+}
+
+
+.engineering-lines span {
+    position: absolute;
+
+    width: 250px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(224, 0, 90, .6),
+            transparent
+        );
+}
+
+
+.engineering-lines span:nth-child(1) {
+    top: 20%;
+}
+
+
+.engineering-lines span:nth-child(2) {
+    right: 0;
+    top: 50%;
+}
+
+
+.engineering-lines span:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+}
+
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.code-window {
+    width: min(650px, 82vw);
+
+    padding: 30px;
+
+    background: rgba(5, 7, 10, .92);
+
+    border: 1px solid #282c33;
+
+    box-shadow: 0 30px 100px black;
+}
+
+
+.code-header {
+    padding-bottom: 18px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #555b65;
+
+    border-bottom: 1px solid #24272e;
+
+    font-family: monospace;
+
+    font-size: 9px;
+}
+
+
+.code-header span {
+    color: var(--magenta);
+}
+
+
+.code-lines {
+    padding-top: 25px;
+
+    font-family: monospace;
+
+    line-height: 2.2;
+
+    color: #9aa0aa;
+}
+
+
+.code-lines p {
+    opacity: .6;
+}
+
+
+.code-lines span,
+.code-lines strong {
+    color: var(--magenta-light);
+}
+
+
+/* =========================================================
+   AUTOMATION
+========================================================= */
+
+.automation-system {
+    width: 500px;
+    height: 500px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.automation-core {
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--magenta-light);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 60px rgba(224, 0, 90, .2);
+}
+
+
+.automation-core span {
+    color: var(--magenta-light);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.circuit-node {
+    width: 12px;
+    height: 12px;
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: var(--magenta-light);
+
+    box-shadow:
+        0 0 20px var(--magenta-light);
+}
+
+
+.circuit-1 {
+    left: 15%;
+    top: 20%;
+}
+
+
+.circuit-2 {
+    right: 12%;
+    top: 40%;
+}
+
+
+.circuit-3 {
+    bottom: 12%;
+    left: 35%;
+}
+
+
+.circuit-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--magenta),
+            transparent
+        );
+}
+
+
+.line-1 {
+    width: 300px;
+
+    transform: rotate(35deg);
+}
+
+
+.line-2 {
+    width: 350px;
+
+    transform: rotate(-40deg);
+}
+
+
+.line-3 {
+    width: 260px;
+
+    transform: rotate(100deg);
+}
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+.data-system {
+    width: min(700px, 82vw);
+}
+
+
+.data-header {
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #656a74;
+
+    font-family: monospace;
+
+    font-size: 9px;
+}
+
+
+.data-header span {
+    color: var(--magenta-light);
+}
+
+
+.graph {
+    height: 260px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid #292d35;
+}
+
+
+.graph-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: .2;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, .1) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .1) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+}
+
+
+.graph svg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.graph-line {
+    fill: none;
+
+    stroke: var(--magenta-light);
+
+    stroke-width: 3;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            var(--magenta)
+        );
+}
+
+
+.data-values {
+    margin-top: 20px;
+
+    display: flex;
+
+    gap: 40px;
+
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.data-values strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: white;
+}
+
+
+/* =========================================================
+   NEURAL
+========================================================= */
+
+.neural-network {
+    width: min(500px, 75vw);
+}
+
+
+.neural-network svg {
+    width: 100%;
+
+    overflow: visible;
+}
+
+
+.neural-network line {
+    stroke: rgba(224, 0, 90, .3);
+
+    stroke-width: 1;
+}
+
+
+.neural-network circle {
+    fill: var(--magenta-light);
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            var(--magenta-light)
+        );
+
+    animation:
+        neuralPulse 1.5s infinite alternate;
+}
+
+
+/* =========================================================
+   CURTAIN
+========================================================= */
+
+.curtain-scene {
+    background: #030204;
+}
+
+
+.curtain-camera {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+}
+
+
+.curtain-image {
+    position: absolute;
+
+    inset: -6%;
+
+    background-image: url("curtain.jpg");
+
+    background-position: center;
+
+    background-size: cover;
+
+    filter:
+        brightness(.32)
+        contrast(1.15)
+        saturate(.8);
+
+    transform: scale(1.08);
+
+    animation:
+        curtainCamera
+        12s ease-in-out infinite alternate;
+}
+
+
+.curtain-darkness {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 15%,
+            rgba(0, 0, 0, .25) 45%,
+            rgba(0, 0, 0, .9) 100%
+        );
+}
+
+
+.curtain-light {
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    filter: blur(70px);
+
+    mix-blend-mode: screen;
+}
+
+
+.light-left {
+    left: -30%;
+    top: 10%;
+
+    background: rgba(224, 0, 90, .45);
+}
+
+
+.light-right {
+    right: -30%;
+    top: 15%;
+
+    background: rgba(255, 255, 255, .28);
+}
+
+
+.curtain-scene.flash-left .light-left {
+    animation: clothFlash .45s ease;
+}
+
+
+.curtain-scene.flash-right .light-right {
+    animation: clothFlash .35s ease;
+}
+
+
+.curtain-shadow {
+    position: absolute;
+
+    width: 25%;
+    height: 130%;
+
+    left: -30%;
+    top: -15%;
+
+    transform: rotate(10deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 0, 0, .65),
+            transparent
+        );
+
+    filter: blur(20px);
+
+    animation:
+        shadowPass
+        7s ease-in-out infinite;
+}
+
+
+.curtain-interface {
+    position: absolute;
+
+    top: 7%;
+    left: 7%;
+    right: 7%;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: rgba(255, 255, 255, .4);
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.curtain-interface span:last-child {
+    color: var(--magenta-light);
+}
+
+
+.focus-frame {
+    width: 75%;
+    height: 60%;
+
+    position: absolute;
+}
+
+
+.focus-frame span {
+    width: 35px;
+    height: 35px;
+
+    position: absolute;
+}
+
+
+.focus-frame span:nth-child(1) {
+    top: 0;
+    left: 0;
+
+    border-top: 1px solid rgba(255, 255, 255, .25);
+
+    border-left: 1px solid rgba(255, 255, 255, .25);
+}
+
+
+.focus-frame span:nth-child(2) {
+    top: 0;
+    right: 0;
+
+    border-top: 1px solid rgba(255, 255, 255, .25);
+
+    border-right: 1px solid rgba(255, 255, 255, .25);
+}
+
+
+.focus-frame span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+
+    border-left: 1px solid rgba(255, 255, 255, .25);
+}
+
+
+.focus-frame span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+
+    border-right: 1px solid rgba(255, 255, 255, .25);
+}
+
+
+.curtain-status {
+    position: absolute;
+
+    bottom: 7%;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   AWAKENING
+========================================================= */
+
+.awakening-scene {
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(176, 0, 69, .12),
+            transparent 30%
+        ),
+        #030305;
+}
+
+
+.awakening-object {
+    width: min(650px, 80vw);
+
+    height: min(500px, 60vh);
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 45% 45% 15% 15%;
+}
+
+
+.awakening-cloth {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("curtain.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter:
+        brightness(.16)
+        saturate(.65)
+        contrast(1.3);
+}
+
+
+.internal-energy {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    border: 1px solid var(--magenta-light);
+
+    border-radius: 50%;
+
+    background: rgba(176, 0, 69, .2);
+
+    box-shadow:
+        0 0 20px var(--magenta),
+        0 0 70px rgba(224, 0, 90, .45);
+
+    font-family: monospace;
+
+    opacity: 0;
+}
+
+
+.awakening-scene.active .internal-energy {
+    animation:
+        internalSignal
+        2.2s infinite;
+}
+
+
+.energy-1 {
+    left: 22%;
+    top: 30%;
+}
+
+
+.energy-2 {
+    right: 25%;
+    top: 20%;
+
+    animation-delay: .4s !important;
+}
+
+
+.energy-3 {
+    left: 45%;
+    bottom: 20%;
+
+    animation-delay: .8s !important;
+}
+
+
+.energy-4 {
+    right: 12%;
+    bottom: 30%;
+
+    animation-delay: 1.2s !important;
+}
+
+
+.energy-path {
+    height: 1px;
+
+    position: absolute;
+
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--magenta-light),
+            transparent
+        );
+
+    opacity: .4;
+}
+
+
+.path-one {
+    width: 55%;
+
+    left: 20%;
+    top: 40%;
+
+    transform: rotate(-12deg);
+}
+
+
+.path-two {
+    width: 45%;
+
+    right: 10%;
+    top: 55%;
+
+    transform: rotate(30deg);
+}
+
+
+.path-three {
+    width: 50%;
+
+    left: 18%;
+    bottom: 30%;
+
+    transform: rotate(18deg);
+}
+
+
+.awakening-text {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+
+.awakening-text small {
+    color: #60656e;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+.awakening-text p {
+    margin-top: 12px;
+
+    font-size: clamp(20px, 4vw, 40px);
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.awakening-text span {
+    color: var(--magenta-light);
+}
+
+
+/* =========================================================
+   STATEMENT
+========================================================= */
+
+.statement-scene {
+    flex-direction: column;
+
+    text-align: center;
+
+    background: #000;
+}
+
+
+.statement-code {
+    margin-bottom: 35px;
+
+    color: var(--magenta-light);
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 6px;
+}
+
+
+.statement-scene h2 {
+    font-size: clamp(50px, 10vw, 140px);
+
+    line-height: .85;
+
+    letter-spacing: -5px;
+}
+
+
+.statement-second {
+    color: var(--magenta-light);
+}
+
+
+.statement-line {
+    width: 0;
+    height: 2px;
+
+    margin-top: 45px;
+
+    background: var(--magenta-light);
+
+    transition: width 2s ease;
+}
+
+
+.statement-scene.active .statement-line {
+    width: min(300px, 50vw);
+}
+
+
+/* =========================================================
+   ALMOST REVEAL
+========================================================= */
+
+.reveal-scene {
+    background: #000;
+}
+
+
+.reveal-camera {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+}
+
+
+.reveal-object {
+    position: absolute;
+
+    inset: -8%;
+
+    background-image: url("curtain.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter:
+        brightness(.25)
+        contrast(1.2)
+        saturate(.8);
+
+    transform: scale(1.15);
+}
+
+
+.reveal-scene.active .reveal-object {
+    animation:
+        finalPush
+        6s ease-out forwards;
+}
+
+
+.reveal-light {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(224, 0, 90, .2),
+            transparent 40%
+        );
+
+    animation:
+        revealPulse
+        1s infinite;
+}
+
+
+.reveal-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 20%,
+            rgba(0, 0, 0, .9)
+        );
+}
+
+
+.reveal-data {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    bottom: 12%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.reveal-data strong {
+    color: var(--magenta-light);
+
+    font-size: 30px;
+}
+
+
+.scan-progress {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    bottom: 9%;
+
+    height: 3px;
+
+    background: rgba(255, 255, 255, .12);
+}
+
+
+.scan-progress div {
+    width: 0;
+    height: 100%;
+
+    background: var(--magenta-light);
+
+    box-shadow:
+        0 0 20px
+        var(--magenta-light);
+}
+
+
+.reveal-warning {
+    position: absolute;
+
+    top: 7%;
+    right: 7%;
+
+    color: var(--magenta-light);
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   INTERRUPTION
+========================================================= */
+
+.interruption-scene {
+    flex-direction: column;
+
+    background: #000;
+}
+
+
+.interruption-scene > p {
+    color: #555;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+.interruption-scene h2 {
+    margin-top: 25px;
+
+    font-size: clamp(60px, 13vw, 170px);
+
+    line-height: .8;
+
+    text-align: center;
+}
+
+
+.interruption-scene h2 span {
+    display: block;
+
+    color: var(--magenta-light);
+}
+
+
+.interruption-code {
+    margin-top: 45px;
+
+    color: #50545c;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    line-height: 2;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FINAL — SOMETHING SMART IS COMING SOON
+========================================================= */
+
+.final-scene {
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(176, 0, 69, .2),
+            transparent 32%
+        ),
+        #020203;
+}
+
+
+.final-light {
+    width: 700px;
+    height: 700px;
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: .25;
+
+    background: rgba(176, 0, 69, .2);
+
+    filter: blur(130px);
+
+    animation:
+        finalGlow
+        2s ease-in-out infinite;
+}
+
+
+.final-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+}
+
+
+.final-eyebrow {
+    margin-bottom: 30px;
+
+    color: #555;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 7px;
+}
+
+
+.final-message {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+
+.final-message .something {
+    opacity: 0;
+
+    font-size:
+        clamp(38px, 7vw, 85px);
+
+    letter-spacing: 8px;
+
+    transform: translateY(15px);
+}
+
+
+.final-message .smart {
+    opacity: 0;
+
+    color: var(--magenta-light);
+
+    font-size:
+        clamp(90px, 18vw, 220px);
+
+    line-height: .85;
+
+    letter-spacing: -6px;
+
+    transform: scale(.9);
+}
+
+
+.final-message .is-coming {
+    opacity: 0;
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(25px, 5vw, 60px);
+
+    letter-spacing: 10px;
+
+    transform: translateY(15px);
+}
+
+
+/* Reveal individually */
+
+.final-scene.active
+.final-message .something {
+    animation:
+        finalTextIn
+        .6s .25s forwards;
+}
+
+
+.final-scene.active
+.final-message .smart {
+    animation:
+        smartReveal
+        .7s .8s forwards;
+}
+
+
+.final-scene.active
+.final-message .is-coming {
+    animation:
+        finalTextIn
+        .6s 1.4s forwards;
+}
+
+
+.final-divider {
+    width: min(500px, 70vw);
+
+    margin: 45px auto 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    opacity: 0;
+}
+
+
+.final-scene.active .final-divider {
+    animation:
+        finalTextIn
+        .6s 1.8s forwards;
+}
+
+
+.final-divider span {
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(224, 0, 90, .6);
+}
+
+
+.final-divider i {
+    width: 7px;
+    height: 7px;
+
+    background: var(--magenta-light);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px
+        var(--magenta-light);
+}
+
+
+.final-date {
+    opacity: 0;
+
+    font-family: monospace;
+
+    font-size:
+        clamp(20px, 4vw, 38px);
+
+    letter-spacing: 8px;
+}
+
+
+.final-scene.active
+.final-date {
+    animation:
+        finalTextIn
+        .6s 2.1s forwards;
+}
+
+
+.final-content small {
+    display: block;
+
+    margin-top: 25px;
+
+    opacity: 0;
+
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 6px;
+}
+
+
+.final-scene.active
+.final-content small {
+    animation:
+        finalTextIn
+        .6s 2.4s forwards;
+}
+
+
+/* =========================================================
+   BLACKOUT
+========================================================= */
+
+.blackout-scene {
+    background: #000;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes rotateReverse {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes signalPulse {
+    0%,
+    100% {
+        transform: scale(.7);
+
+        opacity: .3;
+    }
+
+    50% {
+        transform: scale(1.3);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes energyCore {
+    0%,
+    100% {
+        transform: scale(.7);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+
+@keyframes neuralPulse {
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes cameraFlash {
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes glitchScreen {
+    0% {
+        opacity: 0;
+
+        transform: translateX(0);
+    }
+
+    25% {
+        opacity: 1;
+
+        transform: translateX(-20px);
+    }
+
+    50% {
+        transform: translateX(15px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes textEnter {
+    from {
+        opacity: 0;
+
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes curtainCamera {
+    from {
+        transform:
+            scale(1.08)
+            translateX(-1%);
+    }
+
+    to {
+        transform:
+            scale(1.15)
+            translateX(2%);
+    }
+}
+
+
+@keyframes clothFlash {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes shadowPass {
+    0% {
+        left: -35%;
+    }
+
+    50% {
+        left: 120%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+
+@keyframes internalSignal {
+    0%,
+    100% {
+        opacity: 0;
+
+        transform: scale(.7);
+    }
+
+    35% {
+        opacity: .9;
+
+        transform: scale(1);
+    }
+
+    60% {
+        opacity: .25;
+    }
+}
+
+
+@keyframes finalPush {
+    from {
+        transform: scale(1.15);
+    }
+
+    to {
+        transform: scale(1.35);
+    }
+}
+
+
+@keyframes revealPulse {
+    0%,
+    100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes finalGlow {
+    0%,
+    100% {
+        transform: scale(.8);
+
+        opacity: .15;
+    }
+
+    50% {
+        transform: scale(1.1);
+
+        opacity: .35;
+    }
+}
+
+
+@keyframes finalTextIn {
+    from {
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes smartReveal {
+    0% {
+        opacity: 0;
+
+        transform: scale(.85);
+
+        filter: blur(8px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform: scale(1.04);
+
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* =========================================================
+   SMART CLUB TEASER — RESPONSIVE DISPLAY
+
+   DESKTOP  → FULL SCREEN
+   TABLET   → TABLET SCREEN
+   PHONE    → VERTICAL / REEL STYLE
+========================================================= */
+
+
+/* =========================================================
+   DEFAULT — PC / LAPTOP
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #080a0e;
+}
+
+
+.teaser {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.start-screen {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+
+    inset: 0;
+}
+
+
+/* Scenes use the whole available screen */
+
+.scene {
+    width: 100%;
+    height: 100%;
+
+    padding: 5vh 6vw;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .scene {
+        padding:
+            6vh
+            6vw;
+    }
+
+
+    /* ---------- BOOT ---------- */
+
+    .scene-boot h1 {
+        font-size:
+            clamp(42px, 7vw, 70px);
+
+        letter-spacing: 7px;
+
+        text-align: center;
+    }
+
+
+    .boot-line {
+        width: 65vw;
+    }
+
+
+    /* ---------- BRAIN ---------- */
+
+    .machine {
+        width: min(65vw, 570px);
+        height: min(65vw, 570px);
+    }
+
+
+    /* ---------- LOADING ---------- */
+
+    .loading-container {
+        width: 88%;
+    }
+
+
+    .loading-container h2 {
+        font-size:
+            clamp(45px, 7vw, 70px);
+    }
+
+
+    /* ---------- MESSAGE ---------- */
+
+    .message-wrapper {
+        width: 100%;
+    }
+
+
+    .message-line {
+        font-size:
+            clamp(60px, 11vw, 115px);
+    }
+
+
+    /* ---------- ERROR ---------- */
+
+    .error-percent {
+        font-size:
+            clamp(130px, 25vw, 260px);
+    }
+
+}
+
+
+
+/* =========================================================
+   PHONE — VERTICAL INSTAGRAM STYLE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    /*
+       IMPORTANT:
+       We do NOT force a fixed 9:16 box.
+
+       The teaser uses the actual phone screen.
+    */
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+    }
+
+
+    .teaser {
+        width: 100vw;
+
+        height: 100vh;
+        height: 100dvh;
+
+        position: relative;
+    }
+
+
+    .start-screen {
+        width: 100vw;
+
+        height: 100vh;
+        height: 100dvh;
+    }
+
+
+    /*
+       Safe area.
+
+       Prevent text from touching
+       Instagram / browser edges.
+    */
+
+    .scene {
+        width: 100%;
+        height: 100%;
+
+        padding:
+            10vh
+            7vw
+            12vh;
+
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       START SCREEN
+    ===================================================== */
+
+    .start-logo {
+        width: 105px;
+    }
+
+
+    .start-screen p {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+        text-align: center;
+    }
+
+
+    .start-screen button {
+        padding:
+            14px
+            24px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .start-screen > span {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+
+    /* =====================================================
+       BOOT
+    ===================================================== */
+
+    .scene-boot {
+        text-align: center;
+    }
+
+
+    .boot-small {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .scene-boot h1 {
+
+        /*
+           Smaller because INITIALIZING
+           is a long word.
+        */
+
+        width: 100%;
+
+        font-size:
+            clamp(27px, 8vw, 42px);
+
+        letter-spacing:
+            clamp(2px, 1.5vw, 5px);
+
+        text-align: center;
+
+        white-space: nowrap;
+    }
+
+
+    .boot-line {
+        width: 78vw;
+
+        margin-top: 28px;
+    }
+
+
+    .boot-status {
+        font-size: 8px;
+
+        letter-spacing: 1px;
+    }
+
+
+
+    /* =====================================================
+       BRAIN / SMART CORE
+    ===================================================== */
+
+    .scene-label {
+        top: 7%;
+
+        left: 7%;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .machine {
+
+        /*
+           Use phone width rather than
+           desktop dimensions.
+        */
+
+        width: 90vw;
+        height: 90vw;
+
+        max-width: 430px;
+        max-height: 430px;
+
+        transform: scale(.75);
+    }
+
+
+    .brain {
+        width: 145px;
+        height: 145px;
+    }
+
+
+    .brain-symbol {
+        font-size: 65px;
+    }
+
+
+    .ring-1 {
+        width: 180px;
+        height: 180px;
+    }
+
+
+    .ring-2 {
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .ring-3 {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .ring-4 {
+        width: 420px;
+        height: 420px;
+    }
+
+
+    .gear-one {
+        font-size: 75px;
+    }
+
+
+    .gear-two {
+        font-size: 43px;
+    }
+
+
+    .gear-three {
+        font-size: 35px;
+    }
+
+
+    .brain-status {
+        bottom: 8%;
+    }
+
+
+    .brain-status p {
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+
+
+    /* =====================================================
+       TECHNOLOGY / LOADING
+    ===================================================== */
+
+    .loading-container {
+        width: 100%;
+    }
+
+
+    .system-code {
+        margin-bottom: 18px;
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .loading-container h2 {
+        margin-bottom: 30px;
+
+        font-size:
+            clamp(32px, 9vw, 45px);
+
+        line-height: 1;
+
+        letter-spacing: -2px;
+    }
+
+
+    .modules {
+        margin-bottom: 30px;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .module {
+        min-width: 0;
+
+        padding:
+            18px
+            10px;
+    }
+
+
+    .module p {
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    .module strong {
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .progress-header {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .progress-header strong {
+        font-size: 16px;
+    }
+
+
+    .progress-footer {
+        font-size: 6px;
+
+        letter-spacing: 1px;
+    }
+
+
+
+    /* =====================================================
+       99% SCREEN
+    ===================================================== */
+
+    .scene-error {
+        text-align: center;
+    }
+
+
+    .scene-error > p {
+        font-size: 7px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .error-percent {
+        margin-top: 25px;
+
+        font-size:
+            clamp(105px, 36vw, 175px);
+
+        letter-spacing: -8px;
+    }
+
+
+    .error-bar {
+        width: 78vw;
+
+        margin:
+            30px
+            0;
+    }
+
+
+    .scene-error h2 {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+
+    /* =====================================================
+       BIG MESSAGE
+    ===================================================== */
+
+    .message-wrapper {
+        width: 100%;
+
+        padding:
+            0
+            2vw;
+    }
+
+
+    .message-small {
+        margin-bottom: 22px;
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .message-line {
+
+        /*
+           MUCH smaller than desktop.
+
+           This prevents:
+           SOMETHING
+           SMART
+           IS COMING
+
+           from escaping the phone.
+        */
+
+        width: 100%;
+
+        font-size:
+            clamp(42px, 13vw, 68px);
+
+        line-height: .9;
+
+        letter-spacing: -2px;
+
+        overflow-wrap: normal;
+
+        word-break: normal;
+    }
+
+
+
+    /* =====================================================
+       FINAL SCREEN
+    ===================================================== */
+
+    .final-logo-container {
+        width: 100%;
+
+        padding:
+            0
+            4vw;
+    }
+
+
+    .final-school {
+        font-size: 8px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .final-logo-container h2 {
+        font-size:
+            clamp(14px, 4vw, 20px);
+
+        line-height: 1.4;
+
+        letter-spacing: 2px;
+    }
+
+
+    .coming-soon {
+        margin-top: 25px;
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+    }
+
+
+    /* BACK BUTTON */
+
+    .back-home {
+        top: 17px;
+        left: 17px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   iPhone SE / narrow Android etc.
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .scene {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+
+    .scene-boot h1 {
+        font-size: 25px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .machine {
+        transform: scale(.66);
+    }
+
+
+    .loading-container h2 {
+        font-size: 30px;
+    }
+
+
+    .module p {
+        font-size: 7px;
+    }
+
+
+    .message-line {
+        font-size: 43px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .error-percent {
+        font-size: 120px;
+    }
+
+
+    .final-logo-container h2 {
+        font-size: 14px;
+
+        letter-spacing: 1px;
+    }
+
+}
+/* =========================================================
+   FINAL MESSAGE — PREVENT TEXT FLASH
+========================================================= */
+
+/* Everything starts completely invisible */
+
+.final-message-small,
+.final-message-main,
+.final-message-smart,
+.final-message-coming,
+.final-message-date {
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0s linear 0.8s;
+}
+
+
+/* Elements become visible ONLY when JS asks */
+
+.final-message-small.show,
+.final-message-main.show,
+.final-message-smart.show,
+.final-message-coming.show,
+.final-message-date.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0s;
+}
+
+
+/* SMART can have a stronger entrance */
+
+.final-message-smart {
+    transform:
+        translateY(22px)
+        scale(0.96);
+}
+
+
+.final-message-smart.show {
+    transform:
+        translateY(0)
+        scale(1);
+}
+.back-home-button,
+.back-home-start{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 38px;
+
+    border:2px solid #B00045;
+    border-radius:50px;
+
+    color:#B00045;
+    background:rgba(176,0,69,.08);
+
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:2px;
+
+    transition:.35s ease;
+}
+
+.back-home-button:hover,
+.back-home-start:hover{
+
+    background:#B00045;
+    color:#fff;
+
+    box-shadow:
+        0 0 12px #B00045,
+        0 0 25px #B00045,
+        0 0 45px rgba(176,0,69,.7);
+
+    transform:translateY(-3px) scale(1.03);
+}
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 1024px){
+
+    .final-content{
+        width:90%;
+    }
+
+    h1{
+        font-size:clamp(40px,8vw,70px);
+    }
+
+    h2{
+        font-size:clamp(28px,6vw,55px);
+    }
+
+    .something,
+    .smart,
+    .is-coming{
+        font-size:clamp(32px,7vw,70px);
+        letter-spacing:4px;
+    }
+
+    .final-date{
+        font-size:18px;
+    }
+
+    #startButton,
+    .back-home-start,
+    .back-home-button{
+
+        width:min(320px,85vw);
+
+        padding:18px;
+
+        font-size:16px;
+
+        text-align:center;
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .scene{
+        padding:25px;
+    }
+
+    .final-content{
+        width:100%;
+    }
+
+    .something,
+    .smart,
+    .is-coming{
+        line-height:1.05;
+        letter-spacing:2px;
+    }
+
+    #startButton,
+    .back-home-start,
+    .back-home-button{
+
+        width:90%;
+
+        max-width:320px;
+
+        font-size:15px;
+
+        padding:18px;
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    h1{
+        font-size:34px;
+    }
+
+    h2{
+        font-size:28px;
+    }
+
+    .final-date{
+        font-size:15px;
+    }
+
+    small{
+        font-size:12px;
+    }
+
+    #startButton,
+    .back-home-start,
+    .back-home-button{
+
+        width:92%;
+
+        padding:18px;
+
+        font-size:14px;
+
+        letter-spacing:1.5px;
+    }
+
+}
+#startButton,
+.back-home-start,
+.back-home-button{
+
+    min-height:56px;
+
+    touch-action:manipulation;
+
+    -webkit-tap-highlight-color:transparent;
+}

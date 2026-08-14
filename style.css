@@ -1,0 +1,4579 @@
+/* =========================================================
+   SMART CLUB — ENSEM
+   FINAL STYLE.CSS
+   Digital Minds. Real Impact.
+========================================================= */
+
+
+/* =========================================================
+   01 — VARIABLES
+========================================================= */
+
+:root {
+
+    /* SMART CLUB COLORS */
+
+    --primary: #b00045;
+    --primary-dark: #78002f;
+    --primary-light: #d10a59;
+
+    --dark: #202126;
+    --dark-deep: #111318;
+
+    --gray: #66676c;
+    --light-gray: #f5f5f6;
+
+    --border: #e2e2e4;
+
+    --white: #ffffff;
+
+
+    /* FIELD COLORS */
+
+    --digital: #00b4d8;
+
+    --engineering: #64748b;
+
+    --automation: #3b82f6;
+
+    --innovation: #b00045;
+}
+
+
+/* =========================================================
+   02 — RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--dark);
+
+    background: var(--white);
+
+    overflow-x: hidden;
+}
+
+
+body,
+button,
+input,
+textarea {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    border: none;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+.section {
+    padding: 110px 8%;
+}
+
+
+section {
+    scroll-margin-top: 85px;
+}
+
+
+/* =========================================================
+   03 — NAVBAR
+========================================================= */
+
+.navbar {
+
+    width: 100%;
+    height: 85px;
+
+    padding: 0 7%;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-bottom:
+        1px solid #ececee;
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        height 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.navbar.scrolled {
+
+    height: 72px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================================
+   NAVBAR LOGO
+========================================================= */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.logo img {
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.logo-text span {
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.logo-text small {
+
+    margin-top: 3px;
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 34px;
+
+    list-style: none;
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    width: 0;
+    height: 2px;
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    background:
+        var(--primary);
+
+    transition:
+        width 0.3s ease;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    color:
+        var(--primary);
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   NAV JOIN BUTTON
+========================================================= */
+
+.join-btn {
+
+    padding: 13px 24px;
+
+    color: white;
+
+    background:
+        var(--primary);
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.join-btn:hover {
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(176, 0, 69, 0.20);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn {
+
+    display: none;
+
+    color: var(--dark);
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+
+    width: 100%;
+
+    padding:
+        110px 7%
+        40px;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 900;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+.mobile-menu.open {
+
+    display: flex;
+}
+
+
+.mobile-menu a {
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+.mobile-menu a:hover {
+
+    color:
+        var(--primary);
+}
+
+
+.mobile-join {
+
+    color:
+        var(--primary);
+}
+
+
+/* =========================================================
+   04 — HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding:
+        150px 8%
+        90px;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr
+        0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(176, 0, 69, 0.10),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8f6f7
+        );
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.30;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    pointer-events: none;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.hero-small-title {
+
+    margin-bottom: 25px;
+
+    color:
+        var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.hero h1 {
+
+    max-width: 850px;
+
+    font-size:
+        clamp(
+            65px,
+            7.5vw,
+            115px
+        );
+
+    line-height: 0.88;
+
+    letter-spacing: -7px;
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--primary);
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    margin-top: 35px;
+
+    color:
+        var(--gray);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.hero-buttons {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+
+    padding:
+        15px 24px;
+
+    display:
+        inline-block;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.primary-btn {
+
+    color: white;
+
+    background:
+        var(--primary);
+}
+
+
+.primary-btn:hover {
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(176, 0, 69, 0.22);
+}
+
+
+.secondary-btn {
+
+    background: white;
+
+    border:
+        1px solid #d4d4d6;
+}
+
+
+.secondary-btn:hover {
+
+    color:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+    transform:
+        translateY(-3px);
+}
+
+/* =========================================================
+   HERO — TEASER BUTTON
+========================================================= */
+
+.teaser-btn {
+    position: relative;
+    overflow: hidden;
+
+    color: white;
+    background: var(--dark-deep);
+
+    border: 1px solid var(--primary);
+
+    box-shadow:
+        0 0 0 rgba(176, 0, 69, 0);
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.teaser-btn:hover {
+    color: white;
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(176, 0, 69, 0.30);
+}
+
+
+/* Small cinematic pulse */
+
+.teaser-btn::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    display: inline-block;
+
+    margin-right: 9px;
+
+    background: var(--primary-light);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px var(--primary-light);
+
+    animation:
+        teaserPulse 1.5s ease-in-out infinite;
+}
+
+
+.teaser-btn:hover::before {
+    background: white;
+
+    box-shadow:
+        0 0 12px white;
+}
+
+
+@keyframes teaserPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* PHONE */
+
+@media (max-width: 650px) {
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .teaser-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .teaser-btn:active {
+        transform: scale(0.97);
+    }
+
+}
+
+/* =========================================================
+   05 — HERO SMART CLUB ORBIT
+========================================================= */
+
+.hero-visual {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.brand-orbit {
+
+    width:
+        min(520px, 42vw);
+
+    aspect-ratio: 1;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.orbit {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.orbit-one {
+
+    width: 100%;
+    height: 100%;
+
+    border:
+        1px solid
+        rgba(176, 0, 69, 0.12);
+}
+
+
+.orbit-two {
+
+    width: 88%;
+    height: 88%;
+
+    border:
+        1px dashed
+        rgba(32, 33, 38, 0.15);
+}
+
+
+.orbit-three {
+
+    width: 72%;
+    height: 72%;
+
+    border:
+        1px solid
+        rgba(176, 0, 69, 0.28);
+
+    box-shadow:
+        0 0 45px
+        rgba(176, 0, 69, 0.08);
+}
+
+
+/* =========================================================
+   HERO CENTER
+========================================================= */
+
+.brand-center {
+
+    width: 63%;
+    height: 63%;
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 25px 70px
+        rgba(176, 0, 69, 0.15);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.brand-center img {
+
+    width: 52%;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.brand-center:hover img {
+
+    transform:
+        scale(1.05);
+}
+
+
+.brand-name {
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            18px,
+            2vw,
+            30px
+        );
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.brand-school {
+
+    margin-top: 10px;
+
+    color:
+        var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+}
+
+
+/* =========================================================
+   ROTATING NODES
+========================================================= */
+
+.node-orbit {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.node-orbit-one {
+
+    animation:
+        orbitRotation
+        10s
+        linear
+        infinite;
+}
+
+
+.node-orbit-two {
+
+    inset: 6%;
+
+    animation:
+        orbitRotationReverse
+        14s
+        linear
+        infinite;
+}
+
+
+.node-orbit-three {
+
+    inset: 14%;
+
+    animation:
+        orbitRotation
+        8s
+        linear
+        infinite;
+}
+
+
+.orbit-node {
+
+    width: 16px;
+    height: 16px;
+
+    position: absolute;
+
+    top: -8px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        var(--primary);
+
+    border:
+        5px solid white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 4px 15px
+        rgba(176, 0, 69, 0.30);
+}
+
+
+@keyframes orbitRotation {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes orbitRotationReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* =========================================================
+   06 — SECTION HEADINGS
+========================================================= */
+
+.section-heading {
+
+    margin-bottom: 65px;
+}
+
+
+.section-heading > p:first-child {
+
+    margin-bottom: 17px;
+
+    color:
+        var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(
+            43px,
+            5vw,
+            70px
+        );
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+
+.section-heading h2 span {
+
+    color:
+        var(--primary);
+}
+
+
+.section-description {
+
+    max-width: 650px;
+
+    margin-top: 25px;
+
+    color:
+        var(--gray) !important;
+
+    font-size:
+        17px !important;
+
+    font-weight:
+        400 !important;
+
+    line-height: 1.7;
+
+    letter-spacing:
+        0 !important;
+}
+
+
+/* =========================================================
+   07 — ABOUT
+========================================================= */
+
+.about {
+
+    background: white;
+}
+
+
+.about-container {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        0.8fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+
+.about-text h3 {
+
+    max-width: 650px;
+
+    margin-bottom: 25px;
+
+    font-size:
+        clamp(
+            28px,
+            3vw,
+            42px
+        );
+
+    line-height: 1.2;
+
+    letter-spacing: -1.5px;
+}
+
+
+.about-text p {
+
+    max-width: 650px;
+
+    margin-bottom: 18px;
+
+    color:
+        var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+.text-link {
+
+    margin-top: 15px;
+
+    display: inline-block;
+
+    color:
+        var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.text-link:hover {
+
+    transform:
+        translateX(6px);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border:
+        1px solid
+        var(--border);
+}
+
+
+.stat {
+
+    min-height: 160px;
+
+    padding:
+        30px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-right:
+        1px solid
+        var(--border);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.stat:last-child {
+
+    border-right: 0;
+}
+
+
+.stat:hover {
+
+    background: #fafafa;
+
+    transform:
+        translateY(-5px);
+}
+
+
+.stat h3 {
+
+    margin-bottom: 10px;
+
+    color:
+        var(--primary);
+
+    font-size: 35px;
+}
+
+
+.stat p {
+
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   08 — WHAT WE DO
+========================================================= */
+
+.activities {
+
+    background:
+        var(--light-gray);
+}
+
+
+/* =========================================================
+   FOUR FIELD CARDS
+========================================================= */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 26px;
+}
+
+
+.card {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 9px;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.field-card {
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+.field-card:hover,
+.field-card.selected {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0, 0, 0, 0.11);
+}
+
+
+.field-card:focus-visible {
+
+    outline:
+        3px solid
+        var(--primary);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   CARD IMAGES
+========================================================= */
+
+.card-image {
+
+    height: 230px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.card-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.55s ease,
+        filter 0.55s ease;
+}
+
+
+.field-card:hover
+.card-image img {
+
+    transform:
+        scale(1.07);
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.field-hover {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.72),
+            transparent 65%
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+.field-card:hover
+.field-hover,
+
+.field-card.selected
+.field-hover {
+
+    opacity: 1;
+}
+
+
+.field-hover span {
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.field-hover strong {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color:
+        #202126;
+
+    background: white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.field-card:hover
+.field-hover strong {
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+
+    min-height: 270px;
+
+    padding:
+        30px 34px
+        35px;
+}
+
+
+.card-content > span {
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.card-content h3 {
+
+    margin:
+        17px 0
+        20px;
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+
+.card-content p {
+
+    color:
+        var(--gray);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   09 — DIGITALIZATION CARD
+========================================================= */
+
+.digital-card
+.card-content > span {
+
+    color:
+        var(--digital);
+}
+
+
+.digital-card:hover,
+.digital-card.selected {
+
+    border-color:
+        var(--digital);
+}
+
+
+/* =========================================================
+   10 — ENGINEERING CARD
+========================================================= */
+
+.engineering-card
+.card-content > span {
+
+    color:
+        var(--engineering);
+}
+
+
+.engineering-card:hover,
+.engineering-card.selected {
+
+    border-color:
+        var(--engineering);
+}
+
+
+/* =========================================================
+   11 — AUTOMATION CARD
+========================================================= */
+
+.automation-card
+.card-content > span {
+
+    color:
+        var(--automation);
+}
+
+
+.automation-card:hover,
+.automation-card.selected {
+
+    border-color:
+        var(--automation);
+}
+
+
+/* =========================================================
+   12 — INNOVATION CARD
+========================================================= */
+
+.innovation-card
+.card-content > span {
+
+    color:
+        var(--innovation);
+}
+
+
+.innovation-card:hover,
+.innovation-card.selected {
+
+    border-color:
+        var(--innovation);
+}
+
+
+/* =========================================================
+   13 — SMART FIELD EXPLORER
+========================================================= */
+
+.field-explorer {
+
+    /*
+       JavaScript changes these two variables
+       automatically for each field.
+    */
+
+    --field-color:
+        var(--digital);
+
+    --field-dark:
+        #071722;
+
+
+    width: 100%;
+
+    max-height: 0;
+
+    margin-top: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            color-mix(
+                in srgb,
+                var(--field-color) 18%,
+                transparent
+            ),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--field-dark),
+            #111820
+        );
+
+    border-radius: 10px;
+
+    transform:
+        translateY(-15px);
+
+    transition:
+        max-height 0.8s ease,
+        opacity 0.5s ease,
+        transform 0.6s ease,
+        margin-top 0.6s ease,
+        background 0.5s ease;
+}
+
+
+/* =========================================================
+   OPEN EXPLORER
+========================================================= */
+
+.field-explorer.open {
+
+    max-height: 1500px;
+
+    margin-top: 45px;
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   EXPLORER TOP ACCENT
+========================================================= */
+
+.field-explorer::before {
+
+    content: "";
+
+    width: 100%;
+    height: 4px;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            var(--field-color),
+            transparent 80%
+        );
+}
+
+
+/* =========================================================
+   EXPLORER DECORATION
+========================================================= */
+
+.field-explorer::after {
+
+    content: "";
+
+    width: 350px;
+    height: 350px;
+
+    position: absolute;
+
+    right: -160px;
+    top: -160px;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--field-color) 25%,
+            transparent
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   EXPLORER GRID
+========================================================= */
+
+.explorer-inner {
+
+    padding:
+        70px 65px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+
+    gap: 75px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.explorer-close {
+
+    width: 46px;
+    height: 46px;
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.explorer-close:hover {
+
+    color:
+        var(--field-dark);
+
+    background:
+        var(--field-color);
+
+    border-color:
+        var(--field-color);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   14 — EXPLORER INFORMATION
+========================================================= */
+
+.explorer-information {
+
+    min-width: 0;
+}
+
+
+.explorer-number {
+
+    margin-bottom: 42px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.explorer-label {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--field-color);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.explorer-information h3 {
+
+    max-width: 600px;
+
+    margin-bottom: 30px;
+
+    color: white;
+
+    font-size:
+        clamp(
+            42px,
+            4.5vw,
+            65px
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+
+.explorer-information
+h3 span {
+
+    color:
+        var(--field-color);
+}
+
+
+.explorer-description {
+
+    max-width: 580px;
+
+    margin-bottom: 17px;
+
+    color:
+        #aab8c0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   15 — BEFORE / AFTER
+========================================================= */
+
+.explorer-example {
+
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+}
+
+
+.explorer-example > p {
+
+    margin-bottom: 18px;
+
+    color:
+        #72838d;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.transformation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.transformation-box {
+
+    flex: 1;
+
+    min-height: 105px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.transformation-box > span {
+
+    margin-bottom: 10px;
+
+    color:
+        #73858f;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.transformation-box strong {
+
+    color: white;
+
+    font-size: 16px;
+}
+
+
+.transformation-box small {
+
+    margin-top: 7px;
+
+    color:
+        #82949d;
+
+    font-size: 11px;
+}
+
+
+.transformation-arrow {
+
+    color:
+        var(--field-color);
+
+    font-size: 26px;
+}
+
+
+.after-box {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--field-color) 9%,
+            transparent
+        );
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--field-color) 35%,
+            transparent
+        );
+}
+
+
+.after-box > span {
+
+    color:
+        var(--field-color);
+}
+
+
+/* =========================================================
+   16 — TOPIC TAGS
+========================================================= */
+
+.explorer-topics {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.explorer-topics span {
+
+    padding:
+        9px 12px;
+
+    color:
+        var(--field-color);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--field-color) 8%,
+            transparent
+        );
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--field-color) 25%,
+            transparent
+        );
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.explorer-topics span:hover {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--field-color) 15%,
+            transparent
+        );
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   17 — VIDEO CONTAINER
+   WORKS FOR ALL 4 FIELDS
+========================================================= */
+
+.explorer-media {
+
+    min-width: 0;
+
+    align-self: center;
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 35px 90px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   VIDEO HEADER
+========================================================= */
+
+.video-header {
+
+    min-height: 90px;
+
+    padding:
+        22px 26px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: white;
+}
+
+
+.video-small {
+
+    color:
+        var(--field-color);
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.video-header h4 {
+
+    margin-top: 8px;
+
+    color:
+        #202126;
+
+    font-size: 19px;
+}
+
+
+.video-number {
+
+    color:
+        #e2e3e5;
+
+    font-size: 38px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   LOCAL MP4 VIDEO
+
+   THIS WORKS FOR:
+   - digita.mp4
+   - engineering.mp4
+   - automation.mp4
+   - innovation.mp4
+========================================================= */
+
+.video-wrapper {
+
+    width: 100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        #000;
+}
+
+
+.video-wrapper video {
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: #000;
+
+    border: none;
+
+    outline: none;
+}
+
+
+/* FULLSCREEN VIDEO */
+
+.video-wrapper video:fullscreen {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: black;
+}
+
+
+/* =========================================================
+   VIDEO COMING SOON
+========================================================= */
+
+.video-coming-soon {
+
+    min-height: 350px;
+
+    padding: 40px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            color-mix(
+                in srgb,
+                var(--field-color) 12%,
+                transparent
+            ),
+            transparent 60%
+        ),
+
+        linear-gradient(
+            135deg,
+            #101216,
+            #25282e
+        );
+}
+
+
+.video-coming-soon span {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--field-color);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.video-coming-soon strong {
+
+    color: white;
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+
+.video-coming-soon p {
+
+    max-width: 350px;
+
+    margin-top: 15px;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   VIDEO FOOTER
+========================================================= */
+
+.video-footer {
+
+    padding:
+        17px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #929292;
+
+    background: white;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.video-footer span:last-child {
+
+    color:
+        var(--field-color);
+}
+
+
+/* =========================================================
+   PROJECTS — SMART CLUB LAB
+========================================================= */
+
+.projects-section {
+    padding: 130px 8%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(176, 0, 69, 0.18),
+            transparent 30%
+        ),
+        #0d1015;
+}
+
+
+/* GRID BACKGROUND */
+
+.projects-bg-grid {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.18;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.05) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+
+/* ================= HEADER ================= */
+
+.projects-header {
+    max-width: 800px;
+
+    margin-bottom: 70px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.projects-label {
+    margin-bottom: 20px;
+
+    color: #d10a59;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.projects-header h2 {
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: .92;
+
+    letter-spacing: -5px;
+}
+
+
+.projects-header h2 span {
+    color: #d10a59;
+}
+
+
+.projects-intro {
+    max-width: 580px;
+
+    margin-top: 30px;
+
+    color: #92949a;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.project-terminal {
+    max-width: 1250px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+
+    overflow: hidden;
+
+    border: 1px solid #34363c;
+
+    background: #13161c;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.45);
+}
+
+
+/* ================= TOP ================= */
+
+.terminal-top {
+    min-height: 65px;
+
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #34363c;
+
+    background: #181b21;
+}
+
+
+.terminal-id,
+.terminal-status {
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.terminal-id {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #aaa;
+}
+
+
+.terminal-status {
+    color: #d10a59;
+}
+
+
+/* LIVE DOT */
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #d10a59;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px
+        #d10a59;
+
+    animation:
+        projectPulse
+        1.4s infinite;
+}
+
+
+/* =========================================================
+   SYSTEM
+========================================================= */
+
+.project-system {
+    min-height: 600px;
+
+    display: grid;
+
+    grid-template-columns:
+        .9fr 1.1fr;
+}
+
+
+/* =========================================================
+   MACHINE
+========================================================= */
+
+.project-machine {
+    min-height: 600px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-right: 1px solid #34363c;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(176,0,69,.18),
+            transparent 55%
+        );
+}
+
+
+/* ================= BRAIN ================= */
+
+.brain-core {
+    width: 190px;
+    height: 190px;
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #171a20;
+
+    border:
+        1px solid
+        rgba(209,10,89,.6);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 60px
+        rgba(176,0,69,.2);
+}
+
+
+.brain-icon {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 85px;
+
+    filter: grayscale(1);
+
+    animation:
+        brainFloat
+        3s ease-in-out infinite;
+}
+
+
+.brain-glow {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+
+    background:
+        rgba(209,10,89,.35);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    animation:
+        brainPulse
+        2s infinite;
+}
+/* =========================================================
+   CLICKABLE BRAIN
+========================================================= */
+
+.brain-link {
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* HOVER */
+
+.brain-link:hover {
+    transform: scale(1.08);
+
+    border-color: #d10a59;
+
+    box-shadow:
+        0 0 30px rgba(209, 10, 89, 0.35),
+        0 0 80px rgba(176, 0, 69, 0.25);
+}
+
+
+/* BRAIN REACTION */
+
+.brain-link:hover .brain-icon {
+    transform: scale(1.12);
+}
+
+
+/* STRONGER GLOW */
+
+.brain-link:hover .brain-glow {
+    opacity: 1;
+
+    transform: scale(1.4);
+}
+
+
+/* SMALL TEXT UNDER BRAIN */
+
+.brain-click-text {
+    position: absolute;
+
+    bottom: -45px;
+    left: 50%;
+
+    transform: translateX(-50%)
+               translateY(8px);
+
+    width: max-content;
+
+    color: #d10a59;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    opacity: 0;
+
+    transition: 0.35s;
+}
+
+
+.brain-link:hover .brain-click-text {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* CLICK EFFECT */
+
+.brain-link:active {
+    transform: scale(0.96);
+}
+
+/* =========================================================
+   BRAIN — MOBILE TAP FIX
+========================================================= */
+
+.brain-link {
+    /* Remove blue mobile tap rectangle */
+    -webkit-tap-highlight-color: transparent;
+
+    /* Prevent accidental text selection */
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* Cleaner touch interaction */
+    touch-action: manipulation;
+
+    outline: none;
+}
+
+
+/* Keyboard accessibility */
+.brain-link:focus {
+    outline: none;
+}
+
+.brain-link:focus-visible {
+    outline: 2px solid #d10a59;
+    outline-offset: 8px;
+}
+
+
+/* Smooth phone tap animation */
+.brain-link:active {
+    transform: scale(0.92);
+
+    box-shadow:
+        0 0 35px rgba(209, 10, 89, 0.5),
+        0 0 90px rgba(176, 0, 69, 0.3);
+
+    transition: transform 0.12s ease;
+}
+
+
+/* Prevent the emoji/image itself being selected */
+.brain-icon {
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .brain-link {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .brain-link:active {
+        transform: scale(0.93);
+    }
+
+    /* Don't rely on hover text on phones */
+    .brain-click-text {
+        opacity: 0.7;
+
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =========================================================
+   GEARS
+========================================================= */
+
+.gear {
+    position: absolute;
+
+    color: #d10a59;
+
+    line-height: 1;
+
+    user-select: none;
+}
+
+
+.gear-large {
+    right: 17%;
+    bottom: 22%;
+
+    font-size: 100px;
+
+    opacity: .8;
+
+    animation:
+        gearRotate
+        8s linear infinite;
+}
+
+
+.gear-small {
+    right: 11%;
+    bottom: 38%;
+
+    color: #777;
+
+    font-size: 55px;
+
+    animation:
+        gearRotateReverse
+        5s linear infinite;
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.machine-orbit {
+    position: absolute;
+
+    border-radius: 50%;
+}
+
+
+.orbit-one {
+    width: 280px;
+    height: 280px;
+
+    border:
+        1px solid
+        rgba(209,10,89,.35);
+
+    animation:
+        orbitRotate
+        12s linear infinite;
+}
+
+
+.orbit-two {
+    width: 390px;
+    height: 390px;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.12);
+
+    animation:
+        orbitRotateReverse
+        18s linear infinite;
+}
+
+
+.orbit-three {
+    width: 500px;
+    height: 500px;
+
+    border:
+        1px solid
+        rgba(209,10,89,.08);
+}
+
+
+/* =========================================================
+   DATA NODES
+========================================================= */
+
+.data-node {
+    width: 9px;
+    height: 9px;
+
+    position: absolute;
+
+    z-index: 6;
+
+    background: #d10a59;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px
+        #d10a59;
+
+    animation:
+        nodePulse
+        2s infinite;
+}
+
+
+.node-1 {
+    top: 22%;
+    left: 30%;
+}
+
+
+.node-2 {
+    top: 34%;
+    right: 21%;
+}
+
+
+.node-3 {
+    bottom: 24%;
+    left: 25%;
+}
+
+
+.node-4 {
+    bottom: 18%;
+    right: 31%;
+}
+
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+.project-console {
+    padding: 70px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.console-label {
+    margin-bottom: 20px;
+
+    color: #d10a59;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.project-console h3 {
+    margin-bottom: 25px;
+
+    color: white;
+
+    font-size:
+        clamp(40px,4vw,62px);
+
+    line-height: .95;
+
+    letter-spacing: -3px;
+}
+
+
+.project-console h3 span {
+    display: block;
+
+    color: #d10a59;
+}
+
+
+.project-description {
+    max-width: 550px;
+
+    color: #92949a;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TERMINAL TEXT
+========================================================= */
+
+.terminal-lines {
+    margin-top: 35px;
+
+    padding: 25px;
+
+    background: #0c0e12;
+
+    border-left:
+        2px solid
+        #b00045;
+}
+
+
+.terminal-lines p {
+    margin: 8px 0;
+
+    color: #777b83;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+}
+
+
+.terminal-lines p span {
+    margin-right: 8px;
+
+    color: #d10a59;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.project-progress {
+    margin-top: 40px;
+}
+
+
+.progress-info {
+    margin-bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.progress-info span {
+    color: #888b92;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.progress-info strong {
+    color: #d10a59;
+
+    font-size: 18px;
+}
+
+
+/* TRACK */
+
+.progress-track {
+    width: 100%;
+    height: 15px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #272a31;
+
+    border: 1px solid #383b42;
+}
+
+
+/* FILL */
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7d0031,
+            #b00045,
+            #d10a59
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(209,10,89,.45);
+
+    transition:
+        width 3.5s
+        cubic-bezier(.2,.7,.2,1);
+}
+
+
+/* MOVING LIGHT */
+
+.progress-fill::after {
+    content: "";
+
+    width: 80px;
+    height: 100%;
+
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.5)
+        );
+
+    animation:
+        progressGlow
+        1.5s infinite;
+}
+
+
+/* SCANNER */
+
+.progress-scanner {
+    width: 3px;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    background: white;
+
+    opacity: .8;
+
+    animation:
+        scannerMove
+        3s linear infinite;
+}
+
+
+/* BOTTOM INFO */
+
+.progress-bottom {
+    margin-top: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #5f6269;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   LOADING DOTS
+========================================================= */
+
+.loading-text {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.loading-text i {
+    width: 4px;
+    height: 4px;
+
+    display: block;
+
+    background: #d10a59;
+
+    border-radius: 50%;
+
+    animation:
+        loadingDot
+        1.3s infinite;
+}
+
+
+.loading-text i:nth-child(2) {
+    animation-delay: .2s;
+}
+
+
+.loading-text i:nth-child(3) {
+    animation-delay: .4s;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.project-footer {
+    min-height: 65px;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid #34363c;
+
+    background: #181b21;
+
+    color: #696c73;
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.project-footer .classified {
+    color: #d10a59;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes gearRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes gearRotateReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+
+@keyframes orbitRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes orbitRotateReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+
+}
+
+
+@keyframes brainFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+@keyframes brainPulse {
+
+    0%,
+    100% {
+        opacity: .4;
+
+        transform: scale(.9);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes projectPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .25;
+    }
+
+}
+
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.6);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes loadingDot {
+
+    0%,
+    100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes scannerMove {
+
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+
+}
+
+
+@keyframes progressGlow {
+
+    0% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .2;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .project-system {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-machine {
+        min-height: 500px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid #34363c;
+    }
+
+
+    .project-console {
+        padding: 50px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .projects-section {
+        padding: 90px 6%;
+    }
+
+
+    .projects-header h2 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .project-machine {
+        min-height: 400px;
+    }
+
+
+    .brain-core {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .brain-icon {
+        font-size: 65px;
+    }
+
+
+    .orbit-one {
+        width: 220px;
+        height: 220px;
+    }
+
+
+    .orbit-two {
+        width: 300px;
+        height: 300px;
+    }
+
+
+    .orbit-three {
+        width: 370px;
+        height: 370px;
+    }
+
+
+    .gear-large {
+        font-size: 75px;
+    }
+
+
+    .gear-small {
+        font-size: 45px;
+    }
+
+
+    .project-console {
+        padding: 40px 25px;
+    }
+
+
+    .project-footer {
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================================================
+   19 — EVENTS
+========================================================= */
+
+.events {
+
+    background:
+        var(--light-gray);
+}
+
+
+.event-container {
+
+    min-height: 320px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.35fr
+        1fr;
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 8px;
+}
+
+
+.event-date {
+
+    padding: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+}
+
+
+.event-date span {
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.event-date strong {
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            70px
+        );
+
+    line-height: 0.9;
+}
+
+
+.event-info {
+
+    padding: 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.event-info > p:first-child {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.event-info h3 {
+
+    margin-bottom: 20px;
+
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            48px
+        );
+
+    letter-spacing: -2px;
+}
+
+
+.event-info > p:last-child {
+
+    max-width: 700px;
+
+    color:
+        var(--gray);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   20 — JOIN SMART CLUB
+========================================================= */
+
+.join {
+
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: white;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            125deg,
+            #78002f,
+            #b00045,
+            #d10a59
+        );
+}
+
+
+.join::before {
+
+    content: "";
+
+    width: 500px;
+    height: 500px;
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 50%;
+}
+
+
+.join::after {
+
+    content: "";
+
+    width: 650px;
+    height: 650px;
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+}
+
+
+.join > * {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.join-label {
+
+    margin-bottom: 25px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+.join h2 {
+
+    font-size:
+        clamp(
+            55px,
+            7vw,
+            100px
+        );
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+}
+
+
+.join h2 span {
+
+    color:
+        #202126;
+}
+
+
+.join-description {
+
+    max-width: 680px;
+
+    margin-top: 30px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+.join-buttons {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.join-main-btn,
+.join-outline-btn {
+
+    padding:
+        15px 25px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.join-main-btn {
+
+    color:
+        var(--primary);
+
+    background: white;
+}
+
+
+.join-main-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+.join-outline-btn {
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.50);
+}
+
+
+.join-outline-btn:hover {
+
+    color:
+        var(--primary);
+
+    background: white;
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =========================================================
+   21 — FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        70px 8%
+        30px;
+
+    color: #b5b5b5;
+
+    background:
+        #17191e;
+}
+
+
+.footer-container {
+
+    padding-bottom: 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr
+        1fr
+        1fr;
+
+    gap: 70px;
+}
+
+
+/* FOOTER BRAND */
+
+.footer-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.footer-brand img {
+
+    width: 75px;
+}
+
+
+.footer-brand h3 {
+
+    margin-bottom: 6px;
+
+    color: white;
+
+    letter-spacing: 3px;
+}
+
+
+.footer-brand p {
+
+    color:
+        var(--primary-light);
+}
+
+
+/* FOOTER SCHOOL */
+
+.footer-school > p,
+.footer-social > p {
+
+    margin-bottom: 12px;
+
+    color:
+        var(--primary-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.footer-school h3 {
+
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 27px;
+}
+
+
+.footer-school span {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.social-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.social-links a {
+
+    width: fit-content;
+
+    color: white;
+
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.social-links a:hover {
+
+    color:
+        var(--primary-light);
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+
+    padding-top: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color:
+        #85868b;
+
+    border-top:
+        1px solid
+        #34363c;
+
+    font-size: 12px;
+}
+
+
+.footer-bottom span {
+
+    color:
+        var(--primary-light);
+}
+
+
+/* =========================================================
+   22 — TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cards {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .card-content {
+
+        min-height: 230px;
+    }
+
+
+    .explorer-inner {
+
+        padding:
+            70px 40px
+            45px;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 50px;
+    }
+
+
+    .explorer-media {
+
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   23 — SMALL TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links,
+    .navbar > .join-btn {
+
+        display: none;
+    }
+
+
+    .menu-btn {
+
+        display: block;
+    }
+
+
+    .hero {
+
+        min-height: auto;
+
+        padding-top: 140px;
+
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+    }
+
+
+    .hero-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-visual {
+
+        margin-top: 30px;
+    }
+
+
+    .brand-orbit {
+
+        width:
+            min(520px, 75vw);
+    }
+
+
+    .about-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 50px;
+    }
+
+
+    .event-container {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .event-date {
+
+        min-height: 200px;
+    }
+
+
+    .footer-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+    }
+
+}
+
+
+/* =========================================================
+   24 — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .section {
+
+        padding:
+            80px 6%;
+    }
+
+
+    section {
+
+        scroll-margin-top:
+            70px;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+
+        height: 75px;
+
+        padding:
+            0 5%;
+    }
+
+
+    .navbar.scrolled {
+
+        height: 68px;
+    }
+
+
+    .logo img {
+
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .logo-text span {
+
+        font-size: 13px;
+    }
+
+
+    .logo-text small {
+
+        font-size: 8px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+
+        padding:
+            125px 6%
+            75px;
+    }
+
+
+    .hero-small-title {
+
+        line-height: 1.7;
+    }
+
+
+    .hero h1 {
+
+        font-size: 58px;
+
+        line-height: 0.92;
+
+        letter-spacing: -4px;
+    }
+
+
+    .hero-description {
+
+        font-size: 15px;
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+
+    .brand-orbit {
+
+        width: 90vw;
+    }
+
+
+    .brand-name {
+
+        font-size: 18px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .brand-school {
+
+        letter-spacing: 5px;
+    }
+
+
+    /* HEADINGS */
+
+    .section-heading {
+
+        margin-bottom: 45px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 43px;
+
+        letter-spacing: -2px;
+    }
+
+
+    /* ABOUT */
+
+    .stats {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .stat {
+
+        min-height: 120px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid
+            var(--border);
+    }
+
+
+    .stat:last-child {
+
+        border-bottom: 0;
+    }
+
+
+    /* FIELD CARDS */
+
+    .cards {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 20px;
+    }
+
+
+    .card-image {
+
+        height: 240px;
+    }
+
+
+    .card-content {
+
+        min-height: auto;
+
+        padding: 28px;
+    }
+
+
+    /* EXPLORER */
+
+    .field-explorer.open {
+
+        margin-top: 25px;
+
+        max-height: 2000px;
+    }
+
+
+    .explorer-inner {
+
+        padding:
+            70px 20px
+            30px;
+
+        gap: 40px;
+    }
+
+
+    .explorer-close {
+
+        width: 42px;
+        height: 42px;
+
+        top: 15px;
+        right: 15px;
+    }
+
+
+    .explorer-number {
+
+        margin-bottom: 30px;
+    }
+
+
+    .explorer-information h3 {
+
+        font-size: 39px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .explorer-description {
+
+        font-size: 14px;
+    }
+
+
+    /* BEFORE AFTER */
+
+    .transformation {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .transformation-arrow {
+
+        text-align: center;
+
+        transform:
+            rotate(90deg);
+    }
+
+
+    /* VIDEO */
+
+    .video-header {
+
+        padding: 18px;
+    }
+
+
+    .video-header h4 {
+
+        font-size: 16px;
+    }
+
+
+    .video-number {
+
+        font-size: 30px;
+    }
+
+
+    .video-wrapper {
+
+        aspect-ratio:
+            16 / 9;
+    }
+
+
+    .video-coming-soon {
+
+        min-height: 270px;
+    }
+
+
+    .video-footer {
+
+        padding:
+            15px 18px;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    /* PROJECT */
+
+    .project-placeholder {
+
+        min-height: 350px;
+
+        padding:
+            35px 20px;
+    }
+
+
+    /* EVENTS */
+
+    .event-date {
+
+        padding:
+            35px 20px;
+    }
+
+
+    .event-info {
+
+        padding:
+            40px 25px;
+    }
+
+
+    /* JOIN */
+
+    .join {
+
+        min-height: 600px;
+    }
+
+
+    .join h2 {
+
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .join-description {
+
+        font-size: 15px;
+    }
+
+
+    .join-buttons {
+
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .join-main-btn,
+    .join-outline-btn {
+
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+
+        padding:
+            60px 6%
+            25px;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   25 — VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+
+        font-size: 48px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 38px;
+    }
+
+
+    .brand-orbit {
+
+        width: 94vw;
+    }
+
+
+    .brand-center {
+
+        width: 66%;
+        height: 66%;
+    }
+
+
+    .brand-center img {
+
+        width: 55%;
+    }
+
+
+    .explorer-information h3 {
+
+        font-size: 34px;
+    }
+
+
+    .join h2 {
+
+        font-size: 47px;
+    }
+
+}
+
+
+/* =========================================================
+   SMART CLUB — ENSEM
+   DIGITAL MINDS. REAL IMPACT.
+========================================================= */
+/* =========================================================
+   SMART CLUB
+   LANGUAGE SWITCH
+========================================================= */
+
+.language-switch{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-switch button{
+    background: transparent;
+    border: none;
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+    padding: 4px 6px;
+}
+
+.language-switch button:hover{
+    color: #d1005d;
+}
+
+.language-switch button.active{
+    color: #d1005d;
+}
+
+.language-switch span{
+    color: rgba(255,255,255,.35);
+    user-select: none;
+}
+.i18n-plain {
+    color: inherit !important;
+}
