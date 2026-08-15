@@ -270,19 +270,18 @@ if (loginForm) {
 
                 if (error) {
 
-                    console.error(
-                        "Login error:",
-                        error
-                    );
+    console.error(
+        "Login error:",
+        error
+    );
 
-                    showLoginMessage(
-                        "ACCESS DENIED — Invalid email or password.",
-                        true
-                    );
+    showLoginMessage(
+        "ACCESS DENIED — " + error.message,
+        true
+    );
 
-                    return;
-
-                }
+    return;
+}
 
 
                 if (!data.user) {
