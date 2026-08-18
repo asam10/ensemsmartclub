@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Club — Project Member Card</title>
+
+    <link
+        rel="stylesheet"
+        href="project.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MAIN 9:16 SCENE
+========================================================= -->
+
+<main
+    class="scene"
+    id="scene"
+>
+
+
+    <!-- Background atmosphere -->
+
+    <div class="scene-light scene-light-left"></div>
+    <div class="scene-light scene-light-right"></div>
+    <div class="scene-light scene-light-center"></div>
+
+    <div class="background-grid"></div>
+
+    <div class="scene-orbit scene-orbit-large"></div>
+    <div class="scene-orbit scene-orbit-small"></div>
+
+    <div class="background-energy-ring ring-one"></div>
+    <div class="background-energy-ring ring-two"></div>
+
+
+    <!-- Particles generated with JS -->
+
+    <div
+        class="particles"
+        id="particles"
+    ></div>
+
+
+
+    <!-- =====================================================
+         CARD STAGE
+    ====================================================== -->
+
+    <section
+        class="card-stage project-card-stage"
+        id="cardStage"
+    >
+
+
+        <!-- Atmosphere behind the card -->
+
+        <div class="stage-aura"></div>
+
+        <div class="card-shadow"></div>
+
+
+
+        <!-- =================================================
+             CARD WRAPPER
+        ================================================== -->
+
+        <article
+            class="card-wrapper"
+            id="card"
+        >
+
+
+            <!-- =================================================
+                 CARD BACK
+            ================================================== -->
+
+            <!-- =================================================
+     CARD BACK — SAME AS MEDIA
+================================================== -->
+
+<div class="card-side card-back">
+
+
+    <div class="back-shell"></div>
+
+    <div class="back-metal-frame"></div>
+
+    <div class="back-inner-frame"></div>
+
+    <div class="back-hologram"></div>
+
+
+    <!-- BACK STRUCTURE -->
+
+    <div class="back-top-plate"></div>
+
+    <div class="back-bottom-plate"></div>
+
+    <div class="back-side-plate back-side-left"></div>
+
+    <div class="back-side-plate back-side-right"></div>
+
+
+    <!-- CIRCUITS -->
+
+    <div class="circuit circuit-top-left"></div>
+
+    <div class="circuit circuit-top-right"></div>
+
+    <div class="circuit circuit-bottom-left"></div>
+
+    <div class="circuit circuit-bottom-right"></div>
+
+
+    <!-- ENERGY CORNERS -->
+
+    <div class="energy-corner back-corner-1"></div>
+
+    <div class="energy-corner back-corner-2"></div>
+
+    <div class="energy-corner back-corner-3"></div>
+
+    <div class="energy-corner back-corner-4"></div>
+
+
+    <!-- =================================================
+         SMART CLUB CORE
+    ================================================== -->
+
+    <div class="back-core">
+
+
+        <div class="core-orbit orbit-large">
+
+            <span class="orbit-marker marker-a"></span>
+
+            <span class="orbit-marker marker-b"></span>
+
+        </div>
+
+
+        <div class="core-orbit orbit-medium">
+
+            <span class="orbit-marker marker-c"></span>
+
+        </div>
+
+
+        <div class="core-orbit orbit-small"></div>
+
+
+        <!-- SMART BRAIN -->
+
+        <div class="brain-emblem">
+
+
+            <div class="brain-emblem-ring"></div>
+
+
+            <svg
+                class="brain-icon"
+                viewBox="0 0 120 120"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+
+
+                <path
+                    class="brain-path brain-left"
+                    d="
+                        M55 24
+                        C44 15 29 20 27 33
+                        C17 36 15 50 22 57
+                        C15 68 21 80 31 82
+                        C31 96 44 103 55 95
+                        Z
+                    "
+                />
+
+
+                <path
+                    class="brain-path brain-right"
+                    d="
+                        M65 24
+                        C76 15 91 20 93 33
+                        C103 36 105 50 98 57
+                        C105 68 99 80 89 82
+                        C89 96 76 103 65 95
+                        Z
+                    "
+                />
+
+
+                <path
+                    class="brain-center"
+                    d="
+                        M60 25
+                        V96
+                    "
+                />
+
+
+                <path
+                    class="brain-neural"
+                    d="
+                        M36 39
+                        C45 42 47 48 44 57
+                        C40 67 47 74 53 77
+                    "
+                />
+
+
+                <path
+                    class="brain-neural"
+                    d="
+                        M84 39
+                        C75 42 73 48 76 57
+                        C80 67 73 74 67 77
+                    "
+                />
+
+
+                <circle
+                    class="brain-node-dot"
+                    cx="37"
+                    cy="39"
+                    r="3"
+                />
+
+
+                <circle
+                    class="brain-node-dot"
+                    cx="83"
+                    cy="39"
+                    r="3"
+                />
+
+
+                <circle
+                    class="brain-node-dot"
+                    cx="48"
+                    cy="76"
+                    r="3"
+                />
+
+
+                <circle
+                    class="brain-node-dot"
+                    cx="72"
+                    cy="76"
+                    r="3"
+                />
+
+
+            </svg>
+
+
+        </div>
+
+
+        <div class="core-pulse"></div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         SMART CLUB BACK IDENTITY
+    ================================================== -->
+
+    <div class="back-brand">
+
+
+        <span class="brand-line"></span>
+
+
+        <div class="brand-symbol">
+
+
+            <svg
+                viewBox="0 0 40 40"
+                aria-hidden="true"
+            >
+
+                <circle
+                    cx="20"
+                    cy="20"
+                    r="14"
+                />
+
+
+                <path
+                    d="
+                        M12 20
+                        L17 25
+                        L28 14
+                    "
+                />
+
+            </svg>
+
+
+        </div>
+
+
+        <span class="brand-name">
+            SMART CLUB
+        </span>
+
+
+        <span class="brand-line"></span>
+
+
+    </div>
+
+
+    <div class="back-light-runner"></div>
+
+
+</div>
+
+
+
+            <!-- =================================================
+                 CARD FRONT
+            ================================================== -->
+
+            <div class="card-side card-front project-card-front">
+
+
+                <!-- Card base -->
+
+                <div class="front-shell"></div>
+
+                <div class="front-light-layer"></div>
+
+                <div class="front-holographic-layer"></div>
+
+                <div class="front-grid"></div>
+
+                <div class="card-noise"></div>
+
+
+
+                <!-- =================================================
+                     PREMIUM FRAME
+                ================================================== -->
+
+                <div class="premium-frame">
+
+
+                    <div class="frame-top"></div>
+
+                    <div class="frame-bottom"></div>
+
+                    <div class="frame-left"></div>
+
+                    <div class="frame-right"></div>
+
+
+                    <div class="inner-premium-frame"></div>
+
+
+
+                    <!-- Top armor -->
+
+                    <div class="top-armor">
+
+                        <span class="top-armor-left"></span>
+
+                        <span class="top-armor-center"></span>
+
+                        <span class="top-armor-right"></span>
+
+                    </div>
+
+
+
+                    <!-- Side rails -->
+
+                    <div class="light-rail light-rail-left">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="light-rail light-rail-right">
+
+                        <span></span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PROJECT HEADER
+                ================================================== -->
+
+                <div class="project-header">
+
+
+                    <!-- left wing -->
+
+                    <div class="header-wing header-wing-left">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PROJECT EMBLEM
+                         Circuit Hexagon + Innovation Node
+                    ================================================== -->
+
+                    <div class="project-emblem">
+
+
+                        <div class="emblem-glow"></div>
+
+                        <div class="emblem-ring emblem-ring-one"></div>
+
+                        <div class="emblem-ring emblem-ring-two"></div>
+
+
+
+                        <div class="project-symbol-container">
+
+
+                            <svg
+                                class="project-symbol"
+                                viewBox="0 0 100 100"
+                                aria-hidden="true"
+                            >
+
+
+                                <!-- Outer hexagon -->
+
+                                <path
+                                    class="project-hexagon"
+                                    d="
+                                        M50 12
+                                        L81 30
+                                        L81 67
+                                        L50 85
+                                        L19 67
+                                        L19 30
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- Internal circuit -->
+
+                                <path
+                                    class="project-circuit"
+                                    d="
+                                        M33 42
+                                        H47
+                                        V31
+                                        H61
+                                    "
+                                />
+
+
+                                <path
+                                    class="project-circuit"
+                                    d="
+                                        M67 57
+                                        H53
+                                        V69
+                                        H39
+                                    "
+                                />
+
+
+                                <!-- Center node -->
+
+                                <circle
+                                    class="project-core"
+                                    cx="50"
+                                    cy="50"
+                                    r="11"
+                                />
+
+
+                                <circle
+                                    class="project-core-dot"
+                                    cx="50"
+                                    cy="50"
+                                    r="4"
+                                />
+
+
+                                <!-- Circuit terminals -->
+
+                                <circle
+                                    class="project-terminal"
+                                    cx="31"
+                                    cy="42"
+                                    r="3"
+                                />
+
+                                <circle
+                                    class="project-terminal"
+                                    cx="63"
+                                    cy="31"
+                                    r="3"
+                                />
+
+                                <circle
+                                    class="project-terminal"
+                                    cx="69"
+                                    cy="57"
+                                    r="3"
+                                />
+
+                                <circle
+                                    class="project-terminal"
+                                    cx="37"
+                                    cy="69"
+                                    r="3"
+                                />
+
+
+                            </svg>
+
+
+
+                            <!-- Small scan / energy line -->
+
+                            <div class="project-emblem-scan"></div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- right wing -->
+
+                    <div class="header-wing header-wing-right">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PROJECT TITLE
+                ================================================== -->
+
+                <div class="project-title">
+
+                    <span class="title-line"></span>
+
+                    <span class="title-dot"></span>
+
+                    <span class="title-text">
+                        PROJECT
+                    </span>
+
+                    <span class="title-dot"></span>
+
+                    <span class="title-line title-line-right"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PROJECT HALO
+                ================================================== -->
+
+                <div class="project-halo">
+
+
+                    <div class="leadership-halo-ring halo-ring-outer"></div>
+
+                    <div class="leadership-halo-ring halo-ring-inner"></div>
+
+
+                    <span class="halo-marker halo-marker-1"></span>
+
+                    <span class="halo-marker halo-marker-2"></span>
+
+                    <span class="halo-marker halo-marker-3"></span>
+
+                    <span class="halo-marker halo-marker-4"></span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTRAIT ENERGY
+                ================================================== -->
+
+                <div class="portrait-energy">
+
+
+                    <div class="portrait-ring portrait-ring-one"></div>
+
+                    <div class="portrait-ring portrait-ring-two"></div>
+
+
+                    <div class="portrait-rays">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="portrait-core-light"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SIDE NODE — IDEA
+                ================================================== -->
+
+                <div class="brain-node brain-node-left">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon project-idea-icon"
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <!-- Bulb / idea -->
+
+                            <path
+                                d="
+                                    M32 10
+                                    C20 10 14 19 14 29
+                                    C14 36 18 41 23 45
+                                    V50
+                                    H41
+                                    V45
+                                    C46 41 50 36 50 29
+                                    C50 19 44 10 32 10
+                                    Z
+                                "
+                            />
+
+                            <path
+                                d="M24 55 H40"
+                            />
+
+                            <path
+                                d="M27 60 H37"
+                            />
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SIDE NODE — CODE / BUILD
+                ================================================== -->
+
+                <div class="brain-node brain-node-right">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon project-code-icon"
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="
+                                    M24 18
+                                    L12 32
+                                    L24 46
+                                "
+                            />
+
+                            <path
+                                d="
+                                    M40 18
+                                    L52 32
+                                    L40 46
+                                "
+                            />
+
+                            <path
+                                d="
+                                    M36 14
+                                    L28 50
+                                "
+                            />
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTRAIT FRAME
+                ================================================== -->
+
+                <div
+                    class="portrait-frame"
+                >
+
+
+                    <div class="portrait-top-frame"></div>
+
+                    <div class="portrait-side-accent accent-left"></div>
+
+                    <div class="portrait-side-accent accent-right"></div>
+
+
+                    <div class="portrait-backlight"></div>
+
+
+
+                    <!-- =================================================
+                         MEMBER PHOTO
+
+                         CHANGE ONLY THE SRC
+                    ================================================== -->
+
+                    <div class="member-image-container">
+
+
+                        <img
+                            id="memberImage"
+                            class="member-image"
+                            src="project2.png"
+                            alt="Smart Club Design Project member"
+                        >
+
+
+                    </div>
+
+
+                    <div class="portrait-front-glow"></div>
+
+                    <div class="portrait-vignette"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SIDE ORNAMENTS
+                ================================================== -->
+
+                <div class="leadership-ornament ornament-left">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="leadership-ornament ornament-right">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     IDENTITY
+                ================================================== -->
+
+                <div class="identity">
+
+
+                    <div class="identity-decoration">
+
+                        <span></span>
+
+                        <i class="identity-diamond"></i>
+
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CHANGE MEMBER NAME HERE
+                    ================================================== -->
+
+                    <h1 class="member-name">
+                        Laabid Houda
+                    </h1>
+
+
+
+                    <!-- Role -->
+
+                    <div class="member-role-row">
+
+                        <span class="role-line"></span>
+
+                        <p class="member-role">
+                            PROJECT
+                        </p>
+
+                        <span class="role-line"></span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PREMIUM CORNERS
+                ================================================== -->
+
+                <span class="premium-corner premium-corner-1"></span>
+
+                <span class="premium-corner premium-corner-2"></span>
+
+                <span class="premium-corner premium-corner-3"></span>
+
+                <span class="premium-corner premium-corner-4"></span>
+
+
+
+                <!-- =================================================
+                     MOVING SHINE
+                ================================================== -->
+
+                <div
+                    class="card-shine"
+                    id="cardShine"
+                ></div>
+
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REVEAL FLASH
+    ====================================================== -->
+
+    <div
+        class="flash"
+        id="flash"
+    ></div>
+
+
+</main>
+
+
+<script src="project.js"></script>
+
+
+</body>
+
+</html>

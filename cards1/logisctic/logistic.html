@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Smart Club — Logistics
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="logistic.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     9:16 CINEMATIC SCENE
+========================================================= -->
+
+<main
+    class="scene logistics-scene"
+    id="scene"
+>
+
+
+    <!-- =====================================================
+         BACKGROUND ENVIRONMENT
+    ====================================================== -->
+
+    <div class="scene-light scene-light-left"></div>
+
+    <div class="scene-light scene-light-right"></div>
+
+    <div class="scene-light scene-light-center"></div>
+
+
+    <div class="background-grid"></div>
+
+
+    <div
+        class="particles"
+        id="particles"
+    ></div>
+
+
+    <div class="background-energy-ring ring-one"></div>
+
+    <div class="background-energy-ring ring-two"></div>
+
+
+    <div class="scene-orbit scene-orbit-large"></div>
+
+    <div class="scene-orbit scene-orbit-small"></div>
+
+<!-- =====================================================
+         CARD STAGE
+    ====================================================== -->
+
+    <div
+        class="card-stage logistics-card-stage"
+        id="cardStage"
+    >
+
+
+        <div class="card-shadow"></div>
+
+        <div class="stage-aura"></div>
+
+
+
+        <!-- =================================================
+             CARD WRAPPER
+        ================================================== -->
+
+        <div
+            class="card-wrapper"
+            id="card"
+        >
+
+
+
+            <!-- =================================================
+                 CARD BACK
+            ================================================== -->
+
+            <article class="card-side card-back">
+
+
+                <div class="back-shell"></div>
+
+                <div class="back-metal-frame"></div>
+
+                <div class="back-inner-frame"></div>
+
+                <div class="back-hologram"></div>
+
+
+
+                <!-- BACK PLATES -->
+
+                <div class="back-top-plate"></div>
+
+                <div class="back-bottom-plate"></div>
+
+
+                <div class="back-side-plate back-side-left"></div>
+
+                <div class="back-side-plate back-side-right"></div>
+
+
+
+                <!-- CIRCUITS -->
+
+                <div class="circuit circuit-top-left"></div>
+
+                <div class="circuit circuit-top-right"></div>
+
+                <div class="circuit circuit-bottom-left"></div>
+
+                <div class="circuit circuit-bottom-right"></div>
+
+
+
+                <!-- CORNERS -->
+
+                <div class="energy-corner back-corner-1"></div>
+
+                <div class="energy-corner back-corner-2"></div>
+
+                <div class="energy-corner back-corner-3"></div>
+
+                <div class="energy-corner back-corner-4"></div>
+
+
+
+                <!-- =================================================
+                     SMART CORE
+                ================================================== -->
+
+                <div class="back-core">
+
+
+                    <div class="core-orbit orbit-large">
+
+                        <span class="orbit-marker marker-a"></span>
+
+                        <span class="orbit-marker marker-b"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-medium">
+
+                        <span class="orbit-marker marker-c"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-small"></div>
+
+
+
+                    <div class="brain-emblem">
+
+
+                        <div class="brain-emblem-ring"></div>
+
+
+                        <svg
+                            class="brain-icon"
+                            viewBox="0 0 120 120"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <path
+                                class="brain-path brain-left"
+                                d="
+                                    M55 24
+                                    C44 15 29 20 27 33
+                                    C17 36 15 50 22 57
+                                    C15 68 21 80 31 82
+                                    C31 96 44 103 55 95
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                class="brain-path brain-right"
+                                d="
+                                    M65 24
+                                    C76 15 91 20 93 33
+                                    C103 36 105 50 98 57
+                                    C105 68 99 80 89 82
+                                    C89 96 76 103 65 95
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                class="brain-center"
+                                d="M60 25 V96"
+                            />
+
+
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M36 39
+                                    C45 42 47 48 44 57
+                                    C40 67 47 74 53 77
+                                "
+                            />
+
+
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M84 39
+                                    C75 42 73 48 76 57
+                                    C80 67 73 74 67 77
+                                "
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="37"
+                                cy="39"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="83"
+                                cy="39"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="48"
+                                cy="76"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="72"
+                                cy="76"
+                                r="3"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="core-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- BACK BRAND -->
+
+                <div class="back-brand">
+
+
+                    <span class="brand-line"></span>
+
+
+                    <div class="brand-symbol">
+
+
+                        <svg
+                            viewBox="0 0 40 40"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                cx="20"
+                                cy="20"
+                                r="14"
+                            />
+
+
+                            <path
+                                d="
+                                    M12 20
+                                    L17 25
+                                    L28 14
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <span class="brand-name">
+
+                        SMART CLUB
+
+                    </span>
+
+
+                    <span class="brand-line"></span>
+
+
+                </div>
+
+
+                <div class="back-light-runner"></div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 LOGISTICS CARD FRONT
+            ================================================== -->
+
+            <article
+                class="card-side card-front logistics-card-front"
+            >
+
+
+                <div class="front-shell"></div>
+
+                <div class="front-light-layer"></div>
+
+                <div class="front-holographic-layer"></div>
+
+                <div class="front-grid"></div>
+
+                <div class="card-noise"></div>
+
+
+
+                <!-- FRAME -->
+
+                <div class="premium-frame">
+
+                    <div class="frame-top"></div>
+
+                    <div class="frame-right"></div>
+
+                    <div class="frame-bottom"></div>
+
+                    <div class="frame-left"></div>
+
+                </div>
+
+
+                <div class="inner-premium-frame"></div>
+
+
+
+                <!-- TOP ARMOR -->
+
+                <div class="top-armor">
+
+                    <span class="top-armor-left"></span>
+
+                    <span class="top-armor-center"></span>
+
+                    <span class="top-armor-right"></span>
+
+                </div>
+
+
+
+                <!-- RAILS -->
+
+                <div class="light-rail light-rail-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="light-rail light-rail-right">
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOGISTICS HEADER
+                ================================================== -->
+
+                <header
+                    class="president-header logistics-header"
+                >
+
+
+                    <div class="header-wing header-wing-left">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         LOGISTICS PACKAGE EMBLEM
+                    ================================================== -->
+
+                    <div
+                        class="president-emblem logistics-emblem"
+                    >
+
+
+                        <div class="emblem-glow"></div>
+
+
+                        <div class="emblem-ring emblem-ring-one"></div>
+
+                        <div class="emblem-ring emblem-ring-two"></div>
+
+
+
+                        <div class="crown-container package-emblem-container">
+
+
+                            <svg
+                                class="crown-icon logistics-package-icon"
+                                viewBox="0 0 120 100"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+
+
+                                <!-- TOP FACE -->
+
+                                <path
+                                    class="package-icon-top"
+                                    d="
+                                        M20 32
+                                        L60 13
+                                        L100 32
+                                        L60 52
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- LEFT FACE -->
+
+                                <path
+                                    class="package-icon-left"
+                                    d="
+                                        M20 32
+                                        V72
+                                        L60 92
+                                        V52
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- RIGHT FACE -->
+
+                                <path
+                                    class="package-icon-right"
+                                    d="
+                                        M100 32
+                                        V72
+                                        L60 92
+                                        V52
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- PACKAGE TAPE -->
+
+                                <path
+                                    class="package-icon-tape"
+                                    d="
+                                        M50 18
+                                        L70 27
+                                        L70 46
+                                        L60 52
+                                        L50 47
+                                        Z
+                                    "
+                                />
+
+
+                            </svg>
+
+
+                            <!-- orbit scanner -->
+
+                            <div class="package-emblem-scan"></div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="header-wing header-wing-right">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                </header>
+
+
+
+                <!-- =================================================
+                     LOGISTICS TITLE
+                ================================================== -->
+
+                <div
+                    class="president-title logistics-title"
+                >
+
+
+                    <span class="title-dot"></span>
+
+
+                    <span class="title-line title-line-left"></span>
+
+
+                    <span class="title-text">
+
+                        LOGISTICS
+
+                    </span>
+
+
+                    <span class="title-line title-line-right"></span>
+
+
+                    <span class="title-dot"></span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOGISTICS TRACKING HALO
+                ================================================== -->
+
+                <div
+                    class="leadership-halo logistics-halo"
+                >
+
+
+                    <div class="leadership-halo-ring halo-ring-outer"></div>
+
+                    <div class="leadership-halo-ring halo-ring-inner"></div>
+
+
+                    <span class="halo-marker halo-marker-1"></span>
+
+                    <span class="halo-marker halo-marker-2"></span>
+
+                    <span class="halo-marker halo-marker-3"></span>
+
+                    <span class="halo-marker halo-marker-4"></span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTRAIT ENERGY
+                ================================================== -->
+
+                <div class="portrait-energy">
+
+
+                    <div class="portrait-ring portrait-ring-one"></div>
+
+                    <div class="portrait-ring portrait-ring-two"></div>
+
+
+                    <div class="portrait-rays">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="portrait-core-light"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LEFT NODE — PACKAGE
+                ================================================== -->
+
+                <div class="brain-node brain-node-left logistics-node">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon logistics-node-package"
+                            viewBox="0 0 100 100"
+                            aria-hidden="true"
+                        >
+
+
+                            <path
+                                d="
+                                    M18 31
+                                    L50 16
+                                    L82 31
+                                    L50 47
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                d="
+                                    M18 31
+                                    V68
+                                    L50 85
+                                    V47
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                d="
+                                    M82 31
+                                    V68
+                                    L50 85
+                                    V47
+                                    Z
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT NODE — LOCATION PIN
+                ================================================== -->
+
+                <div class="brain-node brain-node-right logistics-node">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon logistics-location-icon"
+                            viewBox="0 0 100 100"
+                            aria-hidden="true"
+                        >
+
+
+                            <path
+                                d="
+                                    M50 12
+
+                                    C32 12
+                                    21 26
+                                    21 43
+
+                                    C21 65
+                                    50 88
+                                    50 88
+
+                                    C50 88
+                                    79 65
+                                    79 43
+
+                                    C79 26
+                                    68 12
+                                    50 12
+
+                                    Z
+                                "
+                            />
+
+
+                            <circle
+                                cx="50"
+                                cy="42"
+                                r="11"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTRAIT
+                ================================================== -->
+
+                <div class="portrait-frame">
+
+
+                    <div class="portrait-top-frame"></div>
+
+
+                    <div class="portrait-side-accent accent-left"></div>
+
+                    <div class="portrait-side-accent accent-right"></div>
+
+
+
+                    <div class="member-image-container">
+
+
+                        <!--
+                            PUT THE TRANSPARENT LOGISTICS MEMBER IMAGE HERE
+
+                            logistics.png
+                        -->
+
+                        <img
+                            src="logistics.png"
+                            alt="Smart Club Logistics Member"
+                            class="member-image"
+                            id="memberImage"
+                        >
+
+
+                    </div>
+
+
+
+                    <div class="portrait-backlight"></div>
+
+                    <div class="portrait-front-glow"></div>
+
+                    <div class="portrait-vignette"></div>
+
+
+                </div>
+
+
+
+                <!-- SIDE ORNAMENTS -->
+
+                <div class="leadership-ornament ornament-left">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="leadership-ornament ornament-right">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- ELECTRIC DETAILS -->
+
+                <div class="electric-zone electric-left">
+
+                    <span class="electric-line e1"></span>
+
+                    <span class="electric-line e2"></span>
+
+                    <span class="electric-line e3"></span>
+
+                </div>
+
+
+                <div class="electric-zone electric-right">
+
+                    <span class="electric-line e1"></span>
+
+                    <span class="electric-line e2"></span>
+
+                    <span class="electric-line e3"></span>
+
+                </div>
+
+
+
+                <!-- SCAN -->
+
+                <div class="scan-system">
+
+                    <div class="scan-line"></div>
+
+                    <div class="scan-light"></div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     IDENTITY
+                ================================================== -->
+
+                <footer class="identity">
+
+
+                    <div class="identity-decoration">
+
+                        <span></span>
+
+                        <div class="identity-diamond"></div>
+
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- CHANGE THIS -->
+
+                    <h1 class="member-name">
+
+                        Abdelhakim laarifi
+
+                    </h1>
+
+
+
+                    <div class="role-container">
+
+
+                        <span class="role-line"></span>
+
+
+                        <p class="member-role">
+
+                            LOGISTICS
+
+                        </p>
+
+
+                        <span class="role-line"></span>
+
+
+                    </div>
+
+
+                </footer>
+
+
+
+                <!-- CORNERS -->
+
+                <div class="premium-corner corner-top-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-top-right">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-right">
+
+                    <span></span>
+
+                </div>
+
+
+
+                <div class="moving-border-light"></div>
+
+
+                <div
+                    class="card-shine"
+                    id="cardShine"
+                ></div>
+
+
+                <div class="glass-reflection"></div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+<!-- =========================================================
+     CARD REVEAL FLASH
+========================================================= -->
+
+<div
+    class="flash"
+    id="flash"
+></div>
+
+
+
+<script src="logistic.js"></script>
+
+
+</body>
+
+</html>

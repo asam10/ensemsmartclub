@@ -1,0 +1,2255 @@
+/* ================================================================
+   SMART CLUB — TREASURER
+   SAME MASTER GEOMETRY AS MEDIA
+================================================================ */
+
+
+/* ================================================================
+   1. COLORS
+================================================================ */
+
+:root {
+
+    --black: #020104;
+    --soft-black: #050208;
+
+    --deep-plum: #120318;
+    --plum: #24042c;
+    --violet: #57104f;
+
+    --magenta-deep: #7b0c69;
+    --magenta: #d92b9e;
+    --magenta-hot: #ff3eb1;
+    --magenta-light: #ff82cf;
+
+    --pearl: #fff7fc;
+    --pearl-soft: #f6eaf4;
+
+    --chrome: #d7d9e3;
+    --chrome-dark: #777786;
+}
+
+
+/* ================================================================
+   2. RESET
+================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 44%,
+            #35072e 0%,
+            #1b041e 26%,
+            #0d0210 53%,
+            #050107 77%,
+            #010102 100%
+        );
+
+    color: var(--pearl);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+/* ================================================================
+   3. SCENE
+================================================================ */
+
+.scene {
+    position: relative;
+
+    height: 100vh;
+
+    aspect-ratio: 9 / 16;
+
+    max-width: 100vw;
+
+    overflow: hidden;
+
+    perspective: 2200px;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 44%,
+            #35072e 0%,
+            #1b041e 26%,
+            #0d0210 53%,
+            #050107 77%,
+            #010102 100%
+        );
+}
+
+
+/* ================================================================
+   4. BACKGROUND
+================================================================ */
+
+.background-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 38px 38px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black 10%,
+            transparent 74%
+        );
+
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+
+.background-glow {
+    position: absolute;
+
+    width: 80%;
+    height: 65%;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.07),
+            rgba(225,39,160,.12) 28%,
+            rgba(89,10,75,.05) 50%,
+            transparent 72%
+        );
+
+    filter: blur(45px);
+
+    pointer-events: none;
+}
+
+
+.background-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(0,0,0,.32) 78%,
+            rgba(0,0,0,.72) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   5. PARTICLES
+================================================================ */
+
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+
+    animation:
+        particleTravel
+        linear
+        infinite;
+}
+
+@keyframes particleTravel {
+
+    from {
+        transform: translateY(105vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .45;
+    }
+
+    80% {
+        opacity: .35;
+    }
+
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+
+/* ================================================================
+   6. CARD STAGE
+================================================================ */
+
+.card-stage {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    transform-style: preserve-3d;
+
+    z-index: 20;
+}
+
+
+/* ================================================================
+   7. CARD SIZE — EXACT SAME AS MEDIA
+================================================================ */
+
+.card-wrapper {
+    position: relative;
+
+    width: min(82%, 390px);
+
+    aspect-ratio: 390 / 610;
+
+    height: auto;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.45s
+        cubic-bezier(.16,1,.3,1);
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.card-wrapper.flipped {
+    transform: rotateY(180deg);
+}
+
+
+/* ================================================================
+   8. CARD FACES
+================================================================ */
+
+.card-face {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    clip-path:
+        polygon(
+            8% 0%,
+            38% 0%,
+            43% 3%,
+            57% 3%,
+            62% 0%,
+            92% 0%,
+            100% 8%,
+            100% 88%,
+            93% 100%,
+            65% 100%,
+            60% 97%,
+            40% 97%,
+            35% 100%,
+            7% 100%,
+            0% 88%,
+            0% 8%
+        );
+}
+
+
+/* ================================================================
+   9. BACK
+================================================================ */
+
+.card-back {
+    background: #09020c;
+
+    box-shadow:
+        0 0 7px rgba(255,255,255,.10),
+        0 0 28px rgba(226,40,161,.28),
+        0 0 85px rgba(0,0,0,.68);
+}
+
+
+.back-atmosphere {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 43%,
+            rgba(226,43,162,.18),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.04),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            155deg,
+            #290522,
+            #120315 46%,
+            #060108 76%,
+            #010102
+        );
+}
+
+
+.back-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 48%,
+            rgba(0,0,0,.34) 82%,
+            rgba(0,0,0,.62) 100%
+        );
+}
+
+
+.back-noise {
+    position: absolute;
+    inset: 0;
+
+    opacity: .06;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.13) .5px,
+            transparent .5px
+        );
+
+    background-size: 7px 7px;
+}
+
+
+/* ================================================================
+   10. BACK FRAME
+================================================================ */
+
+.back-premium-frame {
+    position: absolute;
+    inset: 0;
+}
+
+.back-frame-line {
+    position: absolute;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #611351,
+            #e2e3eb,
+            #ff55ba,
+            transparent
+        );
+}
+
+.back-frame-top,
+.back-frame-bottom {
+    width: 72%;
+    height: 3px;
+
+    left: 14%;
+}
+
+.back-frame-top {
+    top: 5px;
+}
+
+.back-frame-bottom {
+    bottom: 5px;
+}
+
+.back-frame-left,
+.back-frame-right {
+    width: 3px;
+    height: 72%;
+
+    top: 14%;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            #59124b,
+            #e1e2e9,
+            #ff55ba,
+            transparent
+        );
+}
+
+.back-frame-left {
+    left: 5px;
+}
+
+.back-frame-right {
+    right: 5px;
+}
+
+
+/* ================================================================
+   11. BACK CORNERS
+================================================================ */
+
+.energy-corner {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border-color:
+        #ff55ba;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(232,43,166,.30)
+        );
+}
+
+.corner-tl {
+    left: 4%;
+    top: 4%;
+
+    border-left: 2px solid #fffafd;
+    border-top: 2px solid #ff55ba;
+}
+
+.corner-tr {
+    right: 4%;
+    top: 4%;
+
+    border-right: 2px solid #fffafd;
+    border-top: 2px solid #ff55ba;
+}
+
+.corner-bl {
+    left: 4%;
+    bottom: 4%;
+
+    border-left: 2px solid #fffafd;
+    border-bottom: 2px solid #ff55ba;
+}
+
+.corner-br {
+    right: 4%;
+    bottom: 4%;
+
+    border-right: 2px solid #fffafd;
+    border-bottom: 2px solid #ff55ba;
+}
+
+
+/* ================================================================
+   12. BACK TECH LINES
+================================================================ */
+
+.back-tech-lines {
+    position: absolute;
+    inset: 0;
+}
+
+.circuit {
+    position: absolute;
+
+    width: 25%;
+
+    aspect-ratio: 1;
+
+    opacity: .30;
+}
+
+.circuit::before,
+.circuit::after {
+    content: "";
+
+    position: absolute;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fffafd,
+            #ff55ba,
+            transparent
+        );
+}
+
+.circuit::before {
+    width: 78%;
+    height: 1px;
+}
+
+.circuit::after {
+    width: 1px;
+    height: 78%;
+}
+
+.circuit-1 {
+    left: 8%;
+    top: 11%;
+}
+
+.circuit-2 {
+    right: 8%;
+    top: 11%;
+    transform: rotate(90deg);
+}
+
+.circuit-3 {
+    left: 8%;
+    bottom: 11%;
+    transform: rotate(-90deg);
+}
+
+.circuit-4 {
+    right: 8%;
+    bottom: 11%;
+    transform: rotate(180deg);
+}
+
+
+/* ================================================================
+   13. SMART CORE
+================================================================ */
+
+.smart-core {
+    position: absolute;
+
+    width: 74%;
+
+    aspect-ratio: 1;
+
+    left: 50%;
+    top: 46%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================================================================
+   14. CORE ORBITS
+================================================================ */
+
+.core-orbit {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(226,43,164,.20);
+}
+
+.orbit-1 {
+    width: 92%;
+    height: 92%;
+
+    border-style: dashed;
+
+    animation:
+        treasurerOrbitA
+        15s
+        linear
+        infinite;
+}
+
+.orbit-2 {
+    width: 72%;
+    height: 72%;
+
+    border-color:
+        rgba(220,222,232,.18);
+
+    animation:
+        treasurerOrbitB
+        11s
+        linear
+        infinite;
+}
+
+.orbit-3 {
+    width: 54%;
+    height: 54%;
+
+    border-style: dashed;
+
+    border-color:
+        rgba(255,82,185,.28);
+
+    animation:
+        treasurerOrbitA
+        7s
+        linear
+        infinite;
+}
+
+@keyframes treasurerOrbitA {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes treasurerOrbitB {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* ================================================================
+   15. ORBIT MARKERS
+================================================================ */
+
+.orbit-marker {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 0 6px
+        rgba(255,78,181,.45);
+}
+
+.marker-1 {
+    top: 24%;
+    left: 16%;
+}
+
+.marker-2 {
+    top: 28%;
+    right: 18%;
+}
+
+.marker-3 {
+    bottom: 25%;
+    left: 21%;
+}
+
+.marker-4 {
+    bottom: 23%;
+    right: 20%;
+}
+
+
+/* ================================================================
+   16. BACK BRAIN
+================================================================ */
+
+.brain-emblem {
+    position: relative;
+
+    width: 40%;
+
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #f1eaf1;
+
+    background:
+        radial-gradient(
+            circle at 36% 30%,
+            rgba(255,255,255,.11),
+            rgba(240,69,181,.11) 27%,
+            rgba(88,10,77,.33) 55%,
+            rgba(9,2,12,.97) 80%
+        );
+
+    border:
+        1px solid
+        rgba(225,227,235,.44);
+
+    box-shadow:
+        0 0 15px rgba(220,41,159,.12),
+        inset 0 0 27px rgba(255,255,255,.035);
+
+    z-index: 5;
+}
+
+.brain-emblem svg {
+    width: 70%;
+    height: 70%;
+}
+
+.brain-center,
+.brain-neural {
+    stroke: #ff65c0;
+}
+
+.brain-node-dot {
+    fill: #fff7fc;
+}
+
+
+/* ================================================================
+   17. SMART CORE DOT
+================================================================ */
+
+.smart-core-dot {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.55),
+        0 0 12px rgba(230,44,166,.45);
+
+    animation:
+        treasurerCoreDot
+        2.7s
+        ease-in-out
+        infinite;
+}
+
+@keyframes treasurerCoreDot {
+
+    0%,
+    100% {
+        transform: scale(.8);
+        opacity: .65;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+    }
+}
+
+
+/* ================================================================
+   18. BACK FOOTER
+================================================================ */
+
+.back-footer {
+    position: absolute;
+
+    width: 80%;
+
+    left: 50%;
+    bottom: 8%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.back-footer-line {
+    width: 30px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff55ba
+        );
+}
+
+.back-footer-line:last-child {
+    transform: scaleX(-1);
+}
+
+.back-footer-brand {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.back-footer-symbol {
+    color: #fffafd;
+
+    font-size: 15px;
+
+    text-shadow:
+        0 0 5px
+        rgba(255,255,255,.35);
+}
+
+.back-footer-text {
+    font-size: 8px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #fffafd;
+}
+
+
+/* ================================================================
+   19. FRONT
+================================================================ */
+
+.card-front {
+    transform: rotateY(180deg);
+
+    background: #0b020e;
+
+    box-shadow:
+        0 0 7px rgba(255,255,255,.14),
+        0 0 30px rgba(226,40,161,.28),
+        0 0 95px rgba(0,0,0,.70);
+}
+
+
+/* ================================================================
+   20. FRONT ATMOSPHERE
+================================================================ */
+
+.front-atmosphere {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(255,255,255,.07),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(229,44,166,.15),
+            transparent 46%
+        ),
+
+        linear-gradient(
+            160deg,
+            #35062e 0%,
+            #1d041f 22%,
+            #0e0312 47%,
+            #200421 73%,
+            #050107 100%
+        );
+}
+
+.front-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.26),
+            transparent 36%
+        );
+}
+
+.front-noise {
+    position: absolute;
+    inset: 0;
+
+    opacity: .08;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.15) .5px,
+            transparent .5px
+        );
+
+    background-size: 7px 7px;
+}
+
+
+/* ================================================================
+   21. TREASURER HALO
+================================================================ */
+
+.treasurer-halo {
+    position: absolute;
+
+    width: 79%;
+
+    aspect-ratio: 1;
+
+    left: 50%;
+    top: 29%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 7;
+
+    pointer-events: none;
+}
+
+.leadership-halo-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+}
+
+.halo-ring-1 {
+    width: 100%;
+    height: 100%;
+
+    border:
+        1px solid
+        rgba(220,222,232,.18);
+}
+
+.halo-ring-2 {
+    width: 80%;
+    height: 80%;
+
+    border:
+        1px dashed
+        rgba(226,43,164,.20);
+}
+
+.halo-ring-3 {
+    width: 62%;
+    height: 62%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.halo-marker {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    transform: rotate(45deg);
+
+    background: #d9dbe4;
+
+    border:
+        1px solid #f441b1;
+
+    box-shadow:
+        0 0 5px rgba(238,52,173,.25);
+}
+
+.halo-marker-1 {
+    top: 0;
+    left: 50%;
+}
+
+.halo-marker-2 {
+    right: 0;
+    top: 50%;
+}
+
+.halo-marker-3 {
+    bottom: 0;
+    left: 50%;
+}
+
+.halo-marker-4 {
+    left: 0;
+    top: 50%;
+}
+
+
+/* ================================================================
+   22. PREMIUM FRAME
+================================================================ */
+
+.premium-frame {
+    position: absolute;
+    inset: 0;
+
+    z-index: 30;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255,255,255,.16))
+        drop-shadow(0 0 11px rgba(225,43,162,.18));
+}
+
+.frame-top,
+.frame-bottom {
+    position: absolute;
+
+    width: 72%;
+    height: 3px;
+
+    left: 14%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #611351 10%,
+            #b42085 24%,
+            #e2e3eb 41%,
+            #fffafd 50%,
+            #d9dbe5 59%,
+            #ce2b98 76%,
+            #5b124c 90%,
+            transparent
+        );
+}
+
+.frame-top {
+    top: 5px;
+}
+
+.frame-bottom {
+    bottom: 5px;
+}
+
+.frame-left,
+.frame-right {
+    position: absolute;
+
+    width: 3px;
+    height: 72%;
+
+    top: 14%;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            #59124b 8%,
+            #bd238a 22%,
+            #e1e2e9 40%,
+            #fffafd 50%,
+            #d7d9e2 60%,
+            #c92996 78%,
+            #571149 92%,
+            transparent
+        );
+}
+
+.frame-left {
+    left: 5px;
+}
+
+.frame-right {
+    right: 5px;
+}
+
+
+/* ================================================================
+   23. PREMIUM CORNERS
+================================================================ */
+
+.premium-corner {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    z-index: 55;
+}
+
+.premium-corner-tl {
+    left: 4%;
+    top: 4%;
+
+    border-left: 2px solid #fffafd;
+    border-top: 2px solid #ff55ba;
+}
+
+.premium-corner-tr {
+    right: 4%;
+    top: 4%;
+
+    border-right: 2px solid #fffafd;
+    border-top: 2px solid #ff55ba;
+}
+
+.premium-corner-bl {
+    left: 4%;
+    bottom: 4%;
+
+    border-left: 2px solid #fffafd;
+    border-bottom: 2px solid #ff55ba;
+}
+
+.premium-corner-br {
+    right: 4%;
+    bottom: 4%;
+
+    border-right: 2px solid #fffafd;
+    border-bottom: 2px solid #ff55ba;
+}
+
+
+/* ================================================================
+   24. INNER FRAME
+================================================================ */
+
+.inner-premium-frame {
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(226,228,235,.16);
+
+    pointer-events: none;
+
+    z-index: 25;
+}
+
+
+/* ================================================================
+   25. LIGHT RAILS
+================================================================ */
+
+.light-rail {
+    position: absolute;
+
+    width: 6px;
+
+    height: 48%;
+
+    top: 27%;
+
+    z-index: 25;
+}
+
+.light-rail-left {
+    left: 4.4%;
+}
+
+.light-rail-right {
+    right: 4.4%;
+}
+
+.light-rail::before {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 100%;
+
+    left: 50%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(172,31,137,.18),
+            rgba(231,232,239,.45),
+            rgba(243,58,176,.42),
+            rgba(172,31,137,.18),
+            transparent
+        );
+}
+
+.light-rail span {
+    position: absolute;
+
+    width: 4px;
+    height: 40px;
+
+    left: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.92),
+            #ff57b9,
+            transparent
+        );
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.28),
+        0 0 11px rgba(232,43,166,.22);
+
+    animation:
+        treasurerRail
+        4.5s
+        linear
+        infinite;
+}
+
+.light-rail-right span {
+    animation-delay: 2s;
+}
+
+@keyframes treasurerRail {
+
+    from {
+        top: -45px;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+
+/* ================================================================
+   26. TREASURER HEADER
+================================================================ */
+
+.treasurer-header {
+    position: absolute;
+
+    width: 78%;
+    height: 108px;
+
+    left: 50%;
+    top: 3.5%;
+
+    transform:
+        translateX(-50%)
+        translateZ(85px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 40;
+}
+
+
+/* ================================================================
+   27. HEADER DECORATIONS
+================================================================ */
+
+.header-decoration {
+    width: 30%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.header-decoration span {
+    display: block;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.55),
+            rgba(229,43,165,.48)
+        );
+}
+
+.header-decoration span:first-child {
+    width: 100%;
+}
+
+.header-decoration span:last-child {
+    width: 65%;
+}
+
+.header-decoration-left {
+    align-items: flex-end;
+}
+
+.header-decoration-right {
+    align-items: flex-start;
+
+    transform: scaleX(-1);
+}
+
+
+/* ================================================================
+   28. TREASURER EMBLEM
+================================================================ */
+
+.treasurer-emblem {
+    position: relative;
+
+    width: 86px;
+    height: 86px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.treasurer-emblem-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+}
+
+.ring-a {
+    width: 76px;
+    height: 76px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.30);
+}
+
+.ring-b {
+    width: 90px;
+    height: 90px;
+
+    border:
+        1px dashed
+        rgba(230,44,166,.25);
+
+    animation:
+        treasurerEmblemOrbit
+        15s
+        linear
+        infinite;
+}
+
+@keyframes treasurerEmblemOrbit {
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* ================================================================
+   29. TREASURER SYMBOL
+================================================================ */
+
+.treasurer-symbol {
+    width: 60px;
+    height: 60px;
+
+    color: #f5eef5;
+
+    overflow: visible;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.20)
+        )
+        drop-shadow(
+            0 0 8px
+            rgba(226,43,163,.25)
+        );
+
+    animation:
+        treasurerSymbolFloat
+        4.8s
+        ease-in-out
+        infinite;
+
+    z-index: 8;
+}
+
+@keyframes treasurerSymbolFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.treasurer-diamond {
+    stroke: #f5eef5;
+}
+
+.treasurer-value {
+    stroke: #ff58b9;
+}
+
+.treasurer-coin {
+    stroke: #d9dbe4;
+}
+
+.treasurer-finance-line {
+    stroke: #fffafd;
+}
+
+
+/* ================================================================
+   30. TREASURER CORE
+================================================================ */
+
+.treasurer-core {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.55),
+        0 0 12px rgba(230,44,166,.42);
+
+    z-index: 10;
+}
+
+
+/* ================================================================
+   31. EMBLEM SCAN
+================================================================ */
+
+.treasurer-emblem-scan {
+    position: absolute;
+
+    width: 70%;
+    height: 1px;
+
+    left: 15%;
+    top: 15%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #fffafd,
+            #ff55ba,
+            transparent
+        );
+
+    box-shadow:
+        0 0 6px rgba(232,43,166,.24);
+
+    animation:
+        treasurerScan
+        2.8s
+        ease-in-out
+        infinite;
+
+    z-index: 12;
+}
+
+@keyframes treasurerScan {
+
+    0% {
+        top: 16%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    80% {
+        opacity: .65;
+    }
+
+    100% {
+        top: 82%;
+        opacity: 0;
+    }
+}
+
+
+/* ================================================================
+   32. TITLE
+================================================================ */
+
+.treasurer-title {
+    position: absolute;
+
+    left: 50%;
+    top: 95px;
+
+    transform:
+        translateX(-50%)
+        translateZ(90px);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    white-space: nowrap;
+
+    color: #fff8fd;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.18),
+        0 0 11px rgba(228,43,164,.24);
+}
+
+
+/* ================================================================
+   33. SIDE NODES
+================================================================ */
+
+.brain-node {
+    position: absolute;
+
+    width: 46px;
+    height: 46px;
+
+    top: 31%;
+
+    transform:
+        translateZ(75px);
+
+    border-radius: 13px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.015) 35%,
+            rgba(73,8,64,.52) 100%
+        );
+
+    border:
+        1px solid
+        rgba(218,220,230,.34);
+
+    z-index: 30;
+}
+
+.node-left {
+    left: 6%;
+}
+
+.node-right {
+    right: 6%;
+}
+
+.brain-node svg {
+    width: 27px;
+    height: 27px;
+
+    color: #f3eef4;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(230,44,166,.20)
+        );
+}
+
+.node-ring {
+    position: absolute;
+
+    inset: -4px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(230,44,166,.22);
+
+    transform: rotate(45deg);
+}
+
+
+/* ================================================================
+   34. PORTRAIT ENERGY
+================================================================ */
+
+.portrait-energy {
+    position: absolute;
+
+    width: 79%;
+    height: 54%;
+
+    left: 50%;
+    top: 27%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 6;
+
+    pointer-events: none;
+}
+
+.portrait-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 49%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+}
+
+.portrait-ring-1 {
+    width: 90%;
+    aspect-ratio: 1;
+
+    border:
+        1px dashed
+        rgba(226,43,164,.13);
+
+    animation:
+        treasurerPortraitA
+        20s
+        linear
+        infinite;
+}
+
+.portrait-ring-2 {
+    width: 68%;
+    aspect-ratio: 1;
+
+    border:
+        1px solid
+        rgba(220,222,232,.12);
+
+    animation:
+        treasurerPortraitB
+        14s
+        linear
+        infinite;
+}
+
+.portrait-ring-3 {
+    width: 48%;
+    aspect-ratio: 1;
+
+    border:
+        1px dotted
+        rgba(255,255,255,.08);
+}
+
+@keyframes treasurerPortraitA {
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes treasurerPortraitB {
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+    }
+}
+
+.portrait-core-light {
+    position: absolute;
+
+    width: 75%;
+    height: 92%;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,220,245,.10) 18%,
+            rgba(242,49,169,.11) 38%,
+            rgba(96,14,84,.08) 55%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+}
+
+
+/* ================================================================
+   35. PORTRAIT — SAME SIZE AS MEDIA
+================================================================ */
+
+.portrait-frame {
+    position: absolute;
+
+    width: 86%;
+    height: 57%;
+
+    left: 50%;
+    top: 25%;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+
+    overflow: hidden;
+
+    z-index: 12;
+
+    pointer-events: none;
+}
+
+.portrait-back-glow {
+    position: absolute;
+
+    width: 62%;
+    height: 90%;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(218,43,158,.07),
+            rgba(255,255,255,.09) 45%,
+            transparent 75%
+        );
+
+    filter: blur(30px);
+}
+
+
+/* ================================================================
+   36. MEMBER IMAGE
+================================================================ */
+
+.member-image {
+    position: absolute;
+
+    height: 91%;
+
+    max-width: 100%;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    transform-origin:
+        center bottom;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(0,0,0,.78)
+        )
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.08)
+        );
+
+    z-index: 15;
+}
+
+.portrait-front-glow {
+    position: absolute;
+
+    width: 85%;
+    height: 36px;
+
+    left: 50%;
+    bottom: 1%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.15),
+            rgba(255,92,190,.14) 28%,
+            transparent 74%
+        );
+
+    filter: blur(10px);
+}
+
+
+/* ================================================================
+   37. IDENTITY
+================================================================ */
+
+.identity {
+    position: absolute;
+
+    width: 86%;
+
+    left: 50%;
+    bottom: 4.2%;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+        12px 10px 11px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7,2,10,.14),
+            rgba(49,6,45,.74) 19%,
+            rgba(16,3,20,.94) 50%,
+            rgba(49,6,45,.74) 81%,
+            rgba(7,2,10,.14)
+        );
+
+    border-top:
+        1px solid
+        rgba(226,228,235,.24);
+
+    border-bottom:
+        1px solid
+        rgba(229,43,165,.20);
+
+    box-shadow:
+        0 -13px 34px rgba(215,41,157,.07),
+        0 9px 30px rgba(0,0,0,.72);
+
+    z-index: 50;
+}
+
+
+/* ================================================================
+   38. IDENTITY DIAMOND
+================================================================ */
+
+.identity-diamond {
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    margin:
+        0 auto 8px;
+
+    transform:
+        rotate(45deg);
+
+    background: #fff9fd;
+
+    border:
+        1px solid
+        #ed3eae;
+
+    box-shadow:
+        0 0 6px
+        rgba(238,62,174,.28);
+}
+
+
+/* ================================================================
+   39. NAME
+================================================================ */
+
+.member-name {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 24px;
+
+    line-height: 1.04;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+    text-align: center;
+
+    color: #fffafd;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.88),
+        0 0 8px rgba(255,255,255,.08);
+}
+
+.member-name.long-name {
+    font-size: 21px;
+
+    letter-spacing: .8px;
+
+    line-height: 1.06;
+}
+
+
+/* ================================================================
+   40. ROLE
+================================================================ */
+
+.role-line {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+}
+
+.role-line span {
+    width: 34px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.42),
+            rgba(229,43,165,.48)
+        );
+}
+
+.role-line span:last-child {
+    transform: scaleX(-1);
+}
+
+.member-role {
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    white-space: nowrap;
+
+    color: #ff69c4;
+
+    text-shadow:
+        0 0 8px
+        rgba(225,43,163,.24);
+}
+
+
+/* ================================================================
+   41. ORNAMENTS
+================================================================ */
+
+.leadership-ornament {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    transform: rotate(45deg);
+
+    background: #ff55ba;
+
+    border:
+        1px solid
+        rgba(255,255,255,.68);
+
+    box-shadow:
+        0 0 6px
+        rgba(235,44,169,.34);
+
+    z-index: 28;
+}
+
+.ornament-1 {
+    left: 7%;
+    top: 38%;
+}
+
+.ornament-2 {
+    right: 7%;
+    top: 38%;
+}
+
+.ornament-3 {
+    left: 7%;
+    top: 61%;
+}
+
+.ornament-4 {
+    right: 7%;
+    top: 61%;
+}
+
+
+/* ================================================================
+   42. CARD SHINE
+================================================================ */
+
+.card-shine {
+    position: absolute;
+
+    width: 42px;
+
+    height: 140%;
+
+    left: -25%;
+    top: -20%;
+
+    transform: rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.10),
+            transparent
+        );
+
+    filter: blur(4px);
+
+    opacity: .35;
+
+    pointer-events: none;
+
+    z-index: 60;
+}
+
+
+/* ================================================================
+   43. FLASH
+================================================================ */
+
+.flash {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 1000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.94) 0%,
+            rgba(255,224,246,.44) 11%,
+            rgba(235,58,177,.18) 28%,
+            rgba(90,8,76,.06) 48%,
+            transparent 70%
+        );
+}
+
+
+/* ================================================================
+   44. HOVER
+================================================================ */
+
+.card-wrapper:hover .card-front {
+    box-shadow:
+        0 0 7px rgba(255,255,255,.18),
+        0 0 28px rgba(226,40,161,.32),
+        0 0 95px rgba(0,0,0,.70);
+}
+
+.card-wrapper:hover .treasurer-symbol {
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.28)
+        )
+        drop-shadow(
+            0 0 10px
+            rgba(230,44,166,.32)
+        );
+}
+
+
+/* ================================================================
+   45. MOBILE — SAME MASTER SIZE
+================================================================ */
+
+@media (max-width: 600px) {
+
+    .card-wrapper {
+        width:
+            min(82%, 390px);
+
+        aspect-ratio:
+            390 / 610;
+
+        height: auto;
+    }
+
+    .treasurer-title {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+    }
+}
+
+
+/* ================================================================
+   46. SHORT SCREEN — DO NOT SHRINK
+================================================================ */
+
+@media (max-height: 720px) {
+
+    .card-wrapper {
+        width:
+            min(82%, 390px);
+
+        aspect-ratio:
+            390 / 610;
+
+        height: auto;
+    }
+
+    .card-stage {
+        transform: none;
+    }
+}
+
+
+/* ================================================================
+   47. REDUCED MOTION
+================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+}

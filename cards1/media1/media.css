@@ -1,0 +1,6781 @@
+/* ================================================================
+   SMART CLUB
+   PRESIDENT — SMART MAGENTA SIGNATURE CARD
+
+   PALETTE:
+   DEEP PLUM / MAGENTA / PEARL WHITE / CHROME / BLACK
+
+   DESIGN PHILOSOPHY:
+   - Magenta carries the Smart Club identity.
+   - Pearl white and chrome create premium structure.
+   - Deep plum/black keeps the portrait dominant.
+   - Glow is controlled and concentrated around important details.
+================================================================ */
+
+
+/* ================================================================
+   1. ROOT COLORS
+================================================================ */
+
+:root {
+
+    --black:
+        #020104;
+
+    --soft-black:
+        #050208;
+
+    --wine-black:
+        #0b0310;
+
+    --deep-wine:
+        #15051c;
+
+    --oxblood:
+        #210629;
+
+    --imperial-red-dark:
+        #35063d;
+
+    --imperial-red:
+        #5f075b;
+
+    --royal-red:
+        #8c0a78;
+
+    --bright-red:
+        #c91598;
+
+
+    --gold-dark:
+        #4a1747;
+
+    --gold-bronze:
+        #6f235f;
+
+    --gold:
+        #b52186;
+
+    --gold-rich:
+        #d92b9e;
+
+    --gold-light:
+        #ff70c7;
+
+    --champagne:
+        #ffd8f2;
+
+    --ivory:
+        #fff7fc;
+
+
+    --gold-glow:
+        rgba(231,49,166,0.38);
+
+    --red-glow:
+        rgba(130,12,110,0.35);
+}
+
+
+
+/* ================================================================
+   2. RESET
+================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+}
+
+
+
+/* ================================================================
+   3. MAIN SCENE
+================================================================ */
+
+/* THIS IS THE PHONE SCREEN */
+.scene {
+    position: relative;
+
+    height: 100vh;
+    aspect-ratio: 9 / 16;
+
+    max-width: 100vw;
+
+    overflow: hidden;
+
+    perspective: 2200px;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 42%,
+            #35072e 0%,
+            #1b041e 28%,
+            #0d0210 55%,
+            #050107 78%,
+            #010102 100%
+        );
+}
+
+
+
+/* ================================================================
+   4. HUGE IMPERIAL BACKGROUND AURA
+================================================================ */
+
+.scene::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1050px;
+    height: 1050px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+
+            from 0deg,
+
+            transparent 0deg,
+
+            rgba(231,49,166,.025) 25deg,
+
+            transparent 60deg,
+
+            rgba(98,10,84,.09) 95deg,
+
+            transparent 135deg,
+
+            rgba(231,49,166,.035) 180deg,
+
+            transparent 225deg,
+
+            rgba(130,16,23,.07) 275deg,
+
+            transparent 320deg,
+
+            rgba(231,49,166,.03) 345deg,
+
+            transparent 360deg
+        );
+
+    animation:
+        worldRotation
+        40s
+        linear
+        infinite;
+
+    pointer-events: none;
+
+    z-index: -12;
+
+}
+
+
+@keyframes worldRotation {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   5. SCENE LIGHTS
+================================================================ */
+
+.scene-light {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter:
+        blur(60px);
+
+    z-index: -10;
+
+}
+
+
+/* Red power light */
+
+.scene-light-left {
+
+    width: 580px;
+    height: 700px;
+
+    left: 2%;
+    top: 12%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(122,10,103,.24),
+
+            rgba(55,5,48,.08) 42%,
+
+            transparent 72%
+
+        );
+
+    animation:
+        imperialLightLeft
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* Gold ambient light */
+
+.scene-light-right {
+
+    width: 450px;
+    height: 600px;
+
+    right: 3%;
+    top: 18%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(231,49,166,.13),
+
+            rgba(93,22,82,.035) 42%,
+
+            transparent 73%
+
+        );
+
+    animation:
+        imperialLightRight
+        9s
+        ease-in-out
+        infinite;
+
+}
+
+
+.scene-light-center {
+
+    width: 550px;
+    height: 760px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(255,218,244,.09),
+
+            rgba(122,12,103,.11) 30%,
+
+            transparent 68%
+
+        );
+
+    animation:
+        centerImperialBreath
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes imperialLightLeft {
+
+    0%,
+    100% {
+
+        opacity: .55;
+
+        transform:
+            translate(-15px, 20px);
+
+    }
+
+    50% {
+
+        opacity: .9;
+
+        transform:
+            translate(25px, -12px);
+
+    }
+
+}
+
+
+@keyframes imperialLightRight {
+
+    0%,
+    100% {
+
+        opacity: .45;
+
+        transform:
+            translate(20px, 0);
+
+    }
+
+    50% {
+
+        opacity: .8;
+
+        transform:
+            translate(-20px, 15px);
+
+    }
+
+}
+
+
+@keyframes centerImperialBreath {
+
+    0%,
+    100% {
+
+        opacity: .5;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.96);
+
+    }
+
+    50% {
+
+        opacity: .85;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   6. BACKGROUND GRID
+================================================================ */
+
+.background-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(231,49,166,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(231,49,166,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        58px 58px;
+
+    mask-image:
+
+        radial-gradient(
+            circle at center,
+            black 8%,
+            transparent 72%
+        );
+
+    opacity: .75;
+
+    pointer-events: none;
+
+    z-index: -9;
+
+}
+
+
+
+/* ================================================================
+   7. SCENE ORBITS
+================================================================ */
+
+.scene-orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -8;
+
+}
+
+
+.scene-orbit-large {
+
+    width: 910px;
+    height: 910px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.05);
+
+}
+
+
+.scene-orbit-small {
+
+    width: 590px;
+    height: 590px;
+
+    border:
+        1px dashed
+        rgba(129,14,109,.09);
+
+}
+
+
+
+/* ================================================================
+   8. BACKGROUND ENERGY RINGS
+================================================================ */
+
+.background-energy-ring {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -7;
+
+}
+
+
+.ring-one {
+
+    width: 700px;
+    height: 700px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.075);
+
+    animation:
+        bgRingClockwise
+        24s
+        linear
+        infinite;
+
+}
+
+
+.ring-one::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 34px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(142,15,120,.13);
+
+}
+
+
+.ring-one::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    top: -4px;
+    left: 50%;
+
+    border-radius: 50%;
+
+    background:
+        var(--champagne);
+
+    box-shadow:
+
+        0 0 4px
+        var(--champagne),
+
+        0 0 12px
+        rgba(231,49,166,.65);
+
+}
+
+
+.ring-two {
+
+    width: 820px;
+    height: 820px;
+
+    border:
+        1px dashed
+        rgba(231,49,166,.04);
+
+    animation:
+        bgRingCounter
+        32s
+        linear
+        infinite;
+
+}
+
+
+@keyframes bgRingClockwise {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes bgRingCounter {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   9. PARTICLES
+================================================================ */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -6;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background:
+        var(--gold-light);
+
+    box-shadow:
+
+        0 0 4px
+        rgba(255,214,242,.7),
+
+        0 0 10px
+        rgba(231,49,166,.22);
+
+    opacity: .45;
+
+    animation:
+        imperialParticleTravel
+        linear
+        infinite;
+
+}
+
+
+@keyframes imperialParticleTravel {
+
+    from {
+
+        transform:
+            translateY(110vh);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: .5;
+
+    }
+
+    80% {
+
+        opacity: .4;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-15vh);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   10. CARD STAGE
+================================================================ */
+
+.card-stage {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform-style: preserve-3d;
+
+    z-index: 10;
+}
+
+
+
+/* ================================================================
+   11. STAGE AURA
+================================================================ */
+
+.stage-aura {
+
+    position: absolute;
+
+    width: 440px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(108,9,93,.15),
+
+            rgba(231,49,166,.035) 35%,
+
+            transparent 70%
+
+        );
+
+    filter:
+        blur(28px);
+
+    pointer-events: none;
+
+}
+
+
+
+/* ================================================================
+   12. CARD SHADOW
+================================================================ */
+
+.card-shadow {
+
+    position: absolute;
+
+    width: 310px;
+    height: 70px;
+
+    left: 50%;
+    bottom: -32px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(231,49,166,.21),
+
+            rgba(82,8,70,.23) 28%,
+
+            transparent 70%
+
+        );
+
+    filter:
+        blur(24px);
+
+    animation:
+        imperialFloor
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes imperialFloor {
+
+    0%,
+    100% {
+
+        opacity: .42;
+
+        transform:
+            translateX(-50%)
+            scaleX(.9);
+
+    }
+
+    50% {
+
+        opacity: .7;
+
+        transform:
+            translateX(-50%)
+            scaleX(1.05);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   13. CARD WRAPPER
+================================================================ */
+.card-wrapper {
+    position: relative;
+
+    width: min(82%, 390px);
+    aspect-ratio: 390 / 610;
+    height: auto;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.45s
+        cubic-bezier(.16,1,.3,1);
+
+    z-index: 5;
+
+    cursor: pointer;
+}
+
+
+.card-wrapper.flipped {
+    transform:
+        rotateY(180deg);
+}
+
+
+
+/* ================================================================
+   14. BOTH SIDES
+================================================================ */
+
+.card-side {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-style:
+        preserve-3d;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    overflow: hidden;
+
+    clip-path:
+
+        polygon(
+
+            8% 0%,
+
+            38% 0%,
+
+            43% 3%,
+
+            57% 3%,
+
+            62% 0%,
+
+            92% 0%,
+
+            100% 8%,
+
+            100% 88%,
+
+            93% 100%,
+
+            65% 100%,
+
+            60% 97%,
+
+            40% 97%,
+
+            35% 100%,
+
+            7% 100%,
+
+            0% 88%,
+
+            0% 8%
+
+        );
+
+}
+
+
+
+/* ================================================================
+   15. CARD BACK
+================================================================ */
+
+.card-back {
+
+    background:
+        var(--wine-black);
+
+    box-shadow:
+
+        0 0 8px
+        rgba(231,49,166,.32),
+
+        0 0 30px
+        rgba(87,9,74,.38),
+
+        0 0 80px
+        rgba(0,0,0,.65);
+
+}
+
+
+
+/* ================================================================
+   16. BACK SHELL
+================================================================ */
+
+.back-shell {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 43%,
+            rgba(101,11,87,.26),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(255,226,247,.055),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            155deg,
+            #25051f,
+            #110313 46%,
+            #060208 75%,
+            #010102
+        );
+
+}
+
+
+
+/* ================================================================
+   17. BACK GOLD FRAME
+================================================================ */
+
+.back-metal-frame {
+
+    position: absolute;
+
+    inset: 5px;
+
+    clip-path: inherit;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #561452 0%,
+
+            #8a2474 8%,
+
+            #ff6cc5 17%,
+
+            #fff0fb 23%,
+
+            #a72583 34%,
+
+            #725015 46%,
+
+            #ff72ca 56%,
+
+            #fff3fb 63%,
+
+            #872168 74%,
+
+            #d52a9d 87%,
+
+            #4c1547 100%
+
+        );
+
+}
+
+
+.back-inner-frame {
+
+    position: absolute;
+
+    inset: 9px;
+
+    clip-path: inherit;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 42%,
+            #2a0625,
+            #130315 55%,
+            #040105 100%
+        );
+
+}
+
+
+
+/* ================================================================
+   18. BACK CHROME / GOLD PLATES
+================================================================ */
+
+.back-top-plate,
+.back-bottom-plate {
+
+    position: absolute;
+
+    width: 170px;
+    height: 5px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold-dark),
+            var(--champagne),
+            var(--gold),
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(231,49,166,.25);
+
+}
+
+
+.back-top-plate {
+
+    top: 27px;
+
+}
+
+
+.back-bottom-plate {
+
+    bottom: 27px;
+
+}
+
+
+.back-side-plate {
+
+    position: absolute;
+
+    width: 4px;
+    height: 180px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+
+        linear-gradient(
+            transparent,
+            var(--gold-dark),
+            var(--gold-light),
+            var(--gold-dark),
+            transparent
+        );
+
+}
+
+
+.back-side-left {
+
+    left: 23px;
+
+}
+
+
+.back-side-right {
+
+    right: 23px;
+
+}
+
+
+
+/* ================================================================
+   19. BACK HOLOGRAPHIC REFLECTION
+================================================================ */
+
+.back-hologram {
+
+    position: absolute;
+
+    inset: -30%;
+
+    background:
+
+        linear-gradient(
+
+            115deg,
+
+            transparent 34%,
+
+            rgba(255,237,249,.015) 39%,
+
+            rgba(255,218,241,.12) 44%,
+
+            rgba(231,49,166,.06) 48%,
+
+            transparent 54%
+
+        );
+
+    transform:
+        translateX(-45%)
+        rotate(8deg);
+
+    animation:
+        imperialHologram
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes imperialHologram {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-50%)
+            rotate(8deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(45%)
+            rotate(8deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   20. CIRCUIT DETAILS
+================================================================ */
+
+.circuit {
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    opacity: .45;
+
+}
+
+
+.circuit::before,
+.circuit::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--gold-light),
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+.circuit::before {
+
+    width: 78px;
+    height: 1px;
+
+}
+
+
+.circuit::after {
+
+    width: 1px;
+    height: 78px;
+
+}
+
+
+.circuit-top-left {
+
+    left: 35px;
+    top: 65px;
+
+}
+
+
+.circuit-top-right {
+
+    right: 35px;
+    top: 65px;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.circuit-bottom-left {
+
+    left: 35px;
+    bottom: 65px;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.circuit-bottom-right {
+
+    right: 35px;
+    bottom: 65px;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   21. BACK CORNERS
+================================================================ */
+
+.energy-corner {
+
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    border-top:
+        2px solid
+        var(--champagne);
+
+    border-left:
+        2px solid
+        var(--gold);
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(231,49,166,.35)
+        );
+
+}
+
+
+.back-corner-1 {
+
+    top: 25px;
+    left: 27px;
+
+}
+
+
+.back-corner-2 {
+
+    top: 25px;
+    right: 27px;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.back-corner-3 {
+
+    bottom: 25px;
+    left: 27px;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.back-corner-4 {
+
+    bottom: 25px;
+    right: 27px;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   22. BACK CORE
+================================================================ */
+
+.back-core {
+
+    position: absolute;
+
+    width: 290px;
+    height: 290px;
+
+    left: 50%;
+    top: 47%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+/* ================================================================
+   23. CORE ORBITS
+================================================================ */
+
+.core-orbit {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(231,49,166,.23);
+
+}
+
+
+.orbit-large {
+
+    width: 260px;
+    height: 260px;
+
+    border-style: dashed;
+
+    animation:
+        orbitClock
+        15s
+        linear
+        infinite;
+
+}
+
+
+.orbit-medium {
+
+    width: 205px;
+    height: 205px;
+
+    border-color:
+        rgba(149,17,126,.44);
+
+    animation:
+        orbitCounter
+        10s
+        linear
+        infinite;
+
+}
+
+
+.orbit-small {
+
+    width: 155px;
+    height: 155px;
+
+    border-style: dashed;
+
+    border-color:
+        rgba(231,49,166,.32);
+
+    animation:
+        orbitClock
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes orbitClock {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes orbitCounter {
+
+    to {
+        transform:
+            rotate(-360deg);
+    }
+
+}
+
+
+
+/* ================================================================
+   24. ORBIT MARKERS
+================================================================ */
+
+.orbit-marker {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        var(--gold-light);
+
+    box-shadow:
+        0 0 7px
+        rgba(231,49,166,.55);
+
+}
+
+
+.marker-a {
+
+    top: -3px;
+    left: 50%;
+
+}
+
+
+.marker-b {
+
+    bottom: -3px;
+    left: 35%;
+
+}
+
+
+.marker-c {
+
+    right: -3px;
+    top: 45%;
+
+}
+
+
+
+/* ================================================================
+   25. BRAIN EMBLEM
+================================================================ */
+
+.brain-emblem {
+
+    position: relative;
+
+    width: 118px;
+    height: 118px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            circle at 35% 28%,
+
+            rgba(255,231,248,.18),
+
+            rgba(231,49,166,.13) 25%,
+
+            rgba(83,9,72,.42) 55%,
+
+            rgba(13,3,4,.95) 78%
+
+        );
+
+    border:
+        1px solid
+        rgba(255,126,211,.75);
+
+    box-shadow:
+
+        0 0 10px
+        rgba(231,49,166,.18),
+
+        inset 0 0 25px
+        rgba(231,49,166,.055);
+
+    z-index: 5;
+
+}
+
+
+.brain-emblem-ring {
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(231,49,166,.22);
+
+}
+
+
+
+/* ================================================================
+   26. CUSTOM BRAIN SVG
+================================================================ */
+
+.brain-icon {
+
+    width: 72px;
+    height: 72px;
+
+    overflow: visible;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(231,49,166,.25)
+        );
+
+}
+
+
+.brain-path {
+
+    fill:
+        rgba(88,10,77,.30);
+
+    stroke:
+        var(--gold-light);
+
+    stroke-width:
+        3;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+.brain-center,
+.brain-neural {
+
+    fill: none;
+
+    stroke:
+        rgba(255,225,245,.8);
+
+    stroke-width:
+        2;
+
+    stroke-linecap:
+        round;
+
+}
+
+
+.brain-node-dot {
+
+    fill:
+        var(--champagne);
+
+}
+
+
+
+/* ================================================================
+   27. CORE PULSE
+================================================================ */
+
+.core-pulse {
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(231,49,166,.42);
+
+    animation:
+        imperialPulse
+        3s
+        ease-out
+        infinite;
+
+}
+
+
+@keyframes imperialPulse {
+
+    from {
+
+        opacity: .55;
+
+        transform:
+            scale(.85);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            scale(2);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   28. BACK BRAND
+================================================================ */
+
+.back-brand {
+
+    position: absolute;
+
+    width: 82%;
+
+    left: 50%;
+    bottom: 55px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.brand-name {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 6px;
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.brand-line {
+
+    width: 38px;
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+
+.brand-line:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.brand-symbol {
+
+    width: 22px;
+    height: 22px;
+
+}
+
+
+.brand-symbol svg {
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke:
+        var(--champagne);
+
+    stroke-width: 2;
+
+}
+
+
+
+/* ================================================================
+   29. BACK LIGHT RUNNER
+================================================================ */
+
+.back-light-runner {
+
+    position: absolute;
+
+    width: 180%;
+    height: 34px;
+
+    left: -40%;
+
+    top: -70px;
+
+    transform:
+        rotate(-25deg);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,228,246,.10),
+
+            transparent
+
+        );
+
+    filter:
+        blur(7px);
+
+    animation:
+        goldRunner
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes goldRunner {
+
+    from {
+        top: -80px;
+    }
+
+    to {
+        top: 680px;
+    }
+
+}
+
+
+
+/* ================================================================
+   30. CARD FRONT
+================================================================ */
+
+.card-front {
+
+    transform:
+        rotateY(180deg);
+
+    background:
+        #0c0304;
+
+    box-shadow:
+
+        0 0 6px
+        rgba(231,49,166,.32),
+
+        0 0 28px
+        rgba(108,10,16,.40),
+
+        0 0 95px
+        rgba(0,0,0,.65);
+
+}
+
+
+
+/* ================================================================
+   31. FRONT SHELL
+================================================================ */
+
+.front-shell {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 23%,
+            rgba(231,49,166,.075),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(106,12,91,.17),
+            transparent 48%
+        ),
+
+        linear-gradient(
+
+            160deg,
+
+            #31062e 0%,
+
+            #1b031d 22%,
+
+            #100312 46%,
+
+            #210423 72%,
+
+            #060108 100%
+
+        );
+
+}
+
+
+
+/* ================================================================
+   32. FRONT LIGHT
+================================================================ */
+
+.front-light-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            rgba(255,224,246,.055),
+
+            transparent 22%
+
+        ),
+
+        linear-gradient(
+
+            315deg,
+
+            rgba(91,9,78,.16),
+
+            transparent 32%
+
+        );
+
+    pointer-events: none;
+
+}
+
+
+
+/* ================================================================
+   33. HOLOGRAPHIC GOLD REFLECTION
+================================================================ */
+
+.front-holographic-layer {
+
+    position: absolute;
+
+    inset: -40%;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent 33%,
+
+            rgba(255,231,248,.012) 39%,
+
+            rgba(255,227,136,.10) 44%,
+
+            rgba(231,49,166,.065) 48%,
+
+            transparent 56%
+
+        );
+
+    mix-blend-mode:
+        screen;
+
+    animation:
+        royalReflection
+        8s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+
+    z-index: 4;
+
+}
+
+
+@keyframes royalReflection {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-45%)
+            rotate(2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(42%)
+            rotate(2deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   34. GRID
+================================================================ */
+
+.front-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(231,49,166,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(231,49,166,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        40px 40px;
+
+    mask-image:
+
+        linear-gradient(
+            to bottom,
+            black,
+            rgba(0,0,0,.45),
+            transparent 82%
+        );
+
+}
+
+
+
+/* ================================================================
+   35. CARD MICRO TEXTURE
+================================================================ */
+
+.card-noise {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .12;
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,255,255,.16) .5px,
+            transparent .5px
+        );
+
+    background-size:
+        7px 7px;
+
+    mix-blend-mode:
+        overlay;
+
+    pointer-events: none;
+
+}
+
+
+
+/* ================================================================
+   36. PREMIUM GOLD FRAME
+================================================================ */
+
+.premium-frame {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+}
+
+
+.frame-top,
+.frame-bottom,
+.frame-left,
+.frame-right {
+
+    position: absolute;
+
+}
+
+
+.frame-top,
+.frame-bottom {
+
+    width: 72%;
+    height: 3px;
+
+    left: 14%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            #581650,
+
+            #a1277f,
+
+            #ffe6f7,
+
+            #d92da1,
+
+            #725015,
+
+            transparent
+
+        );
+
+}
+
+
+.frame-top {
+
+    top: 5px;
+
+}
+
+
+.frame-bottom {
+
+    bottom: 5px;
+
+}
+
+
+.frame-left,
+.frame-right {
+
+    width: 3px;
+    height: 72%;
+
+    top: 14%;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            transparent,
+
+            #57164f,
+
+            #cf2c9b,
+
+            #ffe6f7,
+
+            #a1277f,
+
+            #4c1547,
+
+            transparent
+
+        );
+
+}
+
+
+.frame-left {
+
+    left: 5px;
+
+}
+
+
+.frame-right {
+
+    right: 5px;
+
+}
+
+
+
+/* ================================================================
+   37. INNER FRAME
+================================================================ */
+
+.inner-premium-frame {
+
+    position: absolute;
+
+    inset: 15px;
+
+    clip-path:
+
+        polygon(
+
+            7% 0,
+
+            93% 0,
+
+            100% 7%,
+
+            100% 93%,
+
+            93% 100%,
+
+            7% 100%,
+
+            0 93%,
+
+            0 7%
+
+        );
+
+    border:
+        1px solid
+        rgba(231,49,166,.24);
+
+    box-shadow:
+
+        inset 0 0 45px
+        rgba(77,8,67,.11);
+
+    pointer-events: none;
+
+    z-index: 5;
+
+}
+
+
+
+/* ================================================================
+   38. TOP ARMOR
+================================================================ */
+
+.top-armor {
+
+    position: absolute;
+
+    width: 295px;
+    height: 35px;
+
+    top: 5px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 32;
+
+}
+
+
+.top-armor span {
+
+    position: absolute;
+
+    top: 0;
+
+    height: 5px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light),
+            var(--gold-dark)
+        );
+
+}
+
+
+.top-armor-left {
+
+    width: 92px;
+
+    left: 0;
+
+}
+
+
+.top-armor-center {
+
+    width: 68px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    opacity: .65;
+
+}
+
+
+.top-armor-right {
+
+    width: 92px;
+
+    right: 0;
+
+}
+
+
+
+/* ================================================================
+   39. SIDE LIGHT RAILS
+================================================================ */
+
+.light-rail {
+
+    position: absolute;
+
+    width: 7px;
+    height: 290px;
+
+    top: 160px;
+
+    z-index: 25;
+
+}
+
+
+.light-rail-left {
+
+    left: 17px;
+
+}
+
+
+.light-rail-right {
+
+    right: 17px;
+
+}
+
+
+.light-rail::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 100%;
+
+    left: 50%;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(121,27,102,.25),
+
+            rgba(255,224,136,.55),
+
+            rgba(121,27,102,.25),
+
+            transparent
+
+        );
+
+}
+
+
+.light-rail span {
+
+    position: absolute;
+
+    width: 4px;
+    height: 42px;
+
+    left: 2px;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            var(--gold-light),
+
+            transparent
+
+        );
+
+    box-shadow:
+        0 0 7px
+        rgba(231,49,166,.40);
+
+    animation:
+        royalRail
+        4.5s
+        linear
+        infinite;
+
+}
+
+
+.light-rail-right span {
+
+    animation-delay:
+        2.2s;
+
+}
+
+
+@keyframes royalRail {
+
+    from {
+        top: -50px;
+    }
+
+    to {
+        top: 300px;
+    }
+
+}
+
+
+
+/* ================================================================
+   40. PRESIDENT HEADER
+================================================================ */
+
+.president-header {
+
+    position: absolute;
+
+    width: 300px;
+    height: 100px;
+
+    left: 50%;
+    top: 21px;
+
+    transform:
+        translateX(-50%)
+        translateZ(85px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 40;
+
+}
+
+
+
+/* ================================================================
+   41. HEADER WINGS
+================================================================ */
+
+.header-wing {
+
+    width: 96px;
+    height: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 6px;
+
+}
+
+
+.header-wing span {
+
+    display: block;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            var(--gold-dark),
+
+            var(--gold-light)
+
+        );
+
+}
+
+
+.header-wing span:nth-child(1) {
+
+    width: 78%;
+
+}
+
+
+.header-wing span:nth-child(2) {
+
+    width: 100%;
+
+}
+
+
+.header-wing span:nth-child(3) {
+
+    width: 58%;
+
+}
+
+
+.header-wing-left {
+
+    align-items:
+        flex-end;
+
+}
+
+
+.header-wing-right {
+
+    align-items:
+        flex-start;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+
+/* ================================================================
+   42. PRESIDENT EMBLEM
+================================================================ */
+
+.president-emblem {
+
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.emblem-glow {
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,231,158,.13),
+
+            rgba(231,49,166,.06) 35%,
+
+            transparent 72%
+
+        );
+
+    filter:
+        blur(12px);
+
+    animation:
+        royalCrownBreath
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes royalCrownBreath {
+
+    0%,
+    100% {
+
+        opacity: .42;
+
+        transform:
+            scale(.95);
+
+    }
+
+    50% {
+
+        opacity: .72;
+
+        transform:
+            scale(1.05);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   43. EMBLEM RINGS
+================================================================ */
+
+.emblem-ring {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+}
+
+
+.emblem-ring-one {
+
+    width: 78px;
+    height: 78px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.48);
+
+}
+
+
+.emblem-ring-two {
+
+    width: 91px;
+    height: 91px;
+
+    border:
+        1px dashed
+        rgba(119,14,101,.42);
+
+}
+
+
+
+/* ================================================================
+   44. CROWN
+================================================================ */
+
+.crown-container {
+
+    position: relative;
+
+    width: 76px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 6;
+
+}
+
+
+.crown-icon {
+
+    width: 60px;
+    height: 50px;
+
+    overflow: visible;
+
+    filter:
+
+        drop-shadow(
+            0 0 3px
+            rgba(231,49,166,.55)
+        );
+
+    animation:
+        crownFloat
+        4.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.crown-main {
+
+    fill:
+        rgba(231,49,166,.08);
+
+    stroke:
+        var(--gold-light);
+
+    stroke-width:
+        4;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+.crown-base {
+
+    fill: none;
+
+    stroke:
+        var(--gold);
+
+    stroke-width:
+        5;
+
+    stroke-linecap:
+        round;
+
+}
+
+
+.crown-jewel {
+
+    fill:
+        var(--gold-light);
+
+}
+
+
+.crown-jewel-center {
+
+    fill:
+        var(--champagne);
+
+}
+
+
+@keyframes crownFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-3px);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   45. PRESIDENT TITLE
+================================================================ */
+
+.president-title {
+
+    position: absolute;
+
+    width: 275px;
+
+    left: 50%;
+    top: 112px;
+
+    transform:
+        translateX(-50%)
+        translateZ(90px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    z-index: 42;
+
+}
+
+
+.title-text {
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    color:
+        var(--champagne);
+
+    text-shadow:
+        0 0 7px
+        rgba(231,49,166,.28);
+
+}
+
+
+.title-line {
+
+    width: 42px;
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+
+.title-line-right {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.title-dot {
+
+    width: 5px;
+    height: 5px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        var(--gold-light);
+
+}
+
+
+
+/* ================================================================
+   46. LEADERSHIP HALO
+================================================================ */
+
+.leadership-halo {
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    left: 50%;
+    top: 192px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 7;
+
+    pointer-events: none;
+
+}
+
+
+.leadership-halo-ring {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+}
+
+
+.halo-ring-outer {
+
+    width: 305px;
+    height: 305px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.12);
+
+}
+
+
+.halo-ring-inner {
+
+    width: 250px;
+    height: 250px;
+
+    border:
+        1px dashed
+        rgba(124,13,105,.20);
+
+}
+
+
+
+/* ================================================================
+   47. HALO MARKERS
+================================================================ */
+
+.halo-marker {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background:
+        var(--gold);
+
+    transform:
+        rotate(45deg);
+
+    opacity: .6;
+
+}
+
+
+.halo-marker-1 {
+
+    top: 0;
+    left: 50%;
+
+}
+
+
+.halo-marker-2 {
+
+    right: 0;
+    top: 50%;
+
+}
+
+
+.halo-marker-3 {
+
+    bottom: 0;
+    left: 50%;
+
+}
+
+
+.halo-marker-4 {
+
+    left: 0;
+    top: 50%;
+
+}
+
+
+
+/* ================================================================
+   48. PORTRAIT ENERGY
+================================================================ */
+
+.portrait-energy {
+
+    position: absolute;
+
+    width: 320px;
+    height: 355px;
+
+    left: 50%;
+    top: 155px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+
+    z-index: 6;
+
+}
+
+
+
+/* ================================================================
+   49. PORTRAIT RINGS
+================================================================ */
+
+.portrait-ring {
+
+    position: absolute;
+
+    left: 50%;
+    top: 49%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+}
+
+
+.portrait-ring-one {
+
+    width: 270px;
+    height: 270px;
+
+    border:
+        1px dashed
+        rgba(231,49,166,.16);
+
+    animation:
+        portraitGoldClock
+        20s
+        linear
+        infinite;
+
+}
+
+
+.portrait-ring-two {
+
+    width: 205px;
+    height: 205px;
+
+    border:
+        1px solid
+        rgba(127,13,107,.26);
+
+    animation:
+        portraitGoldCounter
+        14s
+        linear
+        infinite;
+
+}
+
+
+@keyframes portraitGoldClock {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes portraitGoldCounter {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   50. PORTRAIT RAYS
+================================================================ */
+
+.portrait-rays {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.portrait-rays span {
+
+    position: absolute;
+
+    width: 1px;
+    height: 175px;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin:
+        center top;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(231,49,166,.24),
+            transparent
+        );
+
+    opacity:
+        .25;
+
+}
+
+
+.portrait-rays span:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.portrait-rays span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.portrait-rays span:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.portrait-rays span:nth-child(4) {
+    transform: rotate(135deg);
+}
+
+.portrait-rays span:nth-child(5) {
+    transform: rotate(180deg);
+}
+
+.portrait-rays span:nth-child(6) {
+    transform: rotate(225deg);
+}
+
+.portrait-rays span:nth-child(7) {
+    transform: rotate(270deg);
+}
+
+.portrait-rays span:nth-child(8) {
+    transform: rotate(315deg);
+}
+
+
+
+/* ================================================================
+   51. PORTRAIT CORE LIGHT
+================================================================ */
+
+.portrait-core-light {
+
+    position: absolute;
+
+    width: 250px;
+    height: 330px;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(255,232,165,.08),
+
+            rgba(109,12,94,.14) 35%,
+
+            transparent 70%
+
+        );
+
+    filter:
+        blur(18px);
+
+}
+
+
+
+/* ================================================================
+   52. CUSTOM SIDE NODES
+================================================================ */
+
+.brain-node {
+
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+
+    top: 187px;
+
+    transform:
+        translateZ(75px);
+
+    z-index: 30;
+
+}
+
+
+.brain-node-left {
+
+    left: 27px;
+
+}
+
+
+.brain-node-right {
+
+    right: 27px;
+
+}
+
+
+.node-frame {
+
+    position: absolute;
+
+    inset: -4px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.25);
+
+    transform:
+        rotate(45deg);
+
+    opacity: .4;
+
+}
+
+
+.brain-node-core {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 13px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(255,231,158,.07),
+
+            rgba(39,4,37,.65)
+
+        );
+
+    border:
+        1px solid
+        rgba(231,49,166,.38);
+
+    box-shadow:
+
+        inset 0 0 12px
+        rgba(231,49,166,.035);
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+
+
+/* ================================================================
+   53. NODE SVG ICONS
+================================================================ */
+
+.node-icon {
+
+    width: 27px;
+    height: 27px;
+
+    fill:
+        rgba(231,49,166,.08);
+
+    stroke:
+        var(--gold-light);
+
+    stroke-width:
+        4;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+.node-detail {
+
+    fill: none;
+
+    stroke:
+        var(--champagne);
+
+    stroke-width: 3;
+
+}
+
+
+.node-bolt-icon {
+
+    fill:
+        rgba(231,49,166,.22);
+
+}
+
+
+
+/* ================================================================
+   54. NODE PULSE
+================================================================ */
+
+.node-pulse {
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(231,49,166,.23);
+
+    animation:
+        nodeImperialPulse
+        4s
+        ease-out
+        infinite;
+
+}
+
+
+.brain-node-right .node-pulse {
+
+    animation-delay:
+        2s;
+
+}
+
+
+@keyframes nodeImperialPulse {
+
+    0% {
+
+        opacity: .45;
+
+        transform:
+            scale(.9);
+
+    }
+
+    60%,
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.35);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   55. PORTRAIT FRAME
+================================================================ */
+
+.portrait-frame {
+
+    position: absolute;
+
+    width: 330px;
+    height: 390px;
+
+    left: 50%;
+    top: 145px;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+
+    pointer-events: none;
+
+    z-index: 12;
+
+}
+
+
+
+/* ================================================================
+   56. PORTRAIT TOP FRAME
+================================================================ */
+
+.portrait-top-frame {
+
+    position: absolute;
+
+    width: 190px;
+    height: 58px;
+
+    left: 50%;
+    top: 7px;
+
+    transform:
+        translateX(-50%);
+
+    border-top:
+        1px solid
+        rgba(231,49,166,.55);
+
+    clip-path:
+
+        polygon(
+            0 100%,
+            15% 25%,
+            40% 0,
+            60% 0,
+            85% 25%,
+            100% 100%
+        );
+
+}
+
+
+
+/* ================================================================
+   57. SIDE PORTRAIT ACCENTS
+================================================================ */
+
+.portrait-side-accent {
+
+    position: absolute;
+
+    width: 50px;
+    height: 270px;
+
+    top: 65px;
+
+}
+
+
+.accent-left {
+
+    left: 4px;
+
+    border-left:
+        1px solid
+        rgba(231,49,166,.40);
+
+    border-top:
+        1px solid
+        rgba(231,49,166,.20);
+
+    border-bottom:
+        1px solid
+        rgba(105,11,90,.32);
+
+}
+
+
+.accent-right {
+
+    right: 4px;
+
+    border-right:
+        1px solid
+        rgba(231,49,166,.40);
+
+    border-top:
+        1px solid
+        rgba(231,49,166,.20);
+
+    border-bottom:
+        1px solid
+        rgba(105,11,90,.32);
+
+}
+
+
+
+/* ================================================================
+   58. MEMBER IMAGE
+================================================================ */
+
+.member-image-container {
+
+    position: absolute;
+
+    width: 100%;
+    height: 365px;
+
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    pointer-events: auto;
+
+    z-index: 15;
+
+}
+
+
+.member-image {
+
+    display: block;
+
+    height: 98%;
+
+    max-width: 110%;
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    transform-origin:
+        center bottom;
+
+    filter:
+
+        drop-shadow(
+            0 10px 10px
+            rgba(0,0,0,.78)
+        )
+
+        drop-shadow(
+            0 0 4px
+            rgba(231,49,166,.10)
+        );
+
+    z-index: 8;
+
+}
+
+
+
+/* ================================================================
+   59. PORTRAIT BACKLIGHT
+================================================================ */
+
+.portrait-backlight {
+
+    position: absolute;
+
+    width: 175px;
+    height: 340px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(116,13,18,.15),
+
+            rgba(231,49,166,.05),
+
+            transparent
+
+        );
+
+    filter:
+        blur(26px);
+
+    z-index: 2;
+
+}
+
+
+
+/* ================================================================
+   60. PORTRAIT FRONT LIGHT
+================================================================ */
+
+.portrait-front-glow {
+
+    position: absolute;
+
+    width: 280px;
+    height: 42px;
+
+    left: 50%;
+    bottom: 5px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(231,49,166,.14),
+
+            rgba(94,10,81,.15) 32%,
+
+            transparent 72%
+
+        );
+
+    filter:
+        blur(10px);
+
+    z-index: 20;
+
+}
+
+
+
+/* ================================================================
+   61. PORTRAIT VIGNETTE
+================================================================ */
+
+.portrait-vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(7,2,2,.35),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(5,1,2,.12) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 18;
+
+}
+
+
+
+/* ================================================================
+   62. LEADERSHIP SIDE ORNAMENTS
+================================================================ */
+
+.leadership-ornament {
+
+    position: absolute;
+
+    width: 60px;
+    height: 150px;
+
+    top: 283px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-around;
+
+    z-index: 26;
+
+}
+
+
+.ornament-left {
+
+    left: 16px;
+
+}
+
+
+.ornament-right {
+
+    right: 16px;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.leadership-ornament span {
+
+    display: block;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+.leadership-ornament span:nth-child(1) {
+
+    width: 52px;
+
+}
+
+
+.leadership-ornament span:nth-child(2) {
+
+    width: 35px;
+
+}
+
+
+.leadership-ornament span:nth-child(3) {
+
+    width: 45px;
+
+}
+
+
+
+/* ================================================================
+   63. ELECTRIC DETAILS
+   VERY CONTROLLED
+================================================================ */
+
+.electric-zone {
+
+    position: absolute;
+
+    width: 60px;
+    height: 220px;
+
+    top: 250px;
+
+    pointer-events: none;
+
+    z-index: 27;
+
+    opacity: .35;
+
+}
+
+
+.electric-left {
+
+    left: 11px;
+
+}
+
+
+.electric-right {
+
+    right: 11px;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.electric-line {
+
+    position: absolute;
+
+    display: block;
+
+    height: 1px;
+
+    transform-origin:
+        left center;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--gold-light),
+            var(--gold-dark),
+            transparent
+        );
+
+}
+
+
+.electric-line.e1 {
+
+    width: 46px;
+
+    top: 30px;
+
+    transform:
+        rotate(24deg);
+
+}
+
+
+.electric-line.e2 {
+
+    width: 36px;
+
+    top: 100px;
+
+    transform:
+        rotate(-18deg);
+
+}
+
+
+.electric-line.e3 {
+
+    width: 52px;
+
+    top: 170px;
+
+    transform:
+        rotate(31deg);
+
+}
+
+
+
+/* ================================================================
+   64. SCANNER
+================================================================ */
+
+.scan-system {
+
+    position: absolute;
+
+    inset: 17px;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 45;
+
+}
+
+
+.scan-line {
+
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+
+    top: -5%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(231,49,166,.15),
+
+            var(--gold-light),
+
+            rgba(231,49,166,.15),
+
+            transparent
+
+        );
+
+    opacity:
+        .35;
+
+    animation:
+        imperialScanner
+        7s
+        linear
+        infinite;
+
+}
+
+
+.scan-light {
+
+    position: absolute;
+
+    width: 100%;
+    height: 25px;
+
+    top: -40px;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(231,49,166,.018),
+
+            transparent
+
+        );
+
+    animation:
+        scannerFog
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes imperialScanner {
+
+    from {
+        top: -5%;
+    }
+
+    to {
+        top: 105%;
+    }
+
+}
+
+
+@keyframes scannerFog {
+
+    from {
+        top: -40px;
+    }
+
+    to {
+        top: 105%;
+    }
+
+}
+
+
+
+/* ================================================================
+   65. IDENTITY PANEL
+================================================================ */
+
+.identity {
+
+    position: absolute;
+
+    width: 326px;
+
+    left: 50%;
+    bottom: 28px;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+        16px 12px
+        13px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(22,3,22,.18),
+
+            rgba(58,6,51,.78) 20%,
+
+            rgba(30,5,7,.94) 50%,
+
+            rgba(58,6,51,.78) 80%,
+
+            rgba(22,3,22,.18)
+
+        );
+
+    border-top:
+        1px solid
+        rgba(231,49,166,.36);
+
+    border-bottom:
+        1px solid
+        rgba(231,49,166,.14);
+
+    box-shadow:
+
+        0 -12px 32px
+        rgba(94,9,13,.16),
+
+        0 8px 30px
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(8px);
+
+    z-index: 60;
+
+}
+
+
+
+/* ================================================================
+   66. IDENTITY DECORATION
+================================================================ */
+
+.identity-decoration {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.identity-decoration span {
+
+    width: 58px;
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+
+.identity-decoration span:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.identity-diamond {
+
+    width: 7px;
+    height: 7px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        var(--gold-light);
+
+    border:
+        1px solid
+        var(--champagne);
+
+}
+
+
+
+/* ================================================================
+   67. MEMBER NAME
+================================================================ */
+
+.member-name {
+
+    font-size: 28px;
+
+    line-height: 1.08;
+
+    font-weight: 900;
+
+    letter-spacing: 2.2px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--ivory);
+
+    text-shadow:
+
+        0 2px 7px
+        rgba(0,0,0,.85),
+
+        0 0 8px
+        rgba(231,49,166,.12);
+
+}
+
+
+
+/* ================================================================
+   68. ROLE
+================================================================ */
+
+.role-container {
+
+    margin-top:
+        9px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.member-role {
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--gold-light);
+
+}
+
+
+.role-line {
+
+    width: 40px;
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+
+.role-line:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+
+/* ================================================================
+   69. GOLD CARD CORNERS
+================================================================ */
+
+.premium-corner {
+
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    z-index: 70;
+
+    pointer-events: none;
+
+}
+
+
+.premium-corner::before,
+.premium-corner::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--champagne),
+            var(--gold)
+        );
+
+}
+
+
+.premium-corner::before {
+
+    width: 44px;
+    height: 2px;
+
+}
+
+
+.premium-corner::after {
+
+    width: 2px;
+    height: 44px;
+
+}
+
+
+.premium-corner span {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    left: -2px;
+    top: -2px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        var(--gold-light);
+
+}
+
+
+.corner-top-left {
+
+    top: 19px;
+    left: 18px;
+
+}
+
+
+.corner-top-right {
+
+    top: 19px;
+    right: 18px;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.corner-bottom-left {
+
+    bottom: 19px;
+    left: 18px;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.corner-bottom-right {
+
+    bottom: 19px;
+    right: 18px;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   70. MOVING BORDER LIGHT
+================================================================ */
+
+.moving-border-light {
+
+    position: absolute;
+
+    width: 160%;
+    height: 160%;
+
+    left: -30%;
+    top: -30%;
+
+    background:
+
+        conic-gradient(
+
+            transparent 0deg,
+
+            transparent 52deg,
+
+            rgba(255,232,164,.33) 62deg,
+
+            rgba(231,49,166,.18) 69deg,
+
+            transparent 78deg,
+
+            transparent 210deg,
+
+            rgba(123,15,19,.14) 220deg,
+
+            transparent 240deg,
+
+            transparent 360deg
+
+        );
+
+    opacity: .22;
+
+    animation:
+        imperialBorderRotation
+        12s
+        linear
+        infinite;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+}
+
+
+@keyframes imperialBorderRotation {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   71. GLASS REFLECTION
+================================================================ */
+
+.glass-reflection {
+
+    position: absolute;
+
+    width: 65%;
+    height: 125%;
+
+    left: -55%;
+    top: -12%;
+
+    transform:
+        rotate(18deg);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,236,250,.025),
+
+            rgba(255,236,250,.07),
+
+            transparent
+
+        );
+
+    opacity: .65;
+
+    pointer-events: none;
+
+    z-index: 74;
+
+}
+
+
+
+/* ================================================================
+   72. CARD SHINE
+================================================================ */
+
+.card-shine {
+
+    position: absolute;
+
+    width: 210px;
+    height: 780px;
+
+    left: -330px;
+    top: -80px;
+
+    transform:
+        rotate(18deg);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,230,247,.018),
+
+            rgba(255,230,247,.11),
+
+            rgba(231,49,166,.035),
+
+            transparent
+
+        );
+
+    filter:
+        blur(3px);
+
+    pointer-events: none;
+
+    z-index: 75;
+
+    animation:
+        emperorShine
+        10s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes emperorShine {
+
+    0%,
+    30% {
+
+        left:
+            -330px;
+
+    }
+
+    62%,
+    100% {
+
+        left:
+            500px;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   73. HOVER
+================================================================ */
+
+.card-wrapper:hover .card-front {
+
+    box-shadow:
+
+        0 0 8px
+        rgba(231,49,166,.40),
+
+        0 0 30px
+        rgba(119,12,18,.45),
+
+        0 0 100px
+        rgba(0,0,0,.72);
+
+}
+
+
+.card-wrapper:hover .member-image {
+
+    filter:
+
+        drop-shadow(
+            0 11px 11px
+            rgba(0,0,0,.80)
+        )
+
+        drop-shadow(
+            0 0 5px
+            rgba(231,49,166,.13)
+        );
+
+}
+
+
+
+/* ================================================================
+   74. REVEAL FLASH
+================================================================ */
+
+.flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 1000;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            rgba(255,245,210,.94) 0%,
+
+            rgba(240,202,100,.50) 10%,
+
+            rgba(121,14,103,.17) 29%,
+
+            rgba(41,4,38,.06) 48%,
+
+            transparent 70%
+
+        );
+
+}
+
+
+.flash.active {
+
+    animation:
+        emperorFlash
+        .7s
+        ease-out;
+
+}
+
+
+@keyframes emperorFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    18% {
+        opacity: .15;
+    }
+
+    25% {
+        opacity: .75;
+    }
+
+    37% {
+        opacity: .20;
+    }
+
+    45% {
+        opacity: .42;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+
+/* ================================================================
+   75. PHONE / 9:16
+================================================================ */
+
+@media (max-width: 600px) {
+
+    .card-stage {
+
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+
+
+
+
+    .president-header {
+
+        transform:
+            translateX(-50%)
+            scale(.92);
+
+    }
+
+
+    .portrait-frame {
+
+        width: 88%;
+
+        height: 64%;
+
+        top: 24%;
+
+    }
+
+
+    .portrait-energy {
+
+        width: 84%;
+
+        height: 56%;
+
+        top: 25%;
+
+    }
+
+
+    .leadership-halo {
+
+        width: 78vw;
+        height: 78vw;
+
+        max-width: 300px;
+        max-height: 300px;
+
+    }
+
+
+    .identity {
+
+        width: 84%;
+
+        bottom: 4.5%;
+
+    }
+
+
+    .member-name {
+
+        font-size:
+            23px;
+
+    }
+
+
+    .member-role {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            6px;
+
+    }
+
+}
+
+
+
+
+
+/* ================================================================
+   77. ACCESSIBILITY
+================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+    }
+
+}
+
+/* ================================================================
+   78. SMART CLUB MAGENTA — CREATIVE FINAL ART DIRECTION
+   Added after the original structure so the same HTML stays valid.
+================================================================ */
+
+:root {
+    --smart-ink: #030105;
+    --smart-plum: #120318;
+    --smart-plum-2: #24042c;
+    --smart-violet: #57104f;
+    --smart-magenta-deep: #7b0c69;
+    --smart-magenta: #d92b9e;
+    --smart-hot: #ff3eb1;
+    --smart-pink-light: #ff86d2;
+    --smart-pearl: #fff7fc;
+    --smart-pearl-soft: #f6eaf4;
+    --smart-chrome: #d7d9e3;
+    --smart-chrome-dark: #777786;
+}
+
+/* The portrait is black, so the center receives a soft pearl halo.
+   This separates the hijab from the card without washing out the face. */
+.portrait-core-light {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,220,245,.10) 18%,
+            rgba(242,49,169,.11) 38%,
+            rgba(96,14,84,.08) 55%,
+            transparent 72%
+        );
+    filter: blur(20px);
+}
+
+.portrait-backlight {
+    width: 205px;
+    background:
+        linear-gradient(
+            to top,
+            rgba(218,43,158,.08),
+            rgba(255,255,255,.11) 45%,
+            rgba(255,226,247,.05) 70%,
+            transparent
+        );
+    filter: blur(30px);
+}
+
+.portrait-front-glow {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.18),
+            rgba(255,92,190,.16) 28%,
+            rgba(137,15,114,.08) 52%,
+            transparent 74%
+        );
+}
+
+/* Chrome + magenta frame instead of a fully pink frame */
+.frame-top,
+.frame-bottom {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #611351 10%,
+            #b42085 24%,
+            #e2e3eb 41%,
+            #fffafd 50%,
+            #d9dbe5 59%,
+            #ce2b98 76%,
+            #5b124c 90%,
+            transparent
+        );
+}
+
+.frame-left,
+.frame-right {
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            #59124b 8%,
+            #bd238a 22%,
+            #e1e2e9 40%,
+            #fffafd 50%,
+            #d7d9e2 60%,
+            #c92996 78%,
+            #571149 92%,
+            transparent
+        );
+}
+
+.premium-frame {
+    filter:
+        drop-shadow(0 0 5px rgba(255,255,255,.16))
+        drop-shadow(0 0 11px rgba(225,43,162,.18));
+}
+
+/* Crown = pearl/chrome with magenta jewels.
+   It reads as "President" without becoming a neon crown. */
+.crown-main {
+    fill: rgba(255,255,255,.025);
+    stroke: #f5edf4;
+    stroke-width: 3.5;
+    filter:
+        drop-shadow(0 0 3px rgba(255,255,255,.25))
+        drop-shadow(0 0 7px rgba(228,43,164,.20));
+}
+
+.crown-base {
+    stroke: #d62a9d;
+    stroke-width: 4;
+}
+
+.crown-jewel {
+    fill: #ff62bf;
+}
+
+.crown-jewel-center {
+    fill: #fff8fd;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,.45));
+}
+
+.emblem-ring-one {
+    border-color: rgba(255,255,255,.30);
+}
+
+.emblem-ring-two {
+    border-color: rgba(230,44,166,.25);
+}
+
+.emblem-glow {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.15),
+            rgba(233,48,170,.09) 34%,
+            transparent 72%
+        );
+}
+
+/* Stronger President title hierarchy */
+.title-text {
+    color: #fff8fd;
+    text-shadow:
+        0 0 6px rgba(255,255,255,.17),
+        0 0 12px rgba(228,43,164,.24);
+}
+
+.title-line {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216,218,228,.65),
+            rgba(224,42,162,.55)
+        );
+}
+
+.title-dot {
+    background: #ff55ba;
+    border: 1px solid rgba(255,255,255,.70);
+    box-shadow: 0 0 6px rgba(235,44,169,.40);
+}
+
+/* Leadership halo is mostly silver, with just enough club magenta */
+.halo-ring-outer {
+    border-color: rgba(220,222,232,.18);
+    box-shadow: 0 0 16px rgba(255,255,255,.025);
+}
+
+.halo-ring-inner {
+    border-color: rgba(226,43,164,.20);
+}
+
+.halo-marker {
+    background: #d9dbe4;
+    border: 1px solid #f441b1;
+    box-shadow: 0 0 6px rgba(238,52,173,.28);
+}
+
+/* Custom brain and bolt nodes: no emoji feel, more etched-glass feel */
+.brain-node-core {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.015) 35%,
+            rgba(73,8,64,.52) 100%
+        );
+    border-color: rgba(218,220,230,.34);
+    box-shadow:
+        inset 0 0 14px rgba(255,255,255,.035),
+        0 0 13px rgba(224,42,161,.09);
+}
+
+.node-frame {
+    border-color: rgba(230,44,166,.23);
+}
+
+.node-icon {
+    fill: rgba(225,44,163,.06);
+    stroke: #f3eef4;
+    filter: drop-shadow(0 0 4px rgba(230,44,166,.30));
+}
+
+.node-detail {
+    stroke: #ff64c1;
+}
+
+.node-bolt-icon {
+    fill: rgba(239,56,175,.18);
+    stroke: #fff6fb;
+}
+
+/* Back brain becomes a real Smart Club emblem:
+   pearl neural drawing floating over deep magenta. */
+.brain-emblem {
+    background:
+        radial-gradient(
+            circle at 36% 30%,
+            rgba(255,255,255,.11),
+            rgba(240,69,181,.11) 27%,
+            rgba(88,10,77,.33) 55%,
+            rgba(9,2,12,.97) 80%
+        );
+    border-color: rgba(225,227,235,.44);
+    box-shadow:
+        0 0 15px rgba(220,41,159,.12),
+        inset 0 0 27px rgba(255,255,255,.035);
+}
+
+.brain-emblem-ring {
+    border-color: rgba(233,49,171,.23);
+}
+
+.brain-path {
+    fill: rgba(205,38,148,.08);
+    stroke: #f1eaf1;
+}
+
+.brain-center,
+.brain-neural {
+    stroke: #ff65c0;
+}
+
+.brain-node-dot {
+    fill: #fff7fc;
+    filter: drop-shadow(0 0 3px rgba(255,81,188,.65));
+}
+
+/* Name plate is cleaner and brighter around the face.
+   The photo remains the hero. */
+.identity {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7,2,10,.14),
+            rgba(49,6,45,.74) 19%,
+            rgba(16,3,20,.94) 50%,
+            rgba(49,6,45,.74) 81%,
+            rgba(7,2,10,.14)
+        );
+    border-top-color: rgba(226,228,235,.24);
+    border-bottom-color: rgba(229,43,165,.20);
+    box-shadow:
+        0 -13px 34px rgba(215,41,157,.07),
+        0 9px 30px rgba(0,0,0,.72);
+}
+
+.member-name {
+    color: #fffafd;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.88),
+        0 0 8px rgba(255,255,255,.08);
+}
+
+.member-role {
+    color: #ff69c4;
+    text-shadow: 0 0 8px rgba(225,43,163,.24);
+}
+
+.identity-diamond {
+    background: #fff9fd;
+    border-color: #ed3eae;
+    box-shadow: 0 0 6px rgba(238,62,174,.28);
+}
+
+.identity-decoration span,
+.role-line {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.42),
+            rgba(229,43,165,.48)
+        );
+}
+
+/* Side rails = cool white moving through magenta hardware */
+.light-rail::before {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(172,31,137,.18),
+            rgba(231,232,239,.45),
+            rgba(243,58,176,.42),
+            rgba(172,31,137,.18),
+            transparent
+        );
+}
+
+.light-rail span {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.92),
+            #ff57b9,
+            transparent
+        );
+    box-shadow:
+        0 0 5px rgba(255,255,255,.30),
+        0 0 11px rgba(232,43,166,.24);
+}
+
+/* Background is club-magenta, but dark enough that the card still owns the scene */
+body {
+    background:
+        radial-gradient(
+            ellipse at 50% 44%,
+            #35072e 0%,
+            #1b041e 26%,
+            #0d0210 53%,
+            #050107 77%,
+            #010102 100%
+        );
+}
+
+.scene-light-left {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(216,31,149,.22),
+            rgba(100,10,83,.075) 42%,
+            transparent 72%
+        );
+}
+
+.scene-light-right {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(239,73,183,.12),
+            rgba(110,20,94,.035) 44%,
+            transparent 74%
+        );
+}
+
+.scene-light-center {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.075),
+            rgba(224,39,160,.105) 30%,
+            transparent 68%
+        );
+}
+
+/* Front shell: deep plum, not flat black */
+.front-shell {
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(255,255,255,.075),
+            transparent 24%
+        ),
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(229,44,166,.16),
+            transparent 46%
+        ),
+        linear-gradient(
+            160deg,
+            #35062e 0%,
+            #1d041f 22%,
+            #0e0312 47%,
+            #200421 73%,
+            #050107 100%
+        );
+}
+
+/* Back side stays more mysterious than the front */
+.back-shell {
+    background:
+        radial-gradient(
+            ellipse at 50% 43%,
+            rgba(226,43,162,.18),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            transparent 20%
+        ),
+        linear-gradient(
+            155deg,
+            #290522,
+            #120315 46%,
+            #060108 76%,
+            #010102
+        );
+}
+
+/* Chrome-magenta "metal" frame on the back */
+.back-metal-frame {
+    background:
+        linear-gradient(
+            135deg,
+            #40113a 0%,
+            #8f216f 8%,
+            #dc45aa 16%,
+            #f1eaf2 23%,
+            #fffaff 29%,
+            #a92a83 40%,
+            #5a174f 49%,
+            #d33a9f 59%,
+            #fff8fd 66%,
+            #bd2e91 76%,
+            #6d195d 88%,
+            #351031 100%
+        );
+}
+
+/* Make the continuous effects quieter: premium > noisy */
+.moving-border-light {
+    opacity: .14;
+}
+
+.electric-zone {
+    opacity: .22;
+}
+
+.scan-line {
+    opacity: .24;
+}
+
+.card-noise {
+    opacity: .08;
+}
+
+.front-holographic-layer,
+.back-hologram {
+    opacity: .72;
+}
+
+/* Tiny restrained card aura */
+.stage-aura {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(226,39,159,.12),
+            rgba(255,255,255,.018) 35%,
+            transparent 70%
+        );
+}
+
+.card-shadow {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.10),
+            rgba(226,39,159,.18) 28%,
+            transparent 70%
+        );
+}
+
+/* Final hover: brightens structure, not the whole card */
+.card-wrapper:hover .card-front {
+    box-shadow:
+        0 0 7px rgba(255,255,255,.18),
+        0 0 28px rgba(226,40,161,.32),
+        0 0 95px rgba(0,0,0,.70);
+}
+
+.card-wrapper:hover .member-image {
+    filter:
+        drop-shadow(0 11px 11px rgba(0,0,0,.82))
+        drop-shadow(0 0 5px rgba(255,255,255,.10))
+        drop-shadow(0 0 15px rgba(225,43,161,.08));
+}
+
+/* Reveal flash should read white first, magenta second */
+.flash {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.94) 0%,
+            rgba(255,224,246,.44) 11%,
+            rgba(235,58,177,.18) 28%,
+            rgba(90,8,76,.06) 48%,
+            transparent 70%
+        );
+}
+/* ================================================================
+   79. SMART CLUB — MEDIA CARD
+   SAME MAGENTA / PEARL / CHROME UNIVERSE
+================================================================ */
+
+
+/* ================================================================
+   MEDIA EMBLEM
+================================================================ */
+
+.media-emblem {
+    position: relative;
+}
+
+
+/* Slightly cleaner halo for the camera */
+
+.media-emblem .emblem-glow {
+
+    width: 112px;
+    height: 112px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,220,245,.10) 18%,
+            rgba(233,48,170,.10) 38%,
+            rgba(119,14,101,.045) 56%,
+            transparent 74%
+        );
+
+    filter:
+        blur(13px);
+
+    animation:
+        mediaEmblemBreath
+        4.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes mediaEmblemBreath {
+
+    0%,
+    100% {
+
+        opacity: .48;
+
+        transform:
+            scale(.94);
+
+    }
+
+    50% {
+
+        opacity: .82;
+
+        transform:
+            scale(1.06);
+
+    }
+
+}
+
+
+/* ================================================================
+   CAMERA CONTAINER
+================================================================ */
+
+.camera-container {
+
+    position: relative;
+
+    width: 76px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 8;
+
+}
+
+
+/* ================================================================
+   CAMERA SVG
+================================================================ */
+
+.camera-icon {
+
+    position: relative;
+
+    width: 67px;
+    height: 54px;
+
+    overflow: visible;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.18)
+        )
+        drop-shadow(
+            0 0 8px
+            rgba(226,43,163,.25)
+        );
+
+    animation:
+        mediaCameraFloat
+        4.8s
+        ease-in-out
+        infinite;
+
+    z-index: 5;
+
+}
+
+
+@keyframes mediaCameraFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-2px)
+            scale(1.015);
+
+    }
+
+}
+
+
+/* ================================================================
+   CAMERA BODY
+
+   Chrome / pearl edges.
+   Dark plum interior.
+================================================================ */
+
+.camera-body {
+
+    fill:
+        rgba(15,3,18,.92);
+
+    stroke:
+        #f5eef5;
+
+    stroke-width:
+        3;
+
+    stroke-linejoin:
+        round;
+
+    filter:
+        drop-shadow(
+            0 0 2px
+            rgba(255,255,255,.22)
+        )
+        drop-shadow(
+            0 0 5px
+            rgba(228,43,164,.20)
+        );
+
+}
+
+
+/* ================================================================
+   CAMERA TOP
+================================================================ */
+
+.camera-top {
+
+    fill:
+        rgba(35,5,38,.96);
+
+    stroke:
+        #d9dbe4;
+
+    stroke-width:
+        3;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+/* ================================================================
+   CAMERA LENS — OUTER
+================================================================ */
+
+.camera-lens-outer {
+
+    fill:
+        #09020c;
+
+    stroke:
+        #d92b9e;
+
+    stroke-width:
+        3;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(217,43,158,.35)
+        );
+
+}
+
+
+/* ================================================================
+   CAMERA LENS — MIDDLE
+================================================================ */
+
+.camera-lens-middle {
+
+    fill:
+        rgba(28,4,31,.98);
+
+    stroke:
+        #d9dbe4;
+
+    stroke-width:
+        1.8;
+
+}
+
+
+/* ================================================================
+   CAMERA LENS — INNER GLASS
+================================================================ */
+
+.camera-lens-inner {
+
+    fill:
+        #08010b;
+
+    stroke:
+        #ff55ba;
+
+    stroke-width:
+        1.5;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,85,186,.30)
+        );
+
+}
+
+
+/* ================================================================
+   LENS REFLECTION
+================================================================ */
+
+.camera-lens-reflection {
+
+    fill:
+        #fffafd;
+
+    opacity:
+        .92;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.75)
+        );
+
+}
+
+
+/* ================================================================
+   CAMERA FOCUS RING
+
+   HTML element positioned over SVG lens.
+================================================================ */
+
+.camera-focus-ring {
+
+    position: absolute;
+
+    width: 31px;
+    height: 31px;
+
+    left: 50%;
+    top: 54%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.34);
+
+    box-shadow:
+
+        0 0 5px
+        rgba(255,255,255,.08),
+
+        0 0 10px
+        rgba(226,43,163,.12);
+
+    pointer-events:
+        none;
+
+    z-index:
+        8;
+
+    animation:
+        mediaFocusIdle
+        9s
+        linear
+        infinite;
+
+}
+
+
+.camera-focus-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset:
+        4px;
+
+    border-radius:
+        50%;
+
+    border:
+
+        1px solid
+        rgba(255,80,185,.25);
+
+}
+
+
+.camera-focus-ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        3px;
+
+    height:
+        3px;
+
+    border-radius:
+        50%;
+
+    left:
+        50%;
+
+    top:
+        -2px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #fffafd;
+
+    box-shadow:
+
+        0 0 4px
+        rgba(255,255,255,.70),
+
+        0 0 8px
+        rgba(238,54,173,.45);
+
+}
+
+
+@keyframes mediaFocusIdle {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* ================================================================
+   CAMERA FLASH POINT
+================================================================ */
+
+.camera-flash-point {
+
+    position: absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    right:
+        13px;
+
+    top:
+        19px;
+
+    border-radius:
+        50%;
+
+    background:
+        #fffafd;
+
+    opacity:
+        .55;
+
+    box-shadow:
+
+        0 0 3px
+        rgba(255,255,255,.75),
+
+        0 0 7px
+        rgba(235,53,172,.32);
+
+    z-index:
+        10;
+
+}
+
+
+/* ================================================================
+   MEDIA EMBLEM RINGS
+
+   Same President language.
+================================================================ */
+
+.media-emblem .emblem-ring-one {
+
+    border-color:
+        rgba(255,255,255,.30);
+
+    box-shadow:
+
+        0 0 8px
+        rgba(255,255,255,.025),
+
+        inset 0 0 10px
+        rgba(255,255,255,.018);
+
+}
+
+
+.media-emblem .emblem-ring-two {
+
+    border-color:
+        rgba(230,44,166,.25);
+
+    animation:
+        mediaOuterRing
+        16s
+        linear
+        infinite;
+
+}
+
+
+@keyframes mediaOuterRing {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* ================================================================
+   SMALL CAMERA TARGET MARKS
+================================================================ */
+
+.camera-container::before,
+.camera-container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    opacity:
+        .42;
+
+    z-index:
+        3;
+
+}
+
+
+.camera-container::before {
+
+    left:
+        1px;
+
+    bottom:
+        6px;
+
+    border-left:
+        1px solid
+        #ff55ba;
+
+    border-bottom:
+        1px solid
+        #ff55ba;
+
+}
+
+
+.camera-container::after {
+
+    right:
+        1px;
+
+    top:
+        6px;
+
+    border-right:
+        1px solid
+        #f2edf3;
+
+    border-top:
+        1px solid
+        #f2edf3;
+
+}
+
+
+/* ================================================================
+   MEDIA TITLE
+================================================================ */
+
+.media-title .title-text {
+
+    color:
+        #fff8fd;
+
+    text-shadow:
+
+        0 0 5px
+        rgba(255,255,255,.18),
+
+        0 0 11px
+        rgba(228,43,164,.24);
+
+}
+
+
+/* Give MEDIA slightly more spacing because word is short */
+
+.media-title .title-text {
+
+    letter-spacing:
+        8px;
+
+    padding-left:
+        8px;
+
+}
+
+
+/* ================================================================
+   MEDIA HALO
+================================================================ */
+
+.media-halo .halo-ring-outer {
+
+    border-color:
+        rgba(220,222,232,.18);
+
+}
+
+
+.media-halo .halo-ring-inner {
+
+    border-color:
+        rgba(226,43,164,.20);
+
+}
+
+
+/* ================================================================
+   MEDIA HALO — CAMERA FOCUS DETAILS
+================================================================ */
+
+.media-halo::before {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        218px;
+
+    height:
+        218px;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    border:
+
+        1px dotted
+        rgba(255,255,255,.065);
+
+    animation:
+        mediaPortraitFocus
+        24s
+        linear
+        infinite;
+
+}
+
+
+@keyframes mediaPortraitFocus {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+/* ================================================================
+   MEDIA VIEWFINDER CORNERS AROUND PORTRAIT
+
+   Creates subtle camera framing without changing card structure.
+================================================================ */
+
+.media-halo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        1px 18px
+        no-repeat;
+
+    opacity:
+        .15;
+
+}
+
+
+/* ================================================================
+   MEDIA CAMERA FLASH OVERLAY
+================================================================ */
+
+.media-camera-flash {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        0;
+
+    z-index:
+        1100;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            rgba(255,255,255,.98)
+            0%,
+
+            rgba(255,248,253,.86)
+            8%,
+
+            rgba(255,215,243,.32)
+            18%,
+
+            rgba(235,58,177,.12)
+            34%,
+
+            transparent
+            65%
+
+        );
+
+}
+
+
+/* JS can simply add class "active" */
+
+.media-camera-flash.active {
+
+    animation:
+        mediaShutterFlash
+        .48s
+        ease-out;
+
+}
+
+
+@keyframes mediaShutterFlash {
+
+    0% {
+
+        opacity:
+            0;
+
+    }
+
+    8% {
+
+        opacity:
+            .22;
+
+    }
+
+    14% {
+
+        opacity:
+            .96;
+
+    }
+
+    20% {
+
+        opacity:
+            .16;
+
+    }
+
+    28% {
+
+        opacity:
+            .58;
+
+    }
+
+    37% {
+
+        opacity:
+            .07;
+
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* ================================================================
+   CAMERA FLASH POINT WHEN ACTIVE
+================================================================ */
+
+.camera-container.flash-shot .camera-flash-point {
+
+    animation:
+        cameraPointShot
+        .42s
+        ease-out;
+
+}
+
+
+@keyframes cameraPointShot {
+
+    0% {
+
+        transform:
+            scale(1);
+
+        opacity:
+            .5;
+
+    }
+
+    15% {
+
+        transform:
+            scale(3.8);
+
+        opacity:
+            1;
+
+        box-shadow:
+
+            0 0 8px
+            rgba(255,255,255,1),
+
+            0 0 20px
+            rgba(255,255,255,.75),
+
+            0 0 32px
+            rgba(255,74,183,.60);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity:
+            .55;
+
+    }
+
+}
+
+
+/* ================================================================
+   CAMERA FOCUS EVENT
+
+   JS can add class "focusing" to .camera-container
+================================================================ */
+
+.camera-container.focusing .camera-focus-ring {
+
+    animation:
+        mediaFocusLock
+        .85s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes mediaFocusLock {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            scale(1.28);
+
+        opacity:
+            .20;
+
+    }
+
+    45% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(150deg)
+            scale(.82);
+
+        opacity:
+            1;
+
+    }
+
+    70% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(250deg)
+            scale(1.05);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg)
+            scale(1);
+
+        opacity:
+            .75;
+
+    }
+
+}
+
+
+/* ================================================================
+   FOCUS LOCK PULSE
+================================================================ */
+
+.camera-container.focusing::before,
+.camera-container.focusing::after {
+
+    opacity:
+        1;
+
+    filter:
+
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.45)
+        )
+
+        drop-shadow(
+            0 0 6px
+            rgba(255,71,181,.35)
+        );
+
+}
+
+
+/* ================================================================
+   MEDIA CARD — PORTRAIT ENERGY
+
+   Keep same colors, but make the center feel slightly like a lens.
+================================================================ */
+
+.media-halo ~ .portrait-energy .portrait-core-light {
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(255,255,255,.16)
+            0%,
+
+            rgba(255,220,245,.10)
+            18%,
+
+            rgba(242,49,169,.11)
+            38%,
+
+            rgba(96,14,84,.08)
+            55%,
+
+            transparent
+            72%
+
+        );
+
+}
+
+
+/* ================================================================
+   SUBTLE VIEWFINDER CROSSHAIR
+================================================================ */
+
+.media-halo .halo-marker {
+
+    background:
+        #d9dbe4;
+
+    border:
+        1px solid
+        #f441b1;
+
+    box-shadow:
+
+        0 0 5px
+        rgba(238,52,173,.25);
+
+}
+
+
+/* ================================================================
+   MEDIA CARD HOVER
+================================================================ */
+
+.card-wrapper:hover .camera-icon {
+
+    filter:
+
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.28)
+        )
+
+        drop-shadow(
+            0 0 10px
+            rgba(230,44,166,.32)
+        );
+
+}
+
+
+.card-wrapper:hover .camera-focus-ring {
+
+    border-color:
+        rgba(255,255,255,.50);
+
+}
+
+
+/* ================================================================
+   MEDIA EMBLEM — LIGHT SWEEP
+================================================================ */
+
+.camera-container {
+
+    overflow:
+        visible;
+
+}
+
+
+.media-emblem::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        32px;
+
+    height:
+        90px;
+
+    left:
+        -35px;
+
+    top:
+        -3px;
+
+    transform:
+        rotate(20deg);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.06),
+
+            rgba(255,255,255,.14),
+
+            transparent
+
+        );
+
+    filter:
+        blur(3px);
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        12;
+
+    animation:
+        mediaCameraSweep
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes mediaCameraSweep {
+
+    0%,
+    63% {
+
+        left:
+            -40px;
+
+        opacity:
+            0;
+
+    }
+
+    68% {
+
+        opacity:
+            .55;
+
+    }
+
+    78% {
+
+        left:
+            95px;
+
+        opacity:
+            .18;
+
+    }
+
+    82%,
+    100% {
+
+        left:
+            105px;
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* ================================================================
+   MEDIA IDENTITY
+
+   Same President colors.
+   Only slightly reinforces the role text.
+================================================================ */
+
+.media-title + .media-halo {
+    pointer-events: none;
+}
+
+
+.member-role {
+
+    text-shadow:
+
+        0 0 7px
+        rgba(225,43,163,.22);
+
+}
+
+
+/* ================================================================
+   MEDIA PHONE ADJUSTMENTS
+================================================================ */
+
+@media (max-width: 600px) {
+
+    .camera-icon {
+
+        width:
+            63px;
+
+        height:
+            51px;
+
+    }
+
+
+    .camera-focus-ring {
+
+        width:
+            29px;
+
+        height:
+            29px;
+
+    }
+
+
+    .media-title .title-text {
+
+        letter-spacing:
+            7px;
+
+    }
+
+}
+
+
+/* ================================================================
+   REDUCED MOTION
+================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .camera-icon,
+    .camera-focus-ring,
+    .media-emblem .emblem-ring-two,
+    .media-emblem::after,
+    .media-halo::before {
+
+        animation:
+            none !important;
+
+    }
+
+}
+/* ================================================================
+   MEDIA — FINAL INTERNAL PROPORTION FIX
+   Keep card size unchanged.
+   Only rebalance photo + identity + title.
+================================================================ */
+
+
+/* ---------- PORTRAIT AREA ---------- */
+
+.portrait-frame {
+    width: 86%;
+    height: 57%;
+
+    top: 25%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+}
+
+
+.member-image-container {
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+.member-image {
+    height: 91%;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform-origin: center bottom;
+}
+
+
+/* ---------- PORTRAIT ENERGY ---------- */
+
+.portrait-energy {
+    width: 79%;
+    height: 54%;
+
+    top: 27%;
+}
+
+
+/* ---------- MEDIA HEADER ---------- */
+
+.media-header {
+    top: 3.5%;
+}
+
+
+.media-title {
+    top: 18%;
+}
+
+
+/* ---------- SIDE NODES ---------- */
+
+.brain-node {
+    top: 31%;
+}
+
+
+/* ---------- IDENTITY PANEL ---------- */
+
+.identity {
+    width: 86%;
+
+    left: 50%;
+    bottom: 4.2%;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+        12px 10px 11px;
+}
+
+
+/* ---------- NAME ---------- */
+
+.member-name {
+    font-size: 24px;
+
+    line-height: 1.04;
+
+    letter-spacing: 1.7px;
+
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ---------- ROLE ---------- */
+
+.member-role {
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+/* ---------- IDENTITY DECORATION ---------- */
+
+.identity-decoration {
+    margin-bottom: 6px;
+}
+
+
+.identity-decoration span {
+    width: 46px;
+}
+
+
+.role-line {
+    width: 34px;
+}
+/* MEDIA title — move slightly below camera */
+.media-title {
+    top: 20.5%;
+}

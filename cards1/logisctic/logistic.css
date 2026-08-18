@@ -1,0 +1,4644 @@
+/* ================================================================
+   SMART CLUB — LOGISTICS
+   CINEMATIC 9:16 CARD EXPERIENCE
+
+   PALETTE:
+   - Deep plum / black
+   - Smart Club magenta
+   - Pearl white
+   - Chrome / silver
+
+   CARD-ONLY VERSION:
+   card back
+   → smart core activation
+   → rotation
+   → logistics member reveal
+================================================================ */
+
+
+/* ================================================================
+   1. ROOT
+================================================================ */
+
+:root {
+
+    --black:
+        #020104;
+
+    --ink:
+        #050107;
+
+    --deep-plum:
+        #100312;
+
+    --plum:
+        #1d041f;
+
+    --plum-2:
+        #2b0630;
+
+    --magenta-deep:
+        #7b0c69;
+
+    --magenta:
+        #d92b9e;
+
+    --magenta-hot:
+        #ff3eb1;
+
+    --magenta-light:
+        #ff82cf;
+
+    --pearl:
+        #fff7fc;
+
+    --pearl-soft:
+        #f5edf4;
+
+    --chrome:
+        #d9dbe5;
+
+    --chrome-dark:
+        #777786;
+
+    --soft-glow:
+        rgba(217,43,158,.20);
+
+}
+
+
+
+/* ================================================================
+   2. RESET
+================================================================ */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+body {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        #000;
+
+    color:
+        var(--pearl);
+
+}
+
+
+
+/* ================================================================
+   3. 9:16 PHONE CANVAS
+================================================================ */
+
+.scene {
+
+    position: relative;
+
+    height: 100vh;
+
+    aspect-ratio:
+        9 / 16;
+
+    max-width: 100vw;
+
+    overflow: hidden;
+
+    perspective:
+        2200px;
+
+    isolation:
+        isolate;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 44%,
+            #35072e 0%,
+            #1b041e 26%,
+            #0d0210 53%,
+            #050107 77%,
+            #010102 100%
+        );
+
+}
+
+
+
+/* ================================================================
+   4. SCENE LIGHTS
+================================================================ */
+
+.scene-light {
+
+    position: absolute;
+
+    border-radius:
+        50%;
+
+    filter:
+        blur(65px);
+
+    pointer-events:
+        none;
+
+    z-index:
+        -10;
+
+}
+
+
+.scene-light-left {
+
+    width: 75%;
+    height: 55%;
+
+    left: -20%;
+    top: 18%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(216,31,149,.18),
+            rgba(100,10,83,.06) 44%,
+            transparent 74%
+        );
+
+    animation:
+        sceneLeftMove
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+.scene-light-right {
+
+    width: 70%;
+    height: 55%;
+
+    right: -23%;
+    top: 30%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(239,73,183,.10),
+            rgba(110,20,94,.03) 44%,
+            transparent 74%
+        );
+
+    animation:
+        sceneRightMove
+        9s
+        ease-in-out
+        infinite;
+
+}
+
+
+.scene-light-center {
+
+    width: 74%;
+    height: 60%;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.05),
+            rgba(224,39,160,.08) 30%,
+            transparent 68%
+        );
+
+}
+
+
+@keyframes sceneLeftMove {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-8px, 10px);
+
+    }
+
+    50% {
+
+        transform:
+            translate(14px, -8px);
+
+    }
+
+}
+
+
+@keyframes sceneRightMove {
+
+    0%,
+    100% {
+
+        transform:
+            translate(10px, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-12px, 10px);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   5. BACKGROUND GRID
+================================================================ */
+
+.background-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        38px 38px;
+
+    mask-image:
+
+        radial-gradient(
+            circle at center,
+            black 10%,
+            transparent 74%
+        );
+
+    opacity:
+        .7;
+
+    pointer-events:
+        none;
+
+}
+
+
+
+/* ================================================================
+   6. BACKGROUND RINGS
+================================================================ */
+
+.background-energy-ring,
+.scene-orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -5;
+
+}
+
+
+.ring-one {
+
+    width: 115%;
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px solid
+        rgba(226,43,164,.08);
+
+    animation:
+        bgRingA
+        28s
+        linear
+        infinite;
+
+}
+
+
+.ring-two {
+
+    width: 145%;
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px dashed
+        rgba(220,222,232,.045);
+
+    animation:
+        bgRingB
+        34s
+        linear
+        infinite;
+
+}
+
+
+.scene-orbit-large {
+
+    width: 165%;
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.025);
+
+}
+
+
+.scene-orbit-small {
+
+    width: 90%;
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px dashed
+        rgba(226,43,164,.07);
+
+}
+
+
+@keyframes bgRingA {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes bgRingB {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   7. PARTICLES
+================================================================ */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events:
+        none;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    border-radius:
+        50%;
+
+    animation:
+        particleTravel
+        linear
+        infinite;
+
+}
+
+
+@keyframes particleTravel {
+
+    from {
+
+        transform:
+            translateY(105vh);
+
+        opacity:
+            0;
+
+    }
+
+    20% {
+
+        opacity:
+            .45;
+
+    }
+
+    80% {
+
+        opacity:
+            .35;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-10vh);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+
+/* ================================================================
+
+/* ================================================================
+   LOGISTICS — CARD ONLY
+   Package scan / route / delivery intro removed.
+================================================================ */
+
+/* ================================================================
+   22. CARD STAGE
+================================================================ */
+
+.card-stage {
+
+    position: absolute;
+
+    inset: 0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    transform-style:
+        preserve-3d;
+
+    z-index:
+        20;
+
+}
+
+
+
+/* ================================================================
+   23. CARD SHADOW
+================================================================ */
+
+.card-shadow {
+
+    position: absolute;
+
+    width:
+        62%;
+
+    height:
+        50px;
+
+    left:
+        50%;
+
+    bottom:
+        10%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.08),
+            rgba(226,39,159,.14) 30%,
+            transparent 70%
+        );
+
+    filter:
+        blur(20px);
+
+}
+
+
+.stage-aura {
+
+    position: absolute;
+
+    width:
+        85%;
+
+    height:
+        55%;
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(226,39,159,.10),
+            rgba(255,255,255,.012) 35%,
+            transparent 70%
+        );
+
+    filter:
+        blur(30px);
+
+}
+
+
+
+/* ================================================================
+   24. CARD WRAPPER
+================================================================ */
+
+.card-wrapper {
+
+    position: relative;
+
+    width: min(82%, 390px);
+
+    aspect-ratio: 390 / 610;
+
+    height: auto;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.45s
+        cubic-bezier(.16,1,.3,1);
+
+    z-index: 5;
+
+    cursor: pointer;
+}
+
+
+.card-wrapper.flipped {
+
+    transform:
+        rotateY(180deg);
+
+}
+
+
+
+/* ================================================================
+   25. BOTH SIDES
+================================================================ */
+
+.card-side {
+
+    position: absolute;
+
+    inset: 0;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    transform-style:
+        preserve-3d;
+
+    overflow:
+        hidden;
+
+    clip-path:
+
+        polygon(
+            8% 0%,
+            38% 0%,
+            43% 3%,
+            57% 3%,
+            62% 0%,
+            92% 0%,
+            100% 8%,
+            100% 88%,
+            93% 100%,
+            65% 100%,
+            60% 97%,
+            40% 97%,
+            35% 100%,
+            7% 100%,
+            0% 88%,
+            0% 8%
+        );
+
+}
+
+
+
+/* ================================================================
+   26. CARD BACK
+================================================================ */
+
+.card-back {
+
+    background:
+        #09020c;
+
+    box-shadow:
+
+        0 0 7px
+        rgba(255,255,255,.10),
+
+        0 0 28px
+        rgba(226,40,161,.28),
+
+        0 0 85px
+        rgba(0,0,0,.68);
+
+}
+
+
+.back-shell {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 43%,
+            rgba(226,43,162,.18),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.04),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            155deg,
+            #290522,
+            #120315 46%,
+            #060108 76%,
+            #010102
+        );
+
+}
+
+
+
+/* ================================================================
+   27. BACK METAL FRAME
+================================================================ */
+
+.back-metal-frame {
+
+    position: absolute;
+
+    inset:
+        5px;
+
+    clip-path:
+        inherit;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #40113a 0%,
+            #8f216f 8%,
+            #dc45aa 16%,
+            #f1eaf2 23%,
+            #fffaff 29%,
+            #a92a83 40%,
+            #5a174f 49%,
+            #d33a9f 59%,
+            #fff8fd 66%,
+            #bd2e91 76%,
+            #6d195d 88%,
+            #351031 100%
+        );
+
+}
+
+
+.back-inner-frame {
+
+    position: absolute;
+
+    inset:
+        9px;
+
+    clip-path:
+        inherit;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 42%,
+            #23051f,
+            #100312 56%,
+            #040105
+        );
+
+}
+
+
+.back-hologram {
+
+    position: absolute;
+
+    inset:
+        -30%;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            transparent 34%,
+            rgba(255,255,255,.01) 39%,
+            rgba(255,226,247,.08) 44%,
+            rgba(226,43,164,.05) 48%,
+            transparent 54%
+        );
+
+    transform:
+        translateX(-45%)
+        rotate(8deg);
+
+    animation:
+        backHolo
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes backHolo {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-50%)
+            rotate(8deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(45%)
+            rotate(8deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   28. BACK PLATES
+================================================================ */
+
+.back-top-plate,
+.back-bottom-plate {
+
+    position: absolute;
+
+    width:
+        44%;
+
+    height:
+        4px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #7a1a66,
+            #e1e2e9,
+            #ff57b9,
+            transparent
+        );
+
+}
+
+
+.back-top-plate {
+
+    top:
+        4.5%;
+
+}
+
+
+.back-bottom-plate {
+
+    bottom:
+        4.5%;
+
+}
+
+
+.back-side-plate {
+
+    position: absolute;
+
+    width:
+        3px;
+
+    height:
+        30%;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+
+        linear-gradient(
+            transparent,
+            rgba(230,44,166,.30),
+            #e6e7ec,
+            rgba(230,44,166,.30),
+            transparent
+        );
+
+}
+
+
+.back-side-left {
+
+    left:
+        5.8%;
+
+}
+
+
+.back-side-right {
+
+    right:
+        5.8%;
+
+}
+
+
+
+/* ================================================================
+   29. CIRCUITS
+================================================================ */
+
+.circuit {
+
+    position: absolute;
+
+    width:
+        25%;
+
+    aspect-ratio:
+        1;
+
+    opacity:
+        .32;
+
+}
+
+
+.circuit::before,
+.circuit::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #fffafd,
+            #ff55ba,
+            transparent
+        );
+
+}
+
+
+.circuit::before {
+
+    width:
+        78%;
+
+    height:
+        1px;
+
+}
+
+
+.circuit::after {
+
+    width:
+        1px;
+
+    height:
+        78%;
+
+}
+
+
+.circuit-top-left {
+
+    left:
+        8%;
+
+    top:
+        11%;
+
+}
+
+
+.circuit-top-right {
+
+    right:
+        8%;
+
+    top:
+        11%;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.circuit-bottom-left {
+
+    left:
+        8%;
+
+    bottom:
+        11%;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.circuit-bottom-right {
+
+    right:
+        8%;
+
+    bottom:
+        11%;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   30. BACK CORNERS
+================================================================ */
+
+.energy-corner {
+
+    position: absolute;
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border-top:
+
+        2px solid
+        var(--pearl);
+
+    border-left:
+
+        2px solid
+        var(--magenta);
+
+    filter:
+
+        drop-shadow(
+            0 0 4px
+            rgba(229,43,165,.24)
+        );
+
+}
+
+
+.back-corner-1 {
+
+    top:
+        4%;
+
+    left:
+        6%;
+
+}
+
+
+.back-corner-2 {
+
+    top:
+        4%;
+
+    right:
+        6%;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.back-corner-3 {
+
+    bottom:
+        4%;
+
+    left:
+        6%;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.back-corner-4 {
+
+    bottom:
+        4%;
+
+    right:
+        6%;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   31. BACK CORE
+================================================================ */
+
+.back-core {
+
+    position: absolute;
+
+    width:
+        74%;
+
+    aspect-ratio:
+        1;
+
+    left:
+        50%;
+
+    top:
+        46%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+/* ================================================================
+   32. CORE ORBITS
+================================================================ */
+
+.core-orbit {
+
+    position: absolute;
+
+    border-radius:
+        50%;
+
+    border:
+
+        1px solid
+        rgba(226,43,164,.20);
+
+}
+
+
+.orbit-large {
+
+    width:
+        92%;
+
+    height:
+        92%;
+
+    border-style:
+        dashed;
+
+    animation:
+        orbitA
+        15s
+        linear
+        infinite;
+
+}
+
+
+.orbit-medium {
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    border-color:
+        rgba(220,222,232,.18);
+
+    animation:
+        orbitB
+        11s
+        linear
+        infinite;
+
+}
+
+
+.orbit-small {
+
+    width:
+        54%;
+
+    height:
+        54%;
+
+    border-style:
+        dashed;
+
+    border-color:
+        rgba(255,82,185,.28);
+
+    animation:
+        orbitA
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes orbitA {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitB {
+
+    to {
+
+        transform:
+            rotate(-360deg);
+
+    }
+
+}
+
+
+.orbit-marker {
+
+    position: absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        #fffafd;
+
+    box-shadow:
+
+        0 0 6px
+        rgba(255,78,181,.45);
+
+}
+
+
+.marker-a {
+
+    top:
+        -3px;
+
+    left:
+        50%;
+
+}
+
+
+.marker-b {
+
+    bottom:
+        -3px;
+
+    left:
+        35%;
+
+}
+
+
+.marker-c {
+
+    right:
+        -3px;
+
+    top:
+        45%;
+
+}
+
+
+
+/* ================================================================
+   33. BACK BRAIN
+================================================================ */
+
+.brain-emblem {
+
+    position: relative;
+
+    width:
+        40%;
+
+    aspect-ratio:
+        1;
+
+    border-radius:
+        50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 36% 30%,
+            rgba(255,255,255,.11),
+            rgba(240,69,181,.11) 27%,
+            rgba(88,10,77,.33) 55%,
+            rgba(9,2,12,.97) 80%
+        );
+
+    border:
+
+        1px solid
+        rgba(225,227,235,.44);
+
+    box-shadow:
+
+        0 0 15px
+        rgba(220,41,159,.12),
+
+        inset 0 0 27px
+        rgba(255,255,255,.035);
+
+    z-index:
+        5;
+
+}
+
+
+.brain-emblem-ring {
+
+    position: absolute;
+
+    inset:
+        8%;
+
+    border-radius:
+        50%;
+
+    border:
+
+        1px solid
+        rgba(233,49,171,.23);
+
+}
+
+
+.brain-icon {
+
+    width:
+        64%;
+
+    height:
+        64%;
+
+}
+
+
+.brain-path {
+
+    fill:
+        rgba(205,38,148,.08);
+
+    stroke:
+        #f1eaf1;
+
+    stroke-width:
+        3;
+
+}
+
+
+.brain-center,
+.brain-neural {
+
+    fill:
+        none;
+
+    stroke:
+        #ff65c0;
+
+    stroke-width:
+        2;
+
+}
+
+
+.brain-node-dot {
+
+    fill:
+        #fff7fc;
+
+    filter:
+
+        drop-shadow(
+            0 0 3px
+            rgba(255,81,188,.65)
+        );
+
+}
+
+
+.core-pulse {
+
+    position: absolute;
+
+    width:
+        40%;
+
+    aspect-ratio:
+        1;
+
+    border-radius:
+        50%;
+
+    border:
+
+        1px solid
+        rgba(226,43,164,.36);
+
+    animation:
+        corePulseAnim
+        3s
+        ease-out
+        infinite;
+
+}
+
+
+@keyframes corePulseAnim {
+
+    from {
+
+        opacity:
+            .5;
+
+        transform:
+            scale(.85);
+
+    }
+
+    to {
+
+        opacity:
+            0;
+
+        transform:
+            scale(2);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   34. BACK BRAND
+================================================================ */
+
+.back-brand {
+
+    position: absolute;
+
+    width:
+        80%;
+
+    left:
+        50%;
+
+    bottom:
+        8%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap:
+        10px;
+
+}
+
+
+.brand-name {
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        5px;
+
+    color:
+        var(--pearl);
+
+}
+
+
+.brand-line {
+
+    width:
+        30px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff55ba
+        );
+
+}
+
+
+.brand-line:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.brand-symbol {
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+}
+
+
+.brand-symbol svg {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    fill:
+        none;
+
+    stroke:
+        #fffafd;
+
+    stroke-width:
+        2;
+
+}
+
+
+.back-light-runner {
+
+    position: absolute;
+
+    width:
+        180%;
+
+    height:
+        30px;
+
+    left:
+        -40%;
+
+    top:
+        -60px;
+
+    transform:
+        rotate(-25deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.09),
+            transparent
+        );
+
+    filter:
+        blur(7px);
+
+    animation:
+        backRunner
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes backRunner {
+
+    to {
+
+        top:
+            110%;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   35. CARD FRONT
+================================================================ */
+
+.card-front {
+
+    transform:
+        rotateY(180deg);
+
+    background:
+        #0b020e;
+
+    box-shadow:
+
+        0 0 7px
+        rgba(255,255,255,.14),
+
+        0 0 30px
+        rgba(226,40,161,.28),
+
+        0 0 95px
+        rgba(0,0,0,.70);
+
+}
+
+
+.front-shell {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(255,255,255,.07),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(229,44,166,.15),
+            transparent 46%
+        ),
+
+        linear-gradient(
+            160deg,
+            #35062e 0%,
+            #1d041f 22%,
+            #0e0312 47%,
+            #200421 73%,
+            #050107 100%
+        );
+
+}
+
+
+.front-light-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.045),
+            transparent 22%
+        ),
+
+        linear-gradient(
+            315deg,
+            rgba(226,43,164,.10),
+            transparent 32%
+        );
+
+}
+
+
+.front-holographic-layer {
+
+    position: absolute;
+
+    inset:
+        -40%;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            transparent 33%,
+            rgba(255,255,255,.01) 39%,
+            rgba(255,226,247,.08) 44%,
+            rgba(226,43,164,.05) 48%,
+            transparent 56%
+        );
+
+    mix-blend-mode:
+        screen;
+
+    animation:
+        frontReflection
+        8s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes frontReflection {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-45%);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(42%);
+
+    }
+
+}
+
+
+.front-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        34px 34px;
+
+    opacity:
+        .7;
+
+}
+
+
+.card-noise {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity:
+        .08;
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,255,255,.15) .5px,
+            transparent .5px
+        );
+
+    background-size:
+        7px 7px;
+
+    mix-blend-mode:
+        overlay;
+
+}
+
+
+
+/* ================================================================
+   36. PREMIUM FRAME
+================================================================ */
+
+.premium-frame {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        30;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.14)
+        )
+
+        drop-shadow(
+            0 0 11px
+            rgba(225,43,162,.17)
+        );
+
+}
+
+
+.frame-top,
+.frame-bottom {
+
+    position: absolute;
+
+    width:
+        72%;
+
+    height:
+        3px;
+
+    left:
+        14%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #611351 10%,
+            #b42085 24%,
+            #e2e3eb 41%,
+            #fffafd 50%,
+            #d9dbe5 59%,
+            #ce2b98 76%,
+            #5b124c 90%,
+            transparent
+        );
+
+}
+
+
+.frame-top {
+
+    top:
+        5px;
+
+}
+
+
+.frame-bottom {
+
+    bottom:
+        5px;
+
+}
+
+
+.frame-left,
+.frame-right {
+
+    position: absolute;
+
+    width:
+        3px;
+
+    height:
+        72%;
+
+    top:
+        14%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            transparent,
+            #59124b 8%,
+            #bd238a 22%,
+            #e1e2e9 40%,
+            #fffafd 50%,
+            #d7d9e2 60%,
+            #c92996 78%,
+            #571149 92%,
+            transparent
+        );
+
+}
+
+
+.frame-left {
+
+    left:
+        5px;
+
+}
+
+
+.frame-right {
+
+    right:
+        5px;
+
+}
+
+
+.inner-premium-frame {
+
+    position: absolute;
+
+    inset:
+        14px;
+
+    border:
+
+        1px solid
+        rgba(226,228,235,.16);
+
+    pointer-events:
+        none;
+
+}
+
+
+
+/* ================================================================
+   37. TOP ARMOR
+================================================================ */
+
+.top-armor {
+
+    position: absolute;
+
+    width:
+        76%;
+
+    height:
+        30px;
+
+    top:
+        5px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:
+        32;
+
+}
+
+
+.top-armor span {
+
+    position: absolute;
+
+    height:
+        4px;
+
+    top:
+        0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #6e185d,
+            #e2e3e9,
+            #ff55ba,
+            #6e185d
+        );
+
+}
+
+
+.top-armor-left {
+
+    width:
+        31%;
+
+    left:
+        0;
+
+}
+
+
+.top-armor-center {
+
+    width:
+        23%;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    opacity:
+        .55;
+
+}
+
+
+.top-armor-right {
+
+    width:
+        31%;
+
+    right:
+        0;
+
+}
+
+
+
+/* ================================================================
+   38. LIGHT RAILS
+================================================================ */
+
+.light-rail {
+
+    position: absolute;
+
+    width:
+        6px;
+
+    height:
+        48%;
+
+    top:
+        27%;
+
+    z-index:
+        25;
+
+}
+
+
+.light-rail-left {
+
+    left:
+        4.4%;
+
+}
+
+
+.light-rail-right {
+
+    right:
+        4.4%;
+
+}
+
+
+.light-rail::before {
+
+    content: "";
+
+    position: absolute;
+
+    width:
+        1px;
+
+    height:
+        100%;
+
+    left:
+        50%;
+
+    background:
+
+        linear-gradient(
+            transparent,
+            rgba(172,31,137,.18),
+            rgba(231,232,239,.45),
+            rgba(243,58,176,.42),
+            rgba(172,31,137,.18),
+            transparent
+        );
+
+}
+
+
+.light-rail span {
+
+    position: absolute;
+
+    width:
+        4px;
+
+    height:
+        40px;
+
+    left:
+        1px;
+
+    background:
+
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.92),
+            #ff57b9,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 5px
+        rgba(255,255,255,.28),
+
+        0 0 11px
+        rgba(232,43,166,.22);
+
+    animation:
+        railMove
+        4.5s
+        linear
+        infinite;
+
+}
+
+
+.light-rail-right span {
+
+    animation-delay:
+        2s;
+
+}
+
+
+@keyframes railMove {
+
+    from {
+
+        top:
+            -45px;
+
+    }
+
+    to {
+
+        top:
+            100%;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   39. LOGISTICS HEADER
+================================================================ */
+
+.logistics-header {
+
+    position: absolute;
+
+    width:
+        78%;
+
+    height:
+        95px;
+
+    left:
+        50%;
+
+    top:
+        3.5%;
+
+    transform:
+        translateX(-50%)
+        translateZ(85px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index:
+        40;
+
+}
+
+
+.header-wing {
+
+    width:
+        31%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap:
+        6px;
+
+}
+
+
+.header-wing span {
+
+    display: block;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.55),
+            rgba(229,43,165,.48)
+        );
+
+}
+
+
+.header-wing span:nth-child(1) {
+
+    width:
+        78%;
+
+}
+
+
+.header-wing span:nth-child(2) {
+
+    width:
+        100%;
+
+}
+
+
+.header-wing span:nth-child(3) {
+
+    width:
+        58%;
+
+}
+
+
+.header-wing-left {
+
+    align-items:
+        flex-end;
+
+}
+
+
+.header-wing-right {
+
+    align-items:
+        flex-start;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+
+/* ================================================================
+   40. LOGISTICS EMBLEM
+================================================================ */
+
+.logistics-emblem {
+
+    position: relative;
+
+    width:
+        86px;
+
+    height:
+        86px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink:
+        0;
+
+}
+
+
+.emblem-glow {
+
+    position: absolute;
+
+    width:
+        110px;
+
+    height:
+        110px;
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.13),
+            rgba(233,48,170,.08) 34%,
+            transparent 72%
+        );
+
+    filter:
+        blur(12px);
+
+}
+
+
+.emblem-ring {
+
+    position: absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+}
+
+
+.emblem-ring-one {
+
+    width:
+        76px;
+
+    height:
+        76px;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.26);
+
+}
+
+
+.emblem-ring-two {
+
+    width:
+        90px;
+
+    height:
+        90px;
+
+    border:
+
+        1px dashed
+        rgba(230,44,166,.24);
+
+    animation:
+        emblemOrbit
+        15s
+        linear
+        infinite;
+
+}
+
+
+@keyframes emblemOrbit {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   41. PACKAGE EMBLEM
+================================================================ */
+
+.package-emblem-container {
+
+    position: relative;
+
+    width:
+        68px;
+
+    height:
+        66px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index:
+        8;
+
+}
+
+
+.logistics-package-icon {
+
+    width:
+        58px;
+
+    height:
+        54px;
+
+    overflow:
+        visible;
+
+    filter:
+
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.17)
+        )
+
+        drop-shadow(
+            0 0 8px
+            rgba(226,43,163,.22)
+        );
+
+    animation:
+        packageFloat
+        4.6s
+        ease-in-out
+        infinite;
+
+}
+
+
+.logistics-package-icon path {
+
+    stroke:
+        #f4edf3;
+
+    stroke-width:
+        3;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+.package-icon-top {
+
+    fill:
+        rgba(229,43,165,.10);
+
+}
+
+
+.package-icon-left {
+
+    fill:
+        rgba(74,9,65,.58);
+
+}
+
+
+.package-icon-right {
+
+    fill:
+        rgba(34,4,36,.80);
+
+}
+
+
+.package-icon-tape {
+
+    fill:
+        rgba(255,255,255,.13);
+
+    stroke:
+        #ff5cbd !important;
+
+    stroke-width:
+        2 !important;
+
+}
+
+
+@keyframes packageFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-3px);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   42. PACKAGE EMBLEM SCAN
+================================================================ */
+
+.package-emblem-scan {
+
+    position: absolute;
+
+    width:
+        80%;
+
+    height:
+        1px;
+
+    left:
+        10%;
+
+    top:
+        18%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #fffafd,
+            #ff55ba,
+            transparent
+        );
+
+    box-shadow:
+        0 0 6px
+        rgba(232,43,166,.24);
+
+    animation:
+        emblemScan
+        2.4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes emblemScan {
+
+    0% {
+
+        top:
+            18%;
+
+        opacity:
+            0;
+
+    }
+
+    20% {
+
+        opacity:
+            .8;
+
+    }
+
+    80% {
+
+        opacity:
+            .7;
+
+    }
+
+    100% {
+
+        top:
+            82%;
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   43. LOGISTICS TITLE
+================================================================ */
+
+.logistics-title {
+
+    position: absolute;
+
+    width:
+        72%;
+
+    left:
+        50%;
+
+    top:
+        18%;
+
+    transform:
+        translateX(-50%)
+        translateZ(90px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        8px;
+
+    z-index:
+        42;
+
+}
+
+
+.title-text {
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        5.5px;
+
+    color:
+        #fff8fd;
+
+    text-shadow:
+
+        0 0 6px
+        rgba(255,255,255,.14),
+
+        0 0 11px
+        rgba(228,43,164,.22);
+
+}
+
+
+.title-line {
+
+    width:
+        34px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216,218,228,.60),
+            rgba(224,42,162,.50)
+        );
+
+}
+
+
+.title-line-right {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.title-dot {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        #ff55ba;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.60);
+
+}
+
+
+
+/* ================================================================
+   44. LOGISTICS HALO
+================================================================ */
+
+.logistics-halo {
+
+    position: absolute;
+
+    width:
+        74%;
+
+    aspect-ratio:
+        1;
+
+    left:
+        50%;
+
+    top:
+        29%;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events:
+        none;
+
+    z-index:
+        7;
+
+}
+
+
+.leadership-halo-ring {
+
+    position: absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+}
+
+
+.halo-ring-outer {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border:
+
+        1px solid
+        rgba(220,222,232,.15);
+
+}
+
+
+.halo-ring-inner {
+
+    width:
+        80%;
+
+    height:
+        80%;
+
+    border:
+
+        1px dashed
+        rgba(226,43,164,.18);
+
+}
+
+
+.halo-marker {
+
+    position: absolute;
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    background:
+        #d9dbe4;
+
+    border:
+
+        1px solid
+        #f441b1;
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.halo-marker-1 {
+
+    top:
+        0;
+
+    left:
+        50%;
+
+}
+
+
+.halo-marker-2 {
+
+    right:
+        0;
+
+    top:
+        50%;
+
+}
+
+
+.halo-marker-3 {
+
+    bottom:
+        0;
+
+    left:
+        50%;
+
+}
+
+
+.halo-marker-4 {
+
+    left:
+        0;
+
+    top:
+        50%;
+
+}
+
+
+
+/* ================================================================
+   45. PORTRAIT ENERGY
+================================================================ */
+
+.portrait-energy {
+
+    position: absolute;
+
+    width:
+        78%;
+
+    height:
+        57%;
+
+    left:
+        50%;
+
+    top:
+        26%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:
+        6;
+
+    pointer-events:
+        none;
+
+}
+
+
+.portrait-ring {
+
+    position: absolute;
+
+    left:
+        50%;
+
+    top:
+        49%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+}
+
+
+.portrait-ring-one {
+
+    width:
+        90%;
+
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px dashed
+        rgba(226,43,164,.13);
+
+    animation:
+        portraitRingA
+        20s
+        linear
+        infinite;
+
+}
+
+
+.portrait-ring-two {
+
+    width:
+        68%;
+
+    aspect-ratio:
+        1;
+
+    border:
+
+        1px solid
+        rgba(220,222,232,.12);
+
+    animation:
+        portraitRingB
+        14s
+        linear
+        infinite;
+
+}
+
+
+@keyframes portraitRingA {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes portraitRingB {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+.portrait-rays {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.portrait-rays span {
+
+    position: absolute;
+
+    width:
+        1px;
+
+    height:
+        48%;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform-origin:
+        center top;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(226,43,164,.16),
+            transparent
+        );
+
+    opacity:
+        .22;
+
+}
+
+
+.portrait-rays span:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.portrait-rays span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.portrait-rays span:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.portrait-rays span:nth-child(4) {
+    transform: rotate(135deg);
+}
+
+.portrait-rays span:nth-child(5) {
+    transform: rotate(180deg);
+}
+
+.portrait-rays span:nth-child(6) {
+    transform: rotate(225deg);
+}
+
+.portrait-rays span:nth-child(7) {
+    transform: rotate(270deg);
+}
+
+.portrait-rays span:nth-child(8) {
+    transform: rotate(315deg);
+}
+
+
+.portrait-core-light {
+
+    position: absolute;
+
+    width:
+        75%;
+
+    height:
+        92%;
+
+    left:
+        50%;
+
+    top:
+        52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.15) 0%,
+            rgba(255,220,245,.09) 18%,
+            rgba(242,49,169,.10) 38%,
+            rgba(96,14,84,.07) 55%,
+            transparent 72%
+        );
+
+    filter:
+        blur(20px);
+
+}
+
+
+
+/* ================================================================
+   46. SIDE NODES
+================================================================ */
+
+.brain-node {
+
+    position: absolute;
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    top:
+        31%;
+
+    transform:
+        translateZ(75px);
+
+    z-index:
+        30;
+
+}
+
+
+.brain-node-left {
+
+    left:
+        6%;
+
+}
+
+
+.brain-node-right {
+
+    right:
+        6%;
+
+}
+
+
+.node-frame {
+
+    position: absolute;
+
+    inset:
+        -4px;
+
+    border-radius:
+        14px;
+
+    border:
+
+        1px solid
+        rgba(230,44,166,.22);
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.brain-node-core {
+
+    position: relative;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius:
+        13px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.012) 35%,
+            rgba(73,8,64,.48) 100%
+        );
+
+    border:
+
+        1px solid
+        rgba(218,220,230,.30);
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+
+.node-icon {
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    fill:
+        rgba(225,44,163,.05);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width:
+        4;
+
+    stroke-linejoin:
+        round;
+
+}
+
+
+.logistics-location-icon circle {
+
+    fill:
+        rgba(226,43,164,.08);
+
+}
+
+
+.node-pulse {
+
+    position: absolute;
+
+    inset:
+        -2px;
+
+    border-radius:
+        14px;
+
+    border:
+
+        1px solid
+        rgba(226,43,164,.18);
+
+    animation:
+        nodePulse
+        4s
+        ease-out
+        infinite;
+
+}
+
+
+@keyframes nodePulse {
+
+    from {
+
+        opacity:
+            .4;
+
+        transform:
+            scale(.9);
+
+    }
+
+    to {
+
+        opacity:
+            0;
+
+        transform:
+            scale(1.35);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   47. PORTRAIT FRAME
+================================================================ */
+
+.portrait-frame {
+
+    position: absolute;
+
+    width:
+        84%;
+
+    height:
+        63%;
+
+    left:
+        50%;
+
+    top:
+        24%;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+
+    z-index:
+        12;
+
+    pointer-events:
+        none;
+
+}
+
+
+.portrait-top-frame {
+
+    position: absolute;
+
+    width:
+        58%;
+
+    height:
+        50px;
+
+    left:
+        50%;
+
+    top:
+        3%;
+
+    transform:
+        translateX(-50%);
+
+    border-top:
+
+        1px solid
+        rgba(225,227,235,.36);
+
+}
+
+
+.portrait-side-accent {
+
+    position: absolute;
+
+    width:
+        45px;
+
+    height:
+        68%;
+
+    top:
+        14%;
+
+}
+
+
+.accent-left {
+
+    left:
+        1%;
+
+    border-left:
+
+        1px solid
+        rgba(226,43,164,.28);
+
+}
+
+
+.accent-right {
+
+    right:
+        1%;
+
+    border-right:
+
+        1px solid
+        rgba(226,43,164,.28);
+
+}
+
+
+
+/* ================================================================
+   48. MEMBER IMAGE
+================================================================ */
+
+.member-image-container {
+
+    position: absolute;
+
+    width:
+        100%;
+
+    height:
+        94%;
+
+    left:
+        0;
+
+    bottom:
+        0;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    overflow:
+        hidden;
+
+    pointer-events:
+        auto;
+
+    z-index:
+        15;
+
+}
+
+
+.member-image {
+
+    display: block;
+
+    height:
+        98%;
+
+    max-width:
+        115%;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center bottom;
+
+    transform-origin:
+        center bottom;
+
+    filter:
+
+        drop-shadow(
+            0 10px 10px
+            rgba(0,0,0,.78)
+        )
+
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.08)
+        );
+
+}
+
+
+.portrait-backlight {
+
+    position: absolute;
+
+    width:
+        62%;
+
+    height:
+        90%;
+
+    left:
+        50%;
+
+    bottom:
+        0;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(218,43,158,.07),
+            rgba(255,255,255,.09) 45%,
+            transparent 75%
+        );
+
+    filter:
+        blur(30px);
+
+}
+
+
+.portrait-front-glow {
+
+    position: absolute;
+
+    width:
+        85%;
+
+    height:
+        36px;
+
+    left:
+        50%;
+
+    bottom:
+        1%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.15),
+            rgba(255,92,190,.14) 28%,
+            transparent 74%
+        );
+
+    filter:
+        blur(10px);
+
+}
+
+
+.portrait-vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(7,2,10,.35),
+            transparent 25%
+        );
+
+    z-index:
+        18;
+
+}
+
+
+
+/* ================================================================
+   49. ORNAMENTS
+================================================================ */
+
+.leadership-ornament {
+
+    position: absolute;
+
+    width:
+        52px;
+
+    height:
+        140px;
+
+    top:
+        46%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content:
+        space-around;
+
+    z-index:
+        26;
+
+}
+
+
+.ornament-left {
+
+    left:
+        4%;
+
+}
+
+
+.ornament-right {
+
+    right:
+        4%;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.leadership-ornament span {
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(225,227,235,.52),
+            rgba(226,43,164,.35),
+            transparent
+        );
+
+}
+
+
+.leadership-ornament span:nth-child(1) {
+    width: 46px;
+}
+
+.leadership-ornament span:nth-child(2) {
+    width: 31px;
+}
+
+.leadership-ornament span:nth-child(3) {
+    width: 40px;
+}
+
+
+
+/* ================================================================
+   50. ELECTRIC DETAILS
+================================================================ */
+
+.electric-zone {
+
+    position: absolute;
+
+    width:
+        50px;
+
+    height:
+        190px;
+
+    top:
+        40%;
+
+    pointer-events:
+        none;
+
+    z-index:
+        27;
+
+    opacity:
+        .20;
+
+}
+
+
+.electric-left {
+
+    left:
+        2.5%;
+
+}
+
+
+.electric-right {
+
+    right:
+        2.5%;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.electric-line {
+
+    position: absolute;
+
+    display: block;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #fffafd,
+            #ff55ba,
+            transparent
+        );
+
+}
+
+
+.e1 {
+
+    width:
+        42px;
+
+    top:
+        28px;
+
+    transform:
+        rotate(24deg);
+
+}
+
+
+.e2 {
+
+    width:
+        34px;
+
+    top:
+        95px;
+
+    transform:
+        rotate(-18deg);
+
+}
+
+
+.e3 {
+
+    width:
+        47px;
+
+    top:
+        155px;
+
+    transform:
+        rotate(31deg);
+
+}
+
+
+
+/* ================================================================
+   51. SCAN SYSTEM
+================================================================ */
+
+.scan-system {
+
+    position: absolute;
+
+    inset:
+        17px;
+
+    overflow:
+        hidden;
+
+    pointer-events:
+        none;
+
+    z-index:
+        45;
+
+}
+
+
+.scan-line {
+
+    position: absolute;
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    top:
+        -5%;
+
+    opacity:
+        .20;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,43,164,.12),
+            #fffafd,
+            rgba(226,43,164,.12),
+            transparent
+        );
+
+    animation:
+        cardScanner
+        7s
+        linear
+        infinite;
+
+}
+
+
+.scan-light {
+
+    position: absolute;
+
+    width:
+        100%;
+
+    height:
+        24px;
+
+    top:
+        -30px;
+
+    background:
+
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.014),
+            transparent
+        );
+
+    animation:
+        cardScannerFog
+        7s
+        linear
+        infinite;
+
+}
+
+
+@keyframes cardScanner {
+
+    to {
+
+        top:
+            105%;
+
+    }
+
+}
+
+
+@keyframes cardScannerFog {
+
+    to {
+
+        top:
+            105%;
+
+    }
+
+}
+
+
+
+/* ================================================================
+   52. IDENTITY
+================================================================ */
+
+.identity {
+
+    position: absolute;
+
+    width:
+        84%;
+
+    left:
+        50%;
+
+    bottom:
+        4.5%;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+
+        14px 10px
+        12px;
+
+    text-align:
+        center;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(7,2,10,.14),
+            rgba(49,6,45,.74) 19%,
+            rgba(16,3,20,.94) 50%,
+            rgba(49,6,45,.74) 81%,
+            rgba(7,2,10,.14)
+        );
+
+    border-top:
+
+        1px solid
+        rgba(226,228,235,.22);
+
+    border-bottom:
+
+        1px solid
+        rgba(229,43,165,.18);
+
+    box-shadow:
+
+        0 -13px 34px
+        rgba(215,41,157,.06),
+
+        0 9px 30px
+        rgba(0,0,0,.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    z-index:
+        60;
+
+}
+
+
+.identity-decoration {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.identity-decoration span {
+
+    width:
+        48px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.40),
+            rgba(229,43,165,.44)
+        );
+
+}
+
+
+.identity-decoration span:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+.identity-diamond {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        #fff9fd;
+
+    border:
+
+        1px solid
+        #ed3eae;
+
+}
+
+
+.member-name {
+
+    font-size:
+        24px;
+
+    line-height:
+        1.05;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        #fffafd;
+
+    text-shadow:
+
+        0 2px 8px
+        rgba(0,0,0,.88);
+
+}
+
+
+.role-container {
+
+    margin-top:
+        8px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap:
+        8px;
+
+}
+
+
+.member-role {
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        5px;
+
+    color:
+        #ff69c4;
+
+}
+
+
+.role-line {
+
+    width:
+        32px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(226,228,235,.40),
+            rgba(229,43,165,.44)
+        );
+
+}
+
+
+.role-line:last-child {
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+
+/* ================================================================
+   53. CORNERS
+================================================================ */
+
+.premium-corner {
+
+    position: absolute;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    z-index:
+        70;
+
+    pointer-events:
+        none;
+
+}
+
+
+.premium-corner::before,
+.premium-corner::after {
+
+    content: "";
+
+    position: absolute;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #fffafd,
+            #ff55ba
+        );
+
+}
+
+
+.premium-corner::before {
+
+    width:
+        40px;
+
+    height:
+        2px;
+
+}
+
+
+.premium-corner::after {
+
+    width:
+        2px;
+
+    height:
+        40px;
+
+}
+
+
+.premium-corner span {
+
+    position: absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    left:
+        -2px;
+
+    top:
+        -2px;
+
+    transform:
+        rotate(45deg);
+
+    background:
+        #ff55ba;
+
+}
+
+
+.corner-top-left {
+
+    top:
+        3%;
+
+    left:
+        4.6%;
+
+}
+
+
+.corner-top-right {
+
+    top:
+        3%;
+
+    right:
+        4.6%;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+.corner-bottom-left {
+
+    bottom:
+        3%;
+
+    left:
+        4.6%;
+
+    transform:
+        rotate(-90deg);
+
+}
+
+
+.corner-bottom-right {
+
+    bottom:
+        3%;
+
+    right:
+        4.6%;
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+
+/* ================================================================
+   54. MOVING BORDER
+================================================================ */
+
+.moving-border-light {
+
+    position: absolute;
+
+    width:
+        160%;
+
+    height:
+        160%;
+
+    left:
+        -30%;
+
+    top:
+        -30%;
+
+    background:
+
+        conic-gradient(
+            transparent 0deg,
+            transparent 52deg,
+            rgba(255,255,255,.20) 62deg,
+            rgba(231,49,166,.15) 69deg,
+            transparent 78deg,
+            transparent 360deg
+        );
+
+    opacity:
+        .12;
+
+    animation:
+        movingBorder
+        12s
+        linear
+        infinite;
+
+    pointer-events:
+        none;
+
+    z-index:
+        3;
+
+}
+
+
+@keyframes movingBorder {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ================================================================
+   55. CARD SHINE
+================================================================ */
+
+.card-shine {
+
+    position: absolute;
+
+    width:
+        180px;
+
+    height:
+        125%;
+
+    left:
+        -280px;
+
+    top:
+        -12%;
+
+    transform:
+        rotate(18deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.015),
+            rgba(255,255,255,.09),
+            rgba(231,49,166,.03),
+            transparent
+        );
+
+    filter:
+        blur(3px);
+
+    pointer-events:
+        none;
+
+    z-index:
+        75;
+
+    animation:
+        cardShineMove
+        10s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes cardShineMove {
+
+    0%,
+    30% {
+
+        left:
+            -280px;
+
+    }
+
+    62%,
+    100% {
+
+        left:
+            125%;
+
+    }
+
+}
+
+
+.glass-reflection {
+
+    position: absolute;
+
+    width:
+        65%;
+
+    height:
+        125%;
+
+    left:
+        -55%;
+
+    top:
+        -12%;
+
+    transform:
+        rotate(18deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.06),
+            transparent
+        );
+
+    opacity:
+        .6;
+
+    pointer-events:
+        none;
+
+    z-index:
+        74;
+
+}
+
+
+
+/* ================================================================
+   57. GENERAL FLASH
+================================================================ */
+
+.flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        0;
+
+    z-index:
+        1100;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.94) 0%,
+            rgba(255,224,246,.44) 11%,
+            rgba(235,58,177,.18) 28%,
+            rgba(90,8,76,.06) 48%,
+            transparent 70%
+        );
+
+}
+
+
+
+
+
+/* ================================================================
+   61. HOVER
+================================================================ */
+
+.card-wrapper:hover .card-front {
+
+    box-shadow:
+
+        0 0 7px
+        rgba(255,255,255,.17),
+
+        0 0 28px
+        rgba(226,40,161,.30),
+
+        0 0 95px
+        rgba(0,0,0,.70);
+
+}
+
+
+.card-wrapper:hover .logistics-package-icon {
+
+    filter:
+
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.25)
+        )
+
+        drop-shadow(
+            0 0 10px
+            rgba(230,44,166,.30)
+        );
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================
+   64. REDUCED MOTION
+================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+    }
+
+}
+
+/* ================================================================
+   CARD-ONLY START STATE
+================================================================ */
+
+.logistics-card-stage,
+.card-stage {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+/* MOVE LOGISTICS TITLE SLIGHTLY DOWN */
+
+.logistics-title {
+    top: 19.5%;
+}

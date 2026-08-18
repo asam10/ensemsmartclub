@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Club — Sponsoring Member Card</title>
+
+    <link
+        rel="stylesheet"
+        href="sponsoring.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MAIN 9:16 SCENE
+========================================================= -->
+
+<main
+    class="scene"
+    id="scene"
+>
+
+
+    <!-- Background atmosphere -->
+
+    <div class="scene-light scene-light-left"></div>
+    <div class="scene-light scene-light-right"></div>
+    <div class="scene-light scene-light-center"></div>
+
+    <div class="background-grid"></div>
+
+    <div class="scene-orbit scene-orbit-large"></div>
+    <div class="scene-orbit scene-orbit-small"></div>
+
+    <div class="background-energy-ring ring-one"></div>
+    <div class="background-energy-ring ring-two"></div>
+
+
+    <div
+        class="particles"
+        id="particles"
+    ></div>
+
+
+
+    <!-- =====================================================
+         CARD STAGE
+    ====================================================== -->
+
+    <section
+        class="card-stage sponsoring-card-stage"
+        id="cardStage"
+    >
+
+
+        <div class="stage-aura"></div>
+
+        <div class="card-shadow"></div>
+
+
+
+        <!-- =================================================
+             CARD WRAPPER
+        ================================================== -->
+
+        <article
+            class="card-wrapper"
+            id="card"
+        >
+
+
+            <!-- =================================================
+                 CARD BACK
+                 SAME MASTER BACK AS MEDIA / PROJECT
+            ================================================== -->
+
+            <div class="card-side card-back">
+
+
+                <div class="back-shell"></div>
+
+                <div class="back-metal-frame"></div>
+
+                <div class="back-inner-frame"></div>
+
+                <div class="back-hologram"></div>
+
+
+                <!-- BACK STRUCTURE -->
+
+                <div class="back-top-plate"></div>
+
+                <div class="back-bottom-plate"></div>
+
+                <div class="back-side-plate back-side-left"></div>
+
+                <div class="back-side-plate back-side-right"></div>
+
+
+                <!-- CIRCUITS -->
+
+                <div class="circuit circuit-top-left"></div>
+
+                <div class="circuit circuit-top-right"></div>
+
+                <div class="circuit circuit-bottom-left"></div>
+
+                <div class="circuit circuit-bottom-right"></div>
+
+
+                <!-- ENERGY CORNERS -->
+
+                <div class="energy-corner back-corner-1"></div>
+
+                <div class="energy-corner back-corner-2"></div>
+
+                <div class="energy-corner back-corner-3"></div>
+
+                <div class="energy-corner back-corner-4"></div>
+
+
+                <!-- =================================================
+                     SMART CLUB CORE
+                ================================================== -->
+
+                <div class="back-core">
+
+
+                    <div class="core-orbit orbit-large">
+
+                        <span class="orbit-marker marker-a"></span>
+
+                        <span class="orbit-marker marker-b"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-medium">
+
+                        <span class="orbit-marker marker-c"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-small"></div>
+
+
+
+                    <!-- SMART BRAIN -->
+
+                    <div class="brain-emblem">
+
+
+                        <div class="brain-emblem-ring"></div>
+
+
+                        <svg
+                            class="brain-icon"
+                            viewBox="0 0 120 120"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <path
+                                class="brain-path brain-left"
+                                d="
+                                    M55 24
+                                    C44 15 29 20 27 33
+                                    C17 36 15 50 22 57
+                                    C15 68 21 80 31 82
+                                    C31 96 44 103 55 95
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                class="brain-path brain-right"
+                                d="
+                                    M65 24
+                                    C76 15 91 20 93 33
+                                    C103 36 105 50 98 57
+                                    C105 68 99 80 89 82
+                                    C89 96 76 103 65 95
+                                    Z
+                                "
+                            />
+
+
+                            <path
+                                class="brain-center"
+                                d="
+                                    M60 25
+                                    V96
+                                "
+                            />
+
+
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M36 39
+                                    C45 42 47 48 44 57
+                                    C40 67 47 74 53 77
+                                "
+                            />
+
+
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M84 39
+                                    C75 42 73 48 76 57
+                                    C80 67 73 74 67 77
+                                "
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="37"
+                                cy="39"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="83"
+                                cy="39"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="48"
+                                cy="76"
+                                r="3"
+                            />
+
+
+                            <circle
+                                class="brain-node-dot"
+                                cx="72"
+                                cy="76"
+                                r="3"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="core-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SMART CLUB BACK IDENTITY
+                ================================================== -->
+
+                <div class="back-brand">
+
+
+                    <span class="brand-line"></span>
+
+
+                    <div class="brand-symbol">
+
+
+                        <svg
+                            viewBox="0 0 40 40"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                cx="20"
+                                cy="20"
+                                r="14"
+                            />
+
+
+                            <path
+                                d="
+                                    M12 20
+                                    L17 25
+                                    L28 14
+                                "
+                            />
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <span class="brand-name">
+                        SMART CLUB
+                    </span>
+
+
+                    <span class="brand-line"></span>
+
+
+                </div>
+
+
+                <div class="back-light-runner"></div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SPONSORING CARD FRONT
+            ================================================== -->
+
+            <div class="card-side card-front sponsoring-card-front">
+
+
+                <!-- BASE -->
+
+                <div class="front-shell"></div>
+
+                <div class="front-light-layer"></div>
+
+                <div class="front-holographic-layer"></div>
+
+                <div class="front-grid"></div>
+
+                <div class="card-noise"></div>
+
+
+
+                <!-- =================================================
+                     PREMIUM FRAME
+                ================================================== -->
+
+                <div class="premium-frame">
+
+                    <div class="frame-top"></div>
+
+                    <div class="frame-right"></div>
+
+                    <div class="frame-bottom"></div>
+
+                    <div class="frame-left"></div>
+
+                </div>
+
+
+                <div class="inner-premium-frame"></div>
+
+
+
+                <!-- TOP ARMOR -->
+
+                <div class="top-armor">
+
+                    <span class="top-armor-left"></span>
+
+                    <span class="top-armor-center"></span>
+
+                    <span class="top-armor-right"></span>
+
+                </div>
+
+
+
+                <!-- LIGHT RAILS -->
+
+                <div class="light-rail light-rail-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="light-rail light-rail-right">
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SPONSORING HEADER
+                ================================================== -->
+
+                <header class="sponsoring-header">
+
+
+                    <!-- LEFT WING -->
+
+                    <div class="header-wing header-wing-left">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         SPONSORING EMBLEM
+                         PARTNERSHIP / HANDSHAKE
+                    ================================================== -->
+
+                    <div class="sponsoring-emblem">
+
+
+                        <div class="emblem-glow"></div>
+
+                        <div class="emblem-ring emblem-ring-one"></div>
+
+                        <div class="emblem-ring emblem-ring-two"></div>
+
+
+
+                        <div class="sponsoring-symbol-container">
+
+
+                            <svg
+                                class="sponsoring-symbol"
+                                viewBox="0 0 120 100"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+
+
+                                <!-- LEFT ARM -->
+
+                                <path
+                                    class="sponsor-hand sponsor-hand-left"
+                                    d="
+                                        M14 50
+                                        L33 31
+                                        L51 43
+                                        L43 51
+                                        L58 65
+                                        L48 75
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- RIGHT ARM -->
+
+                                <path
+                                    class="sponsor-hand sponsor-hand-right"
+                                    d="
+                                        M106 50
+                                        L87 31
+                                        L69 43
+                                        L77 51
+                                        L62 65
+                                        L72 75
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- CENTER CONNECTION -->
+
+                                <path
+                                    class="sponsor-link"
+                                    d="
+                                        M45 49
+                                        L53 42
+                                        C57 39 61 39 65 42
+                                        L75 50
+                                        L65 60
+                                        L58 55
+                                        L51 62
+                                        L43 54
+                                        Z
+                                    "
+                                />
+
+
+                                <!-- CENTER NODE -->
+
+                                <circle
+                                    class="sponsor-core"
+                                    cx="60"
+                                    cy="51"
+                                    r="5"
+                                />
+
+
+                            </svg>
+
+
+                            <div class="sponsoring-emblem-scan"></div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- RIGHT WING -->
+
+                    <div class="header-wing header-wing-right">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                </header>
+
+
+
+                <!-- =================================================
+                     SPONSORING TITLE
+                ================================================== -->
+
+                <div class="sponsoring-title">
+
+
+                    <span class="title-dot"></span>
+
+
+                    <span class="title-line title-line-left"></span>
+
+
+                    <span class="title-text">
+
+                        SPONSORING
+
+                    </span>
+
+
+                    <span class="title-line title-line-right"></span>
+
+
+                    <span class="title-dot"></span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MEMBER HALO
+                ================================================== -->
+
+                <div class="leadership-halo sponsoring-halo">
+
+
+                    <div class="leadership-halo-ring halo-ring-outer"></div>
+
+                    <div class="leadership-halo-ring halo-ring-inner"></div>
+
+
+                    <span class="halo-marker halo-marker-1"></span>
+
+                    <span class="halo-marker halo-marker-2"></span>
+
+                    <span class="halo-marker halo-marker-3"></span>
+
+                    <span class="halo-marker halo-marker-4"></span>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ENERGY BEHIND MEMBER
+                ================================================== -->
+
+                <div class="portrait-energy">
+
+
+                    <div class="portrait-ring portrait-ring-one"></div>
+
+                    <div class="portrait-ring portrait-ring-two"></div>
+
+
+                    <div class="portrait-rays">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="portrait-core-light"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LEFT NODE — NETWORK
+                ================================================== -->
+
+                <div class="brain-node brain-node-left">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon sponsor-network-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <circle
+                                cx="50"
+                                cy="25"
+                                r="8"
+                            />
+
+                            <circle
+                                cx="25"
+                                cy="65"
+                                r="8"
+                            />
+
+                            <circle
+                                cx="75"
+                                cy="65"
+                                r="8"
+                            />
+
+
+                            <path
+                                d="
+                                    M46 31
+                                    L30 58
+
+                                    M54 31
+                                    L70 58
+
+                                    M33 65
+                                    H67
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT NODE — DEAL / CONNECTION
+                ================================================== -->
+
+                <div class="brain-node brain-node-right">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon sponsor-link-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <path
+                                d="
+                                    M40 58
+                                    L30 68
+                                    C22 76 10 64 18 56
+                                    L35 39
+                                    C41 33 50 34 55 39
+                                "
+                            />
+
+
+                            <path
+                                d="
+                                    M60 42
+                                    L70 32
+                                    C78 24 90 36 82 44
+                                    L65 61
+                                    C59 67 50 66 45 61
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PORTRAIT
+                ================================================== -->
+
+                <div class="portrait-frame">
+
+
+                    <div class="portrait-top-frame"></div>
+
+
+                    <div
+                        class="portrait-side-accent accent-left"
+                    ></div>
+
+
+                    <div
+                        class="portrait-side-accent accent-right"
+                    ></div>
+
+
+
+                    <!-- =================================================
+                         MEMBER PHOTO
+
+                         Put transparent PNG in same folder.
+                    ================================================== -->
+
+                    <div class="member-image-container">
+
+
+                        <img
+                            src="sponsoring2.png"
+                            alt="Smart Club Sponsoring Member"
+                            class="member-image"
+                            id="memberImage"
+                        >
+
+
+                    </div>
+
+
+
+                    <div class="portrait-backlight"></div>
+
+                    <div class="portrait-front-glow"></div>
+
+                    <div class="portrait-vignette"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SIDE ORNAMENTS
+                ================================================== -->
+
+                <div class="leadership-ornament ornament-left">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="leadership-ornament ornament-right">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MEMBER IDENTITY
+                ================================================== -->
+
+                <footer class="identity">
+
+
+                    <div class="identity-decoration">
+
+
+                        <span></span>
+
+
+                        <div class="identity-diamond"></div>
+
+
+                        <span></span>
+
+
+                    </div>
+
+
+
+                    <!-- CHANGE MEMBER NAME HERE -->
+
+                    <h2 class="member-name">
+
+                        Abderrahman Taifi
+
+                    </h2>
+
+
+
+                    <div class="role-container">
+
+
+                        <span class="role-line"></span>
+
+
+                        <p class="member-role">
+
+                            SPONSORING
+
+                        </p>
+
+
+                        <span class="role-line"></span>
+
+
+                    </div>
+
+
+                </footer>
+
+
+
+                <!-- =================================================
+                     PREMIUM CORNERS
+                ================================================== -->
+
+                <div class="premium-corner corner-top-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-top-right">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-right">
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- MOVING BORDER -->
+
+                <div class="moving-border-light"></div>
+
+
+
+                <!-- REFLECTIVE SHINE -->
+
+                <div
+                    class="card-shine"
+                    id="cardShine"
+                ></div>
+
+
+
+                <!-- GLASS REFLECTION -->
+
+                <div class="glass-reflection"></div>
+
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     CINEMATIC REVEAL FLASH
+========================================================= -->
+
+<div
+    class="flash"
+    id="flash"
+></div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="sponsoring.js"></script>
+
+
+</body>
+
+</html>

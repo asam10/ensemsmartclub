@@ -698,13 +698,18 @@ section {
 @media (max-width: 650px) {
 
     .hero-buttons {
+        width: 100%;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        gap: 15px;
     }
 
     .hero-buttons a {
         width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
         text-align: center;
+        box-sizing: border-box;
     }
 
     .teaser-btn {
@@ -715,7 +720,6 @@ section {
     .teaser-btn:active {
         transform: scale(0.97);
     }
-
 }
 
 /* =========================================================
@@ -4576,4 +4580,25 @@ footer {
 }
 .i18n-plain {
     color: inherit !important;
+}
+/* =========================================================
+   TEXT ALIGNMENT
+========================================================= */
+
+/* Longs paragraphes */
+.about-text p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Descriptions générales assez larges */
+.section-description,
+.project-description {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Cartes : ne pas justifier car elles sont étroites */
+.card-content p {
+    text-align: left;
 }

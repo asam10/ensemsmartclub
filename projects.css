@@ -5839,3 +5839,21 @@ footer {
 .language-switch button.active {
     color: #d1005d;
 }
+/* =========================================================
+   TEXT ALIGNMENT
+========================================================= */
+
+.hero-description,
+.database-intro-description,
+.projects-header > div:first-child > p,
+.reports-header > div:first-child > p,
+.empty-description,
+.philosophy-description {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Textes dans les petites cartes : garder naturel */
+.project-card-description {
+    text-align: left;
+}

@@ -2968,3 +2968,25 @@ GLITCH
 .language-switch button.active {
     color: #d1005d;
 }
+/* ==========================================================
+   TEXT ALIGNMENT
+========================================================== */
+
+/* Textes larges */
+.hero-description,
+.section-description,
+.application-header p,
+.cta-box p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Textes dans les cartes : ne pas justifier */
+.journey-card p {
+    text-align: left;
+}
+
+/* FAQ : garder à gauche */
+.faq-answer p {
+    text-align: left;
+}
