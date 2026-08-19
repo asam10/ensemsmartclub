@@ -6779,3 +6779,165 @@ body {
 .media-title {
     top: 20.5%;
 }
+/* ================================================================
+   MEDIA SIDE ICONS
+   VIDEO + BROADCAST
+================================================================ */
+
+
+/* shared look */
+
+.media-video-icon,
+.media-signal-icon {
+
+    width: 30px;
+    height: 30px;
+
+    color: #f7f0f6;
+
+    fill: none;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.18)
+        )
+        drop-shadow(
+            0 0 7px
+            rgba(226,43,163,.24)
+        );
+}
+
+
+/* ================================================================
+   VIDEO ICON
+================================================================ */
+
+.media-video-icon rect {
+
+    stroke:
+        #f4eef4;
+
+    fill:
+        rgba(217,43,158,.04);
+}
+
+
+.media-video-icon path {
+
+    stroke:
+        #ff5fbd;
+}
+
+
+.media-video-icon circle {
+
+    fill:
+        #fff8fd;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.45)
+        );
+}
+
+
+/* ================================================================
+   BROADCAST ICON
+================================================================ */
+
+.media-signal-icon path {
+
+    stroke:
+        #f4eef4;
+
+    fill:
+        none;
+}
+
+
+.media-signal-icon circle {
+
+    fill:
+        #ff5fbd;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,82,187,.42)
+        );
+}
+
+
+/* ================================================================
+   SUBTLE HOVER
+================================================================ */
+
+.brain-node-left:hover .media-video-icon,
+.brain-node-right:hover .media-signal-icon {
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.30)
+        )
+        drop-shadow(
+            0 0 9px
+            rgba(226,43,163,.35)
+        );
+}
+
+
+/* ================================================================
+   OPTIONAL SMALL BREATH
+================================================================ */
+
+.media-video-icon,
+.media-signal-icon {
+
+    animation:
+        mediaNodeBreath
+        4.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes mediaNodeBreath {
+
+    0%,
+    100% {
+
+        opacity: .82;
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.04);
+    }
+}
+
+
+/* ================================================================
+   REDUCED MOTION
+================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .media-video-icon,
+    .media-signal-icon {
+
+        animation:
+            none !important;
+    }
+}

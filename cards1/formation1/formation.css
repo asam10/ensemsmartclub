@@ -4528,3 +4528,304 @@ body {
 .formation-card-stage {
     opacity: 1;
 }
+/* ================================================================
+   FORMATION CARD — MATCH MEDIA BACK EXACTLY
+================================================================ */
+
+
+/* ================================================================
+   BACK TOP / BOTTOM PLATES
+================================================================ */
+
+.back-top-plate,
+.back-bottom-plate {
+
+    width: 170px !important;
+    height: 5px !important;
+
+    left: 50% !important;
+
+    transform:
+        translateX(-50%) !important;
+}
+
+
+.back-top-plate {
+    top: 27px !important;
+}
+
+
+.back-bottom-plate {
+    bottom: 27px !important;
+}
+
+
+/* ================================================================
+   BACK SIDE PLATES
+================================================================ */
+
+.back-side-plate {
+
+    width: 4px !important;
+    height: 180px !important;
+
+    top: 50% !important;
+
+    transform:
+        translateY(-50%) !important;
+}
+
+
+.back-side-left {
+    left: 23px !important;
+}
+
+
+.back-side-right {
+    right: 23px !important;
+}
+
+
+/* ================================================================
+   BACK CIRCUITS
+================================================================ */
+
+.circuit {
+
+    width: 100px !important;
+    height: 100px !important;
+}
+
+
+.circuit::before {
+
+    width: 78px !important;
+    height: 1px !important;
+}
+
+
+.circuit::after {
+
+    width: 1px !important;
+    height: 78px !important;
+}
+
+
+.circuit-top-left {
+
+    left: 35px !important;
+    top: 65px !important;
+}
+
+
+.circuit-top-right {
+
+    right: 35px !important;
+    top: 65px !important;
+
+    transform:
+        rotate(90deg) !important;
+}
+
+
+.circuit-bottom-left {
+
+    left: 35px !important;
+    bottom: 65px !important;
+
+    transform:
+        rotate(-90deg) !important;
+}
+
+
+.circuit-bottom-right {
+
+    right: 35px !important;
+    bottom: 65px !important;
+
+    transform:
+        rotate(180deg) !important;
+}
+
+
+/* ================================================================
+   BACK CORNERS
+================================================================ */
+
+.energy-corner {
+
+    width: 42px !important;
+    height: 42px !important;
+}
+
+
+.back-corner-1 {
+
+    top: 25px !important;
+    left: 27px !important;
+}
+
+
+.back-corner-2 {
+
+    top: 25px !important;
+    right: 27px !important;
+
+    transform:
+        rotate(90deg) !important;
+}
+
+
+.back-corner-3 {
+
+    bottom: 25px !important;
+    left: 27px !important;
+
+    transform:
+        rotate(-90deg) !important;
+}
+
+
+.back-corner-4 {
+
+    bottom: 25px !important;
+    right: 27px !important;
+
+    transform:
+        rotate(180deg) !important;
+}
+
+
+/* ================================================================
+   BACK CORE
+================================================================ */
+
+.back-core {
+
+    width: 290px !important;
+    height: 290px !important;
+
+    left: 50% !important;
+    top: 47% !important;
+
+    transform:
+        translate(-50%, -50%) !important;
+}
+
+
+/* ================================================================
+   CORE ORBITS
+================================================================ */
+
+.orbit-large {
+
+    width: 260px !important;
+    height: 260px !important;
+}
+
+
+.orbit-medium {
+
+    width: 205px !important;
+    height: 205px !important;
+}
+
+
+.orbit-small {
+
+    width: 155px !important;
+    height: 155px !important;
+}
+
+
+/* ================================================================
+   BRAIN EMBLEM
+================================================================ */
+
+.brain-emblem {
+
+    width: 118px !important;
+    height: 118px !important;
+}
+
+
+.brain-emblem-ring {
+    inset: 8px !important;
+}
+
+
+.brain-icon {
+
+    width: 72px !important;
+    height: 72px !important;
+}
+
+
+/* ================================================================
+   CORE PULSE
+================================================================ */
+
+.core-pulse {
+
+    width: 120px !important;
+    height: 120px !important;
+}
+
+
+/* ================================================================
+   SMART CLUB BRAND
+================================================================ */
+
+.back-brand {
+
+    width: 82% !important;
+
+    left: 50% !important;
+
+    bottom: 55px !important;
+
+    transform:
+        translateX(-50%) !important;
+
+    gap: 10px !important;
+}
+
+
+.brand-name {
+
+    font-size: 10px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: 6px !important;
+}
+
+
+.brand-line {
+
+    width: 38px !important;
+    height: 1px !important;
+}
+
+
+.brand-symbol {
+
+    width: 22px !important;
+    height: 22px !important;
+}
+
+
+/* ================================================================
+   BACK LIGHT RUNNER
+================================================================ */
+
+.back-light-runner {
+
+    width: 180% !important;
+
+    height: 34px !important;
+
+    left: -40% !important;
+
+    top: -70px !important;
+}

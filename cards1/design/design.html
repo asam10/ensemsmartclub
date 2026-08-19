@@ -11,12 +11,12 @@
     >
 
     <title>
-        Smart Club — Media
+        Smart Club — Design
     </title>
 
     <link
         rel="stylesheet"
-        href="media.css"
+        href="design.css"
     >
 
 </head>
@@ -54,8 +54,6 @@
         id="particles"
     ></div>
 
-
-    <!-- distant circular structures -->
 
     <div class="background-energy-ring ring-one"></div>
 
@@ -341,7 +339,7 @@
 
 
             <!-- =================================================
-                 MEDIA CARD FRONT
+                 DESIGN CARD FRONT
             ================================================== -->
 
             <article class="card-side card-front">
@@ -414,10 +412,10 @@
 
 
                 <!-- =================================================
-                     MEDIA HEADER
+                     DESIGN HEADER
                 ================================================== -->
 
-                <header class="president-header media-header">
+                <header class="president-header media-header design-header">
 
 
                     <!-- LEFT WING -->
@@ -433,13 +431,10 @@
 
 
                     <!-- =================================================
-                         MEDIA CAMERA EMBLEM
-
-                         We preserve some President classes so our
-                         existing animation system remains compatible.
+                         DESIGN PEN NIB EMBLEM
                     ================================================== -->
 
-                    <div class="president-emblem media-emblem">
+                    <div class="president-emblem media-emblem design-emblem">
 
 
                         <div class="emblem-glow"></div>
@@ -451,128 +446,99 @@
 
 
 
-                        <div class="crown-container camera-container">
+                        <div class="crown-container camera-container design-container">
 
 
-                            <!-- =========================================
-                                 CUSTOM CAMERA SVG
-                            ========================================== -->
+                            <!-- PEN NIB -->
 
                             <svg
-                                class="crown-icon camera-icon"
-                                viewBox="0 0 120 90"
+                                class="crown-icon camera-icon design-icon"
+                                viewBox="0 0 120 120"
                                 xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true"
                             >
 
 
-                                <!-- CAMERA TOP -->
+                                <!-- NIB OUTER BODY -->
 
                                 <path
-                                    class="camera-top"
+                                    class="design-nib"
                                     d="
-                                        M42 29
-                                        L50 17
-                                        H70
-                                        L78 29
+                                        M60 12
+                                        L98 43
+                                        L77 94
+                                        L60 108
+                                        L43 94
+                                        L22 43
                                         Z
                                     "
                                 />
 
 
-                                <!-- CAMERA BODY -->
+                                <!-- CENTER CUT -->
 
                                 <path
-                                    class="camera-body"
+                                    class="design-nib-detail"
                                     d="
-                                        M26 29
-
-                                        H94
-
-                                        C101 29
-                                        106 34
-                                        106 41
-
-                                        V68
-
-                                        C106 77
-                                        101 82
-                                        93 82
-
-                                        H27
-
-                                        C19 82
-                                        14 77
-                                        14 68
-
-                                        V42
-
-                                        C14 34
-                                        19 29
-                                        26 29
-
-                                        Z
+                                        M60 13
+                                        V65
                                     "
                                 />
 
 
-                                <!-- LENS OUTER -->
+                                <!-- NIB CENTER -->
 
                                 <circle
-                                    class="camera-lens-outer"
+                                    class="design-nib-center"
                                     cx="60"
-                                    cy="56"
-                                    r="17"
+                                    cy="68"
+                                    r="8"
                                 />
 
 
-                                <!-- LENS MIDDLE -->
+                                <!-- LEFT DETAIL -->
 
-                                <circle
-                                    class="camera-lens-middle"
-                                    cx="60"
-                                    cy="56"
-                                    r="12"
+                                <path
+                                    class="design-nib-detail"
+                                    d="
+                                        M22 43
+                                        L49 66
+                                    "
                                 />
 
 
-                                <!-- LENS INNER -->
+                                <!-- RIGHT DETAIL -->
 
-                                <circle
-                                    class="camera-lens-inner"
-                                    cx="60"
-                                    cy="56"
-                                    r="7"
+                                <path
+                                    class="design-nib-detail"
+                                    d="
+                                        M98 43
+                                        L71 66
+                                    "
                                 />
 
 
-                                <!-- LENS REFLECTION -->
+                                <!-- BOTTOM DETAIL -->
 
-                                <circle
-                                    class="camera-lens-reflection"
-                                    cx="56"
-                                    cy="52"
-                                    r="2.3"
+                                <path
+                                    class="design-nib-detail"
+                                    d="
+                                        M54 75
+                                        L43 94
+
+                                        M66 75
+                                        L77 94
+                                    "
                                 />
 
 
                             </svg>
 
 
-
-                            <!--
-                                EXTRA ELEMENT FOR THE MEDIA JS.
-
-                                Later this can rotate/focus independently
-                                from the actual SVG.
-                            -->
-
-                            <div class="camera-focus-ring"></div>
+                            <div class="camera-focus-ring design-focus-ring"></div>
 
 
-                            <!-- Camera flash point -->
-
-                            <div class="camera-flash-point"></div>
+                            <div class="camera-flash-point design-flash-point"></div>
 
 
                         </div>
@@ -598,10 +564,10 @@
 
 
                 <!-- =================================================
-                     MEDIA TITLE
+                     DESIGN TITLE
                 ================================================== -->
 
-                <div class="president-title media-title">
+                <div class="president-title media-title design-title">
 
 
                     <span class="title-dot"></span>
@@ -612,7 +578,7 @@
 
                     <span class="title-text">
 
-                        MEDIA
+                        DESIGN
 
                     </span>
 
@@ -631,7 +597,7 @@
                      MEMBER HALO
                 ================================================== -->
 
-                <div class="leadership-halo media-halo">
+                <div class="leadership-halo media-halo design-halo">
 
 
                     <div class="leadership-halo-ring halo-ring-outer"></div>
@@ -687,163 +653,162 @@
 
 
                 <!-- =================================================
-                     LEFT SMART NODE
+                     LEFT NODE — LAYERS
                 ================================================== -->
-<!-- =================================================
-     LEFT MEDIA NODE — VIDEO / CONTENT
-================================================== -->
 
-<div class="brain-node brain-node-left">
-
-    <div class="node-frame"></div>
-
-    <div class="brain-node-core">
-
-        <svg
-            class="node-icon media-video-icon"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
-
-            <!-- VIDEO SCREEN -->
-            <rect
-                x="19"
-                y="27"
-                width="62"
-                height="46"
-                rx="8"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-            />
-
-            <!-- PLAY SYMBOL -->
-            <path
-                d="
-                    M43 39
-                    L65 50
-                    L43 61
-                    Z
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linejoin="round"
-            />
-
-            <!-- SMALL RECORD DOT -->
-            <circle
-                cx="72"
-                cy="35"
-                r="3"
-                fill="currentColor"
-                stroke="none"
-            />
-
-        </svg>
-
-    </div>
-
-    <div class="node-pulse"></div>
-
-</div>
+                <div class="brain-node brain-node-left">
 
 
+                    <div class="node-frame"></div>
 
-<!-- =================================================
-     RIGHT MEDIA NODE — BROADCAST / SIGNAL
-================================================== -->
 
-<div class="brain-node brain-node-right">
+                    <div class="brain-node-core">
 
-    <div class="node-frame"></div>
 
-    <div class="brain-node-core">
+                        <svg
+                            class="node-icon design-layers-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
 
-        <svg
-            class="node-icon media-signal-icon"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
 
-            <!-- CENTER TRANSMITTER -->
-            <circle
-                cx="50"
-                cy="50"
-                r="6"
-                fill="currentColor"
-                stroke="none"
-            />
+                            <path
+                                d="
+                                    M50 17
+                                    L82 34
+                                    L50 51
+                                    L18 34
+                                    Z
+                                "
+                            />
 
-            <!-- INNER SIGNAL LEFT -->
-            <path
-                d="
-                    M39 39
-                    C31 45 31 55 39 61
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
 
-            <!-- INNER SIGNAL RIGHT -->
-            <path
-                d="
-                    M61 39
-                    C69 45 69 55 61 61
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <path
+                                class="node-detail"
+                                d="
+                                    M18 47
+                                    L50 64
+                                    L82 47
+                                "
+                            />
 
-            <!-- OUTER SIGNAL LEFT -->
-            <path
-                d="
-                    M29 29
-                    C15 41 15 59 29 71
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
 
-            <!-- OUTER SIGNAL RIGHT -->
-            <path
-                d="
-                    M71 29
-                    C85 41 85 59 71 71
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <path
+                                class="node-detail"
+                                d="
+                                    M18 61
+                                    L50 78
+                                    L82 61
+                                "
+                            />
 
-            <!-- ANTENNA -->
-            <path
-                d="
-                    M50 56
-                    L50 76
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
 
-        </svg>
+                        </svg>
 
-    </div>
 
-    <div class="node-pulse"></div>
+                    </div>
 
-</div>
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT NODE — VECTOR
+                ================================================== -->
+
+                <div class="brain-node brain-node-right">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon design-vector-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- VECTOR CURVE -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M22 70
+                                    C28 28
+                                    72 28
+                                    78 70
+                                "
+                            />
+
+
+                            <!-- CONTROL LINE -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M22 70
+                                    L22 30
+
+                                    M78 70
+                                    L78 30
+
+                                    M22 30
+                                    H78
+                                "
+                            />
+
+
+                            <!-- ANCHOR POINTS -->
+
+                            <rect
+                                x="16"
+                                y="24"
+                                width="12"
+                                height="12"
+                            />
+
+                            <rect
+                                x="72"
+                                y="24"
+                                width="12"
+                                height="12"
+                            />
+
+                            <rect
+                                x="16"
+                                y="64"
+                                width="12"
+                                height="12"
+                            />
+
+                            <rect
+                                x="72"
+                                y="64"
+                                width="12"
+                                height="12"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
 
 
 
@@ -869,20 +834,20 @@
 
 
                     <!-- =================================================
-                         MEDIA MEMBER PHOTO
+                         DESIGN MEMBER PHOTO
 
-                         Put your transparent PNG in the same folder
+                         Put your transparent PNG in this folder
                          and name it:
 
-                         media.png
+                         design1.png
                     ================================================== -->
 
                     <div class="member-image-container">
 
 
                         <img
-                            src="media2.png"
-                            alt="Smart Club Media Member"
+                            src="design.png"
+                            alt="Smart Club Design Member"
                             class="member-image"
                             id="memberImage"
                         >
@@ -968,7 +933,7 @@
 
 
                 <!-- =================================================
-                     MEDIA MEMBER IDENTITY
+                     DESIGN MEMBER IDENTITY
                 ================================================== -->
 
                 <footer class="identity">
@@ -990,12 +955,16 @@
 
 
 
-                    <!-- CHANGE MEMBER NAME HERE -->
+                    <!-- =================================================
+                         CHANGE YOUR NAME HERE
+                    ================================================== -->
 
-                    <h2 class="member-name long-name">
-    DOUAE<br>
-    ECHCHENFOURI
-</h2>
+                    <h1 class="member-name">
+
+                        Asaad Mimouni
+
+                    </h1>
+
 
 
                     <div class="role-container">
@@ -1006,7 +975,7 @@
 
                         <p class="member-role">
 
-                            MEDIA
+                            DESIGN
 
                         </p>
 
@@ -1088,15 +1057,12 @@
 
 
 <!-- =========================================================
-     CAMERA FLASH OVERLAY
-
-     This is separate from the normal reveal flash.
-     We'll use it in the Media JS for a quick camera shutter flash.
+     DESIGN FLASH OVERLAY
 ========================================================= -->
 
 <div
-    class="media-camera-flash"
-    id="mediaCameraFlash"
+    class="media-camera-flash design-flash"
+    id="designFlash"
 ></div>
 
 
@@ -1116,7 +1082,7 @@
      JAVASCRIPT
 ========================================================= -->
 
-<script src="media.js"></script>
+<script src="design.js"></script>
 
 
 </body>

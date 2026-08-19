@@ -6779,32 +6779,175 @@ body {
 .media-title {
     top: 20.5%;
 }
-.member-name.long-name {
-    font-size: 21px;
-    letter-spacing: 0.8px;
-    line-height: 1.06;
-    white-space: nowrap;
-}
 /* ================================================================
-   MEDIA SIDE ICONS
-   VIDEO + BROADCAST
+   SMART CLUB — VICE PRESIDENT
+   MEDIA MASTER CARD → VICE PRESIDENT OVERRIDES
 ================================================================ */
 
 
-/* shared look */
+/* ================================================================
+   1. HEADER
+================================================================ */
 
-.media-video-icon,
-.media-signal-icon {
+.vice-header {
+    top: 3.5%;
+}
 
-    width: 30px;
-    height: 30px;
 
-    color: #f7f0f6;
+/* ================================================================
+   2. TITLE
+================================================================ */
 
-    fill: none;
+.vice-title {
+    top: 20.5%;
+}
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+
+.vice-title .title-text {
+
+    color: #fff8fd;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 3.8px;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.18),
+        0 0 11px rgba(228,43,164,.24);
+}
+
+
+/* ================================================================
+   3. VICE EMBLEM
+================================================================ */
+
+.vice-emblem {
+    position: relative;
+}
+
+
+.vice-emblem .emblem-glow {
+
+    width: 112px;
+    height: 112px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,220,245,.10) 18%,
+            rgba(233,48,170,.10) 38%,
+            rgba(119,14,101,.045) 56%,
+            transparent 74%
+        );
+
+    filter: blur(13px);
+
+    animation:
+        viceEmblemBreath
+        4.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes viceEmblemBreath {
+
+    0%,
+    100% {
+        opacity: .48;
+        transform: scale(.94);
+    }
+
+    50% {
+        opacity: .82;
+        transform: scale(1.06);
+    }
+}
+
+
+/* ================================================================
+   4. EMBLEM RINGS
+================================================================ */
+
+.vice-emblem .emblem-ring-one {
+
+    border-color:
+        rgba(255,255,255,.30);
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.025),
+        inset 0 0 10px rgba(255,255,255,.018);
+}
+
+
+.vice-emblem .emblem-ring-two {
+
+    border-color:
+        rgba(230,44,166,.25);
+
+    animation:
+        viceOuterRing
+        16s
+        linear
+        infinite;
+}
+
+
+@keyframes viceOuterRing {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* ================================================================
+   5. COMMAND CONTAINER
+================================================================ */
+
+.vice-command-container {
+
+    position: relative;
+
+    width: 76px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+
+    z-index: 8;
+}
+
+
+/* ================================================================
+   6. COMMAND SVG
+================================================================ */
+
+.vice-command-icon {
+
+    position: relative;
+
+    width: 64px;
+    height: 58px;
+
+    overflow: visible;
 
     filter:
         drop-shadow(
@@ -6812,116 +6955,322 @@ body {
             rgba(255,255,255,.18)
         )
         drop-shadow(
-            0 0 7px
-            rgba(226,43,163,.24)
+            0 0 8px
+            rgba(226,43,163,.25)
+        );
+
+    animation:
+        viceCommandFloat
+        4.8s
+        ease-in-out
+        infinite;
+
+    z-index: 5;
+}
+
+
+@keyframes viceCommandFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            translateY(-2px)
+            scale(1.015);
+    }
+}
+
+
+/* ================================================================
+   7. COMMAND SHIELD
+================================================================ */
+
+.vice-shield {
+
+    fill:
+        rgba(15,3,18,.92);
+
+    stroke:
+        #f5eef5;
+
+    stroke-width:
+        3;
+
+    stroke-linejoin:
+        round;
+
+    filter:
+        drop-shadow(
+            0 0 2px
+            rgba(255,255,255,.22)
+        )
+        drop-shadow(
+            0 0 5px
+            rgba(228,43,164,.20)
         );
 }
 
 
 /* ================================================================
-   VIDEO ICON
+   8. CHEVRONS
 ================================================================ */
 
-.media-video-icon rect {
+.vice-chevron {
 
-    stroke:
-        #f4eef4;
+    fill: none;
 
-    fill:
-        rgba(217,43,158,.04);
-}
+    stroke: #ff58b9;
 
+    stroke-width: 5;
 
-.media-video-icon path {
+    stroke-linecap: round;
 
-    stroke:
-        #ff5fbd;
-}
-
-
-.media-video-icon circle {
-
-    fill:
-        #fff8fd;
+    stroke-linejoin: round;
 
     filter:
         drop-shadow(
             0 0 4px
-            rgba(255,255,255,.45)
+            rgba(255,73,181,.32)
         );
 }
 
 
-/* ================================================================
-   BROADCAST ICON
-================================================================ */
+.vice-chevron-left {
 
-.media-signal-icon path {
-
-    stroke:
-        #f4eef4;
-
-    fill:
-        none;
+    opacity: .72;
 }
 
 
-.media-signal-icon circle {
+.vice-chevron-right {
 
-    fill:
-        #ff5fbd;
+    opacity: 1;
+}
+
+
+/* ================================================================
+   9. COMMAND CORE
+================================================================ */
+
+.vice-command-core {
+
+    fill: #fffafd;
+
+    stroke: #ff55ba;
+
+    stroke-width: 2;
 
     filter:
         drop-shadow(
             0 0 5px
-            rgba(255,82,187,.42)
-        );
-}
-
-
-/* ================================================================
-   SUBTLE HOVER
-================================================================ */
-
-.brain-node-left:hover .media-video-icon,
-.brain-node-right:hover .media-signal-icon {
-
-    filter:
-        drop-shadow(
-            0 0 4px
-            rgba(255,255,255,.30)
+            rgba(255,255,255,.60)
         )
         drop-shadow(
             0 0 9px
-            rgba(226,43,163,.35)
+            rgba(255,64,180,.35)
         );
 }
 
 
 /* ================================================================
-   OPTIONAL SMALL BREATH
+   10. STATUS NODE
 ================================================================ */
 
-.media-video-icon,
-.media-signal-icon {
+.vice-status-node {
+
+    fill: #ff55ba;
+
+    stroke: #fffafd;
+
+    stroke-width: 1.2;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,76,188,.50)
+        );
 
     animation:
-        mediaNodeBreath
-        4.5s
+        viceStatusPulse
+        2.7s
         ease-in-out
         infinite;
 }
 
 
-@keyframes mediaNodeBreath {
+@keyframes viceStatusPulse {
+
+    0%,
+    100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* ================================================================
+   11. LOWER DETAIL
+================================================================ */
+
+.vice-detail {
+
+    fill: none;
+
+    stroke:
+        #d9dbe4;
+
+    stroke-width:
+        2;
+
+    stroke-linecap:
+        round;
+
+    opacity:
+        .65;
+}
+
+
+/* ================================================================
+   12. COMMAND FOCUS RING
+================================================================ */
+
+.vice-focus-ring {
+
+    position: absolute;
+
+    width: 46px;
+    height: 46px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.20);
+
+    box-shadow:
+        0 0 9px
+        rgba(230,44,166,.14);
+
+    animation:
+        viceFocusRotate
+        9s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+.vice-focus-ring::before,
+.vice-focus-ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    background:
+        rgba(255,255,255,.24);
+
+    transform:
+        translate(-50%, -50%);
+
+    opacity:
+        .45;
+}
+
+
+.vice-focus-ring::before {
+
+    width: 58px;
+    height: 1px;
+}
+
+
+.vice-focus-ring::after {
+
+    width: 1px;
+    height: 58px;
+}
+
+
+@keyframes viceFocusRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* ================================================================
+   13. COMMAND PULSE POINT
+================================================================ */
+
+.vice-pulse-point {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    right: 5px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        #fffafd;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.70),
+        0 0 12px rgba(255,61,177,.45);
+
+    animation:
+        vicePointPulse
+        2.6s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes vicePointPulse {
 
     0%,
     100% {
 
-        opacity: .82;
+        opacity: .55;
 
         transform:
-            scale(1);
+            translateY(-50%)
+            scale(.8);
     }
 
     50% {
@@ -6929,21 +7278,638 @@ body {
         opacity: 1;
 
         transform:
-            scale(1.04);
+            translateY(-50%)
+            scale(1.35);
     }
 }
 
 
 /* ================================================================
-   REDUCED MOTION
+   14. VICE HALO
+================================================================ */
+
+.vice-halo .halo-ring-outer {
+
+    border-color:
+        rgba(220,222,232,.18);
+}
+
+
+.vice-halo .halo-ring-inner {
+
+    border-color:
+        rgba(226,43,164,.20);
+}
+
+
+.vice-halo .halo-marker {
+
+    background:
+        #d9dbe4;
+
+    border:
+        1px solid
+        #f441b1;
+
+    box-shadow:
+        0 0 5px
+        rgba(238,52,173,.25);
+}
+
+
+/* ================================================================
+   15. COMMAND HALO DETAIL
+================================================================ */
+
+.vice-halo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        1px 18px
+        no-repeat;
+
+    opacity: .15;
+
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   16. NETWORK NODE
+================================================================ */
+
+.vice-network-icon {
+
+    fill:
+        rgba(225,44,163,.05);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.vice-network-icon circle {
+
+    fill:
+        rgba(217,43,158,.12);
+
+    stroke:
+        #f3eef4;
+}
+
+
+/* ================================================================
+   17. COMMAND NODE
+================================================================ */
+
+.vice-command-node-icon {
+
+    fill:
+        rgba(225,44,163,.05);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.vice-command-node-icon .node-detail {
+
+    fill:
+        rgba(217,43,158,.15);
+
+    stroke:
+        #ff63c0;
+
+    stroke-width: 3;
+}
+
+
+/* ================================================================
+   18. COMMAND SYSTEM FLASH
+================================================================ */
+
+.vice-system-flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 1100;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.94) 0%,
+            rgba(255,237,250,.54) 10%,
+            rgba(255,100,194,.18) 25%,
+            rgba(109,10,94,.06) 44%,
+            transparent 68%
+        );
+}
+
+
+.vice-system-flash.active {
+
+    animation:
+        viceFlash
+        .48s
+        ease-out;
+}
+
+
+@keyframes viceFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    13% {
+        opacity: .88;
+    }
+
+    22% {
+        opacity: .15;
+    }
+
+    34% {
+        opacity: .40;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ================================================================
+   19. LIGHT SWEEP
+================================================================ */
+
+.vice-command-container {
+
+    overflow:
+        visible;
+}
+
+
+.vice-emblem::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 32px;
+    height: 90px;
+
+    left: -35px;
+    top: -3px;
+
+    transform:
+        rotate(20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.14),
+            transparent
+        );
+
+    filter:
+        blur(3px);
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    z-index:
+        12;
+
+    animation:
+        viceCommandSweep
+        8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes viceCommandSweep {
+
+    0%,
+    63% {
+
+        left:
+            -40px;
+
+        opacity:
+            0;
+    }
+
+    68% {
+
+        opacity:
+            .55;
+    }
+
+    78% {
+
+        left:
+            95px;
+
+        opacity:
+            .18;
+    }
+
+    82%,
+    100% {
+
+        left:
+            105px;
+
+        opacity:
+            0;
+    }
+}
+
+
+/* ================================================================
+   20. HOVER
+================================================================ */
+
+.card-wrapper:hover .vice-command-icon {
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.28)
+        )
+        drop-shadow(
+            0 0 10px
+            rgba(230,44,166,.32)
+        );
+}
+
+
+.card-wrapper:hover .vice-focus-ring {
+
+    border-color:
+        rgba(255,255,255,.50);
+}
+
+
+/* ================================================================
+   21. FINAL GEOMETRY
+   KEEP EXACT SAME MEDIA PROPORTIONS
+================================================================ */
+
+.portrait-frame {
+
+    width: 86%;
+    height: 57%;
+
+    top: 25%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+}
+
+
+.member-image-container {
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+.member-image {
+
+    height: 91%;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    transform-origin:
+        center bottom;
+}
+
+
+.portrait-energy {
+
+    width: 79%;
+    height: 54%;
+
+    top: 27%;
+}
+
+
+.brain-node {
+
+    top: 31%;
+}
+
+
+.identity {
+
+    width: 86%;
+
+    left: 50%;
+
+    bottom: 4.2%;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+        12px 10px 11px;
+}
+
+
+.member-name {
+
+    font-size: 24px;
+
+    line-height: 1.04;
+
+    letter-spacing: 1.7px;
+
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.member-role {
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+.identity-decoration {
+
+    margin-bottom: 6px;
+}
+
+
+.identity-decoration span {
+
+    width: 46px;
+}
+
+
+.role-line {
+
+    width: 34px;
+}
+
+
+/* ================================================================
+   22. VICE PRESIDENT LONG TITLE SAFETY
+================================================================ */
+
+.vice-title {
+
+    width: 82%;
+}
+
+
+.vice-title .title-line {
+
+    width: 21px;
+
+    flex-shrink: 1;
+}
+
+
+.vice-title .title-dot {
+
+    flex-shrink: 0;
+}
+
+
+/* ================================================================
+   23. MOBILE
+================================================================ */
+
+@media (max-width: 600px) {
+
+    .vice-command-icon {
+
+        width: 62px;
+        height: 54px;
+    }
+
+
+    .vice-focus-ring {
+
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .vice-title .title-text {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .vice-title {
+
+        gap: 5px;
+    }
+
+
+    .vice-title .title-line {
+
+        width: 18px;
+    }
+}
+
+
+/* ================================================================
+   24. SHORT SCREEN
+   NEVER SHRINK THE CARD
+================================================================ */
+
+@media (max-height: 720px) {
+
+    .card-wrapper {
+
+        width:
+            min(82%, 390px);
+
+        aspect-ratio:
+            390 / 610;
+
+        height:
+            auto;
+    }
+
+
+    .card-stage {
+
+        transform:
+            none;
+    }
+}
+
+
+/* ================================================================
+   25. REDUCED MOTION
 ================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .media-video-icon,
-    .media-signal-icon {
+    .vice-command-icon,
+    .vice-focus-ring,
+    .vice-emblem .emblem-ring-two,
+    .vice-emblem::after,
+    .vice-status-node,
+    .vice-pulse-point {
 
         animation:
             none !important;
     }
+}
+/* =========================================================
+   VICE PRESIDENT — LONG NAME SPACE FIX
+========================================================= */
+
+.identity {
+    bottom: 3% !important;
+    padding-top: 12px !important;
+    padding-bottom: 16px !important;
+}
+
+.vice-long-name {
+    font-size: 22px !important;
+    line-height: 1.02 !important;
+    letter-spacing: 1px !important;
+
+    margin-bottom: 10px !important;
+}
+
+.role-container {
+    margin-top: 8px !important;
+}
+
+.member-role {
+    font-size: 7px !important;
+    letter-spacing: 4px !important;
+    line-height: 1.2 !important;
 }

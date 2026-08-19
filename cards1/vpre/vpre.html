@@ -11,12 +11,12 @@
     >
 
     <title>
-        Smart Club — Media
+        Smart Club — Vice President
     </title>
 
     <link
         rel="stylesheet"
-        href="media.css"
+        href="vpre.css"
     >
 
 </head>
@@ -55,8 +55,6 @@
     ></div>
 
 
-    <!-- distant circular structures -->
-
     <div class="background-energy-ring ring-one"></div>
 
     <div class="background-energy-ring ring-two"></div>
@@ -92,7 +90,7 @@
 
 
             <!-- =================================================
-                 CARD BACK
+                 CARD BACK — SAME AS MEDIA
             ================================================== -->
 
             <article class="card-side card-back">
@@ -308,6 +306,7 @@
                                 r="14"
                             />
 
+
                             <path
                                 d="
                                     M12 20
@@ -341,7 +340,7 @@
 
 
             <!-- =================================================
-                 MEDIA CARD FRONT
+                 VICE PRESIDENT CARD FRONT
             ================================================== -->
 
             <article class="card-side card-front">
@@ -414,10 +413,10 @@
 
 
                 <!-- =================================================
-                     MEDIA HEADER
+                     VICE PRESIDENT HEADER
                 ================================================== -->
 
-                <header class="president-header media-header">
+                <header class="president-header vice-header">
 
 
                     <!-- LEFT WING -->
@@ -433,13 +432,10 @@
 
 
                     <!-- =================================================
-                         MEDIA CAMERA EMBLEM
-
-                         We preserve some President classes so our
-                         existing animation system remains compatible.
+                         VICE PRESIDENT COMMAND EMBLEM
                     ================================================== -->
 
-                    <div class="president-emblem media-emblem">
+                    <div class="president-emblem vice-emblem">
 
 
                         <div class="emblem-glow"></div>
@@ -451,108 +447,96 @@
 
 
 
-                        <div class="crown-container camera-container">
+                        <div class="crown-container vice-command-container">
 
 
                             <!-- =========================================
-                                 CUSTOM CAMERA SVG
+                                 DOUBLE COMMAND / CHEVRON SYMBOL
                             ========================================== -->
 
                             <svg
-                                class="crown-icon camera-icon"
-                                viewBox="0 0 120 90"
+                                class="crown-icon vice-command-icon"
+                                viewBox="0 0 120 100"
                                 xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true"
                             >
 
 
-                                <!-- CAMERA TOP -->
+                                <!-- OUTER COMMAND SHIELD -->
 
                                 <path
-                                    class="camera-top"
+                                    class="vice-shield"
                                     d="
-                                        M42 29
-                                        L50 17
-                                        H70
-                                        L78 29
+                                        M60 10
+                                        L96 26
+                                        V52
+
+                                        C96 72
+                                        82 86
+                                        60 94
+
+                                        C38 86
+                                        24 72
+                                        24 52
+
+                                        V26
                                         Z
                                     "
                                 />
 
 
-                                <!-- CAMERA BODY -->
+                                <!-- LEFT CHEVRON -->
 
                                 <path
-                                    class="camera-body"
+                                    class="vice-chevron vice-chevron-left"
                                     d="
-                                        M26 29
-
-                                        H94
-
-                                        C101 29
-                                        106 34
-                                        106 41
-
-                                        V68
-
-                                        C106 77
-                                        101 82
-                                        93 82
-
-                                        H27
-
-                                        C19 82
-                                        14 77
-                                        14 68
-
-                                        V42
-
-                                        C14 34
-                                        19 29
-                                        26 29
-
-                                        Z
+                                        M34 38
+                                        L53 51
+                                        L34 64
                                     "
                                 />
 
 
-                                <!-- LENS OUTER -->
+                                <!-- RIGHT CHEVRON -->
 
-                                <circle
-                                    class="camera-lens-outer"
-                                    cx="60"
-                                    cy="56"
-                                    r="17"
+                                <path
+                                    class="vice-chevron vice-chevron-right"
+                                    d="
+                                        M56 38
+                                        L75 51
+                                        L56 64
+                                    "
                                 />
 
 
-                                <!-- LENS MIDDLE -->
+                                <!-- CENTRAL COMMAND NODE -->
 
                                 <circle
-                                    class="camera-lens-middle"
-                                    cx="60"
-                                    cy="56"
-                                    r="12"
+                                    class="vice-command-core"
+                                    cx="84"
+                                    cy="51"
+                                    r="5"
                                 />
 
 
-                                <!-- LENS INNER -->
+                                <!-- TOP STATUS NODE -->
 
                                 <circle
-                                    class="camera-lens-inner"
+                                    class="vice-status-node"
                                     cx="60"
-                                    cy="56"
-                                    r="7"
+                                    cy="24"
+                                    r="3"
                                 />
 
 
-                                <!-- LENS REFLECTION -->
+                                <!-- LOWER DETAIL -->
 
-                                <circle
-                                    class="camera-lens-reflection"
-                                    cx="56"
-                                    cy="52"
-                                    r="2.3"
+                                <path
+                                    class="vice-detail"
+                                    d="
+                                        M48 78
+                                        H72
+                                    "
                                 />
 
 
@@ -560,19 +544,14 @@
 
 
 
-                            <!--
-                                EXTRA ELEMENT FOR THE MEDIA JS.
+                            <!-- rotating command targeting ring -->
 
-                                Later this can rotate/focus independently
-                                from the actual SVG.
-                            -->
-
-                            <div class="camera-focus-ring"></div>
+                            <div class="vice-focus-ring"></div>
 
 
-                            <!-- Camera flash point -->
+                            <!-- pulse -->
 
-                            <div class="camera-flash-point"></div>
+                            <div class="vice-pulse-point"></div>
 
 
                         </div>
@@ -598,10 +577,10 @@
 
 
                 <!-- =================================================
-                     MEDIA TITLE
+                     VICE PRESIDENT TITLE
                 ================================================== -->
 
-                <div class="president-title media-title">
+                <div class="president-title vice-title">
 
 
                     <span class="title-dot"></span>
@@ -612,7 +591,7 @@
 
                     <span class="title-text">
 
-                        MEDIA
+                        VICE PRESIDENT
 
                     </span>
 
@@ -631,7 +610,7 @@
                      MEMBER HALO
                 ================================================== -->
 
-                <div class="leadership-halo media-halo">
+                <div class="leadership-halo vice-halo">
 
 
                     <div class="leadership-halo-ring halo-ring-outer"></div>
@@ -687,163 +666,139 @@
 
 
                 <!-- =================================================
-                     LEFT SMART NODE
+                     LEFT SMART NODE — COORDINATION
                 ================================================== -->
-<!-- =================================================
-     LEFT MEDIA NODE — VIDEO / CONTENT
-================================================== -->
 
-<div class="brain-node brain-node-left">
-
-    <div class="node-frame"></div>
-
-    <div class="brain-node-core">
-
-        <svg
-            class="node-icon media-video-icon"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
-
-            <!-- VIDEO SCREEN -->
-            <rect
-                x="19"
-                y="27"
-                width="62"
-                height="46"
-                rx="8"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-            />
-
-            <!-- PLAY SYMBOL -->
-            <path
-                d="
-                    M43 39
-                    L65 50
-                    L43 61
-                    Z
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linejoin="round"
-            />
-
-            <!-- SMALL RECORD DOT -->
-            <circle
-                cx="72"
-                cy="35"
-                r="3"
-                fill="currentColor"
-                stroke="none"
-            />
-
-        </svg>
-
-    </div>
-
-    <div class="node-pulse"></div>
-
-</div>
+                <div class="brain-node brain-node-left">
 
 
+                    <div class="node-frame"></div>
 
-<!-- =================================================
-     RIGHT MEDIA NODE — BROADCAST / SIGNAL
-================================================== -->
 
-<div class="brain-node brain-node-right">
+                    <div class="brain-node-core">
 
-    <div class="node-frame"></div>
 
-    <div class="brain-node-core">
+                        <svg
+                            class="node-icon vice-network-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
 
-        <svg
-            class="node-icon media-signal-icon"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
 
-            <!-- CENTER TRANSMITTER -->
-            <circle
-                cx="50"
-                cy="50"
-                r="6"
-                fill="currentColor"
-                stroke="none"
-            />
+                            <!-- NETWORK NODES -->
 
-            <!-- INNER SIGNAL LEFT -->
-            <path
-                d="
-                    M39 39
-                    C31 45 31 55 39 61
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <circle
+                                cx="50"
+                                cy="22"
+                                r="8"
+                            />
 
-            <!-- INNER SIGNAL RIGHT -->
-            <path
-                d="
-                    M61 39
-                    C69 45 69 55 61 61
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <circle
+                                cx="24"
+                                cy="67"
+                                r="8"
+                            />
 
-            <!-- OUTER SIGNAL LEFT -->
-            <path
-                d="
-                    M29 29
-                    C15 41 15 59 29 71
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <circle
+                                cx="76"
+                                cy="67"
+                                r="8"
+                            />
 
-            <!-- OUTER SIGNAL RIGHT -->
-            <path
-                d="
-                    M71 29
-                    C85 41 85 59 71 71
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
 
-            <!-- ANTENNA -->
-            <path
-                d="
-                    M50 56
-                    L50 76
-                "
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                stroke-linecap="round"
-            />
+                            <!-- CONNECTIONS -->
 
-        </svg>
+                            <path
+                                class="node-detail"
+                                d="
+                                    M46 29
+                                    L29 59
 
-    </div>
+                                    M54 29
+                                    L71 59
 
-    <div class="node-pulse"></div>
+                                    M32 67
+                                    H68
+                                "
+                            />
 
-</div>
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT SMART NODE — COMMAND / DECISION
+                ================================================== -->
+
+                <div class="brain-node brain-node-right">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon vice-command-node-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- COMMAND DIAMOND -->
+
+                            <path
+                                d="
+                                    M50 14
+                                    L82 50
+                                    L50 86
+                                    L18 50
+                                    Z
+                                "
+                            />
+
+
+                            <!-- INNER STAR -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M50 29
+                                    L56 43
+                                    L72 50
+                                    L56 57
+                                    L50 72
+                                    L44 57
+                                    L28 50
+                                    L44 43
+                                    Z
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
 
 
 
@@ -869,20 +824,19 @@
 
 
                     <!-- =================================================
-                         MEDIA MEMBER PHOTO
+                         VICE PRESIDENT MEMBER PHOTO
 
-                         Put your transparent PNG in the same folder
-                         and name it:
+                         Put transparent PNG in same folder:
 
-                         media.png
+                         vice-president.png
                     ================================================== -->
 
                     <div class="member-image-container">
 
 
                         <img
-                            src="media2.png"
-                            alt="Smart Club Media Member"
+                            src="vpre.png"
+                            alt="Smart Club Vice President"
                             class="member-image"
                             id="memberImage"
                         >
@@ -968,7 +922,7 @@
 
 
                 <!-- =================================================
-                     MEDIA MEMBER IDENTITY
+                     VICE PRESIDENT IDENTITY
                 ================================================== -->
 
                 <footer class="identity">
@@ -990,12 +944,13 @@
 
 
 
-                    <!-- CHANGE MEMBER NAME HERE -->
+                    <!-- CHANGE NAME HERE -->
 
-                    <h2 class="member-name long-name">
-    DOUAE<br>
-    ECHCHENFOURI
-</h2>
+                    <h1 class="member-name vice-long-name">
+    YANOGO LANDRY<br>
+    MARDOCHEE<br>
+    PEGDWENDE
+</h1>
 
 
                     <div class="role-container">
@@ -1006,7 +961,7 @@
 
                         <p class="member-role">
 
-                            MEDIA
+                            VICE PRESIDENT
 
                         </p>
 
@@ -1088,15 +1043,12 @@
 
 
 <!-- =========================================================
-     CAMERA FLASH OVERLAY
-
-     This is separate from the normal reveal flash.
-     We'll use it in the Media JS for a quick camera shutter flash.
+     VICE PRESIDENT SYSTEM FLASH
 ========================================================= -->
 
 <div
-    class="media-camera-flash"
-    id="mediaCameraFlash"
+    class="vice-system-flash"
+    id="viceSystemFlash"
 ></div>
 
 
@@ -1116,7 +1068,7 @@
      JAVASCRIPT
 ========================================================= -->
 
-<script src="media.js"></script>
+<script src="vpre.js"></script>
 
 
 </body>

@@ -6779,169 +6779,954 @@ body {
 .media-title {
     top: 20.5%;
 }
-.member-name.long-name {
-    font-size: 21px;
-    letter-spacing: 0.8px;
-    line-height: 1.06;
+/* ================================================================
+   SMART CLUB — DESIGN
+   MEDIA MASTER CARD → DESIGN OVERRIDES
+================================================================ */
+
+
+/* ================================================================
+   1. DESIGN HEADER
+================================================================ */
+
+.design-header {
+    top: 3.5%;
+}
+
+
+/* ================================================================
+   2. DESIGN TITLE
+================================================================ */
+
+.design-title {
+    top: 20.5%;
+}
+
+
+.design-title .title-text {
+
+    color: #fff8fd;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    padding-left: 7px;
+
     white-space: nowrap;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.18),
+        0 0 11px rgba(228,43,164,.24);
 }
+
+
 /* ================================================================
-   MEDIA SIDE ICONS
-   VIDEO + BROADCAST
+   3. DESIGN EMBLEM
 ================================================================ */
 
+.design-emblem {
+    position: relative;
+}
 
-/* shared look */
 
-.media-video-icon,
-.media-signal-icon {
+.design-emblem .emblem-glow {
 
-    width: 30px;
-    height: 30px;
+    width: 112px;
+    height: 112px;
 
-    color: #f7f0f6;
-
-    fill: none;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16) 0%,
+            rgba(255,220,245,.10) 18%,
+            rgba(233,48,170,.10) 38%,
+            rgba(119,14,101,.045) 56%,
+            transparent 74%
+        );
 
     filter:
-        drop-shadow(
-            0 0 3px
-            rgba(255,255,255,.18)
-        )
-        drop-shadow(
-            0 0 7px
-            rgba(226,43,163,.24)
-        );
-}
-
-
-/* ================================================================
-   VIDEO ICON
-================================================================ */
-
-.media-video-icon rect {
-
-    stroke:
-        #f4eef4;
-
-    fill:
-        rgba(217,43,158,.04);
-}
-
-
-.media-video-icon path {
-
-    stroke:
-        #ff5fbd;
-}
-
-
-.media-video-icon circle {
-
-    fill:
-        #fff8fd;
-
-    filter:
-        drop-shadow(
-            0 0 4px
-            rgba(255,255,255,.45)
-        );
-}
-
-
-/* ================================================================
-   BROADCAST ICON
-================================================================ */
-
-.media-signal-icon path {
-
-    stroke:
-        #f4eef4;
-
-    fill:
-        none;
-}
-
-
-.media-signal-icon circle {
-
-    fill:
-        #ff5fbd;
-
-    filter:
-        drop-shadow(
-            0 0 5px
-            rgba(255,82,187,.42)
-        );
-}
-
-
-/* ================================================================
-   SUBTLE HOVER
-================================================================ */
-
-.brain-node-left:hover .media-video-icon,
-.brain-node-right:hover .media-signal-icon {
-
-    filter:
-        drop-shadow(
-            0 0 4px
-            rgba(255,255,255,.30)
-        )
-        drop-shadow(
-            0 0 9px
-            rgba(226,43,163,.35)
-        );
-}
-
-
-/* ================================================================
-   OPTIONAL SMALL BREATH
-================================================================ */
-
-.media-video-icon,
-.media-signal-icon {
+        blur(13px);
 
     animation:
-        mediaNodeBreath
-        4.5s
+        designEmblemBreath
+        4.2s
         ease-in-out
         infinite;
 }
 
 
-@keyframes mediaNodeBreath {
+@keyframes designEmblemBreath {
 
     0%,
     100% {
 
-        opacity: .82;
+        opacity: .48;
 
         transform:
-            scale(1);
+            scale(.94);
     }
 
     50% {
 
-        opacity: 1;
+        opacity: .82;
 
         transform:
-            scale(1.04);
+            scale(1.06);
     }
 }
 
 
 /* ================================================================
-   REDUCED MOTION
+   4. EMBLEM RINGS
+================================================================ */
+
+.design-emblem .emblem-ring-one {
+
+    border-color:
+        rgba(255,255,255,.30);
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.025),
+        inset 0 0 10px rgba(255,255,255,.018);
+}
+
+
+.design-emblem .emblem-ring-two {
+
+    border-color:
+        rgba(230,44,166,.25);
+
+    animation:
+        designOuterRing
+        16s
+        linear
+        infinite;
+}
+
+
+@keyframes designOuterRing {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* ================================================================
+   5. DESIGN CONTAINER
+================================================================ */
+
+.design-container {
+
+    position: relative;
+
+    width: 76px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+
+    z-index: 8;
+}
+
+
+/* ================================================================
+   6. PEN NIB ICON
+================================================================ */
+
+.design-icon {
+
+    width: 60px;
+    height: 58px;
+
+    overflow: visible;
+
+    filter:
+        drop-shadow(
+            0 0 3px
+            rgba(255,255,255,.22)
+        )
+        drop-shadow(
+            0 0 8px
+            rgba(226,43,163,.25)
+        );
+
+    animation:
+        designIconFloat
+        4.6s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes designIconFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-2px);
+    }
+}
+
+
+/* ================================================================
+   7. PEN NIB BODY
+================================================================ */
+
+.design-nib {
+
+    fill:
+        rgba(217,43,158,.07);
+
+    stroke:
+        #f5eef5;
+
+    stroke-width:
+        3;
+
+    stroke-linejoin:
+        round;
+}
+
+
+/* ================================================================
+   8. PEN DETAILS
+================================================================ */
+
+.design-nib-detail {
+
+    fill: none;
+
+    stroke:
+        #ff58b9;
+
+    stroke-width:
+        3;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+}
+
+
+.design-nib-center {
+
+    fill:
+        #fffafd;
+
+    stroke:
+        #ff55ba;
+
+    stroke-width:
+        2;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.55)
+        );
+}
+
+
+/* ================================================================
+   9. DESIGN FOCUS RING
+================================================================ */
+
+.design-focus-ring {
+
+    width: 35px;
+    height: 35px;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.22);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px
+        rgba(230,44,166,.15);
+
+    animation:
+        designFocusRotate
+        9s
+        linear
+        infinite;
+}
+
+
+@keyframes designFocusRotate {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+/* ================================================================
+   10. DESIGN FLASH POINT
+================================================================ */
+
+.design-flash-point {
+
+    background:
+        #fffafd;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.70),
+        0 0 12px rgba(255,61,177,.45);
+}
+
+
+/* ================================================================
+   11. DESIGN HALO
+================================================================ */
+
+.design-halo .halo-ring-outer {
+
+    border-color:
+        rgba(220,222,232,.18);
+}
+
+
+.design-halo .halo-ring-inner {
+
+    border-color:
+        rgba(226,43,164,.20);
+}
+
+
+.design-halo .halo-marker {
+
+    background:
+        #d9dbe4;
+
+    border:
+        1px solid
+        #f441b1;
+
+    box-shadow:
+        0 0 5px
+        rgba(238,52,173,.25);
+}
+
+
+/* ================================================================
+   12. DESIGN HALO DETAIL
+================================================================ */
+
+.design-halo::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 218px;
+    height: 218px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border:
+        1px dotted
+        rgba(255,255,255,.065);
+
+    animation:
+        designHaloRotate
+        24s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes designHaloRotate {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+    }
+}
+
+
+/* ================================================================
+   13. DESIGN FRAME CORNERS AROUND PORTRAIT
+================================================================ */
+
+.design-halo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        left top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #f1edf2,
+            #f1edf2
+        )
+        right top /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        left bottom /
+        1px 18px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        18px 1px
+        no-repeat,
+
+        linear-gradient(
+            #ff55ba,
+            #ff55ba
+        )
+        right bottom /
+        1px 18px
+        no-repeat;
+
+    opacity: .15;
+
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   14. LAYERS NODE
+================================================================ */
+
+.design-layers-icon {
+
+    fill:
+        rgba(225,44,163,.06);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width:
+        4;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+}
+
+
+.design-layers-icon .node-detail {
+
+    fill: none;
+
+    stroke:
+        #ff63c0;
+
+    stroke-width:
+        3;
+}
+
+
+/* ================================================================
+   15. VECTOR NODE
+================================================================ */
+
+.design-vector-icon {
+
+    fill:
+        rgba(225,44,163,.05);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width:
+        3;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+}
+
+
+.design-vector-icon .node-detail {
+
+    fill: none;
+
+    stroke:
+        #ff63c0;
+
+    stroke-width:
+        3;
+}
+
+
+.design-vector-icon rect {
+
+    fill:
+        rgba(217,43,158,.18);
+
+    stroke:
+        #f3eef4;
+
+    stroke-width:
+        3;
+}
+
+
+/* ================================================================
+   16. DESIGN FLASH OVERLAY
+================================================================ */
+
+.design-flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 1100;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.96) 0%,
+            rgba(255,241,251,.72) 9%,
+            rgba(255,105,195,.22) 24%,
+            rgba(111,10,95,.07) 43%,
+            transparent 68%
+        );
+}
+
+
+.design-flash.active {
+
+    animation:
+        designFlashAnimation
+        .48s
+        ease-out;
+}
+
+
+@keyframes designFlashAnimation {
+
+    0% {
+        opacity: 0;
+    }
+
+    12% {
+        opacity: .88;
+    }
+
+    23% {
+        opacity: .13;
+    }
+
+    34% {
+        opacity: .38;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ================================================================
+   17. DESIGN LIGHT SWEEP
+================================================================ */
+
+.design-emblem::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 32px;
+    height: 90px;
+
+    left: -40px;
+    top: -3px;
+
+    transform:
+        rotate(20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.14),
+            transparent
+        );
+
+    filter:
+        blur(3px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 12;
+
+    animation:
+        designSweep
+        8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes designSweep {
+
+    0%,
+    63% {
+
+        left: -40px;
+
+        opacity: 0;
+    }
+
+    68% {
+
+        opacity: .55;
+    }
+
+    78% {
+
+        left: 95px;
+
+        opacity: .18;
+    }
+
+    82%,
+    100% {
+
+        left: 105px;
+
+        opacity: 0;
+    }
+}
+
+
+/* ================================================================
+   18. HOVER
+================================================================ */
+
+.card-wrapper:hover .design-icon {
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,255,255,.28)
+        )
+        drop-shadow(
+            0 0 10px
+            rgba(230,44,166,.32)
+        );
+}
+
+
+.card-wrapper:hover .design-focus-ring {
+
+    border-color:
+        rgba(255,255,255,.50);
+}
+
+
+/* ================================================================
+   19. FINAL INTERNAL PROPORTIONS
+   EXACTLY SAME AS MEDIA
+================================================================ */
+
+.portrait-frame {
+
+    width: 86%;
+    height: 57%;
+
+    top: 25%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateZ(70px);
+}
+
+
+.member-image-container {
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+
+.member-image {
+
+    height: 91%;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    transform-origin:
+        center bottom;
+}
+
+
+.portrait-energy {
+
+    width: 79%;
+    height: 54%;
+
+    top: 27%;
+}
+
+
+.brain-node {
+
+    top: 31%;
+}
+
+
+.identity {
+
+    width: 86%;
+
+    left: 50%;
+
+    bottom: 4.2%;
+
+    transform:
+        translateX(-50%)
+        translateZ(110px);
+
+    padding:
+        12px 10px 11px;
+}
+
+
+.member-name {
+
+    font-size: 24px;
+
+    line-height: 1.04;
+
+    letter-spacing: 1.7px;
+
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.member-role {
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 7px
+        rgba(225,43,163,.22);
+}
+
+
+.identity-decoration {
+
+    margin-bottom: 6px;
+}
+
+
+.identity-decoration span {
+
+    width: 46px;
+}
+
+
+.role-line {
+
+    width: 34px;
+}
+
+
+/* ================================================================
+   20. MOBILE
+================================================================ */
+
+@media (max-width: 600px) {
+
+    .design-icon {
+
+        width: 60px;
+        height: 54px;
+    }
+
+
+    .design-focus-ring {
+
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .design-title .title-text {
+
+        letter-spacing:
+            6px;
+    }
+}
+
+
+/* ================================================================
+   21. SHORT SCREEN
+   DO NOT SHRINK CARD
+================================================================ */
+
+@media (max-height: 720px) {
+
+    .card-wrapper {
+
+        width:
+            min(82%, 390px);
+
+        aspect-ratio:
+            390 / 610;
+
+        height:
+            auto;
+    }
+
+
+    .card-stage {
+
+        transform:
+            none;
+    }
+}
+
+
+/* ================================================================
+   22. REDUCED MOTION
 ================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .media-video-icon,
-    .media-signal-icon {
+    .design-icon,
+    .design-focus-ring,
+    .design-emblem .emblem-ring-two,
+    .design-emblem::after,
+    .design-halo::before {
 
         animation:
             none !important;

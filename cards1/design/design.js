@@ -1,5 +1,5 @@
 /* ================================================================
-   SMART CLUB — TREASURER CARD
+   SMART CLUB — DESIGN CARD
    FINAL CINEMATIC JS
    MAGENTA / PEARL / CHROME EDITION
 ================================================================ */
@@ -49,56 +49,67 @@ const identity =
 
 
 /* ================================================================
-   TREASURER SYSTEM
+   DESIGN SYSTEM
 ================================================================ */
 
-const treasurerHeader =
-    document.querySelector(".treasurer-header") ||
+const designHeader =
+    document.querySelector(".design-header") ||
+    document.querySelector(".media-header") ||
     document.querySelector(".president-header");
 
-const treasurerTitle =
-    document.querySelector(".treasurer-title") ||
+
+const designTitle =
+    document.querySelector(".design-title") ||
+    document.querySelector(".media-title") ||
     document.querySelector(".president-title");
 
-const treasurerEmblem =
-    document.querySelector(".treasurer-emblem") ||
+
+const designEmblem =
+    document.querySelector(".design-emblem") ||
+    document.querySelector(".media-emblem") ||
     document.querySelector(".president-emblem");
 
-const treasurerContainer =
-    document.querySelector(".treasurer-container");
 
-const treasurerIcon =
-    document.querySelector(".treasurer-icon");
+const designContainer =
+    document.querySelector(".design-container") ||
+    document.querySelector(".camera-container");
 
-const treasurerCoinOuter =
-    document.querySelector(".treasurer-coin-outer");
 
-const treasurerCoinInner =
-    document.querySelector(".treasurer-coin-inner");
+const designIcon =
+    document.querySelector(".design-icon") ||
+    document.querySelector(".camera-icon");
 
-const treasurerChart =
-    document.querySelector(".treasurer-chart");
 
-const treasurerArrow =
-    document.querySelector(".treasurer-arrow");
+const designNib =
+    document.querySelector(".design-nib");
 
-const treasurerCore =
-    document.querySelector(".treasurer-core");
 
-const treasurerDetails =
-    document.querySelectorAll(".treasurer-detail");
+const designNibDetails =
+    document.querySelectorAll(".design-nib-detail");
 
-const treasurerFocusRing =
-    document.querySelector(".treasurer-focus-ring");
 
-const treasurerPulsePoint =
-    document.querySelector(".treasurer-pulse-point");
+const designNibCenter =
+    document.querySelector(".design-nib-center");
 
-const treasurerSystemFlash =
-    document.getElementById("treasurerSystemFlash");
+
+const designFocusRing =
+    document.querySelector(".design-focus-ring") ||
+    document.querySelector(".camera-focus-ring");
+
+
+const designFlashPoint =
+    document.querySelector(".design-flash-point") ||
+    document.querySelector(".camera-flash-point");
+
+
+const designFlashOverlay =
+    document.getElementById("designFlash") ||
+    document.querySelector(".design-flash");
+
 
 const emblemGlow =
     document.querySelector(".emblem-glow");
+
 
 const emblemRings =
     document.querySelectorAll(".emblem-ring");
@@ -177,17 +188,20 @@ const portraitVignette =
 
 
 /* ================================================================
-   TREASURER HALO
+   DESIGN HALO
 ================================================================ */
 
-const treasurerHalo =
-    document.querySelector(".treasurer-halo") ||
+const designHalo =
+    document.querySelector(".design-halo") ||
+    document.querySelector(".media-halo") ||
     document.querySelector(".leadership-halo");
+
 
 const haloRings =
     document.querySelectorAll(
-        ".treasurer-halo .leadership-halo-ring, .leadership-halo-ring"
+        ".design-halo .leadership-halo-ring, .leadership-halo-ring"
     );
+
 
 const haloMarkers =
     document.querySelectorAll(".halo-marker");
@@ -345,7 +359,6 @@ function animate(
 ) {
 
     if (!element) {
-
         return null;
     }
 
@@ -657,7 +670,6 @@ function signalBurst(
     ) {
 
         setTimeout(
-
             () => {
 
                 createSmartTrace(
@@ -913,22 +925,22 @@ function smartFlash() {
 
 
 /* ================================================================
-   10. TREASURER SYSTEM FLASH
+   10. DESIGN FLASH
 ================================================================ */
 
-function treasuryFlash() {
+function designSystemFlash() {
 
-    if (treasurerSystemFlash) {
+    if (designFlashOverlay) {
 
-        treasurerSystemFlash.classList.remove(
+        designFlashOverlay.classList.remove(
             "active"
         );
 
 
-        void treasurerSystemFlash.offsetWidth;
+        void designFlashOverlay.offsetWidth;
 
 
-        treasurerSystemFlash.classList.add(
+        designFlashOverlay.classList.add(
             "active"
         );
 
@@ -936,11 +948,12 @@ function treasuryFlash() {
         setTimeout(
             () => {
 
-                treasurerSystemFlash.classList.remove(
+                designFlashOverlay.classList.remove(
                     "active"
                 );
 
             },
+
             520
         );
     }
@@ -958,26 +971,26 @@ function treasuryFlash() {
 
                 {
                     opacity:
-                        .62,
+                        .72,
 
                     offset:
-                        .10
+                        .08
                 },
 
                 {
                     opacity:
-                        .07,
+                        .08,
 
                     offset:
-                        .25
+                        .20
                 },
 
                 {
                     opacity:
-                        .28,
+                        .34,
 
                     offset:
-                        .33
+                        .28
                 },
 
                 {
@@ -988,7 +1001,7 @@ function treasuryFlash() {
 
             {
                 duration:
-                    480,
+                    460,
 
                 easing:
                     "ease-out"
@@ -1006,10 +1019,10 @@ function prepareIntro() {
 
     const hiddenElements = [
 
-        treasurerHeader,
-        treasurerEmblem,
-        treasurerTitle,
-        treasurerHalo,
+        designHeader,
+        designEmblem,
+        designTitle,
+        designHalo,
 
         portraitEnergy,
         portraitFrame,
@@ -1026,6 +1039,7 @@ function prepareIntro() {
             if (!element) {
                 return;
             }
+
 
             element.style.opacity =
                 "0";
@@ -1056,9 +1070,9 @@ function prepareIntro() {
     }
 
 
-    if (treasurerEmblem) {
+    if (designEmblem) {
 
-        treasurerEmblem.style.transform =
+        designEmblem.style.transform =
             "scale(.68)";
     }
 
@@ -1220,8 +1234,10 @@ async function activateSmartCore() {
 
 
     const brainLines = [
+
         ...brainPaths,
         ...brainNeuralLines
+
     ];
 
 
@@ -1229,8 +1245,8 @@ async function activateSmartCore() {
         (path, index) => {
 
             if (
-                typeof path.getTotalLength
-                !== "function"
+                typeof path.getTotalLength !==
+                "function"
             ) {
 
                 return;
@@ -1277,8 +1293,7 @@ async function activateSmartCore() {
 
                     delay:
                         120 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -1330,8 +1345,7 @@ async function activateSmartCore() {
 
                     delay:
                         650 +
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -1386,8 +1400,7 @@ async function synchronizeOrbits() {
                         700,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     fill:
                         "forwards",
@@ -1439,8 +1452,7 @@ async function synchronizeOrbits() {
 
                     delay:
                         220 +
-                        index *
-                        130,
+                        index * 130,
 
                     fill:
                         "forwards",
@@ -1503,8 +1515,7 @@ async function activateCircuits() {
                         550,
 
                     delay:
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -1556,8 +1567,7 @@ async function activateCircuits() {
 
                     delay:
                         150 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -1660,8 +1670,7 @@ async function systemLock() {
                         850,
 
                     delay:
-                        index *
-                        100,
+                        index * 100,
 
                     easing:
                         "ease-in-out"
@@ -1826,8 +1835,7 @@ async function revealFrame() {
                         500,
 
                     delay:
-                        index *
-                        70,
+                        index * 70,
 
                     fill:
                         "forwards",
@@ -1876,28 +1884,28 @@ async function revealFrame() {
 
 
 /* ================================================================
-   20. TREASURER EMBLEM MATERIALIZES
+   20. DESIGN EMBLEM MATERIALIZES
 ================================================================ */
 
-async function revealTreasurerEmblem() {
+async function revealDesignEmblem() {
 
-    if (treasurerHeader) {
+    if (designHeader) {
 
-        treasurerHeader.style.opacity =
+        designHeader.style.opacity =
             "1";
     }
 
 
-    if (treasurerEmblem) {
+    if (designEmblem) {
 
-        treasurerEmblem.style.opacity =
+        designEmblem.style.opacity =
             "1";
     }
 
 
     animate(
 
-        treasurerEmblem,
+        designEmblem,
 
         [
             {
@@ -1950,22 +1958,22 @@ async function revealTreasurerEmblem() {
     );
 
 
-    /* draw complete finance SVG */
+    /* DRAW DESIGN SVG */
 
-    if (treasurerIcon) {
+    if (designIcon) {
 
-        const svgParts =
-            treasurerIcon.querySelectorAll(
-                "path, circle, rect, line, polyline"
+        const pieces =
+            designIcon.querySelectorAll(
+                "path, rect, circle, line"
             );
 
 
-        svgParts.forEach(
-            (part, index) => {
+        pieces.forEach(
+            (piece, index) => {
 
                 if (
-                    typeof part.getTotalLength
-                    !== "function"
+                    typeof piece.getTotalLength !==
+                    "function"
                 ) {
 
                     return;
@@ -1973,20 +1981,20 @@ async function revealTreasurerEmblem() {
 
 
                 const length =
-                    part.getTotalLength();
+                    piece.getTotalLength();
 
 
-                part.style.strokeDasharray =
+                piece.style.strokeDasharray =
                     `${length}`;
 
 
-                part.style.strokeDashoffset =
+                piece.style.strokeDashoffset =
                     `${length}`;
 
 
                 animate(
 
-                    part,
+                    piece,
 
                     [
                         {
@@ -1994,7 +2002,7 @@ async function revealTreasurerEmblem() {
                                 length,
 
                             opacity:
-                                .10
+                                .12
                         },
 
                         {
@@ -2011,8 +2019,7 @@ async function revealTreasurerEmblem() {
                             720,
 
                         delay:
-                            index *
-                            90,
+                            index * 80,
 
                         fill:
                             "forwards",
@@ -2060,8 +2067,7 @@ async function revealTreasurerEmblem() {
                         600,
 
                     delay:
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -2123,29 +2129,29 @@ async function revealTreasurerEmblem() {
 
 
     await wait(
-        850
+        800
     );
 }
 
 
 /* ================================================================
-   21. TREASURER TITLE
+   21. DESIGN TITLE
 ================================================================ */
 
-async function revealTreasurerTitle() {
+async function revealDesignTitle() {
 
-    if (!treasurerTitle) {
+    if (!designTitle) {
         return;
     }
 
 
-    treasurerTitle.style.opacity =
+    designTitle.style.opacity =
         "1";
 
 
     animate(
 
-        treasurerTitle,
+        designTitle,
 
         [
             {
@@ -2156,7 +2162,7 @@ async function revealTreasurerTitle() {
                     translateX(-50%)
                     translateY(-9px)
                     translateZ(90px)
-                    scaleX(1.20)
+                    scaleX(1.22)
                 `,
 
                 filter:
@@ -2199,17 +2205,17 @@ async function revealTreasurerTitle() {
 
 
 /* ================================================================
-   22. TREASURER HALO
+   22. DESIGN HALO
 ================================================================ */
 
-async function activateTreasurerHalo() {
+async function activateDesignHalo() {
 
-    if (!treasurerHalo) {
+    if (!designHalo) {
         return;
     }
 
 
-    treasurerHalo.style.opacity =
+    designHalo.style.opacity =
         "1";
 
 
@@ -2257,8 +2263,7 @@ async function activateTreasurerHalo() {
                         800,
 
                     delay:
-                        index *
-                        120,
+                        index * 120,
 
                     fill:
                         "forwards",
@@ -2310,8 +2315,7 @@ async function activateTreasurerHalo() {
 
                     delay:
                         260 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -2331,30 +2335,27 @@ async function activateTreasurerHalo() {
 
 
 /* ================================================================
-   23. FINANCIAL SYSTEM ANALYSIS
+   23. DESIGN TOOL ACTIVATION
 ================================================================ */
 
-async function financialSystemLock() {
+async function designToolActivation() {
 
-    /* outer coin wakes */
+    if (!designContainer) {
+        return;
+    }
+
 
     animate(
 
-        treasurerCoinOuter,
+        designFocusRing,
 
         [
             {
                 opacity:
-                    .35,
-
-                transformOrigin:
-                    "center",
+                    .25,
 
                 transform:
-                    "scale(.88)",
-
-                filter:
-                    "brightness(.7)"
+                    "translate(-50%,-50%) rotate(0deg) scale(1.2)"
             },
 
             {
@@ -2362,27 +2363,21 @@ async function financialSystemLock() {
                     1,
 
                 transform:
-                    "scale(1.08)",
-
-                filter:
-                    "brightness(1.4)"
+                    "translate(-50%,-50%) rotate(180deg) scale(.86)"
             },
 
             {
                 opacity:
-                    1,
+                    .70,
 
                 transform:
-                    "scale(1)",
-
-                filter:
-                    "brightness(1)"
+                    "translate(-50%,-50%) rotate(360deg) scale(1)"
             }
         ],
 
         {
             duration:
-                780,
+                900,
 
             easing:
                 "cubic-bezier(.2,.8,.2,1)"
@@ -2390,44 +2385,42 @@ async function financialSystemLock() {
     );
 
 
-    /* inner coin pulse */
-
     animate(
 
-        treasurerCoinInner,
+        designNib,
 
         [
             {
+                filter:
+                    "brightness(.75)",
+
                 transformOrigin:
                     "center",
 
                 transform:
-                    "scale(.82)",
-
-                opacity:
-                    .30
+                    "scale(.92)"
             },
 
             {
-                transform:
-                    "scale(1.10)",
+                filter:
+                    "brightness(1.45)",
 
-                opacity:
-                    1
+                transform:
+                    "scale(1.08)"
             },
 
             {
-                transform:
-                    "scale(1)",
+                filter:
+                    "brightness(1)",
 
-                opacity:
-                    .9
+                transform:
+                    "scale(1)"
             }
         ],
 
         {
             duration:
-                700,
+                850,
 
             easing:
                 "ease-out"
@@ -2435,83 +2428,108 @@ async function financialSystemLock() {
     );
 
 
-    /* chart climbs */
+    designNibDetails.forEach(
+        (detail, index) => {
 
-    if (
-        treasurerChart &&
-        typeof treasurerChart.getTotalLength ===
-        "function"
-    ) {
+            animate(
 
-        const length =
-            treasurerChart.getTotalLength();
+                detail,
 
+                [
+                    {
+                        opacity:
+                            .15
+                    },
 
-        treasurerChart.style.strokeDasharray =
-            `${length}`;
+                    {
+                        opacity:
+                            1,
 
+                        filter:
+                            "brightness(1.5)"
+                    },
 
-        treasurerChart.style.strokeDashoffset =
-            `${length}`;
+                    {
+                        opacity:
+                            1,
 
-
-        animate(
-
-            treasurerChart,
-
-            [
-                {
-                    strokeDashoffset:
-                        length,
-
-                    filter:
-                        "brightness(.75)"
-                },
+                        filter:
+                            "brightness(1)"
+                    }
+                ],
 
                 {
-                    strokeDashoffset:
-                        0,
+                    duration:
+                        550,
 
-                    filter:
-                        "brightness(1.4)"
-                },
+                    delay:
+                        index * 100,
 
-                {
-                    strokeDashoffset:
-                        0,
-
-                    filter:
-                        "brightness(1)"
+                    fill:
+                        "forwards"
                 }
-            ],
+            );
+        }
+    );
 
-            {
-                duration:
-                    850,
-
-                fill:
-                    "forwards",
-
-                easing:
-                    "cubic-bezier(.16,1,.3,1)"
-            }
-        );
-    }
-
-
-    /* arrow locks */
 
     animate(
 
-        treasurerArrow,
+        designNibCenter,
 
         [
             {
                 opacity:
-                    .15,
+                    .25,
 
                 transformOrigin:
                     "center",
+
+                transform:
+                    "scale(.5)"
+            },
+
+            {
+                opacity:
+                    1,
+
+                transform:
+                    "scale(1.7)"
+            },
+
+            {
+                opacity:
+                    1,
+
+                transform:
+                    "scale(1)"
+            }
+        ],
+
+        {
+            duration:
+                650,
+
+            delay:
+                250,
+
+            fill:
+                "both",
+
+            easing:
+                "ease-out"
+        }
+    );
+
+
+    animate(
+
+        designFlashPoint,
+
+        [
+            {
+                opacity:
+                    .3,
 
                 transform:
                     "scale(.6)"
@@ -2522,12 +2540,12 @@ async function financialSystemLock() {
                     1,
 
                 transform:
-                    "scale(1.18)"
+                    "scale(2)"
             },
 
             {
                 opacity:
-                    1,
+                    .7,
 
                 transform:
                     "scale(1)"
@@ -2536,142 +2554,7 @@ async function financialSystemLock() {
 
         {
             duration:
-                600,
-
-            delay:
-                400,
-
-            fill:
-                "both",
-
-            easing:
-                "ease-out"
-        }
-    );
-
-
-    /* central finance core */
-
-    animate(
-
-        treasurerCore,
-
-        [
-            {
-                opacity:
-                    0,
-
-                transformOrigin:
-                    "center",
-
-                transform:
-                    "scale(0)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1.8)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1)"
-            }
-        ],
-
-        {
-            duration:
-                500,
-
-            delay:
-                500,
-
-            fill:
-                "both",
-
-            easing:
-                "ease-out"
-        }
-    );
-
-
-    treasurerDetails.forEach(
-        (detail, index) => {
-
-            animate(
-
-                detail,
-
-                [
-                    {
-                        opacity:
-                            0
-                    },
-
-                    {
-                        opacity:
-                            .8
-                    }
-                ],
-
-                {
-                    duration:
-                        350,
-
-                    delay:
-                        500 +
-                        index *
-                        120,
-
-                    fill:
-                        "both"
-                }
-            );
-        }
-    );
-
-
-    /* focus ring scan */
-
-    animate(
-
-        treasurerFocusRing,
-
-        [
-            {
-                opacity:
-                    .2,
-
-                filter:
-                    "brightness(.7)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                filter:
-                    "brightness(1.5)"
-            },
-
-            {
-                opacity:
-                    .70,
-
-                filter:
-                    "brightness(1)"
-            }
-        ],
-
-        {
-            duration:
-                900,
+                650,
 
             easing:
                 "ease-out"
@@ -2681,47 +2564,7 @@ async function financialSystemLock() {
 
     animate(
 
-        treasurerPulsePoint,
-
-        [
-            {
-                opacity:
-                    .3,
-
-                transform:
-                    "translate(-50%,-50%) scale(.6)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "translate(-50%,-50%) scale(2)"
-            },
-
-            {
-                opacity:
-                    .8,
-
-                transform:
-                    "translate(-50%,-50%) scale(1)"
-            }
-        ],
-
-        {
-            duration:
-                750,
-
-            easing:
-                "ease-out"
-        }
-    );
-
-
-    animate(
-
-        treasurerHalo,
+        designHalo,
 
         [
             {
@@ -2742,7 +2585,7 @@ async function financialSystemLock() {
 
         {
             duration:
-                900,
+                850,
 
             easing:
                 "ease-out"
@@ -2757,7 +2600,7 @@ async function financialSystemLock() {
 
 
     await wait(
-        950
+        900
     );
 }
 
@@ -2809,8 +2652,7 @@ async function activatePortraitSystem() {
                         700,
 
                     delay:
-                        index *
-                        120,
+                        index * 120,
 
                     fill:
                         "forwards",
@@ -2932,8 +2774,7 @@ async function activateNodes() {
                         550,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     fill:
                         "forwards",
@@ -3021,7 +2862,7 @@ async function revealPortraitFrame() {
 
 
 /* ================================================================
-   27. TREASURY LOCK → MEMBER REVEAL
+   27. DESIGN LOCK → MEMBER REVEAL
 ================================================================ */
 
 async function revealPortrait() {
@@ -3032,23 +2873,24 @@ async function revealPortrait() {
 
 
     /*
-        TREASURER SYSTEM:
-        financial scan
+        DESIGN SYMBOL ACTIVATES
         ↓
-        balance verified
+        VECTOR SYSTEM LOCKS
         ↓
-        member reveal
+        FLASH
+        ↓
+        MEMBER REVEAL
     */
 
 
-    await financialSystemLock();
+    await designToolActivation();
 
 
-    treasuryFlash();
+    designSystemFlash();
 
 
     await wait(
-        100
+        90
     );
 
 
@@ -3071,7 +2913,7 @@ async function revealPortrait() {
                 `,
 
                 filter: `
-                    brightness(1.55)
+                    brightness(1.65)
                     contrast(.92)
                     blur(5px)
                 `
@@ -3087,7 +2929,7 @@ async function revealPortrait() {
                 `,
 
                 filter: `
-                    brightness(1.18)
+                    brightness(1.20)
                     contrast(1)
                     blur(1px)
                 `,
@@ -3312,7 +3154,7 @@ async function revealIdentity() {
                     0,
 
                 letterSpacing:
-                    "10px"
+                    "11px"
             },
 
             {
@@ -3320,7 +3162,7 @@ async function revealIdentity() {
                     1,
 
                 letterSpacing:
-                    "5px"
+                    "7px"
             }
         ],
 
@@ -3404,8 +3246,7 @@ async function cornerLock() {
 
                 },
 
-                index *
-                150
+                index * 150
             );
         }
     );
@@ -3452,8 +3293,7 @@ async function railConfirmation() {
                         600,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     easing:
                         "ease-out"
@@ -3470,10 +3310,10 @@ async function railConfirmation() {
 
 
 /* ================================================================
-   31. FINAL TREASURER LOCK
+   31. FINAL DESIGN LOCK
 ================================================================ */
 
-async function finalTreasurerLock() {
+async function finalDesignLock() {
 
     signalBurst(
         2,
@@ -3488,7 +3328,7 @@ async function finalTreasurerLock() {
 
     animate(
 
-        treasurerIcon,
+        designIcon,
 
         [
             {
@@ -3541,7 +3381,7 @@ async function finalTreasurerLock() {
 
     animate(
 
-        treasurerCore,
+        designNibCenter,
 
         [
             {
@@ -3600,7 +3440,7 @@ async function startSequence() {
     );
 
 
-    /* CARD ENTERS */
+    /* CARD ENTER */
 
     await revealStage();
 
@@ -3633,15 +3473,15 @@ async function startSequence() {
     await flipToFront();
 
 
-    /* TREASURER FRONT */
+    /* DESIGN FRONT */
 
     await revealFrame();
 
-    await revealTreasurerEmblem();
+    await revealDesignEmblem();
 
-    await revealTreasurerTitle();
+    await revealDesignTitle();
 
-    await activateTreasurerHalo();
+    await activateDesignHalo();
 
     await activatePortraitSystem();
 
@@ -3651,16 +3491,17 @@ async function startSequence() {
 
 
     /*
-        TREASURER SPECIAL MOMENT
+        DESIGN SPECIAL MOMENT
 
-        coin activation
+        pen / vector activation
         ↓
-        financial chart scan
+        focus lock
         ↓
-        system verification
+        flash
         ↓
-        member reveal
+        member
     */
+
 
     await revealPortrait();
 
@@ -3670,7 +3511,7 @@ async function startSequence() {
 
     await railConfirmation();
 
-    await finalTreasurerLock();
+    await finalDesignLock();
 
 
     isBusy =
@@ -3836,13 +3677,13 @@ function renderLoop() {
 
 
         /*
-            TREASURER EMBLEM MOVES
+            DESIGN EMBLEM MOVES
             OPPOSITE TO PORTRAIT
         */
 
-        if (treasurerEmblem) {
+        if (designEmblem) {
 
-            treasurerEmblem.style.translate = `
+            designEmblem.style.translate = `
 
                 ${currentPortraitX * -.15}px
 
@@ -3864,9 +3705,9 @@ function renderLoop() {
         }
 
 
-        if (treasurerHalo) {
+        if (designHalo) {
 
-            treasurerHalo.style.translate = `
+            designHalo.style.translate = `
 
                 ${currentPortraitX * .07}px
 
@@ -3959,20 +3800,20 @@ ambientSignal();
 
 
 /* ================================================================
-   38. TREASURER EMBLEM BREATH
+   38. DESIGN EMBLEM BREATH
 ================================================================ */
 
-function treasurerBreath() {
+function designBreath() {
 
     if (
         isFront &&
         !isBusy &&
-        treasurerIcon
+        designIcon
     ) {
 
         animate(
 
-            treasurerIcon,
+            designIcon,
 
             [
                 {
@@ -4021,55 +3862,12 @@ function treasurerBreath() {
                     "ease-in-out"
             }
         );
-
-
-        animate(
-
-            treasurerCore,
-
-            [
-                {
-                    transformOrigin:
-                        "center",
-
-                    transform:
-                        "scale(1)",
-
-                    opacity:
-                        .75
-                },
-
-                {
-                    transform:
-                        "scale(1.45)",
-
-                    opacity:
-                        1
-                },
-
-                {
-                    transform:
-                        "scale(1)",
-
-                    opacity:
-                        .75
-                }
-            ],
-
-            {
-                duration:
-                    900,
-
-                easing:
-                    "ease-in-out"
-            }
-        );
     }
 
 
     setTimeout(
 
-        treasurerBreath,
+        designBreath,
 
         7000 +
         Math.random() *
@@ -4079,26 +3877,26 @@ function treasurerBreath() {
 }
 
 
-treasurerBreath();
+designBreath();
 
 
 /* ================================================================
-   39. RANDOM FINANCIAL SCAN
+   39. RANDOM DESIGN FOCUS
 ================================================================ */
 
-function randomFinancialScan() {
+function randomDesignFocus() {
 
     if (
         isFront &&
         !isBusy &&
-        treasurerContainer &&
+        designContainer &&
         Math.random() >
-        .52
+        .50
     ) {
 
         animate(
 
-            treasurerFocusRing,
+            designFocusRing,
 
             [
                 {
@@ -4114,7 +3912,7 @@ function randomFinancialScan() {
                         1,
 
                     transform:
-                        "translate(-50%,-50%) rotate(180deg) scale(.88)"
+                        "translate(-50%,-50%) rotate(180deg) scale(.86)"
                 },
 
                 {
@@ -4138,28 +3936,31 @@ function randomFinancialScan() {
 
         animate(
 
-            treasurerChart,
+            designNibCenter,
 
             [
                 {
-                    filter:
-                        "brightness(1)"
+                    transformOrigin:
+                        "center",
+
+                    transform:
+                        "scale(1)"
                 },
 
                 {
-                    filter:
-                        "brightness(1.65)"
+                    transform:
+                        "scale(1.45)"
                 },
 
                 {
-                    filter:
-                        "brightness(1)"
+                    transform:
+                        "scale(1)"
                 }
             ],
 
             {
                 duration:
-                    650,
+                    700,
 
                 easing:
                     "ease-in-out"
@@ -4176,7 +3977,7 @@ function randomFinancialScan() {
 
     setTimeout(
 
-        randomFinancialScan,
+        randomDesignFocus,
 
         8500 +
         Math.random() *
@@ -4186,7 +3987,7 @@ function randomFinancialScan() {
 }
 
 
-randomFinancialScan();
+randomDesignFocus();
 
 
 /* ================================================================
@@ -4278,8 +4079,7 @@ if (card) {
 
 
             /*
-                Reset the parallax first so
-                card always flips cleanly.
+                RESET PARALLAX BEFORE FLIP
             */
 
             targetRX =
@@ -4343,11 +4143,11 @@ if (card) {
 
 
                 /*
-                    When returning to Treasurer,
-                    the finance system verifies again.
+                    SYMBOL REACTIVATES WHEN
+                    RETURNING TO DESIGN FRONT
                 */
 
-                await financialSystemLock();
+                await designToolActivation();
             }
 
 
@@ -4359,12 +4159,12 @@ if (card) {
 
 
 /* ================================================================
-   42. INTERACT WITH TREASURER EMBLEM
+   42. CLICK DESIGN EMBLEM
 ================================================================ */
 
-if (treasurerContainer) {
+if (designContainer) {
 
-    treasurerContainer.addEventListener(
+    designContainer.addEventListener(
         "pointerdown",
         event => {
 
@@ -4382,7 +4182,7 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerFocusRing,
+                designFocusRing,
 
                 [
                     {
@@ -4422,31 +4222,25 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerPulsePoint,
+                designNibCenter,
 
                 [
                     {
-                        opacity:
-                            .4,
+                        transformOrigin:
+                            "center",
 
                         transform:
-                            "translate(-50%,-50%) scale(.7)"
+                            "scale(.7)"
                     },
 
                     {
-                        opacity:
-                            1,
-
                         transform:
-                            "translate(-50%,-50%) scale(2)"
+                            "scale(1.8)"
                     },
 
                     {
-                        opacity:
-                            .8,
-
                         transform:
-                            "translate(-50%,-50%) scale(1)"
+                            "scale(1)"
                     }
                 ],
 
@@ -4475,12 +4269,12 @@ if (treasurerContainer) {
 
 
 /* ================================================================
-   43. DOUBLE CLICK EMBLEM — SYSTEM CHECK
+   43. DOUBLE CLICK EMBLEM
 ================================================================ */
 
-if (treasurerContainer) {
+if (designContainer) {
 
-    treasurerContainer.addEventListener(
+    designContainer.addEventListener(
         "dblclick",
         event => {
 
@@ -4496,7 +4290,7 @@ if (treasurerContainer) {
             }
 
 
-            treasuryFlash();
+            designSystemFlash();
 
 
             createSmartDust(
@@ -4512,20 +4306,17 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerCore,
+                designIcon,
 
                 [
                     {
-                        transformOrigin:
-                            "center",
-
                         transform:
                             "scale(1)"
                     },
 
                     {
                         transform:
-                            "scale(2)"
+                            "scale(1.08)"
                     },
 
                     {
@@ -4536,7 +4327,7 @@ if (treasurerContainer) {
 
                 {
                     duration:
-                        700,
+                        650,
 
                     easing:
                         "ease-out"
@@ -4674,5 +4465,5 @@ window.addEventListener(
 
 
 /* ================================================================
-   SMART CLUB — TREASURER SYSTEM READY
+   SMART CLUB — DESIGN SYSTEM READY
 ================================================================ */

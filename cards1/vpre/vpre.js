@@ -1,5 +1,5 @@
 /* ================================================================
-   SMART CLUB — TREASURER CARD
+   SMART CLUB — VICE PRESIDENT CARD
    FINAL CINEMATIC JS
    MAGENTA / PEARL / CHROME EDITION
 ================================================================ */
@@ -49,53 +49,50 @@ const identity =
 
 
 /* ================================================================
-   TREASURER SYSTEM
+   VICE PRESIDENT SYSTEM
 ================================================================ */
 
-const treasurerHeader =
-    document.querySelector(".treasurer-header") ||
+const viceHeader =
+    document.querySelector(".vice-header") ||
     document.querySelector(".president-header");
 
-const treasurerTitle =
-    document.querySelector(".treasurer-title") ||
+const viceTitle =
+    document.querySelector(".vice-title") ||
     document.querySelector(".president-title");
 
-const treasurerEmblem =
-    document.querySelector(".treasurer-emblem") ||
+const viceEmblem =
+    document.querySelector(".vice-emblem") ||
     document.querySelector(".president-emblem");
 
-const treasurerContainer =
-    document.querySelector(".treasurer-container");
+const viceCommandContainer =
+    document.querySelector(".vice-command-container");
 
-const treasurerIcon =
-    document.querySelector(".treasurer-icon");
+const viceCommandIcon =
+    document.querySelector(".vice-command-icon");
 
-const treasurerCoinOuter =
-    document.querySelector(".treasurer-coin-outer");
+const viceShield =
+    document.querySelector(".vice-shield");
 
-const treasurerCoinInner =
-    document.querySelector(".treasurer-coin-inner");
+const viceChevrons =
+    document.querySelectorAll(".vice-chevron");
 
-const treasurerChart =
-    document.querySelector(".treasurer-chart");
+const viceCommandCore =
+    document.querySelector(".vice-command-core");
 
-const treasurerArrow =
-    document.querySelector(".treasurer-arrow");
+const viceStatusNode =
+    document.querySelector(".vice-status-node");
 
-const treasurerCore =
-    document.querySelector(".treasurer-core");
+const viceDetail =
+    document.querySelector(".vice-detail");
 
-const treasurerDetails =
-    document.querySelectorAll(".treasurer-detail");
+const viceFocusRing =
+    document.querySelector(".vice-focus-ring");
 
-const treasurerFocusRing =
-    document.querySelector(".treasurer-focus-ring");
+const vicePulsePoint =
+    document.querySelector(".vice-pulse-point");
 
-const treasurerPulsePoint =
-    document.querySelector(".treasurer-pulse-point");
-
-const treasurerSystemFlash =
-    document.getElementById("treasurerSystemFlash");
+const viceSystemFlash =
+    document.getElementById("viceSystemFlash");
 
 const emblemGlow =
     document.querySelector(".emblem-glow");
@@ -177,16 +174,16 @@ const portraitVignette =
 
 
 /* ================================================================
-   TREASURER HALO
+   VICE HALO
 ================================================================ */
 
-const treasurerHalo =
-    document.querySelector(".treasurer-halo") ||
+const viceHalo =
+    document.querySelector(".vice-halo") ||
     document.querySelector(".leadership-halo");
 
 const haloRings =
     document.querySelectorAll(
-        ".treasurer-halo .leadership-halo-ring, .leadership-halo-ring"
+        ".vice-halo .leadership-halo-ring, .leadership-halo-ring"
     );
 
 const haloMarkers =
@@ -298,7 +295,6 @@ let targetRX =
 let targetRY =
     0;
 
-
 let currentRX =
     0;
 
@@ -311,7 +307,6 @@ let targetPortraitX =
 
 let targetPortraitY =
     0;
-
 
 let currentPortraitX =
     0;
@@ -348,7 +343,6 @@ function animate(
 
         return null;
     }
-
 
     return element.animate(
         frames,
@@ -657,7 +651,6 @@ function signalBurst(
     ) {
 
         setTimeout(
-
             () => {
 
                 createSmartTrace(
@@ -913,22 +906,22 @@ function smartFlash() {
 
 
 /* ================================================================
-   10. TREASURER SYSTEM FLASH
+   10. COMMAND FLASH
 ================================================================ */
 
-function treasuryFlash() {
+function commandFlash() {
 
-    if (treasurerSystemFlash) {
+    if (viceSystemFlash) {
 
-        treasurerSystemFlash.classList.remove(
+        viceSystemFlash.classList.remove(
             "active"
         );
 
 
-        void treasurerSystemFlash.offsetWidth;
+        void viceSystemFlash.offsetWidth;
 
 
-        treasurerSystemFlash.classList.add(
+        viceSystemFlash.classList.add(
             "active"
         );
 
@@ -936,7 +929,7 @@ function treasuryFlash() {
         setTimeout(
             () => {
 
-                treasurerSystemFlash.classList.remove(
+                viceSystemFlash.classList.remove(
                     "active"
                 );
 
@@ -958,7 +951,7 @@ function treasuryFlash() {
 
                 {
                     opacity:
-                        .62,
+                        .68,
 
                     offset:
                         .10
@@ -966,18 +959,18 @@ function treasuryFlash() {
 
                 {
                     opacity:
-                        .07,
+                        .08,
 
                     offset:
-                        .25
+                        .24
                 },
 
                 {
                     opacity:
-                        .28,
+                        .30,
 
                     offset:
-                        .33
+                        .32
                 },
 
                 {
@@ -1006,10 +999,10 @@ function prepareIntro() {
 
     const hiddenElements = [
 
-        treasurerHeader,
-        treasurerEmblem,
-        treasurerTitle,
-        treasurerHalo,
+        viceHeader,
+        viceEmblem,
+        viceTitle,
+        viceHalo,
 
         portraitEnergy,
         portraitFrame,
@@ -1056,9 +1049,9 @@ function prepareIntro() {
     }
 
 
-    if (treasurerEmblem) {
+    if (viceEmblem) {
 
-        treasurerEmblem.style.transform =
+        viceEmblem.style.transform =
             "scale(.68)";
     }
 
@@ -1229,8 +1222,8 @@ async function activateSmartCore() {
         (path, index) => {
 
             if (
-                typeof path.getTotalLength
-                !== "function"
+                typeof path.getTotalLength !==
+                "function"
             ) {
 
                 return;
@@ -1243,7 +1236,6 @@ async function activateSmartCore() {
 
             path.style.strokeDasharray =
                 `${length}`;
-
 
             path.style.strokeDashoffset =
                 `${length}`;
@@ -1277,8 +1269,7 @@ async function activateSmartCore() {
 
                     delay:
                         120 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -1330,8 +1321,7 @@ async function activateSmartCore() {
 
                     delay:
                         650 +
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -1386,8 +1376,7 @@ async function synchronizeOrbits() {
                         700,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     fill:
                         "forwards",
@@ -1439,8 +1428,7 @@ async function synchronizeOrbits() {
 
                     delay:
                         220 +
-                        index *
-                        130,
+                        index * 130,
 
                     fill:
                         "forwards",
@@ -1503,8 +1491,7 @@ async function activateCircuits() {
                         550,
 
                     delay:
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -1556,8 +1543,7 @@ async function activateCircuits() {
 
                     delay:
                         150 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -1660,8 +1646,7 @@ async function systemLock() {
                         850,
 
                     delay:
-                        index *
-                        100,
+                        index * 100,
 
                     easing:
                         "ease-in-out"
@@ -1679,7 +1664,6 @@ async function systemLock() {
     createSmartDust(
         6
     );
-
 
     signalBurst(
         4,
@@ -1826,8 +1810,7 @@ async function revealFrame() {
                         500,
 
                     delay:
-                        index *
-                        70,
+                        index * 70,
 
                     fill:
                         "forwards",
@@ -1876,28 +1859,28 @@ async function revealFrame() {
 
 
 /* ================================================================
-   20. TREASURER EMBLEM MATERIALIZES
+   20. COMMAND EMBLEM MATERIALIZES
 ================================================================ */
 
-async function revealTreasurerEmblem() {
+async function revealCommandEmblem() {
 
-    if (treasurerHeader) {
+    if (viceHeader) {
 
-        treasurerHeader.style.opacity =
+        viceHeader.style.opacity =
             "1";
     }
 
 
-    if (treasurerEmblem) {
+    if (viceEmblem) {
 
-        treasurerEmblem.style.opacity =
+        viceEmblem.style.opacity =
             "1";
     }
 
 
     animate(
 
-        treasurerEmblem,
+        viceEmblem,
 
         [
             {
@@ -1950,22 +1933,20 @@ async function revealTreasurerEmblem() {
     );
 
 
-    /* draw complete finance SVG */
+    if (viceCommandIcon) {
 
-    if (treasurerIcon) {
-
-        const svgParts =
-            treasurerIcon.querySelectorAll(
-                "path, circle, rect, line, polyline"
+        const pieces =
+            viceCommandIcon.querySelectorAll(
+                "path, circle, rect, line"
             );
 
 
-        svgParts.forEach(
-            (part, index) => {
+        pieces.forEach(
+            (piece, index) => {
 
                 if (
-                    typeof part.getTotalLength
-                    !== "function"
+                    typeof piece.getTotalLength !==
+                    "function"
                 ) {
 
                     return;
@@ -1973,20 +1954,19 @@ async function revealTreasurerEmblem() {
 
 
                 const length =
-                    part.getTotalLength();
+                    piece.getTotalLength();
 
 
-                part.style.strokeDasharray =
+                piece.style.strokeDasharray =
                     `${length}`;
 
-
-                part.style.strokeDashoffset =
+                piece.style.strokeDashoffset =
                     `${length}`;
 
 
                 animate(
 
-                    part,
+                    piece,
 
                     [
                         {
@@ -2011,8 +1991,7 @@ async function revealTreasurerEmblem() {
                             720,
 
                         delay:
-                            index *
-                            90,
+                            index * 90,
 
                         fill:
                             "forwards",
@@ -2060,8 +2039,7 @@ async function revealTreasurerEmblem() {
                         600,
 
                     delay:
-                        index *
-                        110,
+                        index * 110,
 
                     fill:
                         "forwards",
@@ -2123,29 +2101,29 @@ async function revealTreasurerEmblem() {
 
 
     await wait(
-        850
+        800
     );
 }
 
 
 /* ================================================================
-   21. TREASURER TITLE
+   21. VICE TITLE
 ================================================================ */
 
-async function revealTreasurerTitle() {
+async function revealViceTitle() {
 
-    if (!treasurerTitle) {
+    if (!viceTitle) {
         return;
     }
 
 
-    treasurerTitle.style.opacity =
+    viceTitle.style.opacity =
         "1";
 
 
     animate(
 
-        treasurerTitle,
+        viceTitle,
 
         [
             {
@@ -2156,7 +2134,7 @@ async function revealTreasurerTitle() {
                     translateX(-50%)
                     translateY(-9px)
                     translateZ(90px)
-                    scaleX(1.20)
+                    scaleX(1.18)
                 `,
 
                 filter:
@@ -2199,17 +2177,17 @@ async function revealTreasurerTitle() {
 
 
 /* ================================================================
-   22. TREASURER HALO
+   22. VICE HALO
 ================================================================ */
 
-async function activateTreasurerHalo() {
+async function activateViceHalo() {
 
-    if (!treasurerHalo) {
+    if (!viceHalo) {
         return;
     }
 
 
-    treasurerHalo.style.opacity =
+    viceHalo.style.opacity =
         "1";
 
 
@@ -2257,8 +2235,7 @@ async function activateTreasurerHalo() {
                         800,
 
                     delay:
-                        index *
-                        120,
+                        index * 120,
 
                     fill:
                         "forwards",
@@ -2310,8 +2287,7 @@ async function activateTreasurerHalo() {
 
                     delay:
                         260 +
-                        index *
-                        100,
+                        index * 100,
 
                     fill:
                         "forwards",
@@ -2331,179 +2307,121 @@ async function activateTreasurerHalo() {
 
 
 /* ================================================================
-   23. FINANCIAL SYSTEM ANALYSIS
+   23. COMMAND SYNCHRONIZATION
 ================================================================ */
 
-async function financialSystemLock() {
+async function commandSynchronization() {
 
-    /* outer coin wakes */
-
-    animate(
-
-        treasurerCoinOuter,
-
-        [
-            {
-                opacity:
-                    .35,
-
-                transformOrigin:
-                    "center",
-
-                transform:
-                    "scale(.88)",
-
-                filter:
-                    "brightness(.7)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1.08)",
-
-                filter:
-                    "brightness(1.4)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1)",
-
-                filter:
-                    "brightness(1)"
-            }
-        ],
-
-        {
-            duration:
-                780,
-
-            easing:
-                "cubic-bezier(.2,.8,.2,1)"
-        }
-    );
-
-
-    /* inner coin pulse */
-
-    animate(
-
-        treasurerCoinInner,
-
-        [
-            {
-                transformOrigin:
-                    "center",
-
-                transform:
-                    "scale(.82)",
-
-                opacity:
-                    .30
-            },
-
-            {
-                transform:
-                    "scale(1.10)",
-
-                opacity:
-                    1
-            },
-
-            {
-                transform:
-                    "scale(1)",
-
-                opacity:
-                    .9
-            }
-        ],
-
-        {
-            duration:
-                700,
-
-            easing:
-                "ease-out"
-        }
-    );
-
-
-    /* chart climbs */
-
-    if (
-        treasurerChart &&
-        typeof treasurerChart.getTotalLength ===
-        "function"
-    ) {
-
-        const length =
-            treasurerChart.getTotalLength();
-
-
-        treasurerChart.style.strokeDasharray =
-            `${length}`;
-
-
-        treasurerChart.style.strokeDashoffset =
-            `${length}`;
-
+    if (viceCommandContainer) {
 
         animate(
 
-            treasurerChart,
+            viceFocusRing,
 
             [
                 {
-                    strokeDashoffset:
-                        length,
+                    opacity:
+                        .20,
 
-                    filter:
-                        "brightness(.75)"
+                    transform:
+                        "translate(-50%,-50%) rotate(0deg) scale(1.25)"
                 },
 
                 {
-                    strokeDashoffset:
-                        0,
+                    opacity:
+                        1,
 
-                    filter:
-                        "brightness(1.4)"
+                    transform:
+                        "translate(-50%,-50%) rotate(180deg) scale(.82)"
                 },
 
                 {
-                    strokeDashoffset:
-                        0,
+                    opacity:
+                        .72,
 
-                    filter:
-                        "brightness(1)"
+                    transform:
+                        "translate(-50%,-50%) rotate(360deg) scale(1)"
                 }
             ],
 
             {
                 duration:
-                    850,
-
-                fill:
-                    "forwards",
+                    900,
 
                 easing:
-                    "cubic-bezier(.16,1,.3,1)"
+                    "cubic-bezier(.2,.8,.2,1)"
             }
         );
     }
 
 
-    /* arrow locks */
+    viceChevrons.forEach(
+        (chevron, index) => {
+
+            animate(
+
+                chevron,
+
+                [
+                    {
+                        opacity:
+                            .25,
+
+                        transformOrigin:
+                            "center",
+
+                        transform:
+                            `translateX(${
+                                index === 0
+                                    ? -6
+                                    : 6
+                            }px)`
+                    },
+
+                    {
+                        opacity:
+                            1,
+
+                        transform:
+                            "translateX(0)",
+
+                        filter:
+                            "brightness(1.5)"
+                    },
+
+                    {
+                        opacity:
+                            1,
+
+                        transform:
+                            "translateX(0)",
+
+                        filter:
+                            "brightness(1)"
+                    }
+                ],
+
+                {
+                    duration:
+                        650,
+
+                    delay:
+                        index * 180,
+
+                    fill:
+                        "forwards",
+
+                    easing:
+                        "cubic-bezier(.16,1,.3,1)"
+                }
+            );
+        }
+    );
+
 
     animate(
 
-        treasurerArrow,
+        viceCommandCore,
 
         [
             {
@@ -2514,58 +2432,7 @@ async function financialSystemLock() {
                     "center",
 
                 transform:
-                    "scale(.6)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1.18)"
-            },
-
-            {
-                opacity:
-                    1,
-
-                transform:
-                    "scale(1)"
-            }
-        ],
-
-        {
-            duration:
-                600,
-
-            delay:
-                400,
-
-            fill:
-                "both",
-
-            easing:
-                "ease-out"
-        }
-    );
-
-
-    /* central finance core */
-
-    animate(
-
-        treasurerCore,
-
-        [
-            {
-                opacity:
-                    0,
-
-                transformOrigin:
-                    "center",
-
-                transform:
-                    "scale(0)"
+                    "scale(.4)"
             },
 
             {
@@ -2587,10 +2454,10 @@ async function financialSystemLock() {
 
         {
             duration:
-                500,
+                600,
 
             delay:
-                500,
+                300,
 
             fill:
                 "both",
@@ -2601,87 +2468,84 @@ async function financialSystemLock() {
     );
 
 
-    treasurerDetails.forEach(
-        (detail, index) => {
-
-            animate(
-
-                detail,
-
-                [
-                    {
-                        opacity:
-                            0
-                    },
-
-                    {
-                        opacity:
-                            .8
-                    }
-                ],
-
-                {
-                    duration:
-                        350,
-
-                    delay:
-                        500 +
-                        index *
-                        120,
-
-                    fill:
-                        "both"
-                }
-            );
-        }
-    );
-
-
-    /* focus ring scan */
-
     animate(
 
-        treasurerFocusRing,
+        viceStatusNode,
 
         [
             {
                 opacity:
                     .2,
 
-                filter:
-                    "brightness(.7)"
+                transformOrigin:
+                    "center",
+
+                transform:
+                    "scale(.5)"
             },
 
             {
                 opacity:
                     1,
 
-                filter:
-                    "brightness(1.5)"
+                transform:
+                    "scale(1.8)"
             },
 
             {
                 opacity:
-                    .70,
+                    .85,
 
-                filter:
-                    "brightness(1)"
+                transform:
+                    "scale(1)"
             }
         ],
 
         {
             duration:
-                900,
+                600,
 
-            easing:
-                "ease-out"
+            delay:
+                450,
+
+            fill:
+                "both"
         }
     );
 
 
     animate(
 
-        treasurerPulsePoint,
+        viceDetail,
+
+        [
+            {
+                opacity:
+                    0
+            },
+
+            {
+                opacity:
+                    .8
+            }
+        ],
+
+        {
+            duration:
+                400,
+
+            delay:
+                500,
+
+            fill:
+                "both"
+        }
+    );
+
+
+    animate(
+
+        vicePulsePoint,
 
         [
             {
@@ -2689,7 +2553,7 @@ async function financialSystemLock() {
                     .3,
 
                 transform:
-                    "translate(-50%,-50%) scale(.6)"
+                    "translateY(-50%) scale(.6)"
             },
 
             {
@@ -2697,7 +2561,7 @@ async function financialSystemLock() {
                     1,
 
                 transform:
-                    "translate(-50%,-50%) scale(2)"
+                    "translateY(-50%) scale(2)"
             },
 
             {
@@ -2705,13 +2569,13 @@ async function financialSystemLock() {
                     .8,
 
                 transform:
-                    "translate(-50%,-50%) scale(1)"
+                    "translateY(-50%) scale(1)"
             }
         ],
 
         {
             duration:
-                750,
+                700,
 
             easing:
                 "ease-out"
@@ -2721,7 +2585,7 @@ async function financialSystemLock() {
 
     animate(
 
-        treasurerHalo,
+        viceHalo,
 
         [
             {
@@ -2742,7 +2606,7 @@ async function financialSystemLock() {
 
         {
             duration:
-                900,
+                850,
 
             easing:
                 "ease-out"
@@ -2757,7 +2621,7 @@ async function financialSystemLock() {
 
 
     await wait(
-        950
+        900
     );
 }
 
@@ -2809,8 +2673,7 @@ async function activatePortraitSystem() {
                         700,
 
                     delay:
-                        index *
-                        120,
+                        index * 120,
 
                     fill:
                         "forwards",
@@ -2932,8 +2795,7 @@ async function activateNodes() {
                         550,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     fill:
                         "forwards",
@@ -3021,7 +2883,7 @@ async function revealPortraitFrame() {
 
 
 /* ================================================================
-   27. TREASURY LOCK → MEMBER REVEAL
+   27. COMMAND LOCK → MEMBER REVEAL
 ================================================================ */
 
 async function revealPortrait() {
@@ -3031,24 +2893,14 @@ async function revealPortrait() {
     }
 
 
-    /*
-        TREASURER SYSTEM:
-        financial scan
-        ↓
-        balance verified
-        ↓
-        member reveal
-    */
+    await commandSynchronization();
 
 
-    await financialSystemLock();
-
-
-    treasuryFlash();
+    commandFlash();
 
 
     await wait(
-        100
+        90
     );
 
 
@@ -3087,7 +2939,7 @@ async function revealPortrait() {
                 `,
 
                 filter: `
-                    brightness(1.18)
+                    brightness(1.20)
                     contrast(1)
                     blur(1px)
                 `,
@@ -3312,7 +3164,7 @@ async function revealIdentity() {
                     0,
 
                 letterSpacing:
-                    "10px"
+                    "9px"
             },
 
             {
@@ -3404,8 +3256,7 @@ async function cornerLock() {
 
                 },
 
-                index *
-                150
+                index * 150
             );
         }
     );
@@ -3452,8 +3303,7 @@ async function railConfirmation() {
                         600,
 
                     delay:
-                        index *
-                        160,
+                        index * 160,
 
                     easing:
                         "ease-out"
@@ -3470,10 +3320,10 @@ async function railConfirmation() {
 
 
 /* ================================================================
-   31. FINAL TREASURER LOCK
+   31. FINAL VICE LOCK
 ================================================================ */
 
-async function finalTreasurerLock() {
+async function finalViceLock() {
 
     signalBurst(
         2,
@@ -3488,7 +3338,7 @@ async function finalTreasurerLock() {
 
     animate(
 
-        treasurerIcon,
+        viceCommandIcon,
 
         [
             {
@@ -3541,7 +3391,7 @@ async function finalTreasurerLock() {
 
     animate(
 
-        treasurerCore,
+        viceCommandCore,
 
         [
             {
@@ -3633,15 +3483,15 @@ async function startSequence() {
     await flipToFront();
 
 
-    /* TREASURER FRONT */
+    /* VICE PRESIDENT FRONT */
 
     await revealFrame();
 
-    await revealTreasurerEmblem();
+    await revealCommandEmblem();
 
-    await revealTreasurerTitle();
+    await revealViceTitle();
 
-    await activateTreasurerHalo();
+    await activateViceHalo();
 
     await activatePortraitSystem();
 
@@ -3651,13 +3501,13 @@ async function startSequence() {
 
 
     /*
-        TREASURER SPECIAL MOMENT
+        VICE PRESIDENT SPECIAL MOMENT
 
-        coin activation
+        command ring activates
         ↓
-        financial chart scan
+        chevrons synchronize
         ↓
-        system verification
+        command core locks
         ↓
         member reveal
     */
@@ -3670,7 +3520,7 @@ async function startSequence() {
 
     await railConfirmation();
 
-    await finalTreasurerLock();
+    await finalViceLock();
 
 
     isBusy =
@@ -3835,14 +3685,9 @@ function renderLoop() {
         }
 
 
-        /*
-            TREASURER EMBLEM MOVES
-            OPPOSITE TO PORTRAIT
-        */
+        if (viceEmblem) {
 
-        if (treasurerEmblem) {
-
-            treasurerEmblem.style.translate = `
+            viceEmblem.style.translate = `
 
                 ${currentPortraitX * -.15}px
 
@@ -3864,9 +3709,9 @@ function renderLoop() {
         }
 
 
-        if (treasurerHalo) {
+        if (viceHalo) {
 
-            treasurerHalo.style.translate = `
+            viceHalo.style.translate = `
 
                 ${currentPortraitX * .07}px
 
@@ -3959,20 +3804,20 @@ ambientSignal();
 
 
 /* ================================================================
-   38. TREASURER EMBLEM BREATH
+   38. COMMAND CORE BREATH
 ================================================================ */
 
-function treasurerBreath() {
+function commandBreath() {
 
     if (
         isFront &&
         !isBusy &&
-        treasurerIcon
+        viceCommandIcon
     ) {
 
         animate(
 
-            treasurerIcon,
+            viceCommandIcon,
 
             [
                 {
@@ -4025,7 +3870,7 @@ function treasurerBreath() {
 
         animate(
 
-            treasurerCore,
+            viceCommandCore,
 
             [
                 {
@@ -4069,7 +3914,7 @@ function treasurerBreath() {
 
     setTimeout(
 
-        treasurerBreath,
+        commandBreath,
 
         7000 +
         Math.random() *
@@ -4079,26 +3924,26 @@ function treasurerBreath() {
 }
 
 
-treasurerBreath();
+commandBreath();
 
 
 /* ================================================================
-   39. RANDOM FINANCIAL SCAN
+   39. RANDOM COMMAND SCAN
 ================================================================ */
 
-function randomFinancialScan() {
+function randomCommandScan() {
 
     if (
         isFront &&
         !isBusy &&
-        treasurerContainer &&
+        viceCommandContainer &&
         Math.random() >
-        .52
+        .50
     ) {
 
         animate(
 
-            treasurerFocusRing,
+            viceFocusRing,
 
             [
                 {
@@ -4114,7 +3959,7 @@ function randomFinancialScan() {
                         1,
 
                     transform:
-                        "translate(-50%,-50%) rotate(180deg) scale(.88)"
+                        "translate(-50%,-50%) rotate(180deg) scale(.86)"
                 },
 
                 {
@@ -4136,33 +3981,41 @@ function randomFinancialScan() {
         );
 
 
-        animate(
+        viceChevrons.forEach(
+            (chevron, index) => {
 
-            treasurerChart,
+                animate(
 
-            [
-                {
-                    filter:
-                        "brightness(1)"
-                },
+                    chevron,
 
-                {
-                    filter:
-                        "brightness(1.65)"
-                },
+                    [
+                        {
+                            filter:
+                                "brightness(1)"
+                        },
 
-                {
-                    filter:
-                        "brightness(1)"
-                }
-            ],
+                        {
+                            filter:
+                                "brightness(1.7)"
+                        },
 
-            {
-                duration:
-                    650,
+                        {
+                            filter:
+                                "brightness(1)"
+                        }
+                    ],
 
-                easing:
-                    "ease-in-out"
+                    {
+                        duration:
+                            600,
+
+                        delay:
+                            index * 100,
+
+                        easing:
+                            "ease-in-out"
+                    }
+                );
             }
         );
 
@@ -4176,7 +4029,7 @@ function randomFinancialScan() {
 
     setTimeout(
 
-        randomFinancialScan,
+        randomCommandScan,
 
         8500 +
         Math.random() *
@@ -4186,7 +4039,7 @@ function randomFinancialScan() {
 }
 
 
-randomFinancialScan();
+randomCommandScan();
 
 
 /* ================================================================
@@ -4277,11 +4130,6 @@ if (card) {
                 true;
 
 
-            /*
-                Reset the parallax first so
-                card always flips cleanly.
-            */
-
             targetRX =
                 0;
 
@@ -4343,11 +4191,11 @@ if (card) {
 
 
                 /*
-                    When returning to Treasurer,
-                    the finance system verifies again.
+                    Every time user returns to front,
+                    command system checks again.
                 */
 
-                await financialSystemLock();
+                await commandSynchronization();
             }
 
 
@@ -4359,12 +4207,12 @@ if (card) {
 
 
 /* ================================================================
-   42. INTERACT WITH TREASURER EMBLEM
+   42. CLICK COMMAND EMBLEM
 ================================================================ */
 
-if (treasurerContainer) {
+if (viceCommandContainer) {
 
-    treasurerContainer.addEventListener(
+    viceCommandContainer.addEventListener(
         "pointerdown",
         event => {
 
@@ -4382,7 +4230,7 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerFocusRing,
+                viceFocusRing,
 
                 [
                     {
@@ -4422,7 +4270,7 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerPulsePoint,
+                vicePulsePoint,
 
                 [
                     {
@@ -4430,7 +4278,7 @@ if (treasurerContainer) {
                             .4,
 
                         transform:
-                            "translate(-50%,-50%) scale(.7)"
+                            "translateY(-50%) scale(.7)"
                     },
 
                     {
@@ -4438,7 +4286,7 @@ if (treasurerContainer) {
                             1,
 
                         transform:
-                            "translate(-50%,-50%) scale(2)"
+                            "translateY(-50%) scale(2)"
                     },
 
                     {
@@ -4446,7 +4294,7 @@ if (treasurerContainer) {
                             .8,
 
                         transform:
-                            "translate(-50%,-50%) scale(1)"
+                            "translateY(-50%) scale(1)"
                     }
                 ],
 
@@ -4475,12 +4323,12 @@ if (treasurerContainer) {
 
 
 /* ================================================================
-   43. DOUBLE CLICK EMBLEM — SYSTEM CHECK
+   43. DOUBLE CLICK COMMAND → LOCK
 ================================================================ */
 
-if (treasurerContainer) {
+if (viceCommandContainer) {
 
-    treasurerContainer.addEventListener(
+    viceCommandContainer.addEventListener(
         "dblclick",
         event => {
 
@@ -4496,7 +4344,7 @@ if (treasurerContainer) {
             }
 
 
-            treasuryFlash();
+            commandFlash();
 
 
             createSmartDust(
@@ -4512,7 +4360,7 @@ if (treasurerContainer) {
 
             animate(
 
-                treasurerCore,
+                viceCommandCore,
 
                 [
                     {
@@ -4548,7 +4396,7 @@ if (treasurerContainer) {
 
 
 /* ================================================================
-   44. GLASS REFLECTION RESPONSE
+   44. GLASS REFLECTION
 ================================================================ */
 
 if (
@@ -4674,5 +4522,5 @@ window.addEventListener(
 
 
 /* ================================================================
-   SMART CLUB — TREASURER SYSTEM READY
+   SMART CLUB — VICE PRESIDENT SYSTEM READY
 ================================================================ */

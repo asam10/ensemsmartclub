@@ -216,7 +216,6 @@ if ("IntersectionObserver" in window) {
         }
     );
 
-
 } else {
 
     // Fallback for old browsers
@@ -453,9 +452,6 @@ window.addEventListener(
 
     }
 );
-
-
-
 // ==========================================================
 // LANGUAGE SYSTEM
 // ==========================================================
@@ -525,11 +521,8 @@ const translations = {
         bureauHeading:
             "The team behind <span>Smart Club.</span>",
 
-        presidentRole:
-            "PRESIDENT",
-
-        presidentRoleTitle:
-            "President",
+        presidentRole: "PRESIDENT",
+        presidentRoleTitle: "President",
 
         presidentDescription:
             "Leading Smart Club's vision, coordinating the Executive Bureau and guiding the club's activities, projects and development.",
@@ -647,11 +640,9 @@ const translations = {
         joinSmartClub: "Rejoindre Smart Club",
         joinSmartClubArrow: "Rejoindre Smart Club →",
 
-        openMenu:
-            "Ouvrir le menu de navigation",
+        openMenu: "Ouvrir le menu de navigation",
 
-        smartClubEnsem:
-            "SMART CLUB • ENSEM",
+        smartClubEnsem: "SMART CLUB • ENSEM",
 
         aboutHeroTitle:
             "Découvrez les esprits<br><span>derrière le club.</span>",
@@ -805,7 +796,6 @@ const translations = {
 };
 
 
-
 // ==========================================================
 // APPLY LANGUAGE
 // ==========================================================
@@ -813,122 +803,88 @@ const translations = {
 function applyLanguage(language) {
 
     const selectedLanguage =
-        translations[language] ||
-        translations.en;
+        translations[language] || translations.en;
 
 
-    document.documentElement.lang =
-        language;
+    document.documentElement.lang = language;
 
 
     document
         .querySelectorAll("[data-i18n]")
-        .forEach(
-            function (element) {
+        .forEach(function (element) {
 
-                const key =
-                    element.getAttribute(
-                        "data-i18n"
-                    );
+            const key =
+                element.getAttribute("data-i18n");
 
+            if (selectedLanguage[key] !== undefined) {
 
-                if (
-                    selectedLanguage[key]
-                    !== undefined
-                ) {
-
-                    element.textContent =
-                        selectedLanguage[key];
-
-                }
+                element.textContent =
+                    selectedLanguage[key];
 
             }
-        );
+
+        });
 
 
     document
-        .querySelectorAll(
-            "[data-i18n-html]"
-        )
-        .forEach(
-            function (element) {
+        .querySelectorAll("[data-i18n-html]")
+        .forEach(function (element) {
 
-                const key =
-                    element.getAttribute(
-                        "data-i18n-html"
-                    );
+            const key =
+                element.getAttribute(
+                    "data-i18n-html"
+                );
 
+            if (selectedLanguage[key] !== undefined) {
 
-                if (
-                    selectedLanguage[key]
-                    !== undefined
-                ) {
-
-                    element.innerHTML =
-                        selectedLanguage[key];
-
-                }
+                element.innerHTML =
+                    selectedLanguage[key];
 
             }
-        );
+
+        });
 
 
     document
-        .querySelectorAll(
-            "[data-i18n-content]"
-        )
-        .forEach(
-            function (element) {
+        .querySelectorAll("[data-i18n-content]")
+        .forEach(function (element) {
 
-                const key =
-                    element.getAttribute(
-                        "data-i18n-content"
-                    );
+            const key =
+                element.getAttribute(
+                    "data-i18n-content"
+                );
 
+            if (selectedLanguage[key] !== undefined) {
 
-                if (
+                element.setAttribute(
+                    "content",
                     selectedLanguage[key]
-                    !== undefined
-                ) {
-
-                    element.setAttribute(
-                        "content",
-                        selectedLanguage[key]
-                    );
-
-                }
+                );
 
             }
-        );
+
+        });
 
 
     document
-        .querySelectorAll(
-            "[data-i18n-aria-label]"
-        )
-        .forEach(
-            function (element) {
+        .querySelectorAll("[data-i18n-aria-label]")
+        .forEach(function (element) {
 
-                const key =
-                    element.getAttribute(
-                        "data-i18n-aria-label"
-                    );
+            const key =
+                element.getAttribute(
+                    "data-i18n-aria-label"
+                );
 
+            if (selectedLanguage[key] !== undefined) {
 
-                if (
+                element.setAttribute(
+                    "aria-label",
                     selectedLanguage[key]
-                    !== undefined
-                ) {
-
-                    element.setAttribute(
-                        "aria-label",
-                        selectedLanguage[key]
-                    );
-
-                }
+                );
 
             }
-        );
+
+        });
 
 
     localStorage.setItem(
@@ -938,14 +894,10 @@ function applyLanguage(language) {
 
 
     const englishButton =
-        document.getElementById(
-            "enBtn"
-        );
+        document.getElementById("enBtn");
 
     const frenchButton =
-        document.getElementById(
-            "frBtn"
-        );
+        document.getElementById("frBtn");
 
 
     if (englishButton) {
@@ -967,16 +919,7 @@ function applyLanguage(language) {
 
     }
 
-
-    // Update text belonging to the
-    // new interactive bureau card system
-
-    updateInteractiveCardLanguage(
-        language
-    );
-
 }
-
 
 
 // ==========================================================
@@ -987,6 +930,9 @@ const savedLanguage =
     localStorage.getItem(
         "smartClubLanguage"
     ) || "en";
+
+
+applyLanguage(savedLanguage);
 
 
 // ==========================================================
@@ -1026,915 +972,3 @@ if (frenchButton) {
     );
 
 }
-
-
-
-// ==========================================================
-// INTERACTIVE BUREAU CARDS
-// ==========================================================
-//
-// IMPORTANT:
-//
-// Your cinematic cards are stored inside:
-//
-// cards1/
-//
-// Examples:
-//
-// cards1/president/index.html
-// cards1/media-taha/index.html
-// cards1/logistics/index.html
-// cards1/formation-farouk/index.html
-//
-// The HTML button decides which card opens using:
-//
-// data-card-page="cards1/.../index.html"
-//
-// ==========================================================
-
-
-const bureauCardButtons =
-    document.querySelectorAll(
-        ".bureau-card-btn"
-    );
-
-
-const bureauCardModal =
-    document.getElementById(
-        "bureauCardModal"
-    );
-
-
-const bureauCardFrame =
-    document.getElementById(
-        "bureauCardFrame"
-    );
-
-
-const bureauCardLoader =
-    document.getElementById(
-        "bureauCardLoader"
-    );
-
-
-const bureauCardModalTitle =
-    document.getElementById(
-        "bureauCardModalTitle"
-    );
-
-
-const bureauCardReplay =
-    document.getElementById(
-        "bureauCardReplay"
-    );
-
-
-const bureauCardCloseElements =
-    document.querySelectorAll(
-        "[data-card-close]"
-    );
-
-
-let currentCardPage =
-    "";
-
-
-let currentCardTitle =
-    "";
-
-
-let lastCardTrigger =
-    null;
-
-
-// Keep the page scroll position while modal is open
-
-let previousBodyOverflow =
-    "";
-
-
-
-// ==========================================================
-// CORRECT CARD FOLDER PATH
-// ==========================================================
-//
-// You said the folder is called "cards1".
-// This function gives us extra safety.
-//
-// Even if one old HTML button still has:
-//
-// cards/logistics/index.html
-//
-// this automatically changes it to:
-//
-// cards1/logistics/index.html
-//
-// ==========================================================
-
-function normalizeCardPath(path) {
-
-    if (!path) {
-
-        return "";
-
-    }
-
-
-    let cleanPath =
-        path.trim();
-
-
-    // Old folder name -> new folder name
-
-    if (
-        cleanPath.startsWith(
-            "cards/"
-        )
-    ) {
-
-        cleanPath =
-            cleanPath.replace(
-                /^cards\//,
-                "cards1/"
-            );
-
-    }
-
-
-    // Remove accidental leading slash
-    // so Netlify treats it relative to the site folder
-
-    if (
-        cleanPath.startsWith(
-            "/cards1/"
-        )
-    ) {
-
-        cleanPath =
-            cleanPath.substring(1);
-
-    }
-
-
-    return cleanPath;
-
-}
-
-
-
-// ==========================================================
-// SHOW CARD LOADER
-// ==========================================================
-
-function showCardLoader() {
-
-    if (!bureauCardLoader) {
-
-        return;
-
-    }
-
-
-    bureauCardLoader.classList.remove(
-        "hidden"
-    );
-
-}
-
-
-
-// ==========================================================
-// HIDE CARD LOADER
-// ==========================================================
-
-function hideCardLoader() {
-
-    if (!bureauCardLoader) {
-
-        return;
-
-    }
-
-
-    bureauCardLoader.classList.add(
-        "hidden"
-    );
-
-}
-
-
-
-// ==========================================================
-// OPEN INTERACTIVE CARD
-// ==========================================================
-
-function openBureauCard(
-    cardPage,
-    cardTitle,
-    trigger
-) {
-
-    if (
-        !bureauCardModal ||
-        !bureauCardFrame
-    ) {
-
-        console.warn(
-            "Interactive bureau modal not found."
-        );
-
-        return;
-
-    }
-
-
-    const normalizedPage =
-        normalizeCardPath(
-            cardPage
-        );
-
-
-    if (!normalizedPage) {
-
-        console.warn(
-            "No card page was provided."
-        );
-
-        return;
-
-    }
-
-
-    currentCardPage =
-        normalizedPage;
-
-
-    currentCardTitle =
-        cardTitle ||
-        "Bureau Member";
-
-
-    lastCardTrigger =
-        trigger ||
-        null;
-
-
-    if (bureauCardModalTitle) {
-
-        bureauCardModalTitle.textContent =
-            currentCardTitle;
-
-    }
-
-
-    showCardLoader();
-
-
-    // Open modal
-
-    bureauCardModal.classList.add(
-        "open"
-    );
-
-
-    bureauCardModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
-    // Stop about page from scrolling behind modal
-
-    previousBodyOverflow =
-        document.body.style.overflow;
-
-
-    document.body.style.overflow =
-        "hidden";
-
-
-    // Start card only when opened
-
-    bureauCardFrame.src =
-        currentCardPage;
-
-
-    // Put keyboard focus on the close button
-
-    const closeButton =
-        document.getElementById(
-            "bureauCardModalClose"
-        );
-
-
-    if (closeButton) {
-
-        setTimeout(
-            function () {
-
-                closeButton.focus();
-
-            },
-            120
-        );
-
-    }
-
-}
-
-
-
-// ==========================================================
-// CLOSE INTERACTIVE CARD
-// ==========================================================
-
-function closeBureauCard() {
-
-    if (!bureauCardModal) {
-
-        return;
-
-    }
-
-
-    bureauCardModal.classList.remove(
-        "open"
-    );
-
-
-    bureauCardModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    document.body.style.overflow =
-        previousBodyOverflow;
-
-
-    // Stop the cinematic card after modal closes.
-    // Small delay lets the modal closing animation finish.
-
-    setTimeout(
-        function () {
-
-            if (
-                bureauCardModal
-                    .classList
-                    .contains("open")
-            ) {
-
-                return;
-
-            }
-
-
-            if (bureauCardFrame) {
-
-                bureauCardFrame.src =
-                    "about:blank";
-
-            }
-
-
-            hideCardLoader();
-
-        },
-        380
-    );
-
-
-    // Return focus to the button
-    // that originally opened the card
-
-    if (lastCardTrigger) {
-
-        setTimeout(
-            function () {
-
-                lastCardTrigger.focus();
-
-            },
-            420
-        );
-
-    }
-
-}
-
-
-
-// ==========================================================
-// REPLAY CARD
-// ==========================================================
-
-function replayBureauCard() {
-
-    if (
-        !bureauCardFrame ||
-        !currentCardPage
-    ) {
-
-        return;
-
-    }
-
-
-    showCardLoader();
-
-
-    // Clearing src first guarantees
-    // that script.js inside the card starts again
-
-    bureauCardFrame.src =
-        "about:blank";
-
-
-    setTimeout(
-        function () {
-
-            bureauCardFrame.src =
-                currentCardPage;
-
-        },
-        90
-    );
-
-}
-
-
-
-// ==========================================================
-// CARD BUTTON EVENTS
-// ==========================================================
-
-bureauCardButtons.forEach(
-    function (button) {
-
-        button.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-                const cardPage =
-                    button.getAttribute(
-                        "data-card-page"
-                    );
-
-
-                const cardTitle =
-                    button.getAttribute(
-                        "data-card-title"
-                    );
-
-
-                openBureauCard(
-                    cardPage,
-                    cardTitle,
-                    button
-                );
-
-            }
-        );
-
-    }
-);
-
-
-
-// ==========================================================
-// IFRAME FINISHED LOADING
-// ==========================================================
-
-if (bureauCardFrame) {
-
-    bureauCardFrame.addEventListener(
-        "load",
-        function () {
-
-            /*
-                The iframe also fires load for about:blank.
-
-                Only hide loader when a real
-                cinematic card is currently loaded.
-            */
-
-            const frameSrc =
-                bureauCardFrame.getAttribute(
-                    "src"
-                );
-
-
-            if (
-                frameSrc &&
-                frameSrc !==
-                    "about:blank"
-            ) {
-
-                setTimeout(
-                    hideCardLoader,
-                    250
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-
-// ==========================================================
-// REPLAY BUTTON
-// ==========================================================
-
-if (bureauCardReplay) {
-
-    bureauCardReplay.addEventListener(
-        "click",
-        function () {
-
-            replayBureauCard();
-
-        }
-    );
-
-}
-
-
-
-// ==========================================================
-// CLOSE BUTTON / BACKDROP
-// ==========================================================
-
-bureauCardCloseElements.forEach(
-    function (element) {
-
-        element.addEventListener(
-            "click",
-            function () {
-
-                closeBureauCard();
-
-            }
-        );
-
-    }
-);
-
-
-
-// ==========================================================
-// ESCAPE KEY CLOSES CARD MODAL
-// ==========================================================
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (
-            event.key ===
-                "Escape" &&
-            bureauCardModal &&
-            bureauCardModal
-                .classList
-                .contains("open")
-        ) {
-
-            closeBureauCard();
-
-        }
-
-    }
-);
-
-
-
-// ==========================================================
-// ACCESSIBILITY — KEEP TAB INSIDE MODAL
-// ==========================================================
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (
-            event.key !== "Tab" ||
-            !bureauCardModal ||
-            !bureauCardModal
-                .classList
-                .contains("open")
-        ) {
-
-            return;
-
-        }
-
-
-        const focusableElements =
-            bureauCardModal
-                .querySelectorAll(
-
-                    'button:not([disabled]), ' +
-                    'a[href], ' +
-                    'iframe, ' +
-                    '[tabindex]:not([tabindex="-1"])'
-
-                );
-
-
-        if (
-            focusableElements.length ===
-            0
-        ) {
-
-            return;
-
-        }
-
-
-        const firstElement =
-            focusableElements[0];
-
-
-        const lastElement =
-            focusableElements[
-                focusableElements.length -
-                1
-            ];
-
-
-        if (
-            event.shiftKey &&
-            document.activeElement ===
-                firstElement
-        ) {
-
-            event.preventDefault();
-
-            lastElement.focus();
-
-        }
-
-
-        else if (
-            !event.shiftKey &&
-            document.activeElement ===
-                lastElement
-        ) {
-
-            event.preventDefault();
-
-            firstElement.focus();
-
-        }
-
-    }
-);
-
-
-
-// ==========================================================
-// INTERACTIVE CARD TRANSLATIONS
-// ==========================================================
-
-function updateInteractiveCardLanguage(
-    language
-) {
-
-    const isFrench =
-        language === "fr";
-
-
-    // VIEW CARD buttons
-
-    document
-        .querySelectorAll(
-            ".bureau-card-btn"
-        )
-        .forEach(
-            function (button) {
-
-                const textElement =
-                    button.querySelector(
-                        "span:nth-child(2)"
-                    );
-
-
-                if (textElement) {
-
-                    textElement.textContent =
-                        isFrench
-                            ? "VOIR LA CARTE INTERACTIVE"
-                            : "VIEW INTERACTIVE CARD";
-
-                }
-
-            }
-        );
-
-
-    // Note above bureau
-
-    const noteText =
-        document.querySelector(
-            ".bureau-card-note p"
-        );
-
-
-    if (noteText) {
-
-        noteText.textContent =
-            isFrench
-
-                ? "Découvrez chaque membre du bureau à travers une carte interactive Smart Club."
-
-                : "Discover each bureau member through an interactive Smart Club card.";
-
-    }
-
-
-    // Modal kicker
-
-    const modalKicker =
-        document.querySelector(
-            ".bureau-card-modal-kicker"
-        );
-
-
-    if (modalKicker) {
-
-        modalKicker.textContent =
-            isFrench
-
-                ? "SMART CLUB • BUREAU INTERACTIF"
-
-                : "SMART CLUB • INTERACTIVE BUREAU";
-
-    }
-
-
-    // Modal information text
-
-    const modalBottomText =
-        document.querySelector(
-            ".bureau-card-modal-bottom p"
-        );
-
-
-    if (modalBottomText) {
-
-        modalBottomText.textContent =
-            isFrench
-
-                ? "Cliquez ou touchez la carte pour interagir avec elle."
-
-                : "Click or tap the card to interact with it.";
-
-    }
-
-
-    // Replay
-
-    if (bureauCardReplay) {
-
-        bureauCardReplay.textContent =
-            isFrench
-                ? "REJOUER LA CARTE"
-                : "REPLAY CARD";
-
-    }
-
-
-    // Loader
-
-    if (bureauCardLoader) {
-
-        const loaderText =
-            bureauCardLoader
-                .querySelector(
-                    "span:last-child"
-                );
-
-
-        if (loaderText) {
-
-            loaderText.textContent =
-                isFrench
-                    ? "CHARGEMENT"
-                    : "LOADING CARD";
-
-        }
-
-    }
-
-}
-
-
-
-// ==========================================================
-// APPLY INTERACTIVE LANGUAGE ON FIRST LOAD
-// ==========================================================
-
-
-
-
-
-// ==========================================================
-// CARD ERROR SAFETY
-// ==========================================================
-//
-// Browsers don't give a perfect iframe 404 event,
-// but we can at least prevent an endless loader.
-//
-// ==========================================================
-
-let cardLoadingTimeout =
-    null;
-
-
-function startCardLoadingTimeout() {
-
-    clearTimeout(
-        cardLoadingTimeout
-    );
-
-
-    cardLoadingTimeout =
-        setTimeout(
-            function () {
-
-                hideCardLoader();
-
-            },
-            5000
-        );
-
-}
-
-
-bureauCardButtons.forEach(
-    function (button) {
-
-        button.addEventListener(
-            "click",
-            startCardLoadingTimeout
-        );
-
-    }
-);
-
-
-if (bureauCardFrame) {
-
-    bureauCardFrame.addEventListener(
-        "load",
-        function () {
-
-            clearTimeout(
-                cardLoadingTimeout
-            );
-
-        }
-    );
-
-}
-
-
-
-// ==========================================================
-// CLOSE MODAL IF USER NAVIGATES AWAY
-// ==========================================================
-
-window.addEventListener(
-    "pagehide",
-    function () {
-
-        if (bureauCardFrame) {
-
-            bureauCardFrame.src =
-                "about:blank";
-
-        }
-
-    }
-);
-
-// ==========================================================
-// APPLY SAVED LANGUAGE AFTER ALL CARD VARIABLES EXIST
-// ==========================================================
-
-applyLanguage(savedLanguage);
-
-// ==========================================================
-// SMART CLUB — ABOUT PAGE READY
-// ==========================================================
-
-console.log(
-    "Smart Club About Page Ready — Interactive Bureau Cards Enabled"
-);

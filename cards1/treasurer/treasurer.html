@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,23 +10,24 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Smart Club — Treasurer</title>
+    <title>
+        Smart Club — Treasurer
+    </title>
 
     <link
         rel="stylesheet"
         href="treasurer.css"
     >
+
 </head>
 
 
 <body>
 
 
-<!-- ================================================================
-     SMART CLUB — TREASURER CARD
-     CARD ONLY — NO INTRO
-================================================================ -->
-
+<!-- =========================================================
+     MAIN CINEMATIC SCENE
+========================================================= -->
 
 <main
     class="scene"
@@ -33,15 +35,19 @@
 >
 
 
-    <!-- ============================================================
-         BACKGROUND
-    ============================================================ -->
+    <!-- =====================================================
+         BACKGROUND ENVIRONMENT
+    ====================================================== -->
+
+    <div class="scene-light scene-light-left"></div>
+
+    <div class="scene-light scene-light-right"></div>
+
+    <div class="scene-light scene-light-center"></div>
+
 
     <div class="background-grid"></div>
 
-    <div class="background-glow"></div>
-
-    <div class="background-vignette"></div>
 
     <div
         class="particles"
@@ -49,20 +55,35 @@
     ></div>
 
 
+    <!-- distant circular structures -->
 
-    <!-- ============================================================
+    <div class="background-energy-ring ring-one"></div>
+
+    <div class="background-energy-ring ring-two"></div>
+
+
+    <div class="scene-orbit scene-orbit-large"></div>
+
+    <div class="scene-orbit scene-orbit-small"></div>
+
+
+
+    <!-- =====================================================
          CARD STAGE
-    ============================================================ -->
+    ====================================================== -->
 
-    <section
-        class="card-stage"
-        id="cardStage"
-    >
+    <div class="card-stage">
 
 
-        <!-- ========================================================
+        <div class="card-shadow"></div>
+
+        <div class="stage-aura"></div>
+
+
+
+        <!-- =================================================
              CARD WRAPPER
-        ======================================================== -->
+        ================================================== -->
 
         <div
             class="card-wrapper"
@@ -70,431 +91,312 @@
         >
 
 
-            <!-- ====================================================
-                 BACK OF CARD
-            ==================================================== -->
+            <!-- =================================================
+                 CARD BACK
+            ================================================== -->
 
-            <article class="card-face card-back">
+            <article class="card-side card-back">
 
 
-                <!-- ================================================
-                     BACK ATMOSPHERE
-                ================================================ -->
+                <div class="back-shell"></div>
 
-                <div class="back-atmosphere"></div>
+                <div class="back-metal-frame"></div>
 
-                <div class="back-vignette"></div>
+                <div class="back-inner-frame"></div>
 
-                <div class="back-noise"></div>
+                <div class="back-hologram"></div>
 
 
 
-                <!-- ================================================
-                     OUTER PREMIUM FRAME
-                ================================================ -->
+                <!-- BACK STRUCTURE -->
 
-                <div class="back-premium-frame">
+                <div class="back-top-plate"></div>
 
+                <div class="back-bottom-plate"></div>
 
-                    <span class="back-frame-line back-frame-top"></span>
+                <div class="back-side-plate back-side-left"></div>
 
-                    <span class="back-frame-line back-frame-right"></span>
-
-                    <span class="back-frame-line back-frame-bottom"></span>
-
-                    <span class="back-frame-line back-frame-left"></span>
-
-
-                    <span class="energy-corner corner-tl"></span>
-
-                    <span class="energy-corner corner-tr"></span>
-
-                    <span class="energy-corner corner-bl"></span>
-
-                    <span class="energy-corner corner-br"></span>
-
-
-                </div>
+                <div class="back-side-plate back-side-right"></div>
 
 
 
-                <!-- ================================================
-                     BACK TECH LINES
-                ================================================ -->
+                <!-- CIRCUITS -->
 
-                <div class="back-tech-lines">
+                <div class="circuit circuit-top-left"></div>
 
-                    <span class="circuit circuit-1"></span>
+                <div class="circuit circuit-top-right"></div>
 
-                    <span class="circuit circuit-2"></span>
+                <div class="circuit circuit-bottom-left"></div>
 
-                    <span class="circuit circuit-3"></span>
-
-                    <span class="circuit circuit-4"></span>
-
-                </div>
+                <div class="circuit circuit-bottom-right"></div>
 
 
 
-                <!-- ================================================
-                     CENTRAL SMART CORE
-                ================================================ -->
+                <!-- ENERGY CORNERS -->
 
-                <div class="smart-core">
+                <div class="energy-corner back-corner-1"></div>
 
+                <div class="energy-corner back-corner-2"></div>
 
-                    <!-- ORBITS -->
+                <div class="energy-corner back-corner-3"></div>
 
-                    <span class="core-orbit orbit-1"></span>
-
-                    <span class="core-orbit orbit-2"></span>
-
-                    <span class="core-orbit orbit-3"></span>
-
-
-                    <!-- ORBIT MARKERS -->
-
-                    <span class="orbit-marker marker-1"></span>
-
-                    <span class="orbit-marker marker-2"></span>
-
-                    <span class="orbit-marker marker-3"></span>
-
-                    <span class="orbit-marker marker-4"></span>
+                <div class="energy-corner back-corner-4"></div>
 
 
 
-                    <!-- ============================================
-                         SMART CLUB BRAIN
-                    ============================================ -->
+                <!-- =================================================
+                     SMART CLUB CORE
+                ================================================== -->
+
+                <div class="back-core">
+
+
+                    <div class="core-orbit orbit-large">
+
+                        <span class="orbit-marker marker-a"></span>
+
+                        <span class="orbit-marker marker-b"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-medium">
+
+                        <span class="orbit-marker marker-c"></span>
+
+                    </div>
+
+
+                    <div class="core-orbit orbit-small"></div>
+
+
+
+                    <!-- SMART BRAIN -->
 
                     <div class="brain-emblem">
 
+
+                        <div class="brain-emblem-ring"></div>
+
+
                         <svg
+                            class="brain-icon"
                             viewBox="0 0 120 120"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
                         >
 
-                            <defs>
 
-                                <filter
-                                    id="brainGlow"
-                                    x="-100%"
-                                    y="-100%"
-                                    width="300%"
-                                    height="300%"
-                                >
-
-                                    <feGaussianBlur
-                                        stdDeviation="2.4"
-                                        result="blur"
-                                    />
-
-                                    <feMerge>
-
-                                        <feMergeNode in="blur"/>
-
-                                        <feMergeNode in="SourceGraphic"/>
-
-                                    </feMerge>
-
-                                </filter>
-
-                            </defs>
+                            <path
+                                class="brain-path brain-left"
+                                d="
+                                    M55 24
+                                    C44 15 29 20 27 33
+                                    C17 36 15 50 22 57
+                                    C15 68 21 80 31 82
+                                    C31 96 44 103 55 95
+                                    Z
+                                "
+                            />
 
 
-                            <g
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="3"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                filter="url(#brainGlow)"
-                            >
+                            <path
+                                class="brain-path brain-right"
+                                d="
+                                    M65 24
+                                    C76 15 91 20 93 33
+                                    C103 36 105 50 98 57
+                                    C105 68 99 80 89 82
+                                    C89 96 76 103 65 95
+                                    Z
+                                "
+                            />
 
 
-                                <!-- LEFT BRAIN -->
-
-                                <path
-                                    class="brain-path"
-                                    d="
-                                        M58 30
-                                        C48 21 35 25 34 37
-                                        C23 39 21 54 29 61
-                                        C20 70 27 84 39 83
-                                        C42 94 54 94 58 87
-                                    "
-                                />
+                            <path
+                                class="brain-center"
+                                d="
+                                    M60 25
+                                    V96
+                                "
+                            />
 
 
-                                <!-- RIGHT BRAIN -->
-
-                                <path
-                                    class="brain-path"
-                                    d="
-                                        M62 30
-                                        C72 21 85 25 86 37
-                                        C97 39 99 54 91 61
-                                        C100 70 93 84 81 83
-                                        C78 94 66 94 62 87
-                                    "
-                                />
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M36 39
+                                    C45 42 47 48 44 57
+                                    C40 67 47 74 53 77
+                                "
+                            />
 
 
-                                <!-- CENTER -->
-
-                                <path
-                                    class="brain-center"
-                                    d="
-                                        M60 30
-                                        L60 88
-                                    "
-                                />
-
-
-                                <!-- NEURAL PATHS -->
-
-                                <path
-                                    class="brain-neural"
-                                    d="
-                                        M44 43
-                                        C50 46 51 52 48 57
-                                    "
-                                />
-
-                                <path
-                                    class="brain-neural"
-                                    d="
-                                        M42 69
-                                        C48 65 52 68 54 74
-                                    "
-                                />
-
-                                <path
-                                    class="brain-neural"
-                                    d="
-                                        M76 43
-                                        C70 46 69 52 72 57
-                                    "
-                                />
-
-                                <path
-                                    class="brain-neural"
-                                    d="
-                                        M78 69
-                                        C72 65 68 68 66 74
-                                    "
-                                />
+                            <path
+                                class="brain-neural"
+                                d="
+                                    M84 39
+                                    C75 42 73 48 76 57
+                                    C80 67 73 74 67 77
+                                "
+                            />
 
 
-                                <!-- NODES -->
+                            <circle
+                                class="brain-node-dot"
+                                cx="37"
+                                cy="39"
+                                r="3"
+                            />
 
-                                <circle
-                                    class="brain-node-dot"
-                                    cx="43"
-                                    cy="43"
-                                    r="2.5"
-                                />
+                            <circle
+                                class="brain-node-dot"
+                                cx="83"
+                                cy="39"
+                                r="3"
+                            />
 
-                                <circle
-                                    class="brain-node-dot"
-                                    cx="43"
-                                    cy="70"
-                                    r="2.5"
-                                />
+                            <circle
+                                class="brain-node-dot"
+                                cx="48"
+                                cy="76"
+                                r="3"
+                            />
 
-                                <circle
-                                    class="brain-node-dot"
-                                    cx="77"
-                                    cy="43"
-                                    r="2.5"
-                                />
+                            <circle
+                                class="brain-node-dot"
+                                cx="72"
+                                cy="76"
+                                r="3"
+                            />
 
-                                <circle
-                                    class="brain-node-dot"
-                                    cx="77"
-                                    cy="70"
-                                    r="2.5"
-                                />
-
-
-                            </g>
 
                         </svg>
 
+
                     </div>
 
 
-                    <span class="smart-core-dot"></span>
+                    <div class="core-pulse"></div>
 
 
                 </div>
 
 
 
-                <!-- ================================================
-                     BACK FOOTER
-                ================================================ -->
+                <!-- =================================================
+                     SMART CLUB BACK IDENTITY
+                ================================================== -->
 
-                <div class="back-footer">
-
-
-                    <span class="back-footer-line"></span>
+                <div class="back-brand">
 
 
-                    <div class="back-footer-brand">
+                    <span class="brand-line"></span>
 
-                        <span class="back-footer-symbol">
-                            ✦
-                        </span>
 
-                        <span class="back-footer-text">
-                            SMART<br>CLUB
-                        </span>
+                    <div class="brand-symbol">
+
+
+                        <svg
+                            viewBox="0 0 40 40"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                cx="20"
+                                cy="20"
+                                r="14"
+                            />
+
+                            <path
+                                d="
+                                    M12 20
+                                    L17 25
+                                    L28 14
+                                "
+                            />
+
+                        </svg>
+
 
                     </div>
 
 
-                    <span class="back-footer-line"></span>
+                    <span class="brand-name">
+                        SMART CLUB
+                    </span>
+
+
+                    <span class="brand-line"></span>
 
 
                 </div>
+
+
+                <div class="back-light-runner"></div>
 
 
             </article>
 
 
 
-            <!-- ====================================================
-                 FRONT OF CARD
-            ==================================================== -->
+            <!-- =================================================
+                 TREASURER CARD FRONT
+            ================================================== -->
 
-            <article class="card-face card-front">
-
-
-                <!-- ================================================
-                     FRONT ATMOSPHERE
-                ================================================ -->
-
-                <div class="front-atmosphere"></div>
-
-                <div class="front-vignette"></div>
-
-                <div class="front-noise"></div>
+            <article class="card-side card-front">
 
 
+                <!-- BASE -->
 
-                <!-- ================================================
-                     HALO
-                ================================================ -->
+                <div class="front-shell"></div>
 
-                <div class="treasurer-halo">
+                <div class="front-light-layer"></div>
 
+                <div class="front-holographic-layer"></div>
 
-                    <span
-                        class="
-                            leadership-halo-ring
-                            halo-ring-1
-                        "
-                    ></span>
+                <div class="front-grid"></div>
 
-
-                    <span
-                        class="
-                            leadership-halo-ring
-                            halo-ring-2
-                        "
-                    ></span>
-
-
-                    <span
-                        class="
-                            leadership-halo-ring
-                            halo-ring-3
-                        "
-                    ></span>
-
-
-                    <span class="halo-marker halo-marker-1"></span>
-
-                    <span class="halo-marker halo-marker-2"></span>
-
-                    <span class="halo-marker halo-marker-3"></span>
-
-                    <span class="halo-marker halo-marker-4"></span>
-
-
-                </div>
+                <div class="card-noise"></div>
 
 
 
-                <!-- ================================================
+                <!-- =================================================
                      PREMIUM FRAME
-                ================================================ -->
+                ================================================== -->
 
                 <div class="premium-frame">
 
+                    <div class="frame-top"></div>
 
-                    <span class="frame-top"></span>
+                    <div class="frame-right"></div>
 
-                    <span class="frame-right"></span>
+                    <div class="frame-bottom"></div>
 
-                    <span class="frame-bottom"></span>
-
-                    <span class="frame-left"></span>
-
-
-
-                    <!-- CORNERS -->
-
-                    <span
-                        class="
-                            premium-corner
-                            premium-corner-tl
-                        "
-                    ></span>
-
-
-                    <span
-                        class="
-                            premium-corner
-                            premium-corner-tr
-                        "
-                    ></span>
-
-
-                    <span
-                        class="
-                            premium-corner
-                            premium-corner-bl
-                        "
-                    ></span>
-
-
-                    <span
-                        class="
-                            premium-corner
-                            premium-corner-br
-                        "
-                    ></span>
-
+                    <div class="frame-left"></div>
 
                 </div>
 
-
-
-                <!-- ================================================
-                     INNER FRAME
-                ================================================ -->
 
                 <div class="inner-premium-frame"></div>
 
 
 
-                <!-- ================================================
-                     LIGHT RAILS
-                ================================================ -->
+                <!-- TOP ARMOR -->
+
+                <div class="top-armor">
+
+                    <span class="top-armor-left"></span>
+
+                    <span class="top-armor-center"></span>
+
+                    <span class="top-armor-right"></span>
+
+                </div>
+
+
+
+                <!-- LIGHT RAILS -->
 
                 <div class="light-rail light-rail-left">
 
@@ -511,387 +413,554 @@
 
 
 
-                <!-- ================================================
+                <!-- =================================================
                      TREASURER HEADER
-                ================================================ -->
+                ================================================== -->
 
-                <header class="treasurer-header">
+                <header class="president-header treasurer-header">
 
 
-                    <!-- DECORATIVE LINES -->
+                    <!-- LEFT WING -->
 
-                    <div class="header-decoration header-decoration-left">
+                    <div class="header-wing header-wing-left">
 
                         <span></span>
-
+                        <span></span>
                         <span></span>
 
                     </div>
 
 
 
-                    <!-- ============================================
+                    <!-- =================================================
                          TREASURER EMBLEM
-                    ============================================ -->
+                    ================================================== -->
 
-                    <div class="treasurer-emblem">
-
-
-                        <span class="treasurer-emblem-ring ring-a"></span>
-
-                        <span class="treasurer-emblem-ring ring-b"></span>
+                    <div class="president-emblem treasurer-emblem">
 
 
-                        <svg
-                            class="treasurer-symbol"
-                            viewBox="0 0 120 120"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-
-                            <defs>
-
-                                <filter
-                                    id="treasurerGlow"
-                                    x="-100%"
-                                    y="-100%"
-                                    width="300%"
-                                    height="300%"
-                                >
-
-                                    <feGaussianBlur
-                                        stdDeviation="2"
-                                        result="glow"
-                                    />
-
-                                    <feMerge>
-
-                                        <feMergeNode in="glow"/>
-
-                                        <feMergeNode in="SourceGraphic"/>
-
-                                    </feMerge>
-
-                                </filter>
-
-                            </defs>
+                        <div class="emblem-glow"></div>
 
 
-                            <g
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="3"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                filter="url(#treasurerGlow)"
+                        <div class="emblem-ring emblem-ring-one"></div>
+
+                        <div class="emblem-ring emblem-ring-two"></div>
+
+
+
+                        <div class="crown-container treasurer-container">
+
+
+                            <!-- =========================================
+                                 TREASURY / FINANCE SVG
+                            ========================================== -->
+
+                            <svg
+                                class="crown-icon treasurer-icon"
+                                viewBox="0 0 120 100"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
                             >
 
 
-                                <!-- DIAMOND / VALUE SYMBOL -->
-
-                                <path
-                                    class="treasurer-diamond"
-                                    d="
-                                        M60 20
-                                        L91 43
-                                        L79 83
-                                        L60 99
-                                        L41 83
-                                        L29 43
-                                        Z
-                                    "
-                                />
-
-
-                                <!-- INNER VALUE -->
-
-                                <path
-                                    class="treasurer-value"
-                                    d="
-                                        M43 46
-                                        L60 35
-                                        L77 46
-                                        L71 70
-                                        L60 80
-                                        L49 70
-                                        Z
-                                    "
-                                />
-
-
-                                <!-- CENTER COIN -->
+                                <!-- OUTER COIN -->
 
                                 <circle
-                                    class="treasurer-coin"
+                                    class="treasurer-coin-outer"
                                     cx="60"
-                                    cy="58"
-                                    r="10"
+                                    cy="51"
+                                    r="32"
                                 />
 
 
-                                <!-- CURRENCY / VALUE LINE -->
+                                <!-- INNER COIN -->
+
+                                <circle
+                                    class="treasurer-coin-inner"
+                                    cx="60"
+                                    cy="51"
+                                    r="24"
+                                />
+
+
+                                <!-- FINANCIAL CHART -->
 
                                 <path
-                                    class="treasurer-finance-line"
+                                    class="treasurer-chart"
                                     d="
-                                        M60 49
-                                        L60 67
+                                        M40 62
+                                        L51 52
+                                        L59 58
+                                        L77 39
                                     "
                                 />
 
 
+                                <!-- CHART ARROW -->
+
                                 <path
-                                    class="treasurer-finance-line"
+                                    class="treasurer-arrow"
                                     d="
-                                        M54 53
-                                        H64
-                                        C69 53 69 59 64 59
-                                        H56
-                                        C51 59 51 65 57 65
-                                        H67
+                                        M67 39
+                                        H77
+                                        V49
                                     "
                                 />
 
 
-                            </g>
+                                <!-- COIN CENTER -->
 
-                        </svg>
+                                <circle
+                                    class="treasurer-core"
+                                    cx="60"
+                                    cy="51"
+                                    r="4"
+                                />
 
 
-                        <span class="treasurer-core"></span>
+                                <!-- SMALL DIGITAL DETAILS -->
 
-                        <span class="treasurer-emblem-scan"></span>
+                                <path
+                                    class="treasurer-detail"
+                                    d="
+                                        M37 33
+                                        H45
+
+                                        M75 69
+                                        H83
+                                    "
+                                />
+
+
+                            </svg>
+
+
+
+                            <!-- animated finance pulse -->
+
+                            <div class="treasurer-focus-ring"></div>
+
+
+                            <div class="treasurer-pulse-point"></div>
+
+
+                        </div>
 
 
                     </div>
 
 
 
-                    <!-- DECORATIVE LINES -->
+                    <!-- RIGHT WING -->
 
-                    <div class="header-decoration header-decoration-right">
+                    <div class="header-wing header-wing-right">
 
                         <span></span>
-
+                        <span></span>
                         <span></span>
 
                     </div>
-
-
-
-                    <!-- ============================================
-                         TITLE
-                    ============================================ -->
-
-                    <h2 class="treasurer-title">
-                        TREASURER
-                    </h2>
 
 
                 </header>
 
 
 
-                <!-- ================================================
-                     SIDE NODE — FINANCE
-                ================================================ -->
+                <!-- =================================================
+                     TREASURER TITLE
+                ================================================== -->
 
-                <div class="brain-node node-left">
-
-
-                    <span class="node-ring"></span>
+                <div class="president-title treasurer-title">
 
 
-                    <svg
-                        viewBox="0 0 64 64"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
+                    <span class="title-dot"></span>
 
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
 
-                            <ellipse
-                                cx="32"
-                                cy="22"
-                                rx="13"
-                                ry="6"
-                            />
+                    <span class="title-line title-line-left"></span>
 
-                            <path
-                                d="
-                                    M19 22
-                                    V32
-                                    C19 35 25 38 32 38
-                                    C39 38 45 35 45 32
-                                    V22
-                                "
-                            />
 
-                            <path
-                                d="
-                                    M19 32
-                                    V42
-                                    C19 45 25 48 32 48
-                                    C39 48 45 45 45 42
-                                    V32
-                                "
-                            />
+                    <span class="title-text">
 
-                        </g>
+                        TREASURER
 
-                    </svg>
+                    </span>
+
+
+                    <span class="title-line title-line-right"></span>
+
+
+                    <span class="title-dot"></span>
 
 
                 </div>
 
 
 
-                <!-- ================================================
-                     SIDE NODE — GROWTH
-                ================================================ -->
+                <!-- =================================================
+                     MEMBER HALO
+                ================================================== -->
 
-                <div class="brain-node node-right">
-
-
-                    <span class="node-ring"></span>
+                <div class="leadership-halo treasurer-halo">
 
 
-                    <svg
-                        viewBox="0 0 64 64"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
+                    <div class="leadership-halo-ring halo-ring-outer"></div>
 
-                        <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
+                    <div class="leadership-halo-ring halo-ring-inner"></div>
 
-                            <path
-                                d="
-                                    M16 44
-                                    L27 33
-                                    L35 39
-                                    L49 23
-                                "
-                            />
 
-                            <path
-                                d="
-                                    M39 23
-                                    H49
-                                    V33
-                                "
-                            />
+                    <span class="halo-marker halo-marker-1"></span>
 
-                            <path
-                                d="
-                                    M16 49
-                                    H50
-                                "
-                            />
+                    <span class="halo-marker halo-marker-2"></span>
 
-                        </g>
+                    <span class="halo-marker halo-marker-3"></span>
 
-                    </svg>
+                    <span class="halo-marker halo-marker-4"></span>
 
 
                 </div>
 
 
 
-                <!-- ================================================
-                     PORTRAIT ENERGY
-                ================================================ -->
+                <!-- =================================================
+                     ENERGY BEHIND MEMBER
+                ================================================== -->
 
                 <div class="portrait-energy">
 
 
-                    <span class="portrait-ring portrait-ring-1"></span>
+                    <div class="portrait-ring portrait-ring-one"></div>
 
-                    <span class="portrait-ring portrait-ring-2"></span>
-
-                    <span class="portrait-ring portrait-ring-3"></span>
+                    <div class="portrait-ring portrait-ring-two"></div>
 
 
-                    <span class="portrait-core-light"></span>
+                    <div class="portrait-rays">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="portrait-core-light"></div>
 
 
                 </div>
 
 
 
-                <!-- ================================================
+                <!-- =================================================
+                     LEFT SMART NODE — DATA / ANALYSIS
+                ================================================== -->
+
+                <div class="brain-node brain-node-left">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon node-chart-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- CHART AXIS -->
+
+                            <path
+                                d="
+                                    M24 22
+                                    V76
+                                    H79
+                                "
+                            />
+
+
+                            <!-- CHART -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M30 65
+                                    L43 52
+                                    L54 58
+                                    L72 36
+                                "
+                            />
+
+
+                            <!-- ARROW -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M62 36
+                                    H72
+                                    V46
+                                "
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT SMART NODE — TREASURY / WALLET
+                ================================================== -->
+
+                <div class="brain-node brain-node-right">
+
+
+                    <div class="node-frame"></div>
+
+
+                    <div class="brain-node-core">
+
+
+                        <svg
+                            class="node-icon node-wallet-icon"
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- WALLET BODY -->
+
+                            <path
+                                d="
+                                    M22 31
+
+                                    H70
+
+                                    C77 31
+                                    81 35
+                                    81 42
+
+                                    V72
+
+                                    C81 78
+                                    77 82
+                                    70 82
+
+                                    H28
+
+                                    C21 82
+                                    17 78
+                                    17 71
+
+                                    V39
+
+                                    C17 34
+                                    19 31
+                                    22 31
+
+                                    Z
+                                "
+                            />
+
+
+                            <!-- WALLET LOCK -->
+
+                            <path
+                                class="node-detail"
+                                d="
+                                    M61 48
+                                    H85
+                                    V65
+                                    H61
+
+                                    C55 65
+                                    52 62
+                                    52 57
+
+                                    C52 52
+                                    55 48
+                                    61 48
+
+                                    Z
+                                "
+                            />
+
+
+                            <!-- DOT -->
+
+                            <circle
+                                class="node-detail"
+                                cx="63"
+                                cy="57"
+                                r="2.5"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="node-pulse"></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
                      PORTRAIT
-                ================================================ -->
+                ================================================== -->
 
                 <div class="portrait-frame">
 
 
-                    <div class="portrait-back-glow"></div>
+                    <div class="portrait-top-frame"></div>
 
 
-                    <!--
-                        CHANGE THIS IMAGE:
+                    <div
+                        class="portrait-side-accent accent-left"
+                    ></div>
 
-                        treasurer.png
 
-                        Put the transparent member PNG
-                        in the SAME folder.
-                    -->
+                    <div
+                        class="portrait-side-accent accent-right"
+                    ></div>
 
-                    <img
-                        id="memberImage"
-                        class="member-image"
-                        src="treasurer.png"
-                        alt="Smart Club Treasurer"
-                    >
 
+
+                    <!-- =================================================
+                         TREASURER MEMBER PHOTO
+
+                         Put the transparent PNG in this same folder
+                         and name it:
+
+                         treasurer.png
+                    ================================================== -->
+
+                    <div class="member-image-container">
+
+
+                        <img
+                            src="treasurer.png"
+                            alt="Smart Club Treasurer"
+                            class="member-image"
+                            id="memberImage"
+                        >
+
+
+                    </div>
+
+
+
+                    <div class="portrait-backlight"></div>
 
                     <div class="portrait-front-glow"></div>
+
+                    <div class="portrait-vignette"></div>
 
 
                 </div>
 
 
 
-                <!-- ================================================
-                     IDENTITY PANEL
-                ================================================ -->
+                <!-- =================================================
+                     SIDE ORNAMENTS
+                ================================================== -->
 
-                <div class="identity">
+                <div class="leadership-ornament ornament-left">
 
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                    <span class="identity-diamond"></span>
-
-
-                    <!--
-                        CHANGE MEMBER NAME HERE
-                    -->
-
-                    <h1 class="member-name">
-                        Ilyass chrayate
-                    </h1>
+                </div>
 
 
-                    <div class="role-line">
+                <div class="leadership-ornament ornament-right">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ELECTRIC DETAILS
+                ================================================== -->
+
+                <div class="electric-zone electric-left">
+
+                    <span class="electric-line e1"></span>
+
+                    <span class="electric-line e2"></span>
+
+                    <span class="electric-line e3"></span>
+
+                </div>
+
+
+                <div class="electric-zone electric-right">
+
+                    <span class="electric-line e1"></span>
+
+                    <span class="electric-line e2"></span>
+
+                    <span class="electric-line e3"></span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SCANNER
+                ================================================== -->
+
+                <div class="scan-system">
+
+                    <div class="scan-line"></div>
+
+                    <div class="scan-light"></div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TREASURER IDENTITY
+                ================================================== -->
+
+                <footer class="identity">
+
+
+                    <div class="identity-decoration">
 
 
                         <span></span>
 
 
-                        <p class="member-role">
-                            TREASURER
-                        </p>
+                        <div class="identity-diamond"></div>
 
 
                         <span></span>
@@ -900,55 +969,93 @@
                     </div>
 
 
+
+                    <!-- =============================================
+                         CHANGE TREASURER NAME HERE
+                    ============================================== -->
+
+                    <h1 class="member-name">
+
+                        Ilyass chrayate
+
+                    </h1>
+
+
+
+                    <div class="role-container">
+
+
+                        <span class="role-line"></span>
+
+
+                        <p class="member-role">
+
+                            TREASURER
+
+                        </p>
+
+
+                        <span class="role-line"></span>
+
+
+                    </div>
+
+
+                </footer>
+
+
+
+                <!-- =================================================
+                     PREMIUM CORNERS
+                ================================================== -->
+
+                <div class="premium-corner corner-top-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-top-right">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-left">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="premium-corner corner-bottom-right">
+
+                    <span></span>
+
                 </div>
 
 
 
-                <!-- ================================================
-                     FRONT ORNAMENTS
-                ================================================ -->
+                <!-- MOVING BORDER -->
 
-                <span
-                    class="
-                        leadership-ornament
-                        ornament-1
-                    "
-                ></span>
-
-
-                <span
-                    class="
-                        leadership-ornament
-                        ornament-2
-                    "
-                ></span>
-
-
-                <span
-                    class="
-                        leadership-ornament
-                        ornament-3
-                    "
-                ></span>
-
-
-                <span
-                    class="
-                        leadership-ornament
-                        ornament-4
-                    "
-                ></span>
+                <div class="moving-border-light"></div>
 
 
 
-                <!-- ================================================
-                     CARD SHINE
-                ================================================ -->
+                <!-- REFLECTIVE SHINE -->
 
                 <div
                     class="card-shine"
                     id="cardShine"
                 ></div>
+
+
+
+                <!-- GLASS REFLECTION -->
+
+                <div class="glass-reflection"></div>
 
 
             </article>
@@ -957,27 +1064,38 @@
         </div>
 
 
-    </section>
-
-
-
-    <!-- ============================================================
-         FLASH
-    ============================================================ -->
-
-    <div
-        class="flash"
-        id="flash"
-    ></div>
+    </div>
 
 
 </main>
 
 
 
-<!-- ================================================================
+<!-- =========================================================
+     TREASURER DIGITAL PULSE OVERLAY
+========================================================= -->
+
+<div
+    class="treasurer-system-flash"
+    id="treasurerSystemFlash"
+></div>
+
+
+
+<!-- =========================================================
+     CINEMATIC REVEAL FLASH
+========================================================= -->
+
+<div
+    class="flash"
+    id="flash"
+></div>
+
+
+
+<!-- =========================================================
      JAVASCRIPT
-================================================================ -->
+========================================================= -->
 
 <script src="treasurer.js"></script>
 
