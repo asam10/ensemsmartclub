@@ -5787,3 +5787,68 @@ body {
     }
 
 }
+/* ================================================================
+   MOBILE PERFORMANCE MODE
+================================================================ */
+
+@media (max-width: 768px) {
+
+    /* Reduce heavy blur */
+    .scene-light,
+    .stage-aura,
+    .portrait-backlight,
+    .portrait-front-glow,
+    .emblem-glow {
+        filter: blur(12px) !important;
+    }
+
+    /* Disable expensive backdrop blur */
+    .brain-node-core {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* Reduce background animation load */
+    .scene-orbit,
+    .background-energy-ring,
+    .core-orbit,
+    .portrait-ring,
+    .leadership-halo-ring,
+    .emblem-ring,
+    .back-hologram,
+    .front-holographic-layer,
+    .back-light-runner,
+    .moving-border-light {
+        animation-duration: 20s !important;
+    }
+
+    /* Disable some decorative infinite animations */
+    .leadership-ornament,
+    .electric-zone,
+    .scan-system,
+    .card-shine,
+    .glass-reflection {
+        animation: none !important;
+    }
+
+    /* Reduce shadow cost */
+    .card-wrapper,
+    .card-front,
+    .card-back,
+    .brain-emblem,
+    .brain-node-core {
+        box-shadow: none !important;
+    }
+
+    /* Keep only light shadows */
+    .member-image {
+        filter:
+            drop-shadow(0 6px 8px rgba(0,0,0,.45))
+            !important;
+    }
+
+    /* Hide particles on phone */
+    .particles {
+        display: none !important;
+    }
+}

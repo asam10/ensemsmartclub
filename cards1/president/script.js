@@ -1,22 +1,11 @@
 /* ================================================================
    SMART CLUB — PRESIDENT CARD
-   FINAL MAGENTA / PEARL / CHROME EDITION
-
-   VISUAL PHILOSOPHY
-
-   - Deep plum / black atmosphere
-   - Smart Club magenta as accent
-   - Pearl white / chrome as premium light
-   - No constant pink explosions
-   - Smooth cinematic reveal
-   - Custom crown + brain + lightning system
-   - Controlled ambient animation after reveal
+   MOBILE PERFORMANCE OPTIMIZED
 ================================================================ */
 
 
-
 /* ================================================================
-   1. DOM ELEMENTS
+   1. DOM
 ================================================================ */
 
 const scene =
@@ -35,7 +24,6 @@ const particlesContainer =
     document.getElementById("particles");
 
 
-
 /* ================================================================
    CARD SIDES
 ================================================================ */
@@ -45,7 +33,6 @@ const cardFront =
 
 const cardBack =
     document.querySelector(".card-back");
-
 
 
 /* ================================================================
@@ -63,7 +50,6 @@ const memberRole =
 
 const identity =
     document.querySelector(".identity");
-
 
 
 /* ================================================================
@@ -93,7 +79,6 @@ const emblemGlow =
 
 const emblemRings =
     document.querySelectorAll(".emblem-ring");
-
 
 
 /* ================================================================
@@ -139,9 +124,8 @@ const backCorners =
     document.querySelectorAll(".energy-corner");
 
 
-
 /* ================================================================
-   PORTRAIT SYSTEM
+   PORTRAIT
 ================================================================ */
 
 const portraitFrame =
@@ -169,24 +153,24 @@ const portraitVignette =
     document.querySelector(".portrait-vignette");
 
 
-
 /* ================================================================
-   LEADERSHIP HALO
+   HALO
 ================================================================ */
 
 const leadershipHalo =
     document.querySelector(".leadership-halo");
 
 const haloRings =
-    document.querySelectorAll(".leadership-halo-ring");
+    document.querySelectorAll(
+        ".leadership-halo-ring"
+    );
 
 const haloMarkers =
     document.querySelectorAll(".halo-marker");
 
 
-
 /* ================================================================
-   SIDE SMART NODES
+   SIDE NODES
 ================================================================ */
 
 const brainNodes =
@@ -199,9 +183,8 @@ const nodePulses =
     document.querySelectorAll(".node-pulse");
 
 
-
 /* ================================================================
-   CARD FRAME
+   FRAME
 ================================================================ */
 
 const premiumCorners =
@@ -237,13 +220,14 @@ const topArmor =
     document.querySelector(".top-armor");
 
 
-
 /* ================================================================
    BACKGROUND
 ================================================================ */
 
 const backgroundRings =
-    document.querySelectorAll(".background-energy-ring");
+    document.querySelectorAll(
+        ".background-energy-ring"
+    );
 
 const sceneOrbits =
     document.querySelectorAll(".scene-orbit");
@@ -252,9 +236,18 @@ const sceneLights =
     document.querySelectorAll(".scene-light");
 
 
+/* ================================================================
+   2. MOBILE PERFORMANCE DETECTION
+================================================================ */
+
+const IS_MOBILE =
+    window.matchMedia(
+        "(max-width: 768px)"
+    ).matches;
+
 
 /* ================================================================
-   2. COLORS
+   3. COLORS
 ================================================================ */
 
 const MAGENTA =
@@ -279,9 +272,8 @@ const DEEP_PLUM =
     "#250629";
 
 
-
 /* ================================================================
-   3. STATE
+   4. STATE
 ================================================================ */
 
 let isFront =
@@ -297,7 +289,6 @@ let targetRX =
 let targetRY =
     0;
 
-
 let currentRX =
     0;
 
@@ -310,7 +301,6 @@ let targetPortraitX =
 
 let targetPortraitY =
     0;
-
 
 let currentPortraitX =
     0;
@@ -326,14 +316,14 @@ let currentShineX =
     0;
 
 
-
 /* ================================================================
-   4. HELPERS
+   5. HELPERS
 ================================================================ */
 
 const wait = ms =>
-    new Promise(resolve =>
-        setTimeout(resolve, ms)
+    new Promise(
+        resolve =>
+            setTimeout(resolve, ms)
     );
 
 
@@ -344,9 +334,7 @@ function animate(
 ) {
 
     if (!element) {
-
         return null;
-
     }
 
 
@@ -354,21 +342,22 @@ function animate(
         frames,
         options
     );
-
 }
 
 
-
 /* ================================================================
-   5. AMBIENT PARTICLES
+   6. PARTICLES
+   DESKTOP ONLY
 ================================================================ */
 
 function createParticles() {
 
-    if (!particlesContainer) {
+    if (
+        IS_MOBILE ||
+        !particlesContainer
+    ) {
 
         return;
-
     }
 
 
@@ -401,10 +390,8 @@ function createParticles() {
         particle.style.height =
             `${size}px`;
 
-
         particle.style.left =
             `${Math.random() * 100}%`;
-
 
         particle.style.opacity =
             `${
@@ -426,12 +413,6 @@ function createParticles() {
             }s`;
 
 
-        /*
-            Most particles are pearl.
-
-            A few have a subtle magenta tint.
-        */
-
         if (
             Math.random() > 0.22
         ) {
@@ -441,58 +422,48 @@ function createParticles() {
 
 
             particle.style.boxShadow = `
-
-                0 0 3px
-                rgba(255,255,255,.65),
-
-                0 0 8px
-                rgba(255,255,255,.12)
-
+                0 0 3px rgba(255,255,255,.65),
+                0 0 8px rgba(255,255,255,.12)
             `;
 
-        }
-
-        else {
+        } else {
 
             particle.style.background =
                 MAGENTA_SOFT;
 
 
             particle.style.boxShadow = `
-
-                0 0 4px
-                rgba(255,91,190,.38)
-
+                0 0 4px rgba(255,91,190,.38)
             `;
-
         }
 
 
         particlesContainer.appendChild(
             particle
         );
-
     }
-
 }
 
 
 createParticles();
 
 
-
 /* ================================================================
-   6. SMALL FRAME SIGNAL
+   7. SMART TRACE
+   DESKTOP ONLY
 ================================================================ */
 
 function createSmartTrace(
     intensity = 1
 ) {
 
-    if (!card) {
+    if (
+        IS_MOBILE ||
+        !card ||
+        !scene
+    ) {
 
         return;
-
     }
 
 
@@ -525,8 +496,6 @@ function createSmartTrace(
     let angle;
 
 
-    /* TOP */
-
     if (side === 0) {
 
         x =
@@ -540,12 +509,7 @@ function createSmartTrace(
         angle =
             90;
 
-    }
-
-
-    /* RIGHT */
-
-    else if (side === 1) {
+    } else if (side === 1) {
 
         x =
             rect.right - 7;
@@ -558,12 +522,7 @@ function createSmartTrace(
         angle =
             180;
 
-    }
-
-
-    /* BOTTOM */
-
-    else if (side === 2) {
+    } else if (side === 2) {
 
         x =
             rect.left +
@@ -576,12 +535,7 @@ function createSmartTrace(
         angle =
             -90;
 
-    }
-
-
-    /* LEFT */
-
-    else {
+    } else {
 
         x =
             rect.left + 7;
@@ -593,7 +547,6 @@ function createSmartTrace(
 
         angle =
             0;
-
     }
 
 
@@ -610,6 +563,7 @@ function createSmartTrace(
             Math.random() * 45
         }px`;
 
+
     trace.style.height =
         "1px";
 
@@ -619,34 +573,20 @@ function createSmartTrace(
 
 
     trace.style.background = `
-
         linear-gradient(
-
             90deg,
-
             transparent,
-
             rgba(255,255,255,.25),
-
             rgba(255,255,255,.95),
-
             rgba(255,82,185,.50),
-
             transparent
-
         )
-
     `;
 
 
     trace.style.boxShadow = `
-
-        0 0 ${3 * intensity}px
-        rgba(255,255,255,.55),
-
-        0 0 ${8 * intensity}px
-        rgba(221,43,158,.20)
-
+        0 0 ${3 * intensity}px rgba(255,255,255,.55),
+        0 0 ${8 * intensity}px rgba(221,43,158,.20)
     `;
 
 
@@ -658,58 +598,34 @@ function createSmartTrace(
     trace.animate(
 
         [
-
             {
-
                 opacity: 0,
 
                 transform:
-                    `
-                    rotate(${angle}deg)
-                    scaleX(.08)
-                    `
-
+                    `rotate(${angle}deg) scaleX(.08)`
             },
 
             {
-
                 opacity: .9,
 
                 transform:
-                    `
-                    rotate(${angle}deg)
-                    scaleX(1)
-                    `,
+                    `rotate(${angle}deg) scaleX(1)`,
 
-                offset:
-                    .30
-
+                offset: .30
             },
 
             {
-
                 opacity: 0,
 
                 transform:
-                    `
-                    rotate(${angle}deg)
-                    scaleX(.35)
-                    `
-
+                    `rotate(${angle}deg) scaleX(.35)`
             }
-
         ],
 
         {
-
-            duration:
-                350,
-
-            easing:
-                "ease-out"
-
+            duration: 350,
+            easing: "ease-out"
         }
-
     );
 
 
@@ -718,19 +634,22 @@ function createSmartTrace(
             trace.remove(),
         430
     );
-
 }
 
 
-
 /* ================================================================
-   7. SHORT SIGNAL BURST
+   8. SIGNAL BURST
 ================================================================ */
 
 function signalBurst(
     count = 4,
     delay = 90
 ) {
+
+    if (IS_MOBILE) {
+        return;
+    }
+
 
     for (
         let i = 0;
@@ -749,27 +668,27 @@ function signalBurst(
             },
 
             i * delay
-
         );
-
     }
-
 }
 
 
-
 /* ================================================================
-   8. SMART DUST
+   9. SMART DUST
+   DESKTOP ONLY
 ================================================================ */
 
 function createSmartDust(
     amount = 8
 ) {
 
-    if (!card) {
+    if (
+        IS_MOBILE ||
+        !card ||
+        !scene
+    ) {
 
         return;
-
     }
 
 
@@ -785,7 +704,6 @@ function createSmartDust(
 
         setTimeout(
             () => {
-
 
                 const dust =
                     document.createElement(
@@ -819,22 +737,14 @@ function createSmartDust(
 
 
                 dust.style.background =
-
                     Math.random() > .25
-
                         ? PEARL
-
                         : MAGENTA_SOFT;
 
 
                 dust.style.boxShadow = `
-
-                    0 0 4px
-                    rgba(255,255,255,.40),
-
-                    0 0 8px
-                    rgba(222,44,161,.16)
-
+                    0 0 4px rgba(255,255,255,.40),
+                    0 0 8px rgba(222,44,161,.16)
                 `;
 
 
@@ -876,48 +786,33 @@ function createSmartDust(
                 dust.animate(
 
                     [
-
                         {
-
                             opacity: 0,
-
                             transform:
                                 "scale(.2)"
-
                         },
 
                         {
-
                             opacity: .65,
-
                             transform:
                                 "scale(1)",
-
-                            offset:
-                                .20
-
+                            offset: .20
                         },
 
                         {
-
                             opacity: 0,
 
-                            transform:
-                                `
+                            transform: `
                                 translate(
                                     ${dx}px,
                                     ${dy}px
                                 )
-
                                 scale(.2)
-                                `
-
+                            `
                         }
-
                     ],
 
                     {
-
                         duration:
                             650 +
                             Math.random() *
@@ -925,9 +820,7 @@ function createSmartDust(
 
                         easing:
                             "ease-out"
-
                     }
-
                 );
 
 
@@ -940,53 +833,37 @@ function createSmartDust(
             },
 
             i * 40
-
         );
-
     }
-
 }
 
 
-
 /* ================================================================
-   9. REVEAL FLASH
+   10. FLASH
 ================================================================ */
 
 function smartFlash() {
 
     if (!flash) {
-
         return;
-
     }
 
 
     flash.style.background = `
-
         radial-gradient(
-
             circle at center,
-
             rgba(255,255,255,.95) 0%,
-
             rgba(255,227,246,.38) 12%,
-
             rgba(236,65,177,.15) 29%,
-
             rgba(93,9,78,.05) 45%,
-
             transparent 68%
-
         )
-
     `;
 
 
     flash.animate(
 
         [
-
             {
                 opacity: 0
             },
@@ -1009,44 +886,31 @@ function smartFlash() {
             {
                 opacity: 0
             }
-
         ],
 
         {
-
-            duration:
-                520,
-
-            easing:
-                "ease-out"
-
+            duration: 520,
+            easing: "ease-out"
         }
-
     );
-
 }
 
 
-
 /* ================================================================
-   10. PREPARE INTRO
+   11. PREPARE INTRO
 ================================================================ */
 
 function prepareIntro() {
 
-
     const hiddenElements = [
 
         presidentHeader,
-
         presidentEmblem,
-
         presidentTitle,
 
         leadershipHalo,
 
         portraitEnergy,
-
         portraitFrame,
 
         identity,
@@ -1054,7 +918,6 @@ function prepareIntro() {
         ...brainNodes,
 
         ...leadershipOrnaments
-
     ];
 
 
@@ -1062,21 +925,15 @@ function prepareIntro() {
         element => {
 
             if (!element) {
-
                 return;
-
             }
 
 
             element.style.opacity =
                 "0";
-
         }
     );
 
-
-
-    /* PRESIDENT */
 
     if (memberImage) {
 
@@ -1084,64 +941,42 @@ function prepareIntro() {
             "0";
 
 
-        memberImage.style.transform =
-            `
+        memberImage.style.transform = `
             translateY(38px)
             scale(.94)
-            `;
-
+        `;
     }
 
-
-
-    /* IDENTITY */
 
     if (identity) {
 
         identity.style.transform = `
-
             translateX(-50%)
-
             translateY(20px)
-
             translateZ(110px)
-
         `;
-
     }
 
-
-
-    /* CROWN */
 
     if (presidentEmblem) {
 
         presidentEmblem.style.transform =
             "scale(.68)";
-
     }
 
-
-
-    /* STAGE */
 
     if (cardStage) {
 
         cardStage.style.opacity =
             "0";
-
     }
 
-
-
-    /* BACK SYSTEM QUIET */
 
     coreOrbits.forEach(
         orbit => {
 
             orbit.style.opacity =
                 ".12";
-
         }
     );
 
@@ -1151,7 +986,6 @@ function prepareIntro() {
 
             circuit.style.opacity =
                 ".08";
-
         }
     );
 
@@ -1161,7 +995,6 @@ function prepareIntro() {
 
             corner.style.opacity =
                 ".14";
-
         }
     );
 
@@ -1171,175 +1004,123 @@ function prepareIntro() {
 
             marker.style.opacity =
                 "0";
-
         }
     );
-
 }
 
 
-
 /* ================================================================
-   11. CARD ENTERS
+   12. CARD ENTER
 ================================================================ */
 
 async function revealStage() {
-
 
     animate(
 
         cardStage,
 
         [
-
             {
-
                 opacity: 0,
 
-                transform:
-                    `
+                transform: `
                     translateY(30px)
                     scale(.96)
-                    `
-
+                `
             },
 
             {
-
                 opacity: 1,
 
-                transform:
-                    `
+                transform: `
                     translateY(0)
                     scale(1)
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                1050,
-
-            fill:
-                "forwards",
-
+            duration: 1050,
+            fill: "forwards",
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
 
     await wait(
         900
     );
-
 }
 
 
-
 /* ================================================================
-   12. SMART BRAIN CORE ACTIVATION
+   13. SMART CORE
 ================================================================ */
 
 async function activateSmartCore() {
-
 
     animate(
 
         brainEmblem,
 
         [
-
             {
-
                 filter:
                     "brightness(.42)",
 
                 transform:
                     "scale(.88)",
 
-                opacity:
-                    .45
-
+                opacity: .45
             },
 
             {
-
                 filter:
                     "brightness(.80)",
 
                 transform:
                     "scale(.97)",
 
-                opacity:
-                    .8,
+                opacity: .8,
 
-                offset:
-                    .55
-
+                offset: .55
             },
 
             {
-
                 filter:
                     "brightness(1)",
 
                 transform:
                     "scale(1)",
 
-                opacity:
-                    1
-
+                opacity: 1
             }
-
         ],
 
         {
-
-            duration:
-                1150,
-
-            fill:
-                "forwards",
-
-            easing:
-                "ease-out"
-
+            duration: 1150,
+            fill: "forwards",
+            easing: "ease-out"
         }
-
     );
 
 
-
-    /*
-        DRAW CUSTOM BRAIN SVG
-    */
-
     const brainLines = [
-
         ...brainPaths,
-
         ...brainNeuralLines
-
     ];
 
 
     brainLines.forEach(
         (path, index) => {
 
-
             if (
-                typeof path.getTotalLength
-                !== "function"
+                typeof path.getTotalLength !==
+                "function"
             ) {
 
                 return;
-
             }
 
 
@@ -1359,56 +1140,37 @@ async function activateSmartCore() {
                 path,
 
                 [
-
                     {
-
                         strokeDashoffset:
                             length,
 
-                        opacity:
-                            .18
-
+                        opacity: .18
                     },
 
                     {
-
                         strokeDashoffset:
                             0,
 
-                        opacity:
-                            1
-
+                        opacity: 1
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        900,
+                    duration: 900,
 
                     delay:
                         120 +
                         index * 100,
 
-                    fill:
-                        "forwards",
+                    fill: "forwards",
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
-
-
-    /*
-        NEURAL DOTS
-    */
 
     brainDots.forEach(
         (dot, index) => {
@@ -1418,55 +1180,38 @@ async function activateSmartCore() {
                 dot,
 
                 [
-
                     {
-
                         opacity: 0,
-
                         transform:
                             "scale(0)"
-
                     },
 
                     {
-
                         opacity: 1,
-
                         transform:
                             "scale(1.5)"
-
                     },
 
                     {
-
                         opacity: .85,
-
                         transform:
                             "scale(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        400,
+                    duration: 400,
 
                     delay:
                         650 +
                         index * 110,
 
-                    fill:
-                        "forwards",
+                    fill: "forwards",
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -1474,17 +1219,14 @@ async function activateSmartCore() {
     await wait(
         650
     );
-
 }
 
 
-
 /* ================================================================
-   13. ORBIT SYNCHRONIZATION
+   14. ORBITS
 ================================================================ */
 
 async function synchronizeOrbits() {
-
 
     coreOrbits.forEach(
         (orbit, index) => {
@@ -1494,33 +1236,23 @@ async function synchronizeOrbits() {
                 orbit,
 
                 [
-
                     {
-
-                        opacity:
-                            .12,
+                        opacity: .12,
 
                         filter:
                             "brightness(.65)"
-
                     },
 
                     {
-
-                        opacity:
-                            .58,
+                        opacity: .58,
 
                         filter:
                             "brightness(1.1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        700,
+                    duration: 700,
 
                     delay:
                         index * 160,
@@ -1530,11 +1262,8 @@ async function synchronizeOrbits() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -1547,40 +1276,27 @@ async function synchronizeOrbits() {
                 marker,
 
                 [
-
                     {
-
                         opacity: 0,
-
                         transform:
                             "scale(0)"
-
                     },
 
                     {
-
                         opacity: 1,
-
                         transform:
                             "scale(1.35)"
-
                     },
 
                     {
-
                         opacity: .7,
-
                         transform:
                             "scale(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        400,
+                    duration: 400,
 
                     delay:
                         220 +
@@ -1591,11 +1307,8 @@ async function synchronizeOrbits() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -1603,17 +1316,14 @@ async function synchronizeOrbits() {
     await wait(
         600
     );
-
 }
 
 
-
 /* ================================================================
-   14. CIRCUITS ACTIVATE
+   15. CIRCUITS
 ================================================================ */
 
 async function activateCircuits() {
-
 
     circuits.forEach(
         (circuit, index) => {
@@ -1623,43 +1333,30 @@ async function activateCircuits() {
                 circuit,
 
                 [
-
                     {
-
-                        opacity:
-                            .08,
+                        opacity: .08,
 
                         filter:
                             "brightness(.65)"
-
                     },
 
                     {
-
-                        opacity:
-                            .5,
+                        opacity: .5,
 
                         filter:
                             "brightness(1.25)"
-
                     },
 
                     {
-
-                        opacity:
-                            .32,
+                        opacity: .32,
 
                         filter:
                             "brightness(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        550,
+                    duration: 550,
 
                     delay:
                         index * 110,
@@ -1669,14 +1366,10 @@ async function activateCircuits() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
-
 
 
     backCorners.forEach(
@@ -1687,43 +1380,30 @@ async function activateCircuits() {
                 corner,
 
                 [
-
                     {
-
-                        opacity:
-                            .12,
+                        opacity: .12,
 
                         filter:
                             "brightness(.7)"
-
                     },
 
                     {
-
-                        opacity:
-                            1,
+                        opacity: 1,
 
                         filter:
                             "brightness(1.65)"
-
                     },
 
                     {
-
-                        opacity:
-                            .55,
+                        opacity: .55,
 
                         filter:
                             "brightness(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        400,
+                    duration: 400,
 
                     delay:
                         150 +
@@ -1734,11 +1414,8 @@ async function activateCircuits() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -1752,68 +1429,49 @@ async function activateCircuits() {
     await wait(
         650
     );
-
 }
 
 
-
 /* ================================================================
-   15. SMART CORE LOCK
+   16. CORE LOCK
 ================================================================ */
 
 async function systemLock() {
-
 
     animate(
 
         corePulse,
 
         [
-
             {
-
                 opacity: 0,
 
                 transform:
                     "scale(.75)"
-
             },
 
             {
-
                 opacity: .65,
 
                 transform:
                     "scale(1)",
 
-                offset:
-                    .25
-
+                offset: .25
             },
 
             {
-
                 opacity: 0,
 
                 transform:
                     "scale(2)"
-
             }
-
         ],
 
         {
-
-            duration:
-                850,
-
-            easing:
-                "ease-out"
-
+            duration: 850,
+            easing: "ease-out"
         }
-
     );
-
 
 
     backgroundRings.forEach(
@@ -1824,39 +1482,29 @@ async function systemLock() {
                 ring,
 
                 [
-
                     {
-                        opacity:
-                            .18
+                        opacity: .18
                     },
 
                     {
-                        opacity:
-                            .5
+                        opacity: .5
                     },
 
                     {
-                        opacity:
-                            .20
+                        opacity: .20
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        850,
+                    duration: 850,
 
                     delay:
                         index * 100,
 
                     easing:
                         "ease-in-out"
-
                 }
-
             );
-
         }
     );
 
@@ -1880,82 +1528,61 @@ async function systemLock() {
     await wait(
         550
     );
-
 }
 
 
-
 /* ================================================================
-   16. BACK BRAND
+   17. BACK BRAND
 ================================================================ */
 
 async function revealBackBrand() {
-
 
     animate(
 
         backBrand,
 
         [
-
             {
+                opacity: .12,
 
-                opacity:
-                    .12,
-
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     scaleX(.82)
-                    `
-
+                `
             },
 
             {
+                opacity: 1,
 
-                opacity:
-                    1,
-
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     scaleX(1)
-                    `
-
+                `
             }
-
         ],
 
         {
+            duration: 650,
 
-            duration:
-                650,
-
-            fill:
-                "forwards",
+            fill: "forwards",
 
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
 
     await wait(
         450
     );
-
 }
 
 
-
 /* ================================================================
-   17. CARD FLIP
+   18. FLIP TO FRONT
 ================================================================ */
 
 async function flipToFront() {
-
 
     smartFlash();
 
@@ -1986,17 +1613,14 @@ async function flipToFront() {
     await wait(
         1050
     );
-
 }
 
 
-
 /* ================================================================
-   18. FRONT FRAME APPEARS
+   19. FRAME
 ================================================================ */
 
 async function revealFrame() {
-
 
     framePieces.forEach(
         (piece, index) => {
@@ -2006,40 +1630,30 @@ async function revealFrame() {
                 piece,
 
                 [
-
                     {
-
                         opacity: 0,
 
                         filter:
                             "brightness(.55)"
-
                     },
 
                     {
-
                         opacity: 1,
 
                         filter:
                             "brightness(1.35)"
-
                     },
 
                     {
-
                         opacity: .82,
 
                         filter:
                             "brightness(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        500,
+                    duration: 500,
 
                     delay:
                         index * 70,
@@ -2049,11 +1663,8 @@ async function revealFrame() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -2063,55 +1674,43 @@ async function revealFrame() {
         innerFrame,
 
         [
-
             {
-                opacity:
-                    .12
+                opacity: .12
             },
 
             {
-                opacity:
-                    .78
+                opacity: .78
             }
-
         ],
 
         {
-
-            duration:
-                650,
+            duration: 650,
 
             fill:
                 "forwards",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
     await wait(
         400
     );
-
 }
 
 
-
 /* ================================================================
-   19. CROWN REVEAL
+   20. CROWN
 ================================================================ */
 
 async function revealCrown() {
-
 
     if (presidentHeader) {
 
         presidentHeader.style.opacity =
             "1";
-
     }
 
 
@@ -2119,9 +1718,7 @@ async function revealCrown() {
 
         presidentEmblem.style.opacity =
             "1";
-
     }
-
 
 
     animate(
@@ -2129,9 +1726,7 @@ async function revealCrown() {
         presidentEmblem,
 
         [
-
             {
-
                 opacity: 0,
 
                 transform:
@@ -2139,11 +1734,9 @@ async function revealCrown() {
 
                 filter:
                     "brightness(.55)"
-
             },
 
             {
-
                 opacity: 1,
 
                 transform:
@@ -2152,13 +1745,10 @@ async function revealCrown() {
                 filter:
                     "brightness(1.25)",
 
-                offset:
-                    .72
-
+                offset: .72
             },
 
             {
-
                 opacity: 1,
 
                 transform:
@@ -2166,34 +1756,22 @@ async function revealCrown() {
 
                 filter:
                     "brightness(1)"
-
             }
-
         ],
 
         {
-
-            duration:
-                800,
+            duration: 800,
 
             fill:
                 "forwards",
 
             easing:
                 "cubic-bezier(.34,1.56,.64,1)"
-
         }
-
     );
 
 
-
-    /*
-        DRAW THE CROWN SVG
-    */
-
     if (crownIcon) {
-
 
         const paths =
             crownIcon.querySelectorAll(
@@ -2204,14 +1782,12 @@ async function revealCrown() {
         paths.forEach(
             (path, index) => {
 
-
                 if (
-                    typeof path.getTotalLength
-                    !== "function"
+                    typeof path.getTotalLength !==
+                    "function"
                 ) {
 
                     return;
-
                 }
 
 
@@ -2231,52 +1807,39 @@ async function revealCrown() {
                     path,
 
                     [
-
                         {
-
                             strokeDashoffset:
                                 length,
 
-                            opacity:
-                                .15,
+                            opacity: .15,
 
                             filter:
                                 "brightness(.7)"
-
                         },
 
                         {
-
                             strokeDashoffset:
                                 0,
 
-                            opacity:
-                                1,
+                            opacity: 1,
 
                             filter:
                                 "brightness(1.45)"
-
                         },
 
                         {
-
                             strokeDashoffset:
                                 0,
 
-                            opacity:
-                                1,
+                            opacity: 1,
 
                             filter:
                                 "brightness(1)"
-
                         }
-
                     ],
 
                     {
-
-                        duration:
-                            850,
+                        duration: 850,
 
                         delay:
                             index * 130,
@@ -2286,21 +1849,12 @@ async function revealCrown() {
 
                         easing:
                             "ease-out"
-
                     }
-
                 );
-
             }
         );
-
     }
 
-
-
-    /*
-        CROWN JEWELS
-    */
 
     crownJewels.forEach(
         (jewel, index) => {
@@ -2310,40 +1864,30 @@ async function revealCrown() {
                 jewel,
 
                 [
-
                     {
-
                         opacity: 0,
 
                         transform:
                             "scale(0)"
-
                     },
 
                     {
-
                         opacity: 1,
 
                         transform:
                             "scale(1.55)"
-
                     },
 
                     {
-
                         opacity: 1,
 
                         transform:
                             "scale(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        380,
+                    duration: 380,
 
                     delay:
                         450 +
@@ -2354,19 +1898,11 @@ async function revealCrown() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
-
-
-    /*
-        CROWN RINGS
-    */
 
     emblemRings.forEach(
         (ring, index) => {
@@ -2376,38 +1912,27 @@ async function revealCrown() {
                 ring,
 
                 [
-
                     {
-
                         opacity: 0,
 
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(.65)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: .65,
 
-                        opacity:
-                            .65,
-
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(1)
-                            `
-
+                        `
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        600,
+                    duration: 600,
 
                     delay:
                         index * 110,
@@ -2417,11 +1942,8 @@ async function revealCrown() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -2431,51 +1953,37 @@ async function revealCrown() {
         emblemGlow,
 
         [
-
             {
-
                 opacity: 0,
 
                 transform:
                     "scale(.7)"
-
             },
 
             {
-
-                opacity:
-                    .55,
+                opacity: .55,
 
                 transform:
                     "scale(1.08)"
-
             },
 
             {
-
-                opacity:
-                    .30,
+                opacity: .30,
 
                 transform:
                     "scale(1)"
-
             }
-
         ],
 
         {
-
-            duration:
-                800,
+            duration: 800,
 
             fill:
                 "forwards",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
@@ -2487,22 +1995,17 @@ async function revealCrown() {
     await wait(
         800
     );
-
 }
 
 
-
 /* ================================================================
-   20. PRESIDENT TITLE
+   21. PRESIDENT TITLE
 ================================================================ */
 
 async function revealPresidentTitle() {
 
-
     if (!presidentTitle) {
-
         return;
-
     }
 
 
@@ -2515,78 +2018,61 @@ async function revealPresidentTitle() {
         presidentTitle,
 
         [
-
             {
-
                 opacity: 0,
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateY(-9px)
                     translateZ(90px)
                     scaleX(1.22)
-                    `,
+                `,
 
                 filter:
                     "blur(5px)"
-
             },
 
             {
-
                 opacity: 1,
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateY(0)
                     translateZ(90px)
                     scaleX(1)
-                    `,
+                `,
 
                 filter:
                     "blur(0)"
-
             }
-
         ],
 
         {
-
-            duration:
-                700,
+            duration: 700,
 
             fill:
                 "forwards",
 
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
 
     await wait(
         400
     );
-
 }
 
 
-
 /* ================================================================
-   21. LEADERSHIP HALO
+   22. HALO
 ================================================================ */
 
 async function activateLeadershipHalo() {
 
-
     if (!leadershipHalo) {
-
         return;
-
     }
 
 
@@ -2602,51 +2088,36 @@ async function activateLeadershipHalo() {
                 ring,
 
                 [
-
                     {
-
                         opacity: 0,
 
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(.72)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: .52,
 
-                        opacity:
-                            .52,
-
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(1)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: .28,
 
-                        opacity:
-                            .28,
-
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(1)
-                            `
-
+                        `
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        800,
+                    duration: 800,
 
                     delay:
                         index * 120,
@@ -2656,11 +2127,8 @@ async function activateLeadershipHalo() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -2673,51 +2141,30 @@ async function activateLeadershipHalo() {
                 marker,
 
                 [
-
                     {
-
                         opacity: 0,
 
                         transform:
-                            `
-                            rotate(45deg)
-                            scale(0)
-                            `
-
+                            "rotate(45deg) scale(0)"
                     },
 
                     {
-
-                        opacity:
-                            .65,
+                        opacity: .65,
 
                         transform:
-                            `
-                            rotate(45deg)
-                            scale(1.25)
-                            `
-
+                            "rotate(45deg) scale(1.25)"
                     },
 
                     {
-
-                        opacity:
-                            .50,
+                        opacity: .50,
 
                         transform:
-                            `
-                            rotate(45deg)
-                            scale(1)
-                            `
-
+                            "rotate(45deg) scale(1)"
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        380,
+                    duration: 380,
 
                     delay:
                         260 +
@@ -2728,11 +2175,8 @@ async function activateLeadershipHalo() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -2740,23 +2184,19 @@ async function activateLeadershipHalo() {
     await wait(
         550
     );
-
 }
 
 
-
 /* ================================================================
-   22. PORTRAIT ENERGY SYSTEM
+   23. PORTRAIT ENERGY
 ================================================================ */
 
 async function activatePortraitSystem() {
-
 
     if (portraitEnergy) {
 
         portraitEnergy.style.opacity =
             "1";
-
     }
 
 
@@ -2768,38 +2208,27 @@ async function activatePortraitSystem() {
                 ring,
 
                 [
-
                     {
-
                         opacity: 0,
 
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(.75)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: .48,
 
-                        opacity:
-                            .48,
-
-                        transform:
-                            `
+                        transform: `
                             translate(-50%,-50%)
                             scale(1)
-                            `
-
+                        `
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        700,
+                    duration: 700,
 
                     delay:
                         index * 120,
@@ -2809,11 +2238,8 @@ async function activatePortraitSystem() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -2823,81 +2249,60 @@ async function activatePortraitSystem() {
         portraitCoreLight,
 
         [
-
             {
-
                 opacity: 0,
 
-                transform:
-                    `
+                transform: `
                     translate(-50%,-50%)
                     scale(.72)
-                    `
-
+                `
             },
 
             {
+                opacity: .58,
 
-                opacity:
-                    .58,
-
-                transform:
-                    `
+                transform: `
                     translate(-50%,-50%)
                     scale(1.04)
-                    `
-
+                `
             },
 
             {
+                opacity: .38,
 
-                opacity:
-                    .38,
-
-                transform:
-                    `
+                transform: `
                     translate(-50%,-50%)
                     scale(1)
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                900,
+            duration: 900,
 
             fill:
                 "forwards",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
     await wait(
         380
     );
-
 }
 
 
-
 /* ================================================================
-   23. CUSTOM BRAIN + LIGHTNING NODES
+   24. SIDE NODES
 ================================================================ */
 
 async function activateNodes() {
 
-
     brainNodes.forEach(
         (node, index) => {
-
 
             node.style.opacity =
                 "1";
@@ -2908,52 +2313,36 @@ async function activateNodes() {
                 node,
 
                 [
-
                     {
+                        opacity: 0,
 
-                        opacity:
-                            0,
-
-                        transform:
-                            `
+                        transform: `
                             translateY(8px)
                             scale(.7)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: 1,
 
-                        opacity:
-                            1,
-
-                        transform:
-                            `
+                        transform: `
                             translateY(0)
                             scale(1.08)
-                            `
-
+                        `
                     },
 
                     {
+                        opacity: .85,
 
-                        opacity:
-                            .85,
-
-                        transform:
-                            `
+                        transform: `
                             translateY(0)
                             scale(1)
-                            `
-
+                        `
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        550,
+                    duration: 550,
 
                     delay:
                         index * 160,
@@ -2963,11 +2352,8 @@ async function activateNodes() {
 
                     easing:
                         "cubic-bezier(.34,1.56,.64,1)"
-
                 }
-
             );
-
         }
     );
 
@@ -2980,40 +2366,30 @@ async function activateNodes() {
                 icon,
 
                 [
-
                     {
-
                         opacity: 0,
 
                         filter:
                             "brightness(.5)"
-
                     },
 
                     {
-
                         opacity: 1,
 
                         filter:
                             "brightness(1.4)"
-
                     },
 
                     {
-
                         opacity: .9,
 
                         filter:
                             "brightness(1)"
-
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        500,
+                    duration: 500,
 
                     delay:
                         160 +
@@ -3024,11 +2400,8 @@ async function activateNodes() {
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -3036,22 +2409,17 @@ async function activateNodes() {
     await wait(
         500
     );
-
 }
 
 
-
 /* ================================================================
-   24. PORTRAIT FRAME
+   25. PORTRAIT FRAME
 ================================================================ */
 
 async function revealPortraitFrame() {
 
-
     if (!portraitFrame) {
-
         return;
-
     }
 
 
@@ -3064,76 +2432,59 @@ async function revealPortraitFrame() {
         portraitFrame,
 
         [
-
             {
-
                 opacity: 0,
 
                 filter:
                     "blur(4px)",
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateZ(70px)
                     scale(.96)
-                    `
-
+                `
             },
 
             {
-
                 opacity: 1,
 
                 filter:
                     "blur(0)",
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateZ(70px)
                     scale(1)
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                650,
+            duration: 650,
 
             fill:
                 "forwards",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
     await wait(
         300
     );
-
 }
 
 
-
 /* ================================================================
-   25. PRESIDENT PORTRAIT REVEAL
+   26. MEMBER REVEAL
 ================================================================ */
 
 async function revealPortrait() {
 
-
     if (!memberImage) {
-
         return;
-
     }
 
 
@@ -3146,107 +2497,80 @@ async function revealPortrait() {
         memberImage,
 
         [
-
             {
-
                 opacity: 0,
 
-                transform:
-                    `
+                transform: `
                     translateY(38px)
                     scale(.94)
-                    `,
+                `,
 
-                filter:
-                    `
+                filter: `
                     brightness(.58)
                     contrast(1.08)
                     blur(3px)
-                    `
-
+                `
             },
 
             {
+                opacity: .48,
 
-                opacity:
-                    .48,
-
-                transform:
-                    `
+                transform: `
                     translateY(15px)
                     scale(.98)
-                    `,
+                `,
 
-                filter:
-                    `
+                filter: `
                     brightness(.82)
                     contrast(1.06)
                     blur(1px)
-                    `,
+                `,
 
-                offset:
-                    .42
-
+                offset: .42
             },
 
             {
+                opacity: 1,
 
-                opacity:
-                    1,
-
-                transform:
-                    `
+                transform: `
                     translateY(-3px)
                     scale(1.012)
-                    `,
+                `,
 
-                filter:
-                    `
+                filter: `
                     brightness(1.04)
                     contrast(1.02)
                     blur(0)
-                    `,
+                `,
 
-                offset:
-                    .82
-
+                offset: .82
             },
 
             {
+                opacity: 1,
 
-                opacity:
-                    1,
-
-                transform:
-                    `
+                transform: `
                     translateY(0)
                     scale(1)
-                    `,
+                `,
 
-                filter:
-                    `
+                filter: `
                     brightness(1)
                     contrast(1)
                     blur(0)
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                1150,
+            duration: 1150,
 
             fill:
                 "forwards",
 
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
 
@@ -3255,37 +2579,28 @@ async function revealPortrait() {
         portraitFrontGlow,
 
         [
-
             {
-                opacity:
-                    0
+                opacity: 0
             },
 
             {
-                opacity:
-                    .62
+                opacity: .62
             },
 
             {
-                opacity:
-                    .38
+                opacity: .38
             }
-
         ],
 
         {
-
-            duration:
-                800,
+            duration: 800,
 
             fill:
                 "forwards",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
@@ -3297,22 +2612,17 @@ async function revealPortrait() {
     await wait(
         850
     );
-
 }
 
 
-
 /* ================================================================
-   26. MEMBER IDENTITY
+   27. IDENTITY
 ================================================================ */
 
 async function revealIdentity() {
 
-
     if (!identity) {
-
         return;
-
     }
 
 
@@ -3325,64 +2635,45 @@ async function revealIdentity() {
         identity,
 
         [
-
             {
-
                 opacity: 0,
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateY(18px)
                     translateZ(110px)
-                    `
-
+                `
             },
 
             {
-
                 opacity: 1,
 
-                transform:
-                    `
+                transform: `
                     translateX(-50%)
                     translateY(0)
                     translateZ(110px)
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                650,
+            duration: 650,
 
             fill:
                 "forwards",
 
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
-
-
-    /*
-        NAME
-    */
 
     animate(
 
         memberName,
 
         [
-
             {
-
                 opacity: 0,
 
                 letterSpacing:
@@ -3393,11 +2684,9 @@ async function revealIdentity() {
 
                 transform:
                     "scaleX(1.06)"
-
             },
 
             {
-
                 opacity: 1,
 
                 letterSpacing:
@@ -3408,94 +2697,68 @@ async function revealIdentity() {
 
                 transform:
                     "scaleX(1)"
-
             }
-
         ],
 
         {
+            duration: 850,
 
-            duration:
-                850,
-
-            delay:
-                150,
+            delay: 150,
 
             fill:
                 "both",
 
             easing:
                 "cubic-bezier(.16,1,.3,1)"
-
         }
-
     );
 
-
-
-    /*
-        PRESIDENT ROLE
-    */
 
     animate(
 
         memberRole,
 
         [
-
             {
-
                 opacity: 0,
 
                 letterSpacing:
                     "11px"
-
             },
 
             {
-
                 opacity: 1,
 
                 letterSpacing:
                     "7px"
-
             }
-
         ],
 
         {
+            duration: 600,
 
-            duration:
-                600,
-
-            delay:
-                500,
+            delay: 500,
 
             fill:
                 "both",
 
             easing:
                 "ease-out"
-
         }
-
     );
 
 
     await wait(
         850
     );
-
 }
 
 
-
 /* ================================================================
-   27. FOUR CORNERS LOCK
+   28. CORNER LOCK
 ================================================================ */
 
 async function cornerLock() {
-
 
     premiumCorners.forEach(
         (corner, index) => {
@@ -3503,55 +2766,39 @@ async function cornerLock() {
             setTimeout(
                 () => {
 
-
                     animate(
 
                         corner,
 
                         [
-
                             {
-
-                                opacity:
-                                    .25,
+                                opacity: .25,
 
                                 filter:
                                     "brightness(.75)"
-
                             },
 
                             {
-
-                                opacity:
-                                    1,
+                                opacity: 1,
 
                                 filter:
                                     "brightness(1.7)"
-
                             },
 
                             {
-
-                                opacity:
-                                    .8,
+                                opacity: .8,
 
                                 filter:
                                     "brightness(1)"
-
                             }
-
                         ],
 
                         {
-
-                            duration:
-                                420,
+                            duration: 420,
 
                             easing:
                                 "ease-out"
-
                         }
-
                     );
 
 
@@ -3562,9 +2809,7 @@ async function cornerLock() {
                 },
 
                 index * 150
-
             );
-
         }
     );
 
@@ -3572,17 +2817,14 @@ async function cornerLock() {
     await wait(
         800
     );
-
 }
 
 
-
 /* ================================================================
-   28. RAIL CONFIRMATION
+   29. RAIL CONFIRMATION
 ================================================================ */
 
 async function railConfirmation() {
-
 
     railLights.forEach(
         (rail, index) => {
@@ -3592,38 +2834,29 @@ async function railConfirmation() {
                 rail,
 
                 [
-
                     {
                         opacity: 0
                     },
 
                     {
-                        opacity:
-                            .85
+                        opacity: .85
                     },
 
                     {
-                        opacity:
-                            .35
+                        opacity: .35
                     }
-
                 ],
 
                 {
-
-                    duration:
-                        600,
+                    duration: 600,
 
                     delay:
                         index * 160,
 
                     easing:
                         "ease-out"
-
                 }
-
             );
-
         }
     );
 
@@ -3631,17 +2864,14 @@ async function railConfirmation() {
     await wait(
         550
     );
-
 }
 
 
-
 /* ================================================================
-   29. FINAL PRESIDENT LOCK
+   30. FINAL LOCK
 ================================================================ */
 
 async function finalLock() {
-
 
     signalBurst(
         2,
@@ -3654,34 +2884,24 @@ async function finalLock() {
     );
 
 
-    /*
-        Crown final acknowledgement
-    */
-
     animate(
 
         crownIcon,
 
         [
-
             {
-
-                filter:
-                    `
+                filter: `
                     brightness(1)
 
                     drop-shadow(
                         0 0 3px
                         rgba(255,255,255,.18)
                     )
-                    `
-
+                `
             },
 
             {
-
-                filter:
-                    `
+                filter: `
                     brightness(1.12)
 
                     drop-shadow(
@@ -3693,53 +2913,40 @@ async function finalLock() {
                         0 0 10px
                         rgba(223,44,161,.18)
                     )
-                    `
-
+                `
             },
 
             {
-
-                filter:
-                    `
+                filter: `
                     brightness(1)
 
                     drop-shadow(
                         0 0 3px
                         rgba(255,255,255,.18)
                     )
-                    `
-
+                `
             }
-
         ],
 
         {
-
-            duration:
-                800,
-
+            duration: 800,
             easing:
                 "ease-in-out"
-
         }
-
     );
 
 
     await wait(
         600
     );
-
 }
 
 
-
 /* ================================================================
-   30. COMPLETE CINEMATIC SEQUENCE
+   31. COMPLETE CINEMATIC SEQUENCE
 ================================================================ */
 
 async function startSequence() {
-
 
     prepareIntro();
 
@@ -3756,7 +2963,7 @@ async function startSequence() {
     );
 
 
-    /* CARD ENTERS */
+    /* CARD ENTER */
 
     await revealStage();
 
@@ -3766,19 +2973,15 @@ async function startSequence() {
     );
 
 
-    /* SMART CLUB BACK SYSTEM */
+    /* BACK */
 
     await activateSmartCore();
 
-
     await synchronizeOrbits();
-
 
     await activateCircuits();
 
-
     await systemLock();
-
 
     await revealBackBrand();
 
@@ -3793,57 +2996,52 @@ async function startSequence() {
     await flipToFront();
 
 
-
-    /* PRESIDENT CARD BUILDS */
+    /* FRONT */
 
     await revealFrame();
 
-
     await revealCrown();
-
 
     await revealPresidentTitle();
 
-
     await activateLeadershipHalo();
-
 
     await activatePortraitSystem();
 
-
     await activateNodes();
-
 
     await revealPortraitFrame();
 
-
     await revealPortrait();
-
 
     await revealIdentity();
 
-
     await cornerLock();
 
-
     await railConfirmation();
-
 
     await finalLock();
 
 
+    /* MOBILE STATIC FRONT */
 
-    /* INTERACTION ENABLED */
+    if (
+        IS_MOBILE &&
+        card
+    ) {
+
+        card.style.transform =
+            "rotateY(180deg)";
+    }
+
 
     isBusy =
         false;
-
 }
 
 
-
 /* ================================================================
-   31. START WHEN PAGE LOADS
+   32. START
 ================================================================ */
 
 window.addEventListener(
@@ -3852,85 +3050,76 @@ window.addEventListener(
 );
 
 
-
 /* ================================================================
-   32. MOUSE PARALLAX
+   33. DESKTOP POINTER PARALLAX ONLY
 ================================================================ */
 
-scene.addEventListener(
-    "pointermove",
-    event => {
+if (
+    !IS_MOBILE &&
+    scene
+) {
+
+    scene.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                !isFront ||
+                isBusy
+            ) {
+
+                return;
+            }
 
 
-        if (
-            !isFront ||
-            isBusy
-        ) {
+            const rect =
+                scene.getBoundingClientRect();
 
-            return;
 
+            const x =
+                (
+                    event.clientX -
+                    rect.left
+                ) /
+                rect.width;
+
+
+            const y =
+                (
+                    event.clientY -
+                    rect.top
+                ) /
+                rect.height;
+
+
+            targetRY =
+                (x - .5) * -7;
+
+
+            targetRX =
+                (y - .5) * 5;
+
+
+            targetPortraitX =
+                (x - .5) * 9;
+
+
+            targetPortraitY =
+                (y - .5) * 5;
+
+
+            targetShineX =
+                (x - .5) * 55;
         }
-
-
-        const rect =
-            scene.getBoundingClientRect();
-
-
-        const x =
-            (
-                event.clientX -
-                rect.left
-            ) /
-            rect.width;
-
-
-        const y =
-            (
-                event.clientY -
-                rect.top
-            ) /
-            rect.height;
-
-
-
-        /* CARD */
-
-        targetRY =
-            (x - .5) * -7;
-
-
-        targetRX =
-            (y - .5) * 5;
-
-
-
-        /* PRESIDENT */
-
-        targetPortraitX =
-            (x - .5) * 9;
-
-
-        targetPortraitY =
-            (y - .5) * 5;
-
-
-
-        /* REFLECTION */
-
-        targetShineX =
-            (x - .5) * 55;
-
-    }
-);
-
+    );
+}
 
 
 /* ================================================================
-   33. SMOOTH 3D RENDER LOOP
+   34. DESKTOP 3D LOOP ONLY
 ================================================================ */
 
 function renderLoop() {
-
 
     currentRX +=
         (
@@ -3967,14 +3156,11 @@ function renderLoop() {
         ) * .06;
 
 
-
     if (
         isFront &&
-        !isBusy
+        !isBusy &&
+        card
     ) {
-
-
-        /* CARD */
 
         card.style.transform = `
 
@@ -3989,9 +3175,6 @@ function renderLoop() {
         `;
 
 
-
-        /* PRESIDENT */
-
         if (memberImage) {
 
             memberImage.style.transform = `
@@ -4004,12 +3187,8 @@ function renderLoop() {
                 scale(1.01)
 
             `;
-
         }
 
-
-
-        /* CROWN — OPPOSITE MOTION */
 
         if (presidentEmblem) {
 
@@ -4020,12 +3199,8 @@ function renderLoop() {
                 ${currentPortraitY * -.18}px
 
             `;
-
         }
 
-
-
-        /* ENERGY */
 
         if (portraitEnergy) {
 
@@ -4036,12 +3211,8 @@ function renderLoop() {
                 ${currentPortraitY * .15}px
 
             `;
-
         }
 
-
-
-        /* HALO */
 
         if (leadershipHalo) {
 
@@ -4052,76 +3223,78 @@ function renderLoop() {
                 ${currentPortraitY * .07}px
 
             `;
-
         }
 
-
-
-        /* SHINE */
 
         if (cardShine) {
 
             cardShine.style.marginLeft =
                 `${currentShineX}px`;
-
         }
-
     }
 
 
     requestAnimationFrame(
         renderLoop
     );
-
 }
 
 
-renderLoop();
+/*
+    Very important:
 
+    Desktop:
+    render loop runs normally.
+
+    Phone:
+    NO permanent 60fps JS loop.
+*/
+
+if (!IS_MOBILE) {
+
+    renderLoop();
+}
 
 
 /* ================================================================
-   34. RESET PARALLAX
+   35. RESET DESKTOP PARALLAX
 ================================================================ */
 
-scene.addEventListener(
-    "pointerleave",
-    () => {
+if (
+    !IS_MOBILE &&
+    scene
+) {
+
+    scene.addEventListener(
+        "pointerleave",
+        () => {
+
+            targetRX =
+                0;
+
+            targetRY =
+                0;
 
 
-        targetRX =
-            0;
+            targetPortraitX =
+                0;
 
-        targetRY =
-            0;
-
-
-        targetPortraitX =
-            0;
-
-        targetPortraitY =
-            0;
+            targetPortraitY =
+                0;
 
 
-        targetShineX =
-            0;
-
-    }
-);
-
+            targetShineX =
+                0;
+        }
+    );
+}
 
 
 /* ================================================================
-   35. SUBTLE AMBIENT SIGNAL
-
-   Very important:
-   this is deliberately rare.
-
-   We do NOT want a constant neon show.
+   36. DESKTOP AMBIENT SIGNAL
 ================================================================ */
 
 function ambientSignal() {
-
 
     if (
         isFront &&
@@ -4132,7 +3305,6 @@ function ambientSignal() {
         createSmartTrace(
             .30
         );
-
     }
 
 
@@ -4145,20 +3317,20 @@ function ambientSignal() {
         4500
 
     );
-
 }
 
 
-ambientSignal();
+if (!IS_MOBILE) {
 
+    ambientSignal();
+}
 
 
 /* ================================================================
-   36. CROWN BREATH
+   37. DESKTOP CROWN BREATH
 ================================================================ */
 
 function crownBreath() {
-
 
     if (
         isFront &&
@@ -4166,31 +3338,24 @@ function crownBreath() {
         crownIcon
     ) {
 
-
         animate(
 
             crownIcon,
 
             [
-
                 {
-
-                    filter:
-                        `
+                    filter: `
                         brightness(1)
 
                         drop-shadow(
                             0 0 3px
                             rgba(255,255,255,.12)
                         )
-                        `
-
+                    `
                 },
 
                 {
-
-                    filter:
-                        `
+                    filter: `
                         brightness(1.08)
 
                         drop-shadow(
@@ -4202,38 +3367,28 @@ function crownBreath() {
                             0 0 8px
                             rgba(222,43,160,.12)
                         )
-                        `
-
+                    `
                 },
 
                 {
-
-                    filter:
-                        `
+                    filter: `
                         brightness(1)
 
                         drop-shadow(
                             0 0 3px
                             rgba(255,255,255,.12)
                         )
-                        `
-
+                    `
                 }
-
             ],
 
             {
-
-                duration:
-                    1100,
+                duration: 1100,
 
                 easing:
                     "ease-in-out"
-
             }
-
         );
-
     }
 
 
@@ -4246,27 +3401,26 @@ function crownBreath() {
         5000
 
     );
-
 }
 
 
-crownBreath();
+if (!IS_MOBILE) {
 
+    crownBreath();
+}
 
 
 /* ================================================================
-   37. RANDOM NODE RESPONSE
+   38. DESKTOP NODE RESPONSE
 ================================================================ */
 
 function nodeResponse() {
-
 
     if (
         isFront &&
         !isBusy &&
         brainNodes.length
     ) {
-
 
         const node =
             brainNodes[
@@ -4282,7 +3436,6 @@ function nodeResponse() {
             node,
 
             [
-
                 {
                     filter:
                         "brightness(1)"
@@ -4297,21 +3450,15 @@ function nodeResponse() {
                     filter:
                         "brightness(1)"
                 }
-
             ],
 
             {
-
-                duration:
-                    600,
+                duration: 600,
 
                 easing:
                     "ease-in-out"
-
             }
-
         );
-
     }
 
 
@@ -4324,223 +3471,249 @@ function nodeResponse() {
         5000
 
     );
-
 }
 
 
-nodeResponse();
+if (!IS_MOBILE) {
 
+    nodeResponse();
+}
 
 
 /* ================================================================
-   38. CLICK CARD TO FLIP
+   39. CLICK / TAP CARD TO FLIP
 ================================================================ */
 
-card.addEventListener(
-    "click",
-    async () => {
+if (card) {
+
+    card.addEventListener(
+        "click",
+        async () => {
+
+            if (isBusy) {
+
+                return;
+            }
 
 
-        if (isBusy) {
-
-            return;
-
-        }
-
-
-        isBusy =
-            true;
-
-
-        signalBurst(
-            2,
-            100
-        );
-
-
-        await wait(
-            150
-        );
-
-
-
-        /* FRONT → BACK */
-
-        if (isFront) {
-
-
-            isFront =
-                false;
-
-
-            card.classList.remove(
-                "flipped"
-            );
-
-
-            card.style.transform =
-                "rotateY(0deg)";
-
-
-            await wait(
-                1050
-            );
-
-        }
-
-
-
-        /* BACK → FRONT */
-
-        else {
-
-
-            smartFlash();
-
-
-            isFront =
+            isBusy =
                 true;
 
 
-            card.classList.add(
-                "flipped"
-            );
+            /*
+                Desktop keeps signal effects.
 
-
-            card.style.transform =
-                "rotateY(180deg)";
-
-
-            await wait(
-                1000
-            );
-
-
-            createSmartDust(
-                4
-            );
-
+                Mobile skips them automatically
+                because signalBurst returns early.
+            */
 
             signalBurst(
                 2,
-                90
+                100
             );
 
+
+            await wait(
+                IS_MOBILE
+                    ? 20
+                    : 150
+            );
+
+
+            /* FRONT → BACK */
+
+            if (isFront) {
+
+                isFront =
+                    false;
+
+
+                card.classList.remove(
+                    "flipped"
+                );
+
+
+                card.style.transform =
+                    "rotateY(0deg)";
+
+
+                await wait(
+                    1050
+                );
+            }
+
+
+            /* BACK → FRONT */
+
+            else {
+
+                smartFlash();
+
+
+                isFront =
+                    true;
+
+
+                card.classList.add(
+                    "flipped"
+                );
+
+
+                card.style.transform =
+                    "rotateY(180deg)";
+
+
+                await wait(
+                    1000
+                );
+
+
+                createSmartDust(
+                    4
+                );
+
+
+                signalBurst(
+                    2,
+                    90
+                );
+            }
+
+
+            targetRX =
+                0;
+
+            targetRY =
+                0;
+
+
+            currentRX =
+                0;
+
+            currentRY =
+                0;
+
+
+            targetPortraitX =
+                0;
+
+            targetPortraitY =
+                0;
+
+
+            currentPortraitX =
+                0;
+
+            currentPortraitY =
+                0;
+
+
+            targetShineX =
+                0;
+
+            currentShineX =
+                0;
+
+
+            /*
+                Make absolutely sure mobile
+                stops at the correct flat angle.
+            */
+
+            if (
+                IS_MOBILE &&
+                card
+            ) {
+
+                card.style.transform =
+                    isFront
+                        ? "rotateY(180deg)"
+                        : "rotateY(0deg)";
+            }
+
+
+            isBusy =
+                false;
         }
-
-
-
-        targetRX =
-            0;
-
-        targetRY =
-            0;
-
-
-        currentRX =
-            0;
-
-        currentRY =
-            0;
-
-
-        targetPortraitX =
-            0;
-
-        targetPortraitY =
-            0;
-
-
-        isBusy =
-            false;
-
-    }
-);
-
+    );
+}
 
 
 /* ================================================================
-   39. PHONE / TOUCH PARALLAX
+   40. NO TOUCHMOVE PARALLAX ON MOBILE
+
+   IMPORTANT:
+   Your old JS had a touchmove listener here.
+   It has intentionally been removed.
+
+   Phone only needs:
+   tap → flip
+
+   Not:
+   finger movement → continuous 3D calculations
 ================================================================ */
-
-scene.addEventListener(
-    "touchmove",
-    event => {
-
-
-        if (
-            !isFront ||
-            isBusy
-        ) {
-
-            return;
-
-        }
-
-
-        const touch =
-            event.touches[0];
-
-
-        if (!touch) {
-
-            return;
-
-        }
-
-
-        const rect =
-            scene.getBoundingClientRect();
-
-
-        const x =
-            (
-                touch.clientX -
-                rect.left
-            ) /
-            rect.width;
-
-
-        const y =
-            (
-                touch.clientY -
-                rect.top
-            ) /
-            rect.height;
-
-
-        targetRY =
-            (x - .5) * -5;
-
-
-        targetRX =
-            (y - .5) * 4;
-
-
-        targetPortraitX =
-            (x - .5) * 6;
-
-
-        targetPortraitY =
-            (y - .5) * 4;
-
-    },
-
-    {
-        passive:
-            true
-    }
-);
-
 
 
 /* ================================================================
-   40. RESIZE SAFETY
+   41. GLASS REFLECTION — DESKTOP ONLY
 ================================================================ */
 
-window.addEventListener(
-    "resize",
+if (
+    !IS_MOBILE &&
+    glassReflection &&
+    scene
+) {
+
+    scene.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                !isFront ||
+                isBusy
+            ) {
+
+                return;
+            }
+
+
+            const rect =
+                scene.getBoundingClientRect();
+
+
+            const normalizedX =
+                (
+                    event.clientX -
+                    rect.left
+                ) /
+                rect.width;
+
+
+            glassReflection.style.opacity =
+                `${
+                    .25 +
+                    Math.abs(
+                        normalizedX -
+                        .5
+                    ) *
+                    .35
+                }`;
+        }
+    );
+}
+
+
+/* ================================================================
+   42. PAGE VISIBILITY RESET
+================================================================ */
+
+document.addEventListener(
+    "visibilitychange",
     () => {
+
+        if (!document.hidden) {
+            return;
+        }
 
 
         targetRX =
@@ -4570,5 +3743,126 @@ window.addEventListener(
         currentPortraitY =
             0;
 
+
+        targetShineX =
+            0;
+
+        currentShineX =
+            0;
     }
 );
+
+
+/* ================================================================
+   43. RESIZE SAFETY
+================================================================ */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        targetRX =
+            0;
+
+        targetRY =
+            0;
+
+
+        currentRX =
+            0;
+
+        currentRY =
+            0;
+
+
+        targetPortraitX =
+            0;
+
+        targetPortraitY =
+            0;
+
+
+        currentPortraitX =
+            0;
+
+        currentPortraitY =
+            0;
+
+
+        targetShineX =
+            0;
+
+        currentShineX =
+            0;
+
+
+        if (
+            IS_MOBILE &&
+            card
+        ) {
+
+            card.style.transform =
+                isFront
+                    ? "rotateY(180deg)"
+                    : "rotateY(0deg)";
+        }
+    }
+);
+
+
+/* ================================================================
+   44. MOBILE CLEANUP
+================================================================ */
+
+if (IS_MOBILE) {
+
+    /*
+        Just in case particles already exist
+        because of browser cache / previous JS.
+    */
+
+    if (particlesContainer) {
+
+        particlesContainer.innerHTML =
+            "";
+    }
+
+
+    /*
+        Disable reflection transforms left
+        from previous versions.
+    */
+
+    if (cardShine) {
+
+        cardShine.style.marginLeft =
+            "0px";
+    }
+
+
+    if (presidentEmblem) {
+
+        presidentEmblem.style.translate =
+            "0px 0px";
+    }
+
+
+    if (portraitEnergy) {
+
+        portraitEnergy.style.translate =
+            "0px 0px";
+    }
+
+
+    if (leadershipHalo) {
+
+        leadershipHalo.style.translate =
+            "0px 0px";
+    }
+}
+
+
+/* ================================================================
+   SMART CLUB — PRESIDENT
+   MOBILE PERFORMANCE MODE READY
+================================================================ */
