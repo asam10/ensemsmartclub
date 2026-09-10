@@ -20,13 +20,10 @@ html {
 
 body {
     min-height: 100vh;
-
+    min-height: 100dvh;
     font-family: Arial, Helvetica, sans-serif;
-
     color: #ffffff;
-
     overflow-x: hidden;
-
     background:
         radial-gradient(
             circle at 50% -15%,
@@ -34,13 +31,11 @@ body {
             rgba(55, 5, 18, 0.055) 28%,
             transparent 55%
         ),
-
         radial-gradient(
             circle at 100% 100%,
             rgba(75, 4, 22, 0.09) 0%,
             transparent 40%
         ),
-
         linear-gradient(
             135deg,
             #080a0c 0%,
@@ -48,7 +43,6 @@ body {
             #120e11 72%,
             #190910 100%
         );
-
     background-attachment: fixed;
 }
 
@@ -89,8 +83,9 @@ body::before {
 
 .connect-page {
     width: 100%;
-
     min-height: 100vh;
+    min-height: 100dvh;
+    padding-bottom: calc(35px + env(safe-area-inset-bottom));
 
     display: flex;
 
