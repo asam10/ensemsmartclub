@@ -3072,3 +3072,1602 @@ if (projectsFrenchButton) {
     );
 
 }
+/* =========================================================
+   SMART CLUB — PROJECTS PAGE
+   MAJESTIC MOTION SYSTEM — PERFORMANCE EDITION
+   ========================================================= */
+
+(function () {
+
+    "use strict";
+
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
+
+    const isMobile =
+        window.matchMedia("(max-width: 768px)").matches;
+
+    const finePointer =
+        window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+    let pageHidden = document.hidden;
+
+
+    /* =====================================================
+       PAGE VISIBILITY
+    ===================================================== */
+
+    document.addEventListener("visibilitychange", () => {
+        pageHidden = document.hidden;
+
+        document.documentElement.classList.toggle(
+            "projects-page-paused",
+            pageHidden
+        );
+    });
+
+
+    /* =====================================================
+       PAGE ENTRANCE
+    ===================================================== */
+
+    if (!reducedMotion) {
+
+        document.documentElement.style.opacity = "0";
+
+        window.addEventListener("load", () => {
+
+            document.documentElement.animate(
+                [
+                    { opacity: 0 },
+                    { opacity: 1 }
+                ],
+                {
+                    duration: 550,
+                    easing: "ease-out",
+                    fill: "forwards"
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       PREMIUM SCROLL PROGRESS
+       Lightweight RAF instead of updating on every event
+    ===================================================== */
+
+    const scrollProgress =
+        document.createElement("div");
+
+    Object.assign(
+        scrollProgress.style,
+        {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "0%",
+            height: "2px",
+            zIndex: "99999",
+            pointerEvents: "none",
+
+            background:
+                "linear-gradient(" +
+                "90deg," +
+                "#b7032b," +
+                "#d61f45 45%," +
+                "#8b5cf6 72%," +
+                "#00c8ff" +
+                ")",
+
+            boxShadow:
+                "0 0 10px rgba(183,3,43,.45)"
+        }
+    );
+
+    document.body.appendChild(scrollProgress);
+
+
+    let scrollProgressFrame = null;
+
+
+    function updateScrollProgress() {
+
+        scrollProgressFrame = null;
+
+        const max =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        if (max <= 0) {
+
+            scrollProgress.style.width = "0%";
+
+            return;
+        }
+
+        const progress =
+            Math.min(
+                Math.max(window.scrollY / max, 0),
+                1
+            );
+
+        scrollProgress.style.width =
+            (progress * 100) + "%";
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (scrollProgressFrame !== null)
+                return;
+
+            scrollProgressFrame =
+                requestAnimationFrame(
+                    updateScrollProgress
+                );
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    updateScrollProgress();
+
+
+    /* =====================================================
+       MOUSE VARIABLES
+       NO PERMANENT RAF LOOP
+    ===================================================== */
+
+    if (
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        let mouseFrame = null;
+
+
+        function updateMouseVariables(e) {
+
+            mouseFrame = null;
+
+            if (pageHidden)
+                return;
+
+            document.body.style.setProperty(
+                "--projects-mx",
+                (e.clientX / window.innerWidth * 100) + "%"
+            );
+
+            document.body.style.setProperty(
+                "--projects-my",
+                (e.clientY / window.innerHeight * 100) + "%"
+            );
+
+        }
+
+
+        document.addEventListener(
+            "mousemove",
+            e => {
+
+                if (mouseFrame !== null)
+                    return;
+
+                mouseFrame =
+                    requestAnimationFrame(
+                        () => updateMouseVariables(e)
+                    );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CHERRY RED MOUSE AURA
+       Lighter + event-driven
+    ===================================================== */
+
+    if (
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        const aura =
+            document.createElement("div");
+
+        aura.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        Object.assign(
+            aura.style,
+            {
+                position: "fixed",
+
+                width: "320px",
+                height: "320px",
+
+                left: "0",
+                top: "0",
+
+                zIndex: "0",
+                pointerEvents: "none",
+
+                borderRadius: "50%",
+
+                opacity: ".10",
+
+                filter: "blur(12px)",
+
+                transform:
+                    "translate3d(-50%,-50%,0)",
+
+                willChange:
+                    "transform",
+
+                background:
+                    "radial-gradient(" +
+                    "circle," +
+                    "rgba(183,3,43,.28)," +
+                    "rgba(143,0,56,.10) 40%," +
+                    "transparent 72%" +
+                    ")"
+            }
+        );
+
+
+        document.body.appendChild(aura);
+
+
+        let auraFrame = null;
+
+
+        function moveAura(e) {
+
+            auraFrame = null;
+
+            if (pageHidden)
+                return;
+
+            aura.style.transform =
+                "translate3d(" +
+                e.clientX +
+                "px," +
+                e.clientY +
+                "px,0) " +
+                "translate(-50%,-50%)";
+
+        }
+
+
+        document.addEventListener(
+            "mousemove",
+            e => {
+
+                if (auraFrame !== null)
+                    return;
+
+                auraFrame =
+                    requestAnimationFrame(
+                        () => moveAura(e)
+                    );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".projects-hero .hero-content," +
+            ".projects-hero .hero-system," +
+            ".database-intro-grid," +
+            ".projects-header," +
+            ".project-controls," +
+            ".database-loading," +
+            ".empty-projects," +
+            ".philosophy-index," +
+            ".philosophy-content," +
+            ".philosophy-process," +
+            ".reports-header," +
+            ".report-controls," +
+            ".reports-grid," +
+            ".project-cta .cta-content," +
+            ".project-card," +
+            ".report-card"
+        );
+
+
+    revealElements.forEach(
+        (element, index) => {
+
+            element.classList.add(
+                "projects-majestic-reveal"
+            );
+
+            element.style.transitionDelay =
+                Math.min(
+                    (index % 4) * 45,
+                    180
+                ) + "ms";
+
+        }
+    );
+
+
+    if (
+        "IntersectionObserver" in window &&
+        !reducedMotion
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                !entry.isIntersecting
+                            )
+                                return;
+
+                            entry.target.classList.add(
+                                "projects-is-visible"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08,
+                    rootMargin:
+                        "0px 0px -30px 0px"
+                }
+            );
+
+
+        revealElements.forEach(
+            element => {
+
+                observer.observe(element);
+
+            }
+        );
+
+    } else {
+
+        revealElements.forEach(
+            element => {
+
+                element.classList.add(
+                    "projects-is-visible"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       NEURAL FIELD
+       Same visual concept, fewer DOM elements
+    ===================================================== */
+
+    const neuralSections = [
+        document.querySelector(".projects-hero"),
+        document.querySelector(".database-introduction"),
+        document.querySelector(".projects-section"),
+        document.querySelector(".project-philosophy"),
+        document.querySelector(".reports-section"),
+        document.querySelector(".project-cta")
+    ].filter(Boolean);
+
+
+    const allNeuralNodes = [];
+
+
+    function createNeuralField(
+        section,
+        count
+    ) {
+
+        if (
+            section.querySelector(
+                ".projects-neural-field"
+            )
+        )
+            return;
+
+
+        const field =
+            document.createElement("div");
+
+        field.className =
+            "projects-neural-field";
+
+        field.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        section.prepend(field);
+
+
+        const nodes = [];
+
+
+        /* -------------------------------------------------
+           NODES
+        ------------------------------------------------- */
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+            const node =
+                document.createElement("span");
+
+            node.className =
+                "projects-neural-node";
+
+
+            const x =
+                8 + Math.random() * 84;
+
+            const y =
+                10 + Math.random() * 80;
+
+
+            node.style.left =
+                x + "%";
+
+            node.style.top =
+                y + "%";
+
+
+            node.dataset.x = x;
+            node.dataset.y = y;
+
+
+            field.appendChild(node);
+
+            nodes.push(node);
+
+            allNeuralNodes.push(node);
+
+        }
+
+
+        /* -------------------------------------------------
+           CONNECTIONS
+        ------------------------------------------------- */
+
+        const connections =
+            isMobile
+                ? Math.min(count + 1, 3)
+                : Math.min(count + 2, 7);
+
+
+        for (
+            let i = 0;
+            i < connections;
+            i++
+        ) {
+
+            const first =
+                nodes[
+                    Math.floor(
+                        Math.random() *
+                        nodes.length
+                    )
+                ];
+
+
+            let second =
+                nodes[
+                    Math.floor(
+                        Math.random() *
+                        nodes.length
+                    )
+                ];
+
+
+            if (
+                first === second &&
+                nodes.length > 1
+            ) {
+
+                second =
+                    nodes[
+                        (
+                            nodes.indexOf(first) +
+                            1
+                        ) %
+                        nodes.length
+                    ];
+
+            }
+
+
+            if (
+                !first ||
+                !second
+            )
+                continue;
+
+
+            const x1 =
+                Number(first.dataset.x);
+
+            const y1 =
+                Number(first.dataset.y);
+
+            const x2 =
+                Number(second.dataset.x);
+
+            const y2 =
+                Number(second.dataset.y);
+
+
+            const dx =
+                x2 - x1;
+
+            const dy =
+                y2 - y1;
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            const angle =
+                Math.atan2(
+                    dy,
+                    dx
+                ) *
+                180 /
+                Math.PI;
+
+
+            const line =
+                document.createElement("span");
+
+            line.className =
+                "projects-neural-line";
+
+
+            line.style.left =
+                x1 + "%";
+
+            line.style.top =
+                y1 + "%";
+
+            line.style.width =
+                distance + "%";
+
+            line.style.transform =
+                "rotate(" +
+                angle +
+                "deg)";
+
+
+            field.insertBefore(
+                line,
+                field.firstChild
+            );
+
+        }
+
+    }
+
+
+    neuralSections.forEach(
+        (section, index) => {
+
+            createNeuralField(
+                section,
+
+                isMobile
+                    ? 2
+                    : index === 0
+                        ? 10
+                        : 5
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       ONE LIGHTWEIGHT NEURAL PULSE SYSTEM
+       Instead of 6 separate intervals
+    ===================================================== */
+
+    if (
+        !reducedMotion &&
+        allNeuralNodes.length
+    ) {
+
+        let pulseTimer = null;
+
+
+        function pulseRandomNode() {
+
+            if (pageHidden)
+                return;
+
+            if (!allNeuralNodes.length)
+                return;
+
+
+            const node =
+                allNeuralNodes[
+                    Math.floor(
+                        Math.random() *
+                        allNeuralNodes.length
+                    )
+                ];
+
+
+            if (!node)
+                return;
+
+
+            node.animate(
+                [
+                    {
+                        transform:
+                            "scale(1)",
+                        opacity: ".35"
+                    },
+                    {
+                        transform:
+                            "scale(1.8)",
+                        opacity: "1"
+                    },
+                    {
+                        transform:
+                            "scale(1)",
+                        opacity: ".35"
+                    }
+                ],
+                {
+                    duration:
+                        isMobile
+                            ? 500
+                            : 650,
+
+                    easing:
+                        "cubic-bezier(.2,.7,.2,1)"
+                }
+            );
+
+        }
+
+
+        pulseTimer =
+            setInterval(
+                pulseRandomNode,
+                isMobile
+                    ? 2200
+                    : 1700
+            );
+
+    }
+
+
+    /* =====================================================
+       HERO PARALLAX
+       Event-driven RAF
+    ===================================================== */
+
+    const hero =
+        document.querySelector(
+            ".projects-hero"
+        );
+
+
+    if (
+        hero &&
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        const content =
+            hero.querySelector(
+                ".hero-content"
+            );
+
+        const system =
+            hero.querySelector(
+                ".hero-system"
+            );
+
+
+        let targetX = 0;
+        let targetY = 0;
+
+        let frame = null;
+
+
+        function updateHero() {
+
+            frame = null;
+
+            if (pageHidden)
+                return;
+
+
+            if (content) {
+
+                content.style.transform =
+                    "translate3d(" +
+                    (targetX * -7) +
+                    "px," +
+                    (targetY * -5) +
+                    "px,0)";
+
+            }
+
+
+            if (system) {
+
+                system.style.transform =
+                    "translate3d(" +
+                    (targetX * 11) +
+                    "px," +
+                    (targetY * 8) +
+                    "px,0)";
+
+            }
+
+        }
+
+
+        hero.addEventListener(
+            "mousemove",
+            e => {
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+
+                targetX =
+                    (
+                        e.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
+
+
+                targetY =
+                    (
+                        e.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
+
+
+                if (frame === null) {
+
+                    frame =
+                        requestAnimationFrame(
+                            updateHero
+                        );
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        hero.addEventListener(
+            "mouseleave",
+            () => {
+
+                targetX = 0;
+                targetY = 0;
+
+                if (frame === null) {
+
+                    frame =
+                        requestAnimationFrame(
+                            updateHero
+                        );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       HERO SYSTEM TILT
+       Throttled to animation frames
+    ===================================================== */
+
+    const heroSystem =
+        document.querySelector(
+            ".hero-system"
+        );
+
+
+    if (
+        heroSystem &&
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        let tiltFrame = null;
+
+        let tiltX = 0;
+        let tiltY = 0;
+
+
+        function updateTilt() {
+
+            tiltFrame = null;
+
+            if (pageHidden)
+                return;
+
+
+            heroSystem.style.transform =
+                "perspective(1200px)" +
+                " rotateX(" +
+                tiltY * -2 +
+                "deg)" +
+                " rotateY(" +
+                tiltX * 2 +
+                "deg)" +
+                " translate3d(0,-5px,0)";
+
+        }
+
+
+        heroSystem.addEventListener(
+            "mousemove",
+            e => {
+
+                const rect =
+                    heroSystem.getBoundingClientRect();
+
+
+                tiltX =
+                    (
+                        e.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
+
+
+                tiltY =
+                    (
+                        e.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
+
+
+                if (tiltFrame === null) {
+
+                    tiltFrame =
+                        requestAnimationFrame(
+                            updateTilt
+                        );
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        heroSystem.addEventListener(
+            "mouseleave",
+            () => {
+
+                tiltX = 0;
+                tiltY = 0;
+
+                if (tiltFrame === null) {
+
+                    tiltFrame =
+                        requestAnimationFrame(
+                            updateTilt
+                        );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PROJECT / REPORT CARD 3D
+       Keep the majestic interaction
+    ===================================================== */
+
+    if (
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        document.querySelectorAll(
+            ".project-card,.report-card"
+        ).forEach(card => {
+
+            let frame = null;
+
+            let cardX = 0;
+            let cardY = 0;
+
+
+            function updateCard() {
+
+                frame = null;
+
+                if (pageHidden)
+                    return;
+
+
+                card.style.transform =
+                    "perspective(1100px)" +
+                    " rotateX(" +
+                    cardY * -1.5 +
+                    "deg)" +
+                    " rotateY(" +
+                    cardX * 1.5 +
+                    "deg)" +
+                    " translate3d(0,-5px,0)";
+
+            }
+
+
+            card.addEventListener(
+                "mousemove",
+                e => {
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    cardX =
+                        (
+                            e.clientX -
+                            rect.left
+                        ) /
+                        rect.width -
+                        0.5;
+
+
+                    cardY =
+                        (
+                            e.clientY -
+                            rect.top
+                        ) /
+                        rect.height -
+                        0.5;
+
+
+                    if (frame === null) {
+
+                        frame =
+                            requestAnimationFrame(
+                                updateCard
+                            );
+
+                    }
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform = "";
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       MAGNETIC BUTTONS
+       Kept, but lighter
+    ===================================================== */
+
+    if (
+        finePointer &&
+        !reducedMotion
+    ) {
+
+        document.querySelectorAll(
+            ".hero-primary," +
+            ".hero-secondary," +
+            ".cta-button," +
+            ".filter," +
+            ".report-filter"
+        ).forEach(button => {
+
+            let frame = null;
+
+            let buttonX = 0;
+            let buttonY = 0;
+
+
+            function updateButton() {
+
+                frame = null;
+
+                if (pageHidden)
+                    return;
+
+
+                button.style.transform =
+                    "translate3d(" +
+                    buttonX * 0.045 +
+                    "px," +
+                    buttonY * 0.065 +
+                    "px,0)";
+
+            }
+
+
+            button.addEventListener(
+                "mousemove",
+                e => {
+
+                    const rect =
+                        button.getBoundingClientRect();
+
+
+                    buttonX =
+                        e.clientX -
+                        rect.left -
+                        rect.width / 2;
+
+
+                    buttonY =
+                        e.clientY -
+                        rect.top -
+                        rect.height / 2;
+
+
+                    if (frame === null) {
+
+                        frame =
+                            requestAnimationFrame(
+                                updateButton
+                            );
+
+                    }
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            button.addEventListener(
+                "mouseleave",
+                () => {
+
+                    button.style.transform = "";
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       CLICK RIPPLE
+       Keep — happens only on click
+    ===================================================== */
+
+    if (!reducedMotion) {
+
+        document.querySelectorAll(
+            ".hero-primary," +
+            ".hero-secondary," +
+            ".cta-button," +
+            ".filter," +
+            ".report-filter"
+        ).forEach(element => {
+
+            element.addEventListener(
+                "pointerdown",
+                e => {
+
+                    const rect =
+                        element.getBoundingClientRect();
+
+
+                    const size =
+                        Math.max(
+                            rect.width,
+                            rect.height
+                        ) * 1.35;
+
+
+                    const ripple =
+                        document.createElement("span");
+
+
+                    Object.assign(
+                        ripple.style,
+                        {
+                            position: "absolute",
+
+                            width:
+                                size + "px",
+
+                            height:
+                                size + "px",
+
+                            left:
+                                (
+                                    e.clientX -
+                                    rect.left -
+                                    size / 2
+                                ) + "px",
+
+                            top:
+                                (
+                                    e.clientY -
+                                    rect.top -
+                                    size / 2
+                                ) + "px",
+
+                            borderRadius:
+                                "50%",
+
+                            pointerEvents:
+                                "none",
+
+                            zIndex:
+                                "30",
+
+                            opacity:
+                                ".20",
+
+                            transform:
+                                "scale(0)",
+
+                            background:
+                                "radial-gradient(" +
+                                "circle," +
+                                "rgba(255,255,255,.55)," +
+                                "rgba(183,3,43,.22) 35%," +
+                                "transparent 70%" +
+                                ")",
+
+                            willChange:
+                                "transform,opacity"
+                        }
+                    );
+
+
+                    if (
+                        getComputedStyle(
+                            element
+                        ).position === "static"
+                    ) {
+
+                        element.style.position =
+                            "relative";
+
+                    }
+
+
+                    element.appendChild(
+                        ripple
+                    );
+
+
+                    ripple.animate(
+                        [
+                            {
+                                transform:
+                                    "scale(0)",
+                                opacity:
+                                    .20
+                            },
+                            {
+                                transform:
+                                    "scale(1)",
+                                opacity:
+                                    0
+                            }
+                        ],
+                        {
+                            duration:
+                                500,
+
+                            easing:
+                                "cubic-bezier(.2,.7,.2,1)"
+                        }
+                    ).onfinish = () => {
+
+                        ripple.remove();
+
+                    };
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       SECTION DEPTH
+       Desktop only + throttled
+    ===================================================== */
+
+    if (
+        !isMobile &&
+        !reducedMotion
+    ) {
+
+        const sections =
+            document.querySelectorAll(
+                ".database-introduction," +
+                ".projects-section," +
+                ".project-philosophy," +
+                ".reports-section," +
+                ".project-cta"
+            );
+
+
+        let depthFrame = null;
+
+
+        function updateDepth() {
+
+            depthFrame = null;
+
+            if (pageHidden)
+                return;
+
+
+            const center =
+                window.innerHeight / 2;
+
+
+            sections.forEach(
+                section => {
+
+                    const rect =
+                        section.getBoundingClientRect();
+
+
+                    const sectionCenter =
+                        rect.top +
+                        rect.height / 2;
+
+
+                    const distance =
+                        (
+                            sectionCenter -
+                            center
+                        ) /
+                        window.innerHeight;
+
+
+                    section.style.setProperty(
+                        "--projects-section-depth",
+                        Math.max(
+                            -1,
+                            Math.min(
+                                1,
+                                distance
+                            )
+                        )
+                    );
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (depthFrame !== null)
+                    return;
+
+                depthFrame =
+                    requestAnimationFrame(
+                        updateDepth
+                    );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        updateDepth();
+
+    }
+
+
+    /* =====================================================
+       MODAL ENERGY EFFECT
+       Only runs when modal opens
+    ===================================================== */
+
+    const modal =
+        document.getElementById(
+            "projectModal"
+        );
+
+
+    if (
+        modal &&
+        !reducedMotion
+    ) {
+
+        const modalObserver =
+            new MutationObserver(
+                () => {
+
+                    if (
+                        !modal.classList.contains(
+                            "open"
+                        )
+                    )
+                        return;
+
+
+                    const panel =
+                        modal.querySelector(
+                            ".project-detail-modal"
+                        );
+
+
+                    if (!panel)
+                        return;
+
+
+                    panel.animate(
+                        [
+                            {
+                                boxShadow:
+                                    "0 30px 90px rgba(0,0,0,.65)," +
+                                    "0 0 0 rgba(183,3,43,0)"
+                            },
+                            {
+                                boxShadow:
+                                    "0 30px 90px rgba(0,0,0,.65)," +
+                                    "0 0 55px rgba(183,3,43,.18)"
+                            },
+                            {
+                                boxShadow:
+                                    "0 30px 90px rgba(0,0,0,.65)," +
+                                    "0 0 35px rgba(183,3,43,.06)"
+                            }
+                        ],
+                        {
+                            duration:
+                                700,
+
+                            easing:
+                                "ease-out"
+                        }
+                    );
+
+                }
+            );
+
+
+        modalObserver.observe(
+            modal,
+            {
+                attributes: true,
+                attributeFilter: [
+                    "class"
+                ]
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       SMART CLUB CONSOLE
+    ===================================================== */
+
+    console.log(
+        "%c SMART CLUB // PROJECTS ",
+        "background:#8f0038;" +
+        "color:#fff;" +
+        "padding:7px 12px;" +
+        "font-weight:bold;" +
+        "border-radius:4px;"
+    );
+
+
+    console.log(
+        "%c PROJECT SYSTEM ONLINE ",
+        "color:#b7032b;" +
+        "font-weight:bold;" +
+        "letter-spacing:2px;"
+    );
+
+
+})();
+/* =========================================================
+   SMART CLUB — CLOSE MOBILE MENU ON SCROLL / SWIPE
+   ========================================================= */
+
+(() => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (!menuBtn || !mobileMenu) return;
+
+    function isMenuOpen() {
+        return (
+            mobileMenu.classList.contains("active") ||
+            mobileMenu.classList.contains("open") ||
+            mobileMenu.classList.contains("show")
+        );
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove("active", "open", "show");
+
+        menuBtn.classList.remove("active", "open");
+
+        // Return hamburger icon
+        menuBtn.textContent = "☰";
+
+        // Accessibility
+        menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+
+    /* Close when user starts scrolling */
+    window.addEventListener(
+        "scroll",
+        () => {
+            if (isMenuOpen()) {
+                closeMobileMenu();
+            }
+        },
+        { passive: true }
+    );
+
+
+    /* Close immediately when finger starts swiping */
+    let touchStartY = 0;
+
+    document.addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+    );
+
+    document.addEventListener(
+        "touchmove",
+        (e) => {
+            if (!isMenuOpen()) return;
+
+            const currentY = e.touches[0].clientY;
+            const distance = Math.abs(currentY - touchStartY);
+
+            // Small threshold prevents accidental closing
+            if (distance > 8) {
+                closeMobileMenu();
+            }
+        },
+        { passive: true }
+    );
+})();
+/* =========================================================
+   MOBILE MENU — HAMBURGER / X SYNC
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (!menuBtn || !mobileMenu) return;
+
+    function syncMenuIcon() {
+        const isOpen =
+            mobileMenu.classList.contains("open") ||
+            mobileMenu.classList.contains("active");
+
+        menuBtn.classList.toggle("menu-open", isOpen);
+    }
+
+    new MutationObserver(syncMenuIcon).observe(mobileMenu, {
+        attributes: true,
+        attributeFilter: ["class"]
+    });
+
+    menuBtn.addEventListener("click", () => {
+        requestAnimationFrame(syncMenuIcon);
+    });
+
+    syncMenuIcon();
+});

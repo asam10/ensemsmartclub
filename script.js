@@ -2118,7 +2118,29 @@ const translations = {
         smartClubLearn: "SMART CLUB • LEARN",
         smartClubLearning: "SMART CLUB LEARNING",
         watchVideo: "WATCH VIDEO",
-        comingSoon: "COMING SOON"
+        comingSoon: "COMING SOON",
+        studentClubOf: "STUDENT CLUB OF",
+
+ensemFullName:
+    "National Higher School of Electricity and Mechanics",
+
+casablanca:
+    "CASABLANCA",
+
+directorEyebrow:
+    "WORD FROM THE DIRECTOR",
+
+directorTitle:
+    'A word from our <span>Director.</span>',
+
+directorQuote:
+    "Smart Club represents the spirit of initiative, innovation and collaboration that we encourage among our engineering students.",
+
+directorName:
+    "Director Name",
+
+directorRole:
+    "DIRECTOR OF ENSEM",
 
     },
 
@@ -2364,6 +2386,29 @@ const translations = {
         smartClubLearning: "APPRENTISSAGE SMART CLUB",
         watchVideo: "VOIR LA VIDÉO",
         comingSoon: "BIENTÔT",
+        studentClubOf:
+    "CLUB ÉTUDIANT DE",
+
+ensemFullName:
+    "École Nationale Supérieure d'Électricité et de Mécanique",
+
+casablanca:
+    "CASABLANCA",
+
+directorEyebrow:
+    "MOT DU DIRECTEUR",
+
+directorTitle:
+    'Un mot de notre <span>Directeur.</span>',
+
+directorQuote:
+    "Smart Club représente l'esprit d'initiative, d'innovation et de collaboration que nous encourageons auprès de nos étudiants ingénieurs.",
+
+directorName:
+    "Nom du Directeur",
+
+directorRole:
+    "DIRECTEUR DE L'ENSEM",
 
     }
 
@@ -2484,3 +2529,3914 @@ const savedLanguage =
 
 
 applyLanguage(savedLanguage);
+/* =========================================================
+   SMART CLUB — MAJESTIC MOTION SYSTEM
+   Add this at the VERY END of script.js
+========================================================= */
+
+(function () {
+
+    "use strict";
+
+
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
+
+    const isMobile =
+        window.matchMedia("(max-width: 768px)").matches;
+
+    const reduceMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+    const hasFinePointer =
+        window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+
+    if (reduceMotion) {
+        document.documentElement.classList.add(
+            "reduced-motion"
+        );
+    }
+
+
+
+    /* =====================================================
+       01 — PAGE ENTRANCE
+    ===================================================== */
+
+    document.documentElement.classList.add(
+        "smart-loading"
+    );
+
+
+    window.addEventListener("load", function () {
+
+        document.documentElement.classList.remove(
+            "smart-loading"
+        );
+
+        document.documentElement.classList.add(
+            "smart-ready"
+        );
+
+    });
+
+
+
+    /* =====================================================
+       02 — PREMIUM SCROLL PROGRESS
+    ===================================================== */
+
+    const scrollProgress =
+        document.createElement("div");
+
+
+    scrollProgress.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    Object.assign(
+        scrollProgress.style,
+        {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "0%",
+            height: "2px",
+            zIndex: "99999",
+            pointerEvents: "none",
+
+            background:
+                "linear-gradient(90deg," +
+                "#d60063 0%," +
+                "#ff2d83 45%," +
+                "#00d9ff 100%)",
+
+            boxShadow:
+                "0 0 16px rgba(214,0,99,.8)," +
+                "0 0 28px rgba(0,217,255,.28)",
+
+            transition:
+                "width .08s linear"
+        }
+    );
+
+
+    document.body.appendChild(
+        scrollProgress
+    );
+
+
+    function updateScrollProgress() {
+
+        const scrollable =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+
+        const progress =
+            scrollable > 0
+                ? window.scrollY / scrollable
+                : 0;
+
+
+        scrollProgress.style.width =
+            Math.min(
+                progress * 100,
+                100
+            ) + "%";
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateScrollProgress,
+        {
+            passive: true
+        }
+    );
+
+
+    updateScrollProgress();
+
+
+
+    /* =====================================================
+       03 — CINEMATIC SCROLL REVEAL
+    ===================================================== */
+
+    const revealTargets =
+        document.querySelectorAll(
+
+            ".section-heading," +
+
+            ".about-text," +
+            ".stats," +
+            ".stat," +
+
+            ".field-card," +
+            ".field-explorer," +
+
+            ".projects-header," +
+            ".project-terminal," +
+
+            ".event-container," +
+
+            ".join-label," +
+            ".join h2," +
+            ".join-description," +
+            ".join-buttons," +
+
+            ".footer-brand," +
+            ".footer-school," +
+            ".footer-social"
+
+        );
+
+
+    revealTargets.forEach(function (
+        element,
+        index
+    ) {
+
+        element.classList.add(
+            "reveal-modern"
+        );
+
+
+        /*
+            Small stagger.
+            Capped so elements far down the
+            document do not get huge delays.
+        */
+
+        element.style.transitionDelay =
+            Math.min(
+                (index % 5) * 70,
+                280
+            ) + "ms";
+
+    });
+
+
+
+    if (!reduceMotion) {
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "revealed"
+                                    );
+
+
+                                revealObserver
+                                    .unobserve(
+                                        entry.target
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12,
+
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+
+            );
+
+
+        revealTargets.forEach(
+            function (element) {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+    }
+
+    else {
+
+        revealTargets.forEach(
+            function (element) {
+
+                element.classList.add(
+                    "revealed"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       04 — MOUSE AURA
+       Soft magenta/cyan atmospheric light
+    ===================================================== */
+
+    if (
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        const aura =
+            document.createElement("div");
+
+
+        aura.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        Object.assign(
+            aura.style,
+            {
+
+                position:
+                    "fixed",
+
+                width:
+                    "520px",
+
+                height:
+                    "520px",
+
+                left:
+                    "0",
+
+                top:
+                    "0",
+
+                zIndex:
+                    "0",
+
+                pointerEvents:
+                    "none",
+
+                borderRadius:
+                    "50%",
+
+                opacity:
+                    ".18",
+
+                background:
+                    "radial-gradient(" +
+                    "circle," +
+                    "rgba(214,0,99,.38) 0%," +
+                    "rgba(132,45,255,.14) 30%," +
+                    "rgba(0,217,255,.07) 48%," +
+                    "transparent 72%" +
+                    ")",
+
+                filter:
+                    "blur(20px)",
+
+                transform:
+                    "translate(-50%, -50%)",
+
+                transition:
+                    "opacity .4s ease",
+
+                willChange:
+                    "left, top"
+
+            }
+        );
+
+
+        document.body.appendChild(
+            aura
+        );
+
+
+        let auraX =
+            window.innerWidth / 2;
+
+        let auraY =
+            window.innerHeight / 2;
+
+        let targetAuraX =
+            auraX;
+
+        let targetAuraY =
+            auraY;
+
+
+        document.addEventListener(
+            "mousemove",
+            function (event) {
+
+                targetAuraX =
+                    event.clientX;
+
+                targetAuraY =
+                    event.clientY;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        document.addEventListener(
+            "mouseleave",
+            function () {
+
+                aura.style.opacity =
+                    "0";
+
+            }
+        );
+
+
+        document.addEventListener(
+            "mouseenter",
+            function () {
+
+                aura.style.opacity =
+                    ".18";
+
+            }
+        );
+
+
+        function animateAura() {
+
+            auraX +=
+                (
+                    targetAuraX -
+                    auraX
+                ) * 0.08;
+
+
+            auraY +=
+                (
+                    targetAuraY -
+                    auraY
+                ) * 0.08;
+
+
+            aura.style.left =
+                auraX + "px";
+
+            aura.style.top =
+                auraY + "px";
+
+
+            requestAnimationFrame(
+                animateAura
+            );
+
+        }
+
+
+        animateAura();
+
+    }
+
+
+
+    /* =====================================================
+       05 — HERO PARTICLE NETWORK
+    ===================================================== */
+
+    const hero =
+        document.querySelector(
+            ".hero"
+        );
+
+
+    if (
+        hero &&
+        !reduceMotion
+    ) {
+
+        const canvas =
+            document.createElement(
+                "canvas"
+            );
+
+
+        canvas.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        Object.assign(
+            canvas.style,
+            {
+
+                position:
+                    "absolute",
+
+                inset:
+                    "0",
+
+                width:
+                    "100%",
+
+                height:
+                    "100%",
+
+                zIndex:
+                    "1",
+
+                pointerEvents:
+                    "none",
+
+                opacity:
+                    isMobile
+                        ? ".35"
+                        : ".55"
+
+            }
+        );
+
+
+        hero.insertBefore(
+            canvas,
+            hero.firstChild
+        );
+
+
+        const ctx =
+            canvas.getContext(
+                "2d"
+            );
+
+
+        let width = 0;
+
+        let height = 0;
+
+        let particles = [];
+
+        let heroMouseX =
+            0;
+
+        let heroMouseY =
+            0;
+
+        let heroMouseActive =
+            false;
+
+
+
+        function resizeParticleCanvas() {
+
+            const rect =
+                hero.getBoundingClientRect();
+
+
+            const dpr =
+                Math.min(
+                    window.devicePixelRatio ||
+                    1,
+                    2
+                );
+
+
+            width =
+                rect.width;
+
+            height =
+                rect.height;
+
+
+            canvas.width =
+                width * dpr;
+
+            canvas.height =
+                height * dpr;
+
+
+            canvas.style.width =
+                width + "px";
+
+            canvas.style.height =
+                height + "px";
+
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+
+
+            createParticles();
+
+        }
+
+
+
+        function createParticles() {
+
+            particles = [];
+
+
+            const particleCount =
+                isMobile
+                    ? 28
+                    : Math.min(
+                        75,
+                        Math.floor(
+                            width / 18
+                        )
+                    );
+
+
+            for (
+                let i = 0;
+                i < particleCount;
+                i++
+            ) {
+
+                particles.push({
+
+                    x:
+                        Math.random() *
+                        width,
+
+                    y:
+                        Math.random() *
+                        height,
+
+                    vx:
+                        (
+                            Math.random() -
+                            0.5
+                        ) * 0.20,
+
+                    vy:
+                        (
+                            Math.random() -
+                            0.5
+                        ) * 0.20,
+
+                    radius:
+                        Math.random() *
+                        1.3 +
+                        0.45,
+
+                    type:
+                        Math.random() >
+                        0.72
+                            ? "cyan"
+                            : "magenta",
+
+                    phase:
+                        Math.random() *
+                        Math.PI *
+                        2
+
+                });
+
+            }
+
+        }
+
+
+
+        hero.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+
+                heroMouseX =
+                    event.clientX -
+                    rect.left;
+
+                heroMouseY =
+                    event.clientY -
+                    rect.top;
+
+                heroMouseActive =
+                    true;
+
+            }
+        );
+
+
+        hero.addEventListener(
+            "mouseleave",
+            function () {
+
+                heroMouseActive =
+                    false;
+
+            }
+        );
+
+
+
+        function animateParticles(
+            time
+        ) {
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            /*
+                CONNECTION LINES
+            */
+
+            for (
+                let i = 0;
+                i < particles.length;
+                i++
+            ) {
+
+                const first =
+                    particles[i];
+
+
+                for (
+                    let j = i + 1;
+                    j < particles.length;
+                    j++
+                ) {
+
+                    const second =
+                        particles[j];
+
+
+                    const dx =
+                        first.x -
+                        second.x;
+
+                    const dy =
+                        first.y -
+                        second.y;
+
+
+                    const distance =
+                        Math.sqrt(
+                            dx * dx +
+                            dy * dy
+                        );
+
+
+                    const maxDistance =
+                        isMobile
+                            ? 90
+                            : 135;
+
+
+                    if (
+                        distance <
+                        maxDistance
+                    ) {
+
+                        const opacity =
+                            (
+                                1 -
+                                distance /
+                                maxDistance
+                            ) * 0.12;
+
+
+                        ctx.beginPath();
+
+                        ctx.moveTo(
+                            first.x,
+                            first.y
+                        );
+
+                        ctx.lineTo(
+                            second.x,
+                            second.y
+                        );
+
+
+                        ctx.strokeStyle =
+                            "rgba(" +
+                            "184, 106, 255," +
+                            opacity +
+                            ")";
+
+
+                        ctx.lineWidth =
+                            0.65;
+
+
+                        ctx.stroke();
+
+                    }
+
+                }
+
+            }
+
+
+
+            /*
+                PARTICLES
+            */
+
+            particles.forEach(
+                function (
+                    particle
+                ) {
+
+                    particle.x +=
+                        particle.vx;
+
+                    particle.y +=
+                        particle.vy;
+
+
+                    /*
+                        Mouse gently repels
+                        nearby particles.
+                    */
+
+                    if (
+                        heroMouseActive &&
+                        !isMobile
+                    ) {
+
+                        const dx =
+                            particle.x -
+                            heroMouseX;
+
+                        const dy =
+                            particle.y -
+                            heroMouseY;
+
+
+                        const distance =
+                            Math.sqrt(
+                                dx * dx +
+                                dy * dy
+                            );
+
+
+                        if (
+                            distance <
+                            130 &&
+                            distance >
+                            0
+                        ) {
+
+                            particle.x +=
+                                (
+                                    dx /
+                                    distance
+                                ) * 0.32;
+
+                            particle.y +=
+                                (
+                                    dy /
+                                    distance
+                                ) * 0.32;
+
+                        }
+
+                    }
+
+
+                    /*
+                        Wrap particles
+                    */
+
+                    if (
+                        particle.x < -5
+                    ) {
+
+                        particle.x =
+                            width + 5;
+
+                    }
+
+
+                    if (
+                        particle.x >
+                        width + 5
+                    ) {
+
+                        particle.x =
+                            -5;
+
+                    }
+
+
+                    if (
+                        particle.y < -5
+                    ) {
+
+                        particle.y =
+                            height + 5;
+
+                    }
+
+
+                    if (
+                        particle.y >
+                        height + 5
+                    ) {
+
+                        particle.y =
+                            -5;
+
+                    }
+
+
+
+                    const pulse =
+                        0.65 +
+                        Math.sin(
+                            time * 0.001 +
+                            particle.phase
+                        ) * 0.25;
+
+
+                    const color =
+                        particle.type ===
+                        "cyan"
+
+                            ? "0,217,255"
+
+                            : "255,45,131";
+
+
+                    /*
+                        Glow
+                    */
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        particle.x,
+                        particle.y,
+                        particle.radius *
+                        5,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        "rgba(" +
+                        color +
+                        "," +
+                        0.025 *
+                        pulse +
+                        ")";
+
+
+                    ctx.fill();
+
+
+                    /*
+                        Core
+                    */
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        particle.x,
+                        particle.y,
+                        particle.radius,
+                        0,
+                        Math.PI * 2
+                    );
+
+
+                    ctx.fillStyle =
+                        "rgba(" +
+                        color +
+                        "," +
+                        0.50 *
+                        pulse +
+                        ")";
+
+
+                    ctx.fill();
+
+                }
+            );
+
+
+            requestAnimationFrame(
+                animateParticles
+            );
+
+        }
+
+
+        resizeParticleCanvas();
+
+
+        window.addEventListener(
+            "resize",
+            resizeParticleCanvas
+        );
+
+
+        requestAnimationFrame(
+            animateParticles
+        );
+
+    }
+
+
+
+    /* =====================================================
+       06 — HERO DEPTH / PARALLAX
+    ===================================================== */
+
+    if (
+        hero &&
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        const heroContent =
+            hero.querySelector(
+                ".hero-content"
+            );
+
+        const heroVisual =
+            hero.querySelector(
+                ".hero-visual"
+            );
+
+
+        let currentX = 0;
+
+        let currentY = 0;
+
+        let desiredX = 0;
+
+        let desiredY = 0;
+
+
+
+        hero.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+
+                desiredX =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
+
+
+                desiredY =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
+
+            }
+        );
+
+
+        hero.addEventListener(
+            "mouseleave",
+            function () {
+
+                desiredX = 0;
+
+                desiredY = 0;
+
+            }
+        );
+
+
+        function animateHeroDepth() {
+
+            currentX +=
+                (
+                    desiredX -
+                    currentX
+                ) * 0.065;
+
+
+            currentY +=
+                (
+                    desiredY -
+                    currentY
+                ) * 0.065;
+
+
+            if (heroContent) {
+
+                heroContent.style.transform =
+                    "translate3d(" +
+                    currentX * -10 +
+                    "px," +
+                    currentY * -7 +
+                    "px,0)";
+
+            }
+
+
+            if (heroVisual) {
+
+                heroVisual.style.transform =
+                    "translate3d(" +
+                    currentX * 18 +
+                    "px," +
+                    currentY * 12 +
+                    "px,0)";
+
+            }
+
+
+            requestAnimationFrame(
+                animateHeroDepth
+            );
+
+        }
+
+
+        animateHeroDepth();
+
+    }
+
+
+
+    /* =====================================================
+       07 — HERO ORBIT REACTION
+    ===================================================== */
+
+    const brandOrbit =
+        document.querySelector(
+            ".brand-orbit"
+        );
+
+
+    if (
+        brandOrbit &&
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        const orbitLayers =
+            brandOrbit.querySelectorAll(
+                ".orbit"
+            );
+
+
+        brandOrbit.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    brandOrbit
+                        .getBoundingClientRect();
+
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
+
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
+
+
+                orbitLayers.forEach(
+                    function (
+                        orbit,
+                        index
+                    ) {
+
+                        const strength =
+                            (
+                                index + 1
+                            ) * 3;
+
+
+                        orbit.style.transform =
+                            "translate3d(" +
+                            x * strength +
+                            "px," +
+                            y * strength +
+                            "px,0)";
+
+                    }
+                );
+
+            }
+        );
+
+
+        brandOrbit.addEventListener(
+            "mouseleave",
+            function () {
+
+                orbitLayers.forEach(
+                    function (orbit) {
+
+                        orbit.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       08 — PREMIUM FIELD CARD 3D TILT
+    ===================================================== */
+
+    const majesticCards =
+        document.querySelectorAll(
+            ".field-card"
+        );
+
+
+    if (
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        majesticCards.forEach(
+            function (card) {
+
+                card.style.transformStyle =
+                    "preserve-3d";
+
+
+                card.addEventListener(
+                    "mousemove",
+                    function (event) {
+
+                        const rect =
+                            card
+                                .getBoundingClientRect();
+
+
+                        const mouseX =
+                            event.clientX -
+                            rect.left;
+
+
+                        const mouseY =
+                            event.clientY -
+                            rect.top;
+
+
+                        const centerX =
+                            rect.width / 2;
+
+
+                        const centerY =
+                            rect.height / 2;
+
+
+                        const rotateY =
+                            (
+                                mouseX -
+                                centerX
+                            ) /
+                            centerX *
+                            3.2;
+
+
+                        const rotateX =
+                            (
+                                centerY -
+                                mouseY
+                            ) /
+                            centerY *
+                            3.2;
+
+
+                        card.style.transform =
+                            "perspective(1100px)" +
+                            " translateY(-7px)" +
+                            " rotateX(" +
+                            rotateX +
+                            "deg)" +
+                            " rotateY(" +
+                            rotateY +
+                            "deg)";
+
+
+                        /*
+                            Position used for glow
+                            if CSS uses these vars.
+                        */
+
+                        card.style.setProperty(
+                            "--mouse-x",
+                            mouseX + "px"
+                        );
+
+
+                        card.style.setProperty(
+                            "--mouse-y",
+                            mouseY + "px"
+                        );
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        card.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       09 — IMAGE DEPTH INSIDE FIELD CARDS
+    ===================================================== */
+
+    if (
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        majesticCards.forEach(
+            function (card) {
+
+                const image =
+                    card.querySelector(
+                        ".card-image img"
+                    );
+
+
+                if (!image) return;
+
+
+                card.addEventListener(
+                    "mousemove",
+                    function (event) {
+
+                        const rect =
+                            card
+                                .getBoundingClientRect();
+
+
+                        const x =
+                            (
+                                event.clientX -
+                                rect.left
+                            ) /
+                            rect.width -
+                            0.5;
+
+
+                        const y =
+                            (
+                                event.clientY -
+                                rect.top
+                            ) /
+                            rect.height -
+                            0.5;
+
+
+                        image.style.transform =
+                            "scale(1.09)" +
+                            " translate(" +
+                            x * -8 +
+                            "px," +
+                            y * -8 +
+                            "px)";
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        image.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       10 — MAGNETIC BUTTONS
+    ===================================================== */
+
+    if (
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        const magneticButtons =
+            document.querySelectorAll(
+
+                ".primary-btn," +
+                ".secondary-btn," +
+                ".join-btn," +
+                ".join-main-btn," +
+                ".join-outline-btn," +
+                ".text-link"
+
+            );
+
+
+        magneticButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "mousemove",
+                    function (event) {
+
+                        const rect =
+                            button
+                                .getBoundingClientRect();
+
+
+                        const x =
+                            event.clientX -
+                            rect.left -
+                            rect.width / 2;
+
+
+                        const y =
+                            event.clientY -
+                            rect.top -
+                            rect.height / 2;
+
+
+                        button.style.transform =
+                            "translate(" +
+                            x * 0.10 +
+                            "px," +
+                            y * 0.15 +
+                            "px)";
+
+                    }
+                );
+
+
+                button.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        button.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       11 — STAT COUNTER ENTRANCE
+    ===================================================== */
+
+    const statsBlock =
+        document.querySelector(
+            ".stats"
+        );
+
+
+    let statsAnimated =
+        false;
+
+
+    if (
+        statsBlock &&
+        !reduceMotion
+    ) {
+
+        const statsObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                !entry.isIntersecting ||
+                                statsAnimated
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            statsAnimated =
+                                true;
+
+
+                            animateNumericText(
+                                ".stat:nth-child(1) h3",
+                                1,
+                                "",
+                                true
+                            );
+
+
+                            animateNumericText(
+                                ".stat:nth-child(3) h3",
+                                100,
+                                "%",
+                                false
+                            );
+
+
+                            statsObserver.disconnect();
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold:
+                        0.35
+                }
+
+            );
+
+
+        statsObserver.observe(
+            statsBlock
+        );
+
+    }
+
+
+
+    function animateNumericText(
+        selector,
+        target,
+        suffix,
+        pad
+    ) {
+
+        const element =
+            document.querySelector(
+                selector
+            );
+
+
+        if (!element) return;
+
+
+        const duration =
+            1200;
+
+
+        const start =
+            performance.now();
+
+
+        function update(
+            now
+        ) {
+
+            const elapsed =
+                now -
+                start;
+
+
+            const progress =
+                Math.min(
+                    elapsed /
+                    duration,
+                    1
+                );
+
+
+            /*
+                Smooth ease out
+            */
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            let value =
+                Math.round(
+                    target *
+                    eased
+                );
+
+
+            if (pad) {
+
+                value =
+                    String(value)
+                        .padStart(
+                            2,
+                            "0"
+                        );
+
+            }
+
+
+            element.textContent =
+                value +
+                suffix;
+
+
+            if (
+                progress <
+                1
+            ) {
+
+                requestAnimationFrame(
+                    update
+                );
+
+            }
+
+        }
+
+
+        requestAnimationFrame(
+            update
+        );
+
+    }
+
+
+
+    /* =====================================================
+       12 — PROJECT TERMINAL LIGHT SWEEP
+    ===================================================== */
+
+    const terminal =
+        document.querySelector(
+            ".project-terminal"
+        );
+
+
+    if (
+        terminal &&
+        !reduceMotion
+    ) {
+
+        const terminalLight =
+            document.createElement(
+                "div"
+            );
+
+
+        Object.assign(
+            terminalLight.style,
+            {
+
+                position:
+                    "absolute",
+
+                top:
+                    "0",
+
+                left:
+                    "-35%",
+
+                width:
+                    "30%",
+
+                height:
+                    "100%",
+
+                pointerEvents:
+                    "none",
+
+                zIndex:
+                    "20",
+
+                opacity:
+                    "0",
+
+                background:
+                    "linear-gradient(" +
+                    "90deg," +
+                    "transparent," +
+                    "rgba(255,45,131,.065)," +
+                    "rgba(0,217,255,.035)," +
+                    "transparent" +
+                    ")",
+
+                transform:
+                    "skewX(-15deg)"
+
+            }
+        );
+
+
+        terminal.appendChild(
+            terminalLight
+        );
+
+
+        let terminalSweepStarted =
+            false;
+
+
+        const sweepObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting &&
+                                !terminalSweepStarted
+                            ) {
+
+                                terminalSweepStarted =
+                                    true;
+
+
+                                setInterval(
+                                    runTerminalSweep,
+                                    5500
+                                );
+
+
+                                setTimeout(
+                                    runTerminalSweep,
+                                    1200
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold:
+                        0.20
+                }
+
+            );
+
+
+        sweepObserver.observe(
+            terminal
+        );
+
+
+        function runTerminalSweep() {
+
+            terminalLight.animate(
+
+                [
+
+                    {
+                        left:
+                            "-35%",
+
+                        opacity:
+                            0
+                    },
+
+                    {
+                        opacity:
+                            1,
+
+                        offset:
+                            0.15
+                    },
+
+                    {
+                        opacity:
+                            1,
+
+                        offset:
+                            0.75
+                    },
+
+                    {
+                        left:
+                            "120%",
+
+                        opacity:
+                            0
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        1500,
+
+                    easing:
+                        "cubic-bezier(.2,.7,.2,1)"
+
+                }
+
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       13 — PROJECT MACHINE MOUSE DEPTH
+    ===================================================== */
+
+    const projectMachine =
+        document.querySelector(
+            ".project-machine"
+        );
+
+
+    if (
+        projectMachine &&
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        const brainCore =
+            projectMachine.querySelector(
+                ".brain-core"
+            );
+
+
+        const gears =
+            projectMachine.querySelectorAll(
+                ".gear"
+            );
+
+
+        projectMachine.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    projectMachine
+                        .getBoundingClientRect();
+
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
+
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
+
+
+                if (brainCore) {
+
+                    brainCore.style.transform =
+                        "translate3d(" +
+                        x * 9 +
+                        "px," +
+                        y * 9 +
+                        "px,0)" +
+                        " scale(1.015)";
+
+                }
+
+
+                gears.forEach(
+                    function (
+                        gear,
+                        index
+                    ) {
+
+                        gear.style.marginLeft =
+                            x *
+                            (
+                                index === 0
+                                    ? 10
+                                    : -7
+                            ) +
+                            "px";
+
+
+                        gear.style.marginTop =
+                            y *
+                            (
+                                index === 0
+                                    ? 8
+                                    : -5
+                            ) +
+                            "px";
+
+                    }
+                );
+
+            }
+        );
+
+
+        projectMachine.addEventListener(
+            "mouseleave",
+            function () {
+
+                if (brainCore) {
+
+                    brainCore.style.transform =
+                        "";
+
+                }
+
+
+                gears.forEach(
+                    function (gear) {
+
+                        gear.style.marginLeft =
+                            "";
+
+                        gear.style.marginTop =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       14 — EVENT CARD PREMIUM POINTER LIGHT
+    ===================================================== */
+
+    const eventContainer =
+        document.querySelector(
+            ".event-container"
+        );
+
+
+    if (
+        eventContainer &&
+        hasFinePointer &&
+        !reduceMotion
+    ) {
+
+        eventContainer.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const rect =
+                    eventContainer
+                        .getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                eventContainer.style.setProperty(
+                    "--event-x",
+                    x + "px"
+                );
+
+
+                eventContainer.style.setProperty(
+                    "--event-y",
+                    y + "px"
+                );
+
+
+                const rotateY =
+                    (
+                        x -
+                        rect.width / 2
+                    ) /
+                    rect.width *
+                    2;
+
+
+                const rotateX =
+                    (
+                        rect.height / 2 -
+                        y
+                    ) /
+                    rect.height *
+                    2;
+
+
+                eventContainer.style.transform =
+                    "perspective(1300px)" +
+                    " rotateX(" +
+                    rotateX +
+                    "deg)" +
+                    " rotateY(" +
+                    rotateY +
+                    "deg)";
+
+            }
+        );
+
+
+        eventContainer.addEventListener(
+            "mouseleave",
+            function () {
+
+                eventContainer.style.transform =
+                    "";
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       15 — JOIN SECTION ENERGY RINGS
+    ===================================================== */
+
+    const joinSection =
+        document.querySelector(
+            ".join"
+        );
+
+
+    if (
+        joinSection &&
+        !reduceMotion
+    ) {
+
+        const ringContainer =
+            document.createElement(
+                "div"
+            );
+
+
+        Object.assign(
+            ringContainer.style,
+            {
+
+                position:
+                    "absolute",
+
+                inset:
+                    "0",
+
+                overflow:
+                    "hidden",
+
+                pointerEvents:
+                    "none",
+
+                zIndex:
+                    "1"
+
+            }
+        );
+
+
+        joinSection.prepend(
+            ringContainer
+        );
+
+
+        for (
+            let i = 0;
+            i < 3;
+            i++
+        ) {
+
+            const ring =
+                document.createElement(
+                    "div"
+                );
+
+
+            const size =
+                300 +
+                i * 180;
+
+
+            Object.assign(
+                ring.style,
+                {
+
+                    position:
+                        "absolute",
+
+                    width:
+                        size + "px",
+
+                    height:
+                        size + "px",
+
+                    left:
+                        "50%",
+
+                    top:
+                        "50%",
+
+                    borderRadius:
+                        "50%",
+
+                    border:
+                        "1px solid rgba(255,255,255," +
+                        (
+                            0.11 -
+                            i * 0.025
+                        ) +
+                        ")",
+
+                    transform:
+                        "translate(-50%,-50%)",
+
+                    boxShadow:
+                        i === 0
+
+                            ? "0 0 80px rgba(214,0,99,.12)"
+
+                            : "none"
+
+                }
+            );
+
+
+            ringContainer.appendChild(
+                ring
+            );
+
+
+            ring.animate(
+
+                [
+
+                    {
+                        transform:
+                            "translate(-50%,-50%) scale(.92)",
+
+                        opacity:
+                            0.35
+                    },
+
+                    {
+                        transform:
+                            "translate(-50%,-50%) scale(1.05)",
+
+                        opacity:
+                            0.9
+                    },
+
+                    {
+                        transform:
+                            "translate(-50%,-50%) scale(.92)",
+
+                        opacity:
+                            0.35
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        6000 +
+                        i * 1700,
+
+                    iterations:
+                        Infinity,
+
+                    easing:
+                        "ease-in-out",
+
+                    delay:
+                        i * -1100
+
+                }
+
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       16 — SECTION NAVBAR INTELLIGENCE
+    ===================================================== */
+
+    let lastScrollY =
+        window.scrollY;
+
+
+    if (
+        navbar &&
+        !isMobile
+    ) {
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                const currentY =
+                    window.scrollY;
+
+
+                /*
+                    Slight navbar lift when
+                    scrolling down deep into page.
+                */
+
+                if (
+                    currentY >
+                    lastScrollY &&
+                    currentY >
+                    350
+                ) {
+
+                    navbar.style.transform =
+                        "translateY(-6px)";
+
+                }
+
+                else {
+
+                    navbar.style.transform =
+                        "translateY(0)";
+
+                }
+
+
+                lastScrollY =
+                    currentY;
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       17 — SECTION AMBIENT PARALLAX
+    ===================================================== */
+
+    if (
+        !isMobile &&
+        !reduceMotion
+    ) {
+
+        const ambientSections =
+            document.querySelectorAll(
+
+                ".about," +
+                ".activities," +
+                ".projects-section," +
+                ".events," +
+                ".join"
+
+            );
+
+
+        let ticking =
+            false;
+
+
+        function updateAmbientSections() {
+
+            const viewportCenter =
+                window.innerHeight / 2;
+
+
+            ambientSections.forEach(
+                function (section) {
+
+                    const rect =
+                        section
+                            .getBoundingClientRect();
+
+
+                    const sectionCenter =
+                        rect.top +
+                        rect.height / 2;
+
+
+                    const distance =
+                        (
+                            sectionCenter -
+                            viewportCenter
+                        ) /
+                        window.innerHeight;
+
+
+                    section.style.setProperty(
+                        "--scroll-shift",
+                        Math.max(
+                            -1,
+                            Math.min(
+                                1,
+                                distance
+                            )
+                        )
+                    );
+
+                }
+            );
+
+
+            ticking =
+                false;
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (!ticking) {
+
+                    requestAnimationFrame(
+                        updateAmbientSections
+                    );
+
+
+                    ticking =
+                        true;
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        updateAmbientSections();
+
+    }
+
+
+
+    /* =====================================================
+       18 — INTERACTION SOUNDLESS "PULSE"
+       Flash feedback without audio
+    ===================================================== */
+
+    const interactiveItems =
+        document.querySelectorAll(
+
+            ".primary-btn," +
+            ".secondary-btn," +
+            ".join-main-btn," +
+            ".join-outline-btn," +
+            ".field-card"
+
+        );
+
+
+    interactiveItems.forEach(
+        function (item) {
+
+            item.addEventListener(
+                "pointerdown",
+                function (event) {
+
+                    if (
+                        reduceMotion
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const rect =
+                        item
+                            .getBoundingClientRect();
+
+
+                    const ripple =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    const size =
+                        Math.max(
+                            rect.width,
+                            rect.height
+                        ) * 1.4;
+
+
+                    Object.assign(
+                        ripple.style,
+                        {
+
+                            width:
+                                size + "px",
+
+                            height:
+                                size + "px",
+
+                            position:
+                                "absolute",
+
+                            left:
+                                event.clientX -
+                                rect.left -
+                                size / 2 +
+                                "px",
+
+                            top:
+                                event.clientY -
+                                rect.top -
+                                size / 2 +
+                                "px",
+
+                            borderRadius:
+                                "50%",
+
+                            pointerEvents:
+                                "none",
+
+                            zIndex:
+                                "100",
+
+                            opacity:
+                                ".24",
+
+                            background:
+                                "radial-gradient(" +
+                                "circle," +
+                                "rgba(255,255,255,.8)," +
+                                "rgba(255,45,131,.25) 30%," +
+                                "transparent 68%" +
+                                ")",
+
+                            transform:
+                                "scale(0)",
+
+                            mixBlendMode:
+                                "screen"
+
+                        }
+                    );
+
+
+                    const computed =
+                        window.getComputedStyle(
+                            item
+                        );
+
+
+                    if (
+                        computed.position ===
+                        "static"
+                    ) {
+
+                        item.style.position =
+                            "relative";
+
+                    }
+
+
+                    if (
+                        computed.overflow ===
+                        "visible"
+                    ) {
+
+                        item.style.overflow =
+                            "hidden";
+
+                    }
+
+
+                    item.appendChild(
+                        ripple
+                    );
+
+
+                    ripple.animate(
+
+                        [
+
+                            {
+                                transform:
+                                    "scale(0)",
+
+                                opacity:
+                                    ".28"
+                            },
+
+                            {
+                                transform:
+                                    "scale(1)",
+
+                                opacity:
+                                    "0"
+                            }
+
+                        ],
+
+                        {
+
+                            duration:
+                                650,
+
+                            easing:
+                                "cubic-bezier(.2,.7,.2,1)"
+
+                        }
+
+                    ).onfinish =
+                        function () {
+
+                            ripple.remove();
+
+                        };
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       19 — PAGE VISIBILITY PERFORMANCE
+    ===================================================== */
+
+    let animationPaused =
+        false;
+
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            animationPaused =
+                document.hidden;
+
+
+            document.documentElement
+                .classList
+                .toggle(
+                    "smart-paused",
+                    animationPaused
+                );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       20 — SMART CLUB CONSOLE SIGNATURE
+    ===================================================== */
+
+    console.log(
+        "%c SMART CLUB // ENSEM ",
+        "background:#d60063;" +
+        "color:white;" +
+        "font-weight:bold;" +
+        "padding:7px 12px;" +
+        "border-radius:4px;"
+    );
+
+
+    console.log(
+        "%c DIGITAL MINDS. REAL IMPACT. ",
+        "color:#00d9ff;" +
+        "font-weight:bold;" +
+        "letter-spacing:2px;"
+    );
+
+
+})();
+/* =========================================================
+   ENSEM + DIRECTOR PREMIUM INTERACTIONS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       1. SCROLL REVEAL
+    ===================================================== */
+
+    const premiumElements = document.querySelectorAll(
+        ".ensem-identity-card, .director-visual, .director-content"
+    );
+
+    const premiumObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("premium-visible");
+
+                    premiumObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    premiumElements.forEach(element => {
+
+        element.classList.add("premium-reveal");
+
+        premiumObserver.observe(element);
+
+    });
+
+
+
+    /* =====================================================
+       2. ENSEM CARD MOUSE GLOW
+    ===================================================== */
+
+    const ensemCard =
+        document.querySelector(".ensem-identity-card");
+
+
+    if (ensemCard) {
+
+        ensemCard.addEventListener("mousemove", event => {
+
+            const rect =
+                ensemCard.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+
+            ensemCard.style.setProperty(
+                "--mouse-x",
+                `${x}px`
+            );
+
+            ensemCard.style.setProperty(
+                "--mouse-y",
+                `${y}px`
+            );
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       3. DIRECTOR PHOTO PARALLAX
+    ===================================================== */
+
+    const directorSection =
+        document.querySelector(".director-section");
+
+    const directorPhoto =
+        document.querySelector(".director-photo");
+
+
+    if (
+        directorSection &&
+        directorPhoto &&
+        window.innerWidth > 768
+    ) {
+
+        directorSection.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    directorSection.getBoundingClientRect();
+
+
+                const mouseX =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) / rect.width - 0.5;
+
+
+                const mouseY =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) / rect.height - 0.5;
+
+
+                directorPhoto.style.transform =
+                    `
+                    scale(1.04)
+                    translate(
+                        ${mouseX * -8}px,
+                        ${mouseY * -8}px
+                    )
+                    `;
+
+            }
+        );
+
+
+        directorSection.addEventListener(
+            "mouseleave",
+            () => {
+
+                directorPhoto.style.transform =
+                    "scale(1) translate(0,0)";
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       4. RANDOM NEURON PULSES
+    ===================================================== */
+
+    const neurons =
+        document.querySelectorAll(
+            ".director-neurons .neuron-dot"
+        );
+
+
+    neurons.forEach((neuron, index) => {
+
+        neuron.style.animationDelay =
+            `${index * 0.45}s`;
+
+    });
+
+
+
+    /* =====================================================
+       5. ENSEM LOGO FLOAT
+    ===================================================== */
+
+    const ensemLogo =
+        document.querySelector(".ensem-symbol img");
+
+
+    if (ensemLogo) {
+
+        let position = 0;
+
+
+        function animateEnsemLogo() {
+
+            position += 0.015;
+
+            const movement =
+                Math.sin(position) * 4;
+
+
+            ensemLogo.style.transform =
+                `translateY(${movement}px)`;
+
+
+            requestAnimationFrame(
+                animateEnsemLogo
+            );
+
+        }
+
+
+        animateEnsemLogo();
+
+    }
+
+});
+/* =========================================================
+   SMART CLUB — GLOBAL LIVING NEURAL NETWORK
+   INDEX PAGE
+   Paste at the VERY END of script.js
+========================================================= */
+
+(function () {
+
+    "use strict";
+
+
+    /* =====================================================
+       DEVICE SETTINGS
+    ===================================================== */
+
+    const neuralMobile =
+        window.matchMedia(
+            "(max-width: 768px)"
+        ).matches;
+
+
+    const neuralReducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+
+    /* =====================================================
+       SECTIONS THAT RECEIVE NEURONS
+    ===================================================== */
+
+    const neuralSections = [
+
+        document.querySelector(".hero"),
+
+        document.querySelector(".about"),
+
+        document.querySelector(".ensem-identity"),
+
+        document.querySelector(".director-section"),
+
+        document.querySelector(".activities"),
+
+        document.querySelector(".projects-section"),
+
+        document.querySelector(".events"),
+
+        document.querySelector(".join")
+
+    ].filter(Boolean);
+
+
+
+    /* =====================================================
+       CREATE NETWORK
+    ===================================================== */
+
+    function createSmartNeuralNetwork(
+        section,
+        nodeCount
+    ) {
+
+        /* Prevent duplicate network */
+
+        if (
+            section.querySelector(
+                ".smart-auto-neural"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+
+        const network =
+            document.createElement(
+                "div"
+            );
+
+
+        network.className =
+            "smart-auto-neural";
+
+
+        network.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+
+        Object.assign(
+            network.style,
+            {
+
+                position:
+                    "absolute",
+
+                inset:
+                    "0",
+
+                overflow:
+                    "hidden",
+
+                pointerEvents:
+                    "none",
+
+                zIndex:
+                    "1"
+
+            }
+        );
+
+
+
+        /*
+            Ensure section can contain
+            absolute neural layer.
+        */
+
+        const sectionStyle =
+            getComputedStyle(
+                section
+            );
+
+
+        if (
+            sectionStyle.position ===
+            "static"
+        ) {
+
+            section.style.position =
+                "relative";
+
+        }
+
+
+
+        section.prepend(
+            network
+        );
+
+
+
+        const nodes = [];
+
+
+
+        /* =================================================
+           CREATE NODES
+        ================================================= */
+
+        for (
+            let i = 0;
+            i < nodeCount;
+            i++
+        ) {
+
+            const node =
+                document.createElement(
+                    "span"
+                );
+
+
+            node.className =
+                "smart-neural-node";
+
+
+            const x =
+                4 +
+                Math.random() *
+                92;
+
+
+            const y =
+                6 +
+                Math.random() *
+                88;
+
+
+
+            node.dataset.x =
+                x;
+
+
+            node.dataset.y =
+                y;
+
+
+
+            Object.assign(
+                node.style,
+                {
+
+                    width:
+                        neuralMobile
+                            ? "4px"
+                            : "6px",
+
+                    height:
+                        neuralMobile
+                            ? "4px"
+                            : "6px",
+
+                    position:
+                        "absolute",
+
+                    left:
+                        x + "%",
+
+                    top:
+                        y + "%",
+
+                    borderRadius:
+                        "50%",
+
+                    opacity:
+                        ".55",
+
+                    background:
+                        i % 4 === 0
+                            ? "#00d9ff"
+                            : "#ff2d83",
+
+                    boxShadow:
+
+                        i % 4 === 0
+
+                            ? "0 0 8px #00d9ff," +
+                              "0 0 22px rgba(0,217,255,.38)"
+
+                            : "0 0 8px #ff2d83," +
+                              "0 0 22px rgba(255,45,131,.40)",
+
+                    animation:
+                        neuralReducedMotion
+
+                            ? "none"
+
+                            : "smartNeuronPulse " +
+                              (
+                                  2 +
+                                  Math.random() *
+                                  2
+                              ) +
+                              "s ease-in-out infinite",
+
+                    animationDelay:
+                        (
+                            -Math.random() *
+                            4
+                        ) +
+                        "s"
+
+                }
+            );
+
+
+
+            network.appendChild(
+                node
+            );
+
+
+            nodes.push(
+                node
+            );
+
+        }
+
+
+
+        /* =================================================
+           CONNECT NODES
+        ================================================= */
+
+        const connectionCount =
+            neuralMobile
+                ? Math.min(
+                    nodeCount,
+                    7
+                )
+                : Math.min(
+                    nodeCount + 4,
+                    18
+                );
+
+
+
+        for (
+            let i = 0;
+            i < connectionCount;
+            i++
+        ) {
+
+            const nodeA =
+                nodes[
+                    Math.floor(
+                        Math.random() *
+                        nodes.length
+                    )
+                ];
+
+
+            let nodeB =
+                nodes[
+                    Math.floor(
+                        Math.random() *
+                        nodes.length
+                    )
+                ];
+
+
+
+            if (
+                nodeA === nodeB
+            ) {
+
+                nodeB =
+                    nodes[
+                        (
+                            nodes.indexOf(nodeA) +
+                            1
+                        ) %
+                        nodes.length
+                    ];
+
+            }
+
+
+
+            const x1 =
+                Number(
+                    nodeA.dataset.x
+                );
+
+
+            const y1 =
+                Number(
+                    nodeA.dataset.y
+                );
+
+
+            const x2 =
+                Number(
+                    nodeB.dataset.x
+                );
+
+
+            const y2 =
+                Number(
+                    nodeB.dataset.y
+                );
+
+
+
+            const dx =
+                x2 -
+                x1;
+
+
+            const dy =
+                y2 -
+                y1;
+
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            /*
+                Don't draw extremely long
+                connections.
+            */
+
+            if (
+                distance >
+                43
+            ) {
+
+                continue;
+
+            }
+
+
+
+            const angle =
+                Math.atan2(
+                    dy,
+                    dx
+                ) *
+                180 /
+                Math.PI;
+
+
+
+            const line =
+                document.createElement(
+                    "span"
+                );
+
+
+            line.className =
+                "smart-neural-line";
+
+
+
+            Object.assign(
+                line.style,
+                {
+
+                    height:
+                        "1px",
+
+                    position:
+                        "absolute",
+
+                    left:
+                        x1 + "%",
+
+                    top:
+                        y1 + "%",
+
+                    width:
+                        distance + "%",
+
+                    transformOrigin:
+                        "left center",
+
+                    transform:
+                        "rotate(" +
+                        angle +
+                        "deg)",
+
+                    opacity:
+                        neuralMobile
+                            ? ".20"
+                            : ".34",
+
+                    background:
+                        "linear-gradient(" +
+                        "90deg," +
+                        "transparent," +
+                        "rgba(255,45,131,.45)," +
+                        "rgba(139,92,246,.28)," +
+                        "rgba(0,217,255,.38)," +
+                        "transparent" +
+                        ")"
+
+                }
+            );
+
+
+
+            /* SIGNAL TRAVELLING ON LINE */
+
+            const signal =
+                document.createElement(
+                    "span"
+                );
+
+
+            Object.assign(
+                signal.style,
+                {
+
+                    width:
+                        "34px",
+
+                    height:
+                        "2px",
+
+                    position:
+                        "absolute",
+
+                    top:
+                        "-1px",
+
+                    left:
+                        "-15%",
+
+                    opacity:
+                        "0",
+
+                    background:
+                        "linear-gradient(" +
+                        "90deg," +
+                        "transparent," +
+                        "#ffffff," +
+                        "#ff2d83," +
+                        "transparent" +
+                        ")",
+
+                    filter:
+                        "drop-shadow(" +
+                        "0 0 4px " +
+                        "rgba(255,45,131,.8)" +
+                        ")"
+
+                }
+            );
+
+
+
+            line.appendChild(
+                signal
+            );
+
+
+            network.insertBefore(
+                line,
+                network.firstChild
+            );
+
+
+
+            if (
+                !neuralReducedMotion
+            ) {
+
+                signal.animate(
+
+                    [
+
+                        {
+                            left:
+                                "-15%",
+
+                            opacity:
+                                0
+                        },
+
+                        {
+                            opacity:
+                                .9,
+
+                            offset:
+                                .16
+                        },
+
+                        {
+                            opacity:
+                                .9,
+
+                            offset:
+                                .72
+                        },
+
+                        {
+                            left:
+                                "110%",
+
+                            opacity:
+                                0
+                        }
+
+                    ],
+
+                    {
+
+                        duration:
+                            3200 +
+                            Math.random() *
+                            2600,
+
+                        delay:
+                            Math.random() *
+                            3000,
+
+                        iterations:
+                            Infinity,
+
+                        easing:
+                            "linear"
+
+                    }
+
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           RANDOM NODE FIRING
+        ================================================= */
+
+        if (
+            !neuralReducedMotion
+        ) {
+
+            setInterval(
+                function () {
+
+                    const node =
+                        nodes[
+                            Math.floor(
+                                Math.random() *
+                                nodes.length
+                            )
+                        ];
+
+
+                    if (!node) {
+
+                        return;
+
+                    }
+
+
+
+                    node.animate(
+
+                        [
+
+                            {
+                                transform:
+                                    "scale(1)",
+
+                                opacity:
+                                    ".55",
+
+                                filter:
+                                    "brightness(1)"
+                            },
+
+                            {
+                                transform:
+                                    "scale(2.4)",
+
+                                opacity:
+                                    "1",
+
+                                filter:
+                                    "brightness(3)"
+                            },
+
+                            {
+                                transform:
+                                    "scale(1)",
+
+                                opacity:
+                                    ".55",
+
+                                filter:
+                                    "brightness(1)"
+                            }
+
+                        ],
+
+                        {
+
+                            duration:
+                                650,
+
+                            easing:
+                                "cubic-bezier(.2,.7,.2,1)"
+
+                        }
+
+                    );
+
+                },
+
+                750 +
+                Math.random() *
+                650
+
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       CREATE NETWORK ON EVERY SECTION
+    ===================================================== */
+
+    neuralSections.forEach(
+        function (
+            section,
+            index
+        ) {
+
+            let amount;
+
+
+            if (
+                neuralMobile
+            ) {
+
+                amount =
+                    index === 0
+                        ? 7
+                        : 5;
+
+            }
+
+            else {
+
+                /*
+                    Hero / Projects receive
+                    slightly more neural activity.
+                */
+
+                if (
+                    section.classList.contains(
+                        "hero"
+                    ) ||
+                    section.classList.contains(
+                        "projects-section"
+                    )
+                ) {
+
+                    amount = 12;
+
+                }
+
+                else {
+
+                    amount = 8;
+
+                }
+
+            }
+
+
+
+            createSmartNeuralNetwork(
+                section,
+                amount
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       NODE PULSE KEYFRAMES
+       Added directly through JS
+    ===================================================== */
+
+    if (
+        !document.getElementById(
+            "smartNeuralAnimations"
+        )
+    ) {
+
+        const style =
+            document.createElement(
+                "style"
+            );
+
+
+        style.id =
+            "smartNeuralAnimations";
+
+
+        style.textContent = `
+
+            @keyframes smartNeuronPulse {
+
+                0%,
+                100% {
+                    opacity: .30;
+                    transform: scale(.72);
+                }
+
+                50% {
+                    opacity: 1;
+                    transform: scale(1.35);
+                }
+
+            }
+
+
+            .smart-auto-neural {
+                mix-blend-mode: screen;
+            }
+
+
+            .smart-auto-neural ~ * {
+                position: relative;
+                z-index: 2;
+            }
+
+
+            @media (max-width: 768px) {
+
+                .smart-auto-neural {
+                    opacity: .55;
+                }
+
+            }
+
+        `;
+
+
+        document.head.appendChild(
+            style
+        );
+
+    }
+
+
+
+    /* =====================================================
+       MOUSE REACTION
+       Nearby nodes move slightly toward cursor
+    ===================================================== */
+
+    if (
+        !neuralMobile &&
+        !neuralReducedMotion &&
+        window.matchMedia(
+            "(hover:hover) and (pointer:fine)"
+        ).matches
+    ) {
+
+        neuralSections.forEach(
+            function (section) {
+
+                const network =
+                    section.querySelector(
+                        ".smart-auto-neural"
+                    );
+
+
+                if (!network) {
+
+                    return;
+
+                }
+
+
+
+                const nodes =
+                    network.querySelectorAll(
+                        ".smart-neural-node"
+                    );
+
+
+
+                section.addEventListener(
+                    "mousemove",
+                    function (event) {
+
+                        const rect =
+                            section
+                                .getBoundingClientRect();
+
+
+                        const mouseX =
+                            (
+                                event.clientX -
+                                rect.left
+                            ) /
+                            rect.width *
+                            100;
+
+
+                        const mouseY =
+                            (
+                                event.clientY -
+                                rect.top
+                            ) /
+                            rect.height *
+                            100;
+
+
+
+                        nodes.forEach(
+                            function (node) {
+
+                                const nodeX =
+                                    Number(
+                                        node.dataset.x
+                                    );
+
+
+                                const nodeY =
+                                    Number(
+                                        node.dataset.y
+                                    );
+
+
+                                const dx =
+                                    mouseX -
+                                    nodeX;
+
+
+                                const dy =
+                                    mouseY -
+                                    nodeY;
+
+
+                                const distance =
+                                    Math.sqrt(
+                                        dx * dx +
+                                        dy * dy
+                                    );
+
+
+
+                                if (
+                                    distance <
+                                    18
+                                ) {
+
+                                    node.style.transform =
+                                        "translate(" +
+                                        dx *
+                                        .14 +
+                                        "px," +
+                                        dy *
+                                        .14 +
+                                        "px)" +
+                                        " scale(1.35)";
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                section.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        nodes.forEach(
+                            function (node) {
+
+                                node.style.transform =
+                                    "";
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    console.log(
+        "%c SMART CLUB NEURAL NETWORK ONLINE ",
+        "background:#d60063;" +
+        "color:white;" +
+        "font-weight:bold;" +
+        "padding:6px 10px;"
+    );
+
+
+})();
+/* =========================================================
+   SMART CLUB — CLOSE MOBILE MENU ON SCROLL / SWIPE
+   ========================================================= */
+
+(() => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (!menuBtn || !mobileMenu) return;
+
+    function isMenuOpen() {
+        return (
+            mobileMenu.classList.contains("active") ||
+            mobileMenu.classList.contains("open") ||
+            mobileMenu.classList.contains("show")
+        );
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove("active", "open", "show");
+
+        menuBtn.classList.remove("active", "open");
+
+        // Return hamburger icon
+        menuBtn.textContent = "☰";
+
+        // Accessibility
+        menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+
+    /* Close when user starts scrolling */
+    window.addEventListener(
+        "scroll",
+        () => {
+            if (isMenuOpen()) {
+                closeMobileMenu();
+            }
+        },
+        { passive: true }
+    );
+
+
+    /* Close immediately when finger starts swiping */
+    let touchStartY = 0;
+
+    document.addEventListener(
+        "touchstart",
+        (e) => {
+            touchStartY = e.touches[0].clientY;
+        },
+        { passive: true }
+    );
+
+    document.addEventListener(
+        "touchmove",
+        (e) => {
+            if (!isMenuOpen()) return;
+
+            const currentY = e.touches[0].clientY;
+            const distance = Math.abs(currentY - touchStartY);
+
+            // Small threshold prevents accidental closing
+            if (distance > 8) {
+                closeMobileMenu();
+            }
+        },
+        { passive: true }
+    );
+})();
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (!menuBtn || !mobileMenu) return;
+
+    function syncMenuIcon() {
+        const isOpen =
+            mobileMenu.classList.contains("open") ||
+            mobileMenu.classList.contains("active");
+
+        menuBtn.classList.toggle("menu-open", isOpen);
+    }
+
+    const observer = new MutationObserver(syncMenuIcon);
+
+    observer.observe(mobileMenu, {
+        attributes: true,
+        attributeFilter: ["class"]
+    });
+
+    menuBtn.addEventListener("click", () => {
+        requestAnimationFrame(syncMenuIcon);
+    });
+
+    syncMenuIcon();
+});

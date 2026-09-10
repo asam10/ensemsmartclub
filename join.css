@@ -19,9 +19,9 @@ ROOT VARIABLES
 
     --surface-light:#191924;
 
-    --magenta:#d10073;
+    --magenta:#B7032B;
 
-    --magenta-light:#ff4da6;
+    --magenta-light:#D20A3A;
 
     --blue:#35c7ff;
 
@@ -94,7 +94,7 @@ body::before{
     background:
 
     radial-gradient(circle at 15% 20%,
-    rgba(209,0,115,.18),
+    rgba(183,3,43,.18),
     transparent 35%),
 
     radial-gradient(circle at 85% 75%,
@@ -291,7 +291,7 @@ COMMON BUTTONS
     background:linear-gradient(
         135deg,
         var(--magenta),
-        #990055
+        #78001D
     );
 
     color:white;
@@ -302,7 +302,7 @@ COMMON BUTTONS
 
     box-shadow:
 
-    0 0 35px rgba(209,0,115,.35);
+    0 0 35px rgba(183,3,43,.35);
 
 }
 
@@ -313,7 +313,7 @@ COMMON BUTTONS
 
     box-shadow:
 
-    0 0 45px rgba(209,0,115,.6);
+    0 0 45px rgba(183,3,43,.6);
 
 }
 
@@ -716,7 +716,7 @@ JOIN BUTTON
 
         var(--magenta),
 
-        #8e0050
+        #78001D
 
     );
 
@@ -728,7 +728,7 @@ JOIN BUTTON
 
     box-shadow:
 
-    0 0 30px rgba(209,0,115,.35);
+    0 0 30px rgba(183,3,43,.35);
 
 }
 
@@ -781,7 +781,7 @@ JOIN BUTTON
 
     box-shadow:
 
-    0 0 45px rgba(209,0,115,.65);
+    0 0 45px rgba(183,3,43,.65);
 
 }
 
@@ -796,7 +796,7 @@ SCROLL EFFECT
 
     background:rgba(8,8,14,.92);
 
-    border-color:rgba(209,0,115,.18);
+    border-color:rgba(183,3,43,.18);
 
 }
 
@@ -945,7 +945,7 @@ MAGENTA LIGHTS
 
     height:520px;
 
-    background:rgba(209,0,115,.22);
+    background:rgba(183,3,43,.22);
 
     left:-120px;
 
@@ -1070,9 +1070,9 @@ TITLE
 
     text-shadow:
 
-    0 0 25px rgba(209,0,115,.45),
+    0 0 25px rgba(183,3,43,.45),
 
-    0 0 60px rgba(209,0,115,.25);
+    0 0 60px rgba(183,3,43,.25);
 
 }
 
@@ -1412,7 +1412,7 @@ BACKGROUND GLOW
 
     border-radius:50%;
 
-    background:rgba(209,0,115,.08);
+    background:rgba(183,3,43,.08);
 
     right:-180px;
 
@@ -1444,13 +1444,13 @@ HOVER
 
     scale(1.02);
 
-    border-color:rgba(209,0,115,.35);
+    border-color:rgba(183,3,43,.35);
 
     box-shadow:
 
     0 35px 80px rgba(0,0,0,.45),
 
-    0 0 45px rgba(209,0,115,.18);
+    0 0 45px rgba(183,3,43,.18);
 
 }
 
@@ -1503,9 +1503,9 @@ TOP AREA
 
         135deg,
 
-        rgba(209,0,115,.22),
+        rgba(183,3,43,.22),
 
-        rgba(209,0,115,.08)
+        rgba(183,3,43,.08)
 
     );
 
@@ -1632,7 +1632,7 @@ BUTTON
 
         var(--magenta),
 
-        #8d0050
+        #78001D
 
     );
 
@@ -1660,7 +1660,7 @@ BUTTON
 
     box-shadow:
 
-    0 0 35px rgba(209,0,115,.45);
+    0 0 35px rgba(183,3,43,.45);
 
 }
 
@@ -1756,7 +1756,7 @@ APPLICATION HEADER
 
     border-radius:999px;
 
-    background:rgba(209,0,115,.12);
+    background:rgba(183,3,43,.12);
 
     color:var(--magenta);
 
@@ -1955,7 +1955,7 @@ FOCUS
 
     box-shadow:
 
-    0 0 25px rgba(209,0,115,.25);
+    0 0 25px rgba(183,3,43,.25);
 
 }
 
@@ -2000,7 +2000,7 @@ CHECKBOX GRID
 
 .checkbox-grid label:hover{
 
-    border-color:rgba(209,0,115,.4);
+    border-color:rgba(183,3,43,.4);
 
     transform:translateY(-2px);
 
@@ -2071,7 +2071,7 @@ SUBMIT BUTTON
 
         var(--magenta),
 
-        #8b0051
+        #78001D
 
     );
 
@@ -2094,7 +2094,7 @@ SUBMIT BUTTON
 
     box-shadow:
 
-    0 0 40px rgba(209,0,115,.45);
+    0 0 40px rgba(183,3,43,.45);
 
 }
 
@@ -2176,7 +2176,7 @@ CALL TO ACTION
 
     border-radius:50%;
 
-    background:rgba(209,0,115,.12);
+    background:rgba(183,3,43,.12);
 
     top:-220px;
 
@@ -2300,7 +2300,7 @@ FAQ
 
 .faq-item:hover{
 
-    border-color:rgba(209,0,115,.3);
+    border-color:rgba(183,3,43,.3);
 
 }
 
@@ -2654,6 +2654,11 @@ PARTICLES
 
     background:var(--magenta);
 
+    box-shadow:
+    0 0 8px rgba(210,10,58,.95),
+    0 0 18px rgba(183,3,43,.75),
+    0 0 32px rgba(183,3,43,.45);
+
     animation:particleFloat linear infinite;
 
 }
@@ -2688,7 +2693,7 @@ CURSOR
 
     border-radius:50%;
 
-    background:rgba(209,0,115,.45);
+    background:rgba(183,3,43,.45);
 
     pointer-events:none;
 
@@ -2714,7 +2719,7 @@ CURSOR
 
     height:60px;
 
-    background:rgba(209,0,115,.18);
+    background:rgba(183,3,43,.18);
 
 }
 
@@ -2821,13 +2826,13 @@ GLITCH
 
     background:linear-gradient(
         90deg,
-        #d10073,
+        #B7032B,
         #ff4ca3
     );
 
     z-index:999999;
 
-    box-shadow:0 0 20px #d10073;
+    box-shadow:0 0 20px #B7032B;
 
 }
 
@@ -2895,7 +2900,7 @@ GLITCH
 
 .close-application:hover{
 
-    background:#ff0055;
+    background:#D20A3A;
     transform:rotate(90deg);
 
 }
@@ -2962,11 +2967,11 @@ GLITCH
 }
 
 .language-switch button:hover {
-    color: #d1005d;
+    color: #D20A3A;
 }
 
 .language-switch button.active {
-    color: #d1005d;
+    color: #D20A3A;
 }
 /* ==========================================================
    TEXT ALIGNMENT
@@ -2989,4 +2994,172 @@ GLITCH
 /* FAQ : garder à gauche */
 .faq-answer p {
     text-align: left;
+}
+/* ==========================================================
+   LANGUAGE SWITCH
+========================================================== */
+
+.language-switch {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-left:20px;
+
+    padding:11px 17px;
+
+    min-width:115px;
+
+    height:48px;
+
+    border-radius:999px;
+
+    background:rgba(20,20,27,.82);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.25);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+}
+
+
+/* Separator */
+
+.language-switch span {
+
+    display:inline;
+
+    width:auto;
+
+    height:auto;
+
+    background:none;
+
+    color:rgba(255,255,255,.25);
+
+}
+
+
+/* EN / FR buttons */
+
+.language-switch button {
+
+    background:transparent;
+
+    border:none;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    padding:0;
+
+    transition:.3s ease;
+
+}
+
+
+/* Hover */
+
+.language-switch button:hover {
+
+    color:#D20A3A;
+
+}
+
+
+/* Active language */
+
+.language-switch button.active {
+
+    color:#D20A3A;
+
+}
+
+
+/* Keep the switch compact on smaller screens */
+
+@media(max-width:980px){
+
+    .language-switch{
+
+        margin-left:auto;
+
+    }
+
+}
+/* =========================================================
+   JOIN — MOBILE BUTTON SIZE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-buttons,
+    .hero-actions {
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .hero-buttons a,
+    .hero-actions a {
+        width: 92% !important;
+        max-width: 330px !important;
+
+        min-height: 46px !important;
+        height: 46px !important;
+
+        padding: 0 18px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        border-radius: 24px !important;
+
+        font-size: 12px !important;
+        font-weight: 700 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .hero-buttons .primary-btn,
+    .hero-actions .primary-btn {
+        box-shadow: 0 7px 20px rgba(183, 3, 43, .18) !important;
+    }
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 380px) {
+
+    .hero-buttons,
+    .hero-actions {
+        gap: 8px !important;
+    }
+
+    .hero-buttons a,
+    .hero-actions a {
+        width: 94% !important;
+        max-width: 310px !important;
+
+        height: 43px !important;
+        min-height: 43px !important;
+
+        font-size: 11px !important;
+    }
 }

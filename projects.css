@@ -5857,3 +5857,2848 @@ footer {
 .project-card-description {
     text-align: left;
 }
+
+/* =========================================================
+   SMART CLUB — DARK SHERRY / DARK GREY THEME OVERRIDE
+   Added without removing the original project system
+========================================================= */
+
+:root {
+    --red: #b7032b;
+    --red-light: #c70732;
+    --red-dark: #650019;
+
+    --black: #e9e9ec;
+    --dark: #111319;
+    --darker: #0b0d11;
+    --deep: #07080b;
+
+    --gray: #777b84;
+    --gray-light: #a4a7ae;
+
+    --light-gray: #d7d8dc;
+    --background: #0b0d11;
+
+    --white: #f5f5f6;
+
+    --border-light: #252932;
+    --border-dark: #292c33;
+
+    --sherry-glow: rgba(160, 0, 43, .28);
+}
+
+/* ---------- GLOBAL DARK BASE ---------- */
+
+body {
+    background: #0b0d11;
+    color: #f5f5f6;
+}
+
+/* ---------- GLOWING DOTS + TECHNICAL LINES ---------- */
+
+.global-background {
+    background:
+        radial-gradient(circle at 8% 22%, rgba(183,3,43,.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 18% 68%, rgba(183,3,43,.18) 0 2px, transparent 4px),
+        radial-gradient(circle at 32% 16%, rgba(183,3,43,.12) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 48% 74%, rgba(183,3,43,.14) 0 2px, transparent 4px),
+        radial-gradient(circle at 63% 28%, rgba(183,3,43,.16) 0 2px, transparent 4px),
+        radial-gradient(circle at 77% 67%, rgba(183,3,43,.18) 0 2px, transparent 4px),
+        radial-gradient(circle at 89% 18%, rgba(183,3,43,.13) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 94% 82%, rgba(183,3,43,.16) 0 2px, transparent 4px);
+}
+
+.global-background::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    opacity: .18;
+    background:
+        linear-gradient(
+            118deg,
+            transparent 0 22%,
+            rgba(183,3,43,.35) 22.05%,
+            transparent 22.12% 51%,
+            rgba(183,3,43,.20) 51.05%,
+            transparent 51.12% 78%,
+            rgba(183,3,43,.25) 78.05%,
+            transparent 78.12%
+        );
+    transform: rotate(-2deg);
+}
+
+.global-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 34%, rgba(183,3,43,.8) 0 1px, transparent 2px),
+        radial-gradient(circle at 27% 57%, rgba(183,3,43,.9) 0 1px, transparent 2px),
+        radial-gradient(circle at 54% 19%, rgba(183,3,43,.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 71% 48%, rgba(183,3,43,.85) 0 1px, transparent 2px),
+        radial-gradient(circle at 84% 73%, rgba(183,3,43,.8) 0 1px, transparent 2px);
+    filter: drop-shadow(0 0 7px rgba(183,3,43,.9));
+    animation: ambientDots 6s ease-in-out infinite alternate;
+}
+
+@keyframes ambientDots {
+    from {
+        opacity: .45;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    height: 78px;
+    padding: 0 4%;
+    background: rgba(13, 15, 20, .88);
+    color: white;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 0 0 22px 22px;
+    box-shadow: 0 10px 45px rgba(0,0,0,.28);
+    backdrop-filter: blur(20px);
+}
+
+.navbar.scrolled {
+    height: 72px;
+    background: rgba(9, 11, 15, .95);
+    box-shadow: 0 12px 45px rgba(0,0,0,.4);
+}
+
+.logo-text span {
+    color: #f4f4f5;
+}
+
+.logo-text small {
+    color: var(--red-light);
+}
+
+.nav-links a {
+    color: #d9d9dd;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--red-light);
+}
+
+.nav-links a::after {
+    background: var(--red-light);
+}
+
+.join-btn {
+    background: var(--red);
+    border-radius: 14px;
+    box-shadow: 0 0 22px rgba(183,3,43,.12);
+}
+
+.join-btn:hover {
+    background: var(--red-light);
+    box-shadow: 0 12px 30px rgba(183,3,43,.28);
+}
+
+.menu-btn span {
+    background: white;
+}
+
+.language-switch span {
+    color: rgba(255,255,255,.3);
+}
+
+.language-switch button {
+    color: #d6d7da;
+}
+
+.language-switch button:hover,
+.language-switch button.active {
+    color: var(--red-light);
+}
+
+/* ---------- HERO ---------- */
+
+.projects-hero {
+    background: #080a0e;
+}
+
+.hero-background {
+    background:
+        radial-gradient(circle at 17% 31%, rgba(183,3,43,.12) 0 2px, transparent 4px),
+        radial-gradient(circle at 31% 72%, rgba(183,3,43,.16) 0 2px, transparent 4px),
+        radial-gradient(circle at 58% 20%, rgba(183,3,43,.12) 0 2px, transparent 4px),
+        radial-gradient(circle at 72% 61%, rgba(183,3,43,.16) 0 2px, transparent 4px),
+        radial-gradient(circle at 91% 34%, rgba(183,3,43,.12) 0 2px, transparent 4px),
+        linear-gradient(135deg, transparent 0 38%, rgba(183,3,43,.10) 38.05%, transparent 38.12%),
+        linear-gradient(151deg, transparent 0 63%, rgba(183,3,43,.09) 63.05%, transparent 63.12%);
+}
+
+.hero-background::before,
+.hero-background::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.hero-background::before {
+    inset: 0;
+    background:
+        radial-gradient(circle at 13% 48%, rgba(183,3,43,.95) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 44% 18%, rgba(183,3,43,.8) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 68% 76%, rgba(183,3,43,.9) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 88% 23%, rgba(183,3,43,.75) 0 1.5px, transparent 3px);
+    filter: drop-shadow(0 0 8px rgba(183,3,43,.9));
+    animation: heroDots 5s ease-in-out infinite alternate;
+}
+
+.hero-background::after {
+    width: 75%;
+    height: 1px;
+    left: 5%;
+    top: 35%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(183,3,43,.5),
+        transparent
+    );
+    box-shadow:
+        0 180px 0 rgba(183,3,43,.16),
+        0 330px 0 rgba(183,3,43,.12);
+    transform: rotate(-8deg);
+    transform-origin: left center;
+}
+
+@keyframes heroDots {
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.projects-hero h1 span {
+    color: var(--red-light);
+}
+
+.section-code,
+.hero-status strong,
+.system-information span {
+    color: var(--red-light);
+}
+
+.hero-primary {
+    background: var(--red);
+}
+
+.hero-primary:hover {
+    background: var(--red-light);
+}
+
+.hero-status {
+    background: rgba(12,14,19,.7);
+    border-color: #282c34;
+}
+
+.system-core {
+    background:
+        radial-gradient(circle, #191b21, #0c0e12);
+    border-color: var(--red);
+    box-shadow: 0 0 80px rgba(183,3,43,.24);
+}
+
+/* ---------- DARK INTRO / PROJECTS ---------- */
+
+.database-introduction,
+.projects-section {
+    position: relative;
+    overflow: hidden;
+    background: #0d1015;
+    color: #f5f5f6;
+}
+
+.database-introduction::before,
+.projects-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .45;
+    background:
+        radial-gradient(circle at 12% 25%, rgba(183,3,43,.22) 0 2px, transparent 4px),
+        radial-gradient(circle at 83% 18%, rgba(183,3,43,.18) 0 2px, transparent 4px),
+        radial-gradient(circle at 68% 76%, rgba(183,3,43,.16) 0 2px, transparent 4px),
+        linear-gradient(125deg, transparent 0 30%, rgba(183,3,43,.07) 30.05%, transparent 30.12%),
+        linear-gradient(145deg, transparent 0 72%, rgba(183,3,43,.06) 72.05%, transparent 72.12%);
+}
+
+.database-intro-line {
+    background: #292d35;
+}
+
+.database-intro-grid,
+.projects-header,
+.project-controls,
+.projects-grid,
+.database-loading,
+.empty-projects,
+.database-error {
+    position: relative;
+    z-index: 2;
+}
+
+.database-number,
+.database-intro-grid h2 span,
+.section-label,
+.project-counter span {
+    color: var(--red-light);
+}
+
+.database-intro-grid > div p,
+.database-intro-description,
+.projects-header > div:first-child > p {
+    color: #92959e;
+}
+
+.projects-header h2,
+.database-intro-grid h2 {
+    color: #f3f3f5;
+}
+
+.project-controls {
+    border-color: #292d35;
+}
+
+.filter {
+    color: #858994;
+}
+
+.filter:hover,
+.filter.active {
+    color: var(--red-light);
+    border-color: rgba(183,3,43,.3);
+    background: rgba(183,3,43,.07);
+}
+
+.project-search {
+    background: #15181e;
+    border-color: #2b2f37;
+}
+
+.project-search input {
+    color: #f3f3f5;
+}
+
+.project-search input::placeholder {
+    color: #666a74;
+}
+
+/* ---------- PROJECT CARDS ---------- */
+
+.project-card {
+    background: #15181e;
+    border-color: #292d35;
+    box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+.project-card:hover {
+    border-color: rgba(183,3,43,.45);
+    box-shadow: 0 22px 60px rgba(0,0,0,.35);
+}
+
+.project-card-content {
+    background: #15181e;
+}
+
+.project-card h3 {
+    color: #f2f2f4;
+}
+
+.project-card-description {
+    color: #858993;
+}
+
+.project-card-action {
+    border-color: #292d35;
+    color: #92959d;
+}
+
+.project-card-progress-track {
+    background: #282c34;
+}
+
+.project-card-status,
+.project-card-progress-top strong,
+.project-card-action span {
+    color: var(--red-light);
+}
+
+/* ---------- EMPTY STATE ---------- */
+
+.empty-projects {
+    background:
+        linear-gradient(135deg, #11141a, #0b0d11);
+    border-color: #292d35;
+}
+
+.project-machine .machine-ring-1 {
+    border-color: var(--red-light);
+}
+
+.empty-content h3 span,
+.empty-code {
+    color: var(--red-light);
+}
+
+.development-track {
+    background: #272b32;
+    border-color: #353941;
+}
+
+.development-fill {
+    background:
+        linear-gradient(
+            90deg,
+            var(--red-dark),
+            var(--red),
+            var(--red-light)
+        );
+}
+
+/* ---------- PHILOSOPHY: DARK SHERRY ---------- */
+
+.project-philosophy {
+    background:
+        radial-gradient(circle at 15% 35%, rgba(183,3,43,.25), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(183,3,43,.18), transparent 30%),
+        linear-gradient(
+            135deg,
+            #220912 0%,
+            #430b1d 48%,
+            #620b28 100%
+        );
+}
+
+.project-philosophy::before {
+    opacity: .12;
+}
+
+.philosophy-content h2 span {
+    color: #101217;
+}
+
+.philosophy-process > i {
+    background: rgba(255,255,255,.22);
+}
+
+/* ---------- REPORTS ---------- */
+
+.reports-section {
+    background:
+        radial-gradient(circle at 8% 22%, rgba(183,3,43,.14) 0 2px, transparent 4px),
+        radial-gradient(circle at 82% 70%, rgba(183,3,43,.16) 0 2px, transparent 4px),
+        linear-gradient(135deg, #0b0d11, #11141a);
+}
+
+.reports-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(120deg, transparent 0 40%, rgba(183,3,43,.08) 40.05%, transparent 40.12%),
+        linear-gradient(155deg, transparent 0 65%, rgba(183,3,43,.06) 65.05%, transparent 65.12%);
+}
+
+.reports-header,
+.report-controls,
+.reports-grid,
+.reports-loading,
+.empty-reports,
+.reports-error {
+    position: relative;
+    z-index: 2;
+}
+
+.report-filter:hover,
+.report-filter.active,
+.reports-header h2 span,
+.reports-header .section-label {
+    color: var(--red-light);
+}
+
+/* ---------- CTA ---------- */
+
+.project-cta {
+    background:
+        radial-gradient(circle at 18% 35%, rgba(183,3,43,.17) 0 2px, transparent 4px),
+        radial-gradient(circle at 84% 65%, rgba(183,3,43,.15) 0 2px, transparent 4px),
+        linear-gradient(135deg, #0b0d11, #15181e);
+    color: white;
+}
+
+.project-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(118deg, transparent 0 25%, rgba(183,3,43,.08) 25.05%, transparent 25.12%),
+        linear-gradient(155deg, transparent 0 72%, rgba(183,3,43,.08) 72.05%, transparent 72.12%);
+}
+
+.cta-content,
+.cta-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 {
+    color: #f4f4f5;
+}
+
+.cta-content h2 span {
+    color: var(--red-light);
+}
+
+.cta-description {
+    color: #92959e;
+}
+
+.cta-button {
+    background: var(--red);
+    border-radius: 14px;
+}
+
+.cta-button:hover {
+    background: var(--red-light);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #080a0e;
+    border-top: 1px solid #252932;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 8% 30%, rgba(183,3,43,.18) 0 2px, transparent 4px),
+        radial-gradient(circle at 72% 70%, rgba(183,3,43,.14) 0 2px, transparent 4px),
+        linear-gradient(130deg, transparent 0 35%, rgba(183,3,43,.06) 35.05%, transparent 35.12%);
+}
+
+.footer-main,
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-top-line,
+.footer-bottom {
+    border-color: #292d35;
+}
+
+.footer-brand h3,
+.footer-school h3,
+.footer-links a {
+    color: white;
+}
+
+.footer-school > p,
+.footer-links > p,
+.footer-system > p,
+.footer-brand p {
+    color: var(--red-light);
+}
+
+/* ---------- MOBILE: KEEP THE DARK STYLE COMPACT ---------- */
+
+@media (max-width: 650px) {
+    .navbar {
+        height: 70px;
+        padding: 0 4%;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .navbar.scrolled {
+        height: 68px;
+    }
+
+    .logo img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .logo-text span {
+        font-size: 12px;
+    }
+
+    .logo-text small {
+        color: var(--red-light);
+    }
+
+    .language-switch {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    .language-switch button {
+        font-size: 11px;
+    }
+
+    .menu-btn {
+        width: 38px;
+        height: 38px;
+        border: 1px solid #2b2f37;
+        border-radius: 10px;
+        background: #15181e;
+    }
+
+    .menu-btn span {
+        left: 7px;
+        width: 22px;
+        background: white;
+    }
+
+    .mobile-menu {
+        background:
+            radial-gradient(circle at 80% 15%, rgba(183,3,43,.16), transparent 28%),
+            #090b0f;
+    }
+
+    .projects-hero {
+        padding-top: 115px;
+    }
+
+    .hero-background::after {
+        width: 110%;
+        top: 42%;
+    }
+
+    .hero-system {
+        margin-bottom: -10px;
+    }
+
+    .database-introduction,
+    .projects-section,
+    .reports-section,
+    .project-philosophy,
+    .project-cta {
+        background-color: #0b0d11;
+    }
+
+    .project-card,
+    .project-card-content {
+        background: #14171d;
+    }
+
+    .project-search {
+        background: #14171d;
+    }
+
+    .project-counter {
+        color: #ddd;
+    }
+
+    .project-cta {
+        background:
+            radial-gradient(circle at 50% 25%, rgba(183,3,43,.18), transparent 35%),
+            #0b0d11;
+    }
+}
+
+@media (max-width: 390px) {
+    .logo-text span {
+        font-size: 11px;
+        letter-spacing: 1.2px;
+    }
+
+    .language-switch {
+        gap: 5px;
+    }
+
+    .language-switch button {
+        font-size: 10px;
+    }
+
+    .menu-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+
+/* =========================================================
+   FINAL SMART CLUB SHERRY PALETTE
+   Same family as Home — slightly darker for Projects
+========================================================= */
+
+:root {
+    --red: #b7032b;
+    --red-light: #c70732;
+    --red-dark: #650019;
+    --sherry-glow: rgba(160, 0, 43, .28);
+}
+
+/* Keep every important red accent in the same family */
+.projects-hero h1 span,
+.section-code,
+.hero-status strong,
+.system-information span,
+.database-number,
+.database-intro-grid h2 span,
+.section-label,
+.project-counter span,
+.empty-content h3 span,
+.empty-code,
+.reports-header h2 span,
+.reports-header .section-label,
+.footer-school > p,
+.footer-links > p,
+.footer-system > p,
+.footer-brand p {
+    color: var(--red-light);
+}
+
+.hero-primary,
+.cta-button,
+.project-detail-category {
+    background: var(--red);
+}
+
+.hero-primary:hover,
+.cta-button:hover,
+.join-btn:hover {
+    background: var(--red-light);
+}
+
+/* Sherry glow — subtle, not bright red */
+.hero-background::before,
+.global-background::after {
+    filter: drop-shadow(0 0 7px rgba(183,3,43,.65));
+}
+
+.system-core {
+    border-color: var(--red);
+    box-shadow: 0 0 70px rgba(183,3,43,.20);
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.language-switch button:hover,
+.language-switch button.active,
+.filter:hover,
+.filter.active,
+.report-filter:hover,
+.report-filter.active {
+    color: var(--red-light);
+}
+
+.nav-links a::after {
+    background: var(--red-light);
+}
+
+.project-card:hover {
+    border-color: rgba(183,3,43,.35);
+}
+
+.project-philosophy {
+    background:
+        radial-gradient(circle at 15% 35%, rgba(183,3,43,.20), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(183,3,43,.14), transparent 30%),
+        linear-gradient(
+            135deg,
+            #16070c 0%,
+            #2b0812 48%,
+            #430a18 100%
+        );
+}
+.projects-majestic-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.projects-majestic-reveal.projects-is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projects-neural-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .35;
+}
+
+.projects-neural-node {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #b7032b;
+    box-shadow:
+        0 0 8px rgba(183,3,43,.8),
+        0 0 18px rgba(183,3,43,.3);
+    animation: projectNodePulse 3s ease-in-out infinite;
+}
+
+.projects-neural-line {
+    position: absolute;
+    height: 1px;
+    transform-origin: left center;
+    background: linear-gradient(
+        90deg,
+        rgba(183,3,43,.25),
+        transparent
+    );
+    opacity: .5;
+}
+
+@keyframes projectNodePulse {
+
+    0%, 100% {
+        opacity: .35;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.6);
+    }
+
+}
+
+.projects-page-paused
+.projects-neural-node {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .projects-majestic-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .projects-neural-node {
+        animation: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .projects-neural-field {
+        opacity: .2;
+    }
+
+}
+/* =========================================================
+   PROJECTS NAVBAR — MATCH HOME PAGE EXACTLY
+   ========================================================= */
+
+.navbar {
+    position: fixed !important;
+    top: 14px !important;
+    left: 18px !important;
+    right: 18px !important;
+
+    width: auto !important;
+    height: 88px !important;
+
+    padding: 0 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    background: #16191c !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+
+    transform: none !important;
+    z-index: 9999 !important;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+
+    flex-shrink: 0 !important;
+}
+
+.navbar .logo img {
+    width: 64px !important;
+    height: 64px !important;
+    object-fit: contain !important;
+}
+
+.navbar .logo-text {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.navbar .logo-text span {
+    color: #f5f5f5 !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+}
+
+.navbar .logo-text small {
+    color: #b7032b !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    letter-spacing: 5px !important;
+    margin-top: 4px !important;
+}
+
+
+/* ---------- NAV LINKS ---------- */
+
+.navbar nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.navbar .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 38px !important;
+}
+
+.navbar .nav-links a {
+    position: relative !important;
+
+    color: #d5d5d8 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+
+    text-decoration: none !important;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease !important;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+.navbar .nav-links a.active {
+    color: #b7032b !important;
+}
+
+.navbar .nav-links a.active::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -14px !important;
+
+    height: 2px !important;
+
+    background: #b7032b !important;
+    box-shadow: 0 0 10px rgba(183, 3, 43, 0.35) !important;
+}
+
+
+/* ---------- EN / FR SWITCH ---------- */
+
+.navbar .language-switch {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 13px !important;
+
+    min-width: 122px !important;
+    height: 48px !important;
+
+    padding: 0 17px !important;
+
+    background: #1e2124 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 30px !important;
+
+    box-sizing: border-box !important;
+}
+
+.navbar .language-switch button {
+    border: none !important;
+    background: transparent !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    color: #d0d0d2 !important;
+
+    font-family: inherit !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+
+    transition: color 0.2s ease !important;
+}
+
+.navbar .language-switch button:hover {
+    color: #ffffff !important;
+}
+
+.navbar .language-switch button.active {
+    color: #b7032b !important;
+}
+
+.navbar .language-switch > span {
+    color: rgba(255, 255, 255, 0.28) !important;
+    font-size: 14px !important;
+}
+
+
+/* ---------- JOIN BUTTON ---------- */
+
+.navbar .join-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 118px !important;
+    height: 52px !important;
+
+    margin-left: 40px !important;
+
+    background: #b7032b !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 16px !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+
+    box-shadow: 0 8px 24px rgba(183, 3, 43, 0.18) !important;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease !important;
+}
+
+.navbar .join-btn:hover {
+    background: #c50030 !important;
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 12px 30px rgba(183, 3, 43, 0.28) !important;
+}
+
+
+
+
+/* =========================================================
+   FINAL POLISH — HOME-MATCHED NAVBAR + DEEP SHERRY STARS
+   ========================================================= */
+
+/* ---------- EXACT DARK GRAPHITE NAVBAR ---------- */
+
+.navbar {
+    position: fixed !important;
+    top: 14px !important;
+    left: 18px !important;
+    right: 18px !important;
+    width: auto !important;
+    height: 88px !important;
+
+    padding: 0 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    background: #16191c !important;
+    color: #f5f5f6 !important;
+
+    border: 1px solid rgba(255,255,255,.075) !important;
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.025) !important;
+
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+
+    transform: none !important;
+    z-index: 9999 !important;
+}
+
+.navbar.scrolled {
+    height: 88px !important;
+    background: #16191c !important;
+    box-shadow:
+        0 12px 38px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.navbar .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    flex-shrink: 0 !important;
+}
+
+.navbar .logo img {
+    width: 64px !important;
+    height: 64px !important;
+    object-fit: contain !important;
+}
+
+.navbar .logo-text span {
+    color: #f4f4f5 !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+}
+
+.navbar .logo-text small {
+    margin-top: 4px !important;
+    color: #b7032b !important;
+    font-size: 9px !important;
+    font-weight: 800 !important;
+    letter-spacing: 5px !important;
+}
+
+.navbar nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.navbar .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 38px !important;
+}
+
+.navbar .nav-links a {
+    color: #d4d5d8 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    transition: color .25s ease, transform .25s ease !important;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+.navbar .nav-links a.active {
+    color: #b7032b !important;
+}
+
+.navbar .nav-links a.active::after {
+    width: 100% !important;
+    bottom: -14px !important;
+    height: 2px !important;
+    background: #b7032b !important;
+    box-shadow: 0 0 10px rgba(183,3,43,.28) !important;
+}
+
+/* ---------- HOME-STYLE EN / FR PILL ---------- */
+
+.navbar .language-switch {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-width: 122px !important;
+    height: 48px !important;
+
+    padding: 0 17px !important;
+    gap: 13px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    background: #1e2124 !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    border-radius: 30px !important;
+    box-sizing: border-box !important;
+}
+
+.navbar .language-switch button {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    color: #d0d1d4 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+    transition: color .2s ease !important;
+}
+
+.navbar .language-switch button:hover {
+    color: #ffffff !important;
+}
+
+.navbar .language-switch button.active {
+    color: #b7032b !important;
+}
+
+.navbar .language-switch > span {
+    color: rgba(255,255,255,.28) !important;
+    font-size: 14px !important;
+}
+
+/* ---------- HOME-STYLE JOIN BUTTON ---------- */
+
+.navbar .join-btn {
+    width: 118px !important;
+    height: 52px !important;
+
+    margin-left: 40px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #b7032b !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 16px !important;
+
+    font-size: 15px !important;
+    font-weight: 700 !important;
+
+    box-shadow: 0 8px 24px rgba(183,3,43,.16) !important;
+}
+
+.navbar .join-btn:hover {
+    background: #c70732 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(183,3,43,.25) !important;
+}
+
+
+
+
+/* ---------- KEEP THE NEURAL FIELD MORE VISIBLE ---------- */
+
+.projects-neural-field {
+    opacity: .46 !important;
+}
+
+.projects-neural-node {
+    width: 4px !important;
+    height: 4px !important;
+    background: #b7032b !important;
+    box-shadow:
+        0 0 8px rgba(183,3,43,.9),
+        0 0 20px rgba(183,3,43,.42) !important;
+}
+
+.projects-neural-line {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(183,3,43,.38),
+            rgba(183,3,43,.10),
+            transparent
+        ) !important;
+    opacity: .62 !important;
+}
+
+
+/* =========================================================
+   SMART CLUB — PROJECTS MOBILE LAYOUT
+   Match the responsive rhythm of Home / About / What We Do
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        top: 10px !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: auto !important;
+        height: 68px !important;
+        padding: 0 12px !important;
+        border-radius: 18px !important;
+
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto auto !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .navbar.scrolled {
+        height: 68px !important;
+    }
+
+    .navbar .logo {
+        min-width: 0 !important;
+        width: auto !important;
+        gap: 8px !important;
+    }
+
+    .navbar .logo img {
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .logo-text {
+        min-width: 0 !important;
+    }
+
+    .navbar .logo-text span {
+        font-size: 12px !important;
+        line-height: 1 !important;
+        letter-spacing: 1.3px !important;
+        white-space: nowrap !important;
+    }
+
+    .navbar .logo-text small {
+        margin-top: 4px !important;
+        font-size: 6px !important;
+        letter-spacing: 3px !important;
+    }
+
+    .navbar nav,
+    .navbar > .join-btn {
+        display: none !important;
+    }
+
+    .navbar .language-switch {
+        width: 82px !important;
+        min-width: 82px !important;
+        height: 38px !important;
+        margin: 0 !important;
+        padding: 0 9px !important;
+        gap: 8px !important;
+        border-radius: 22px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .language-switch button {
+        font-size: 12px !important;
+    }
+
+    .navbar .language-switch > span {
+        font-size: 11px !important;
+    }
+
+    .navbar .menu-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+        border-radius: 11px !important;
+        background: #15181e !important;
+        border: 1px solid #2b2f37 !important;
+        color: #ffffff !important;
+        font-size: 19px !important;
+        line-height: 1 !important;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .projects-hero {
+        min-height: auto !important;
+        width: 100% !important;
+        padding: 122px 6% 58px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: center !important;
+        gap: 18px !important;
+        text-align: left !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: none !important;
+        text-align: left !important;
+    }
+
+    .section-code {
+        justify-content: flex-start !important;
+        margin-bottom: 20px !important;
+        gap: 9px !important;
+        font-size: 8px !important;
+        letter-spacing: 3px !important;
+    }
+
+    .section-code span {
+        width: 26px !important;
+    }
+
+    .projects-hero h1 {
+        width: 100% !important;
+        max-width: none !important;
+        margin-bottom: 23px !important;
+        font-size: clamp(45px, 14vw, 62px) !important;
+        line-height: .88 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .projects-hero h1 small {
+        font-size: .25em !important;
+        transform: translateY(-5px) !important;
+    }
+
+    .hero-description {
+        max-width: 100% !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.72 !important;
+        text-align: left !important;
+    }
+
+    .hero-actions {
+        width: 100% !important;
+        margin-top: 28px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+
+    .hero-primary,
+    .hero-secondary {
+        width: 100% !important;
+        min-height: 50px !important;
+    }
+
+    .hero-status {
+        width: 100% !important;
+        margin: 30px 0 0 !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .hero-status > div {
+        min-width: 0 !important;
+        padding: 12px 8px !important;
+        justify-content: center !important;
+    }
+
+    .hero-status > div:first-child {
+        grid-column: 1 / -1 !important;
+        border-right: none !important;
+    }
+
+    /* ---------- HERO SYSTEM ---------- */
+
+    .hero-system {
+        width: 300px !important;
+        max-width: 100% !important;
+        height: 300px !important;
+        margin: -5px auto -35px !important;
+        transform: scale(.72) !important;
+        transform-origin: center center !important;
+        flex-shrink: 0 !important;
+    }
+
+    .system-interface {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .system-ring-outer {
+        width: 290px !important;
+        height: 290px !important;
+    }
+
+    .system-ring-middle {
+        width: 230px !important;
+        height: 230px !important;
+    }
+
+    .system-ring-inner {
+        width: 165px !important;
+        height: 165px !important;
+    }
+
+    .orbit-one {
+        width: 255px !important;
+        height: 255px !important;
+    }
+
+    .orbit-two {
+        width: 205px !important;
+        height: 205px !important;
+    }
+
+    .system-core {
+        width: 118px !important;
+        height: 118px !important;
+    }
+
+    /* ---------- INTRO ---------- */
+
+    .database-introduction {
+        padding: 70px 6% !important;
+    }
+
+    .database-intro-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        text-align: left !important;
+    }
+
+    .database-intro-grid > div {
+        text-align: left !important;
+    }
+
+    .database-intro-grid h2 {
+        max-width: none !important;
+        font-size: clamp(38px, 11vw, 52px) !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .database-intro-description {
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+        text-align: left !important;
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects-section {
+        min-height: auto !important;
+        padding: 80px 6% !important;
+    }
+
+    .projects-header,
+    .reports-header {
+        margin-bottom: 35px !important;
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 22px !important;
+        text-align: left !important;
+    }
+
+    .projects-header > div:first-child,
+    .reports-header > div:first-child {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .section-label {
+        margin-bottom: 17px !important;
+        font-size: 8px !important;
+        letter-spacing: 3px !important;
+    }
+
+    .projects-header h2,
+    .reports-header h2 {
+        font-size: clamp(40px, 11vw, 52px) !important;
+        line-height: .92 !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .projects-header > div:first-child > p,
+    .reports-header > div:first-child > p {
+        margin-top: 18px !important;
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+        text-align: left !important;
+    }
+
+    .database-status {
+        width: 100% !important;
+        min-width: 0 !important;
+        align-self: stretch !important;
+    }
+
+    .project-controls {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 16px 0 !important;
+    }
+
+    .project-filters {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding-bottom: 4px !important;
+        scrollbar-width: none !important;
+    }
+
+    .project-filters::-webkit-scrollbar,
+    .report-filters::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .filter,
+    .report-filter {
+        flex-shrink: 0 !important;
+    }
+
+    .project-search {
+        width: 100% !important;
+        height: 44px !important;
+    }
+
+    .project-counter,
+    .report-counter {
+        align-self: flex-end !important;
+    }
+
+    .projects-grid,
+    .reports-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        margin-top: 30px !important;
+    }
+
+    .project-card {
+        min-height: 0 !important;
+    }
+
+    .project-card-cover {
+        height: 190px !important;
+    }
+
+    .project-card-content {
+        padding: 22px !important;
+    }
+
+    .project-card h3 {
+        font-size: 21px !important;
+    }
+
+    /* ---------- EMPTY PROJECT ---------- */
+
+    .empty-projects {
+        min-height: auto !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 45px 22px !important;
+        text-align: center !important;
+    }
+
+    .empty-visual {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .project-machine {
+        width: 240px !important;
+        height: 240px !important;
+        margin: -25px auto -30px !important;
+        transform: scale(.75) !important;
+    }
+
+    .empty-content h3 {
+        font-size: clamp(36px, 10vw, 46px) !important;
+        letter-spacing: -2px !important;
+    }
+
+    .empty-description {
+        font-size: 12px !important;
+        line-height: 1.75 !important;
+        text-align: center !important;
+    }
+
+    .development-status {
+        width: 100% !important;
+        max-width: none !important;
+        margin-top: 30px !important;
+    }
+
+    /* ---------- PHILOSOPHY ---------- */
+
+    .project-philosophy {
+        padding: 80px 6% !important;
+    }
+
+    .philosophy-index {
+        margin-bottom: 38px !important;
+    }
+
+    .philosophy-content h2 {
+        font-size: clamp(44px, 13vw, 58px) !important;
+        line-height: .9 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .philosophy-description {
+        margin-top: 25px !important;
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+        text-align: left !important;
+    }
+
+    .philosophy-process {
+        margin-top: 50px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 14px !important;
+    }
+
+    .philosophy-process > i {
+        display: none !important;
+    }
+
+    /* ---------- REPORTS ---------- */
+
+    .reports-section {
+        min-height: auto !important;
+        padding: 80px 6% !important;
+    }
+
+    .report-controls {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+    }
+
+    .report-filters {
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding-bottom: 4px !important;
+        scrollbar-width: none !important;
+    }
+
+    .report-card {
+        min-height: 0 !important;
+        padding: 22px !important;
+    }
+
+    /* ---------- CTA ---------- */
+
+    .project-cta {
+        min-height: 420px !important;
+        padding: 80px 6% !important;
+    }
+
+    .cta-content h2 {
+        font-size: clamp(42px, 12vw, 55px) !important;
+        line-height: .92 !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    /* ---------- MODALS ---------- */
+
+    .project-modal-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+    }
+
+    .project-detail-modal {
+        width: 100% !important;
+        height: 94vh !important;
+        max-height: 94vh !important;
+        border-radius: 18px 18px 0 0 !important;
+    }
+
+    .project-detail-cover {
+        min-height: 220px !important;
+        padding: 20px !important;
+    }
+
+    .project-detail-content {
+        padding: 28px 20px 40px !important;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 0 6% 25px !important;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr !important;
+        gap: 38px !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES — 360 / 375 / 390px
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .navbar {
+        left: 6px !important;
+        right: 6px !important;
+        padding: 0 9px !important;
+    }
+
+    .navbar .logo img {
+        width: 41px !important;
+        height: 41px !important;
+    }
+
+    .navbar .logo-text span {
+        font-size: 11px !important;
+    }
+
+    .navbar .language-switch {
+        width: 76px !important;
+        min-width: 76px !important;
+        gap: 6px !important;
+    }
+
+    .navbar .language-switch button {
+        font-size: 10px !important;
+    }
+
+    .navbar .menu-btn {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .projects-hero {
+        padding-left: 6% !important;
+        padding-right: 6% !important;
+    }
+
+    .projects-hero h1 {
+        font-size: 45px !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .hero-system {
+        transform: scale(.66) !important;
+    }
+
+    .database-intro-grid h2,
+    .projects-header h2,
+    .reports-header h2 {
+        font-size: 40px !important;
+    }
+
+    .philosophy-content h2 {
+        font-size: 47px !important;
+    }
+
+    .cta-content h2 {
+        font-size: 43px !important;
+    }
+}
+/* =========================================================
+   SMART CLUB — UNIVERSAL MOBILE NAVIGATION
+   USE EXACTLY THE SAME BLOCK ON ALL 4 PAGES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+        position: fixed !important;
+
+        top: 10px !important;
+        left: 8px !important;
+        right: 8px !important;
+
+        width: auto !important;
+        height: 68px !important;
+
+        padding: 0 10px !important;
+
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto auto !important;
+
+        align-items: center !important;
+
+        gap: 7px !important;
+
+        background: #15181b !important;
+
+        border: 1px solid rgba(255,255,255,.09) !important;
+        border-radius: 18px !important;
+
+        box-sizing: border-box !important;
+
+        transform: none !important;
+
+        z-index: 10000 !important;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,.28) !important;
+
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+    }
+
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .navbar .logo {
+        min-width: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        gap: 7px !important;
+
+        overflow: hidden !important;
+
+        text-decoration: none !important;
+    }
+
+    .navbar .logo img {
+        width: 43px !important;
+        height: 43px !important;
+
+        min-width: 43px !important;
+        max-width: 43px !important;
+
+        object-fit: contain !important;
+
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .logo-text {
+        min-width: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        overflow: hidden !important;
+    }
+
+    .navbar .logo-text span {
+        display: block !important;
+
+        color: #f4f4f5 !important;
+
+        font-size: 11px !important;
+        font-weight: 900 !important;
+
+        letter-spacing: 1.2px !important;
+
+        line-height: 1.1 !important;
+
+        white-space: nowrap !important;
+    }
+
+    .navbar .logo-text small {
+        display: block !important;
+
+        margin-top: 3px !important;
+
+        color: #b7032b !important;
+
+        font-size: 5.5px !important;
+        font-weight: 900 !important;
+
+        letter-spacing: 3px !important;
+
+        line-height: 1 !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =====================================================
+       HIDE DESKTOP NAV + JOIN
+       ===================================================== */
+
+    .navbar nav {
+        display: none !important;
+    }
+
+    .navbar > .join-btn {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       EN / FR
+       ===================================================== */
+
+    .navbar .language-switch {
+        width: 72px !important;
+        min-width: 72px !important;
+        height: 34px !important;
+
+        margin: 0 !important;
+
+        padding: 0 8px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 7px !important;
+
+        background: #1c1f22 !important;
+
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 20px !important;
+
+        box-sizing: border-box !important;
+
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .language-switch button {
+        padding: 0 !important;
+        margin: 0 !important;
+
+        border: 0 !important;
+        outline: 0 !important;
+
+        background: transparent !important;
+
+        color: #d4d4d6 !important;
+
+        font-family: inherit !important;
+
+        font-size: 10px !important;
+        font-weight: 800 !important;
+
+        line-height: 1 !important;
+
+        cursor: pointer !important;
+    }
+
+    .navbar .language-switch button.active {
+        color: #b7032b !important;
+    }
+
+    .navbar .language-switch > span {
+        color: rgba(255,255,255,.28) !important;
+
+        font-size: 10px !important;
+
+        line-height: 1 !important;
+    }
+
+
+    /* =====================================================
+       HAMBURGER
+       ===================================================== */
+
+    .navbar .menu-btn {
+        width: 34px !important;
+        height: 34px !important;
+
+        min-width: 34px !important;
+        min-height: 34px !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex-shrink: 0 !important;
+
+        background: #1c1f22 !important;
+
+        color: #ffffff !important;
+
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 10px !important;
+
+        font-size: 16px !important;
+        line-height: 1 !important;
+
+        cursor: pointer !important;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU — SAME ON EVERY PAGE
+       ===================================================== */
+
+    .mobile-menu {
+        position: fixed !important;
+
+        top: 86px !important;
+        left: 8px !important;
+        right: 8px !important;
+
+        width: auto !important;
+
+        height: auto !important;
+        max-height: calc(100vh - 96px) !important;
+
+        padding: 8px 10px 12px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        background: #101317 !important;
+
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 14px !important;
+
+        box-sizing: border-box !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        z-index: 9999 !important;
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,.45) !important;
+
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU LINKS
+       ===================================================== */
+
+    .mobile-menu > a {
+        width: 100% !important;
+
+        min-height: 42px !important;
+
+        padding: 0 7px !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        box-sizing: border-box !important;
+
+        color: #eeeeef !important;
+
+        background: transparent !important;
+
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,.055) !important;
+
+        font-family: inherit !important;
+
+        font-size: 11px !important;
+        font-weight: 600 !important;
+
+        text-decoration: none !important;
+
+        transition:
+            color .2s ease,
+            background .2s ease,
+            padding-left .2s ease !important;
+    }
+
+    .mobile-menu > a:last-child {
+        border-bottom: none !important;
+    }
+
+    .mobile-menu > a:hover,
+    .mobile-menu > a:active {
+        color: #b7032b !important;
+
+        background: rgba(183,3,43,.06) !important;
+
+        padding-left: 11px !important;
+    }
+
+
+    /* =====================================================
+       JOIN SMART CLUB
+       ALWAYS VISIBLE + SAME STYLE
+       ===================================================== */
+
+    .mobile-menu > .mobile-join {
+        display: flex !important;
+
+        width: 100% !important;
+
+        min-height: 38px !important;
+        height: 38px !important;
+
+        margin-top: 9px !important;
+
+        padding: 0 12px !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: #b7032b !important;
+
+        color: #ffffff !important;
+
+        border: none !important;
+        border-radius: 7px !important;
+
+        font-size: 10px !important;
+        font-weight: 800 !important;
+
+        text-align: center !important;
+
+        box-shadow:
+            0 7px 18px rgba(183,3,43,.16) !important;
+
+        transition:
+            background .2s ease,
+            transform .2s ease !important;
+    }
+
+    .mobile-menu > .mobile-join:hover,
+    .mobile-menu > .mobile-join:active {
+        color: #ffffff !important;
+
+        background: #c00030 !important;
+
+        padding-left: 12px !important;
+
+        transform: translateY(-1px) !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        left: 6px !important;
+        right: 6px !important;
+
+        padding: 0 8px !important;
+
+        gap: 6px !important;
+    }
+
+    .navbar .logo {
+        gap: 6px !important;
+    }
+
+    .navbar .logo img {
+        width: 40px !important;
+        height: 40px !important;
+
+        min-width: 40px !important;
+    }
+
+    .navbar .logo-text span {
+        font-size: 10px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .navbar .logo-text small {
+        font-size: 5px !important;
+        letter-spacing: 2.5px !important;
+    }
+
+    .navbar .language-switch {
+        width: 68px !important;
+        min-width: 68px !important;
+        height: 32px !important;
+    }
+
+    .navbar .menu-btn {
+        width: 32px !important;
+        min-width: 32px !important;
+
+        height: 32px !important;
+        min-height: 32px !important;
+    }
+
+    .mobile-menu {
+        top: 82px !important;
+
+        left: 6px !important;
+        right: 6px !important;
+
+        padding: 7px 8px 10px !important;
+    }
+
+    .mobile-menu > a {
+        min-height: 40px !important;
+
+        font-size: 10px !important;
+    }
+
+    .mobile-menu > .mobile-join {
+        height: 36px !important;
+        min-height: 36px !important;
+
+        font-size: 9px !important;
+    }
+}
+
+
+/* =========================================================
+   SMART CLUB — PROJECTS
+   FINAL MOBILE NAVBAR + MENU FIX
+   Desktop intentionally untouched.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        position: fixed !important;
+        top: 10px !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: auto !important;
+        height: 68px !important;
+        padding: 0 12px !important;
+
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto auto !important;
+        align-items: center !important;
+        gap: 8px !important;
+
+        background: #15181b !important;
+        border: 1px solid rgba(255,255,255,.09) !important;
+        border-radius: 18px !important;
+
+        transform: none !important;
+        z-index: 9999 !important;
+        box-sizing: border-box !important;
+    }
+
+    .navbar .logo {
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        overflow: hidden !important;
+    }
+
+    .navbar .logo img {
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0 !important;
+        object-fit: contain !important;
+    }
+
+    .navbar .logo-text {
+        min-width: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+
+    .navbar .logo-text span {
+        display: block !important;
+        color: #f4f4f5 !important;
+        font-size: 12px !important;
+        font-weight: 900 !important;
+        letter-spacing: 1.3px !important;
+        white-space: nowrap !important;
+    }
+
+    .navbar .logo-text small {
+        display: block !important;
+        margin-top: 3px !important;
+        color: #b7032b !important;
+        font-size: 6px !important;
+        font-weight: 900 !important;
+        letter-spacing: 3px !important;
+        white-space: nowrap !important;
+    }
+
+    .navbar nav,
+    .navbar > .join-btn {
+        display: none !important;
+    }
+
+    /* ---------- EN / FR ---------- */
+
+    .navbar .language-switch {
+        width: 82px !important;
+        min-width: 82px !important;
+        height: 38px !important;
+        padding: 0 9px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+
+        margin: 0 !important;
+        background: #1c1f22 !important;
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 22px !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+    }
+
+    .navbar .language-switch button {
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        color: #d2d2d5 !important;
+        font-family: inherit !important;
+        font-size: 12px !important;
+        font-weight: 800 !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+    }
+
+    .navbar .language-switch button.active {
+        color: #b7032b !important;
+    }
+
+    .navbar .language-switch > span {
+        color: rgba(255,255,255,.28) !important;
+        font-size: 11px !important;
+        line-height: 1 !important;
+    }
+
+    /* ---------- HAMBURGER ---------- */
+
+    .navbar .menu-btn {
+        width: 38px !important;
+        height: 38px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex-shrink: 0 !important;
+        color: #ffffff !important;
+        background: #1c1f22 !important;
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 11px !important;
+        font-size: 18px !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+    }
+
+    /* ---------- MOBILE MENU ---------- */
+
+    .mobile-menu {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 9998 !important;
+
+        padding-top: 95px !important;
+        box-sizing: border-box !important;
+
+        /* Keep the existing open/closed JS behavior. */
+    }
+
+    /*
+       Projects HTML uses:
+       .mobile-menu
+         .mobile-menu-top
+         .mobile-links
+           a
+         .mobile-join
+
+       So the menu links must target .mobile-links a,
+       not .mobile-menu > a.
+    */
+
+    .mobile-menu .mobile-links {
+        width: 100% !important;
+    }
+
+    .mobile-menu .mobile-links a {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .mobile-menu .mobile-join {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ---------- VERY SMALL PHONES ---------- */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        left: 6px !important;
+        right: 6px !important;
+        padding: 0 9px !important;
+        gap: 6px !important;
+    }
+
+    .navbar .logo {
+        gap: 6px !important;
+    }
+
+    .navbar .logo img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .navbar .logo-text span {
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+    }
+
+    .navbar .logo-text small {
+        font-size: 5px !important;
+        letter-spacing: 2.5px !important;
+    }
+
+    .navbar .language-switch {
+        width: 76px !important;
+        min-width: 76px !important;
+    }
+
+    .navbar .menu-btn {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
+/* =========================================================
+   SMART CLUB — PROJECTS
+   MOBILE MENU — SIMPLE VERSION
+   No SMART://NAVIGATION
+   No 01/02/03/04/05
+   Close button sits exactly over the hamburger position.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Hide the decorative menu header completely */
+    .mobile-menu .mobile-menu-top {
+        display: none !important;
+    }
+
+    /* Simple compact menu */
+    .mobile-menu {
+        position: fixed !important;
+        top: 86px !important;
+        left: 8px !important;
+        right: 8px !important;
+        bottom: auto !important;
+
+        width: auto !important;
+        height: auto !important;
+        max-height: calc(100vh - 100px) !important;
+
+        padding: 5px 8px 9px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        background: #101317 !important;
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 14px !important;
+
+        box-sizing: border-box !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        z-index: 9998 !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,.45) !important;
+
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+    }
+
+    /* Simple links — no numbers */
+    .mobile-menu .mobile-links {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .mobile-menu .mobile-links a {
+        width: 100% !important;
+        min-height: 45px !important;
+        height: 45px !important;
+
+        padding: 0 8px !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        box-sizing: border-box !important;
+
+        color: #eeeeef !important;
+        background: transparent !important;
+
+        border: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,.055) !important;
+
+        text-decoration: none !important;
+    }
+
+    /* Remove 01 02 03 04 05 completely */
+    .mobile-menu .mobile-links a > span {
+        display: none !important;
+    }
+
+    .mobile-menu .mobile-links a > strong {
+        display: block !important;
+
+        color: #eeeeef !important;
+
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0 !important;
+        line-height: 1 !important;
+    }
+
+    /* Active page */
+    .mobile-menu .mobile-links a.active > strong {
+        color: #b7032b !important;
+    }
+
+    /* Join button */
+    .mobile-menu .mobile-join {
+        width: 100% !important;
+        height: 38px !important;
+        min-height: 38px !important;
+
+        margin: 8px 0 0 !important;
+        padding: 0 12px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        box-sizing: border-box !important;
+
+        background: #b7032b !important;
+        color: #ffffff !important;
+
+        border: 0 !important;
+        border-radius: 7px !important;
+
+        font-size: 9px !important;
+        font-weight: 900 !important;
+        text-decoration: none !important;
+    }
+
+    /* =====================================================
+       CLOSE BUTTON
+       Put it exactly where the hamburger is.
+       The original button stays visible behind it.
+       ===================================================== */
+
+    .mobile-menu-close,
+    #mobileMenuClose {
+        position: fixed !important;
+
+        top: 25px !important;
+        right: 21px !important;
+
+        width: 38px !important;
+        height: 38px !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: #1c1f22 !important;
+        border: 1px solid rgba(255,255,255,.08) !important;
+        border-radius: 11px !important;
+
+        color: #ffffff !important;
+        font-size: 22px !important;
+        font-weight: 400 !important;
+        line-height: 1 !important;
+
+        z-index: 10001 !important;
+        cursor: pointer !important;
+    }
+
+    /* Keep it aligned with the navbar on very small phones */
+    .navbar .menu-btn {
+        position: relative !important;
+        z-index: 10000 !important;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .mobile-menu {
+        top: 82px !important;
+        left: 6px !important;
+        right: 6px !important;
+    }
+
+    #mobileMenuClose,
+    .mobile-menu-close {
+        top: 23px !important;
+        right: 15px !important;
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
+/* =========================================================
+   MOBILE MENU BUTTON — HAMBURGER → X
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar .menu-btn {
+        position: relative !important;
+        width: 38px !important;
+        height: 38px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+    }
+
+    .navbar .menu-btn span {
+        position: absolute !important;
+        width: 16px !important;
+        height: 2px !important;
+        background: #ffffff !important;
+        border-radius: 2px !important;
+        left: 50% !important;
+        top: 50% !important;
+        margin-left: -8px !important;
+        margin-top: -1px !important;
+        transition: transform 0.2s ease, opacity 0.2s ease !important;
+    }
+
+    /* DEFAULT = HAMBURGER */
+    .navbar .menu-btn span:nth-child(1) {
+        transform: translateY(-5px) !important;
+    }
+
+    .navbar .menu-btn span:nth-child(2) {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+
+    .navbar .menu-btn span:nth-child(3) {
+        transform: translateY(5px) !important;
+    }
+
+    /* MENU OPEN = X */
+    .navbar .menu-btn.menu-open span:nth-child(1) {
+        transform: rotate(45deg) !important;
+    }
+
+    .navbar .menu-btn.menu-open span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .navbar .menu-btn.menu-open span:nth-child(3) {
+        transform: rotate(-45deg) !important;
+    }
+}
+/* =========================================================
+   SMART CLUB — COMPACT MOBILE MENU
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .mobile-menu {
+        position: fixed !important;
+
+        /* Under the navbar */
+        top: 88px !important;
+        left: 8px !important;
+        right: 8px !important;
+
+        /* IMPORTANT: don't fill the screen */
+        bottom: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: calc(100vh - 100px) !important;
+
+        padding: 8px 10px 12px !important;
+
+        box-sizing: border-box !important;
+        border-radius: 14px !important;
+
+        overflow-y: auto !important;
+    }
+
+    .mobile-links {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .mobile-links a {
+        min-height: 38px !important;
+        height: 38px !important;
+        padding: 0 8px !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .mobile-join {
+        margin-top: 8px !important;
+    }
+}
