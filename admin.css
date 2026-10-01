@@ -5587,3 +5587,28 @@ a {
     }
 
 }
+/* =========================================================
+   INTERACTIVE CARD MODAL — ABOVE EVERYTHING
+========================================================= */
+
+.bureau-card-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 100000 !important;
+    overflow: hidden !important;
+}
+
+.bureau-card-modal-panel {
+    position: relative !important;
+    z-index: 100001 !important;
+}
+
+.bureau-card-modal-topbar {
+    position: relative !important;
+    z-index: 100002 !important;
+}
+
+.bureau-card-modal-close {
+    position: relative !important;
+    z-index: 100003 !important;
+}

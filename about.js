@@ -590,12 +590,14 @@ const translations = {
 
         sponsoringRole:
             "SPONSORING",
+        eventsRole: 
+        "EVENTS",
 
         sponsoringDescriptionOne:
             "Building relationships with external partners and helping create opportunities for collaboration and support.",
 
         sponsoringDescriptionTwo:
-            "Developing partnerships and supporting Smart Club in building connections with companies, organizations and collaborators.",
+            "Coordinating Smart Club events and activities while helping create engaging experiencesfor members and participants.",
 
         linkedin:
             "LinkedIn ↗",
@@ -763,12 +765,14 @@ const translations = {
 
         sponsoringRole:
             "SPONSORING",
+        eventsRole:
+           "ÉVÉNEMENTS",
 
         sponsoringDescriptionOne:
             "Il développe les relations avec les partenaires externes et contribue à créer des opportunités de collaboration et de soutien.",
 
         sponsoringDescriptionTwo:
-            "Il développe les partenariats et aide Smart Club à établir des relations avec les entreprises, les organisations et les collaborateurs.",
+            "Coordination des événements et activités de Smart Club tout en contribuant à créer des expériences engageantes pour les membres et les participants.",
 
         linkedin:
             "LinkedIn ↗",
